@@ -1,0 +1,1014 @@
+{% extends "base.html" %}
+
+{% block title %}SIEM Logs - Whis{% endblock %}
+
+{% block extra_css %}
+<style>
+    .log-entry {
+        border: 1px solid #495057;
+        border-radius: 5px;
+        background: #2c2c2c;
+        margin-bottom: 0.5rem;
+        transition: all 0.2s ease;
+    }
+    
+    .log-entry:hover {
+        border-color: #6c757d;
+        background: #343a40;
+    }
+    
+    .log-entry.critical { border-left: 4px solid #dc3545; }
+    .log-entry.high { border-left: 4px solid #fd7e14; }
+    .log-entry.medium { border-left: 4px solid #ffc107; }
+    .log-entry.low { border-left: 4px solid #198754; }
+    .log-entry.info { border-left: 4px solid #0dcaf0; }
+    
+    .log-timestamp {
+        font-family: monospace;
+        font-size: 0.85em;
+        color: #6c757d;
+    }
+    
+    .log-source {
+        font-size: 0.8em;
+        padding: 0.1rem 0.4rem;
+        border-radius: 10px;
+        font-weight: bold;
+    }
+    
+    .source-limacharlie { background: #e74c3c; }
+    .source-splunk { background: #ff6b35; }
+    .source-crowdstrike { background: #ff0000; }
+    .source-palo-alto { background: #00c0ef; }
+    
+    .log-details {
+        background: #1a1d20;
+        border-radius: 3px;
+        font-family: monospace;
+        font-size: 0.8em;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+    
+    .search-controls {
+        background: #343a40;
+        border-radius: 8px;
+        border: 1px solid #495057;
+    }
+    
+    .query-builder {
+        background: #2c2c2c;
+        border: 1px solid #495057;
+        border-radius: 5px;
+        min-height: 100px;
+    }
+    
+    .detection-card {
+        background: linear-gradient(145deg, #2c2c2c, #343a40);
+        border: 1px solid #495057;
+        border-radius: 8px;
+        transition: transform 0.2s ease;
+    }
+    
+    .detection-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    
+    .metric-card {
+        background: linear-gradient(145deg, #1a1d20, #2c2c2c);
+        border: 1px solid #495057;
+        border-radius: 8px;
+        text-align: center;
+    }
+    
+    .chart-container {
+        background: #2c2c2c;
+        border: 1px solid #495057;
+        border-radius: 8px;
+        padding: 1rem;
+        height: 300px;
+    }
+    
+    .live-indicator {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background: #28a745;
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2><i class="fas fa-file-alt text-info"></i> SIEM Logs & Detection</h2>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-outline-success btn-sm" id="liveToggle" onclick="toggleLiveMode()">
+                    <span class="live-indicator"></span> Live Mode
+                </button>
+                <button type="button" class="btn btn-outline-info btn-sm" onclick="refreshLogs()">
+                    <i class="fas fa-sync"></i> Refresh
+                </button>
+                <button type="button" class="btn btn-outline-warning btn-sm" onclick="exportLogs()">
+                    <i class="fas fa-download"></i> Export
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Metrics Overview -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="metric-card p-3">
+            <h6 class="text-muted mb-1">Active Alerts</h6>
+            <h3 class="text-danger mb-0" id="active-alerts">0</h3>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="metric-card p-3">
+            <h6 class="text-muted mb-1">Events/Hour</h6>
+            <h3 class="text-info mb-0" id="events-per-hour">0</h3>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="metric-card p-3">
+            <h6 class="text-muted mb-1">Data Sources</h6>
+            <h3 class="text-success mb-0" id="data-sources">2</h3>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="metric-card p-3">
+            <h6 class="text-muted mb-1">Coverage</h6>
+            <h3 class="text-warning mb-0" id="coverage">85%</h3>
+        </div>
+    </div>
+</div>
+
+<!-- Search and Filter Controls -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="search-controls p-3">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="mb-3">
+                        <label class="form-label">Search Query</label>
+                        <div class="input-group">
+                            <select class="form-select" id="queryType" style="max-width: 150px;">
+                                <option value="simple">Simple</option>
+                                <option value="splunk">Splunk SPL</option>
+                                <option value="limacharlie">LimaCharlie</option>
+                            </select>
+                            <input type="text" class="form-control" id="searchQuery" 
+                                   placeholder="Enter search terms or query...">
+                            <button class="btn btn-primary" onclick="executeSearch()">
+                                <i class="fas fa-search"></i> Search
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="form-label">Time Range</label>
+                            <select class="form-select" id="timeRange">
+                                <option value="15m">Last 15 minutes</option>
+                                <option value="1h">Last hour</option>
+                                <option value="24h" selected>Last 24 hours</option>
+                                <option value="7d">Last 7 days</option>
+                                <option value="30d">Last 30 days</option>
+                                <option value="custom">Custom Range</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Source</label>
+                            <select class="form-select" id="sourceFilter">
+                                <option value="all">All Sources</option>
+                                <option value="limacharlie">LimaCharlie</option>
+                                <option value="splunk">Splunk</option>
+                                <option value="crowdstrike">CrowdStrike</option>
+                                <option value="palo-alto">Palo Alto</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Severity</label>
+                            <select class="form-select" id="severityFilter">
+                                <option value="all">All Severities</option>
+                                <option value="critical">Critical</option>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                                <option value="info">Info</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Quick Searches</label>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-danger btn-sm" onclick="quickSearch('malware')">
+                            <i class="fas fa-virus"></i> Malware Detections
+                        </button>
+                        <button class="btn btn-outline-warning btn-sm" onclick="quickSearch('failed_logins')">
+                            <i class="fas fa-user-lock"></i> Failed Logins
+                        </button>
+                        <button class="btn btn-outline-info btn-sm" onclick="quickSearch('network_anomaly')">
+                            <i class="fas fa-network-wired"></i> Network Anomalies
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tabs for different views -->
+<ul class="nav nav-tabs mb-4" id="logTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="recent-tab" data-bs-toggle="tab" 
+                data-bs-target="#recent" type="button" role="tab">
+            <i class="fas fa-clock"></i> Recent Events
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="detections-tab" data-bs-toggle="tab" 
+                data-bs-target="#detections" type="button" role="tab">
+            <i class="fas fa-shield-alt"></i> Detections
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="analytics-tab" data-bs-toggle="tab" 
+                data-bs-target="#analytics" type="button" role="tab">
+            <i class="fas fa-chart-line"></i> Analytics
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="raw-tab" data-bs-toggle="tab" 
+                data-bs-target="#raw" type="button" role="tab">
+            <i class="fas fa-code"></i> Raw Logs
+        </button>
+    </li>
+</ul>
+
+<!-- Tab Content -->
+<div class="tab-content" id="logTabContent">
+    <!-- Recent Events Tab -->
+    <div class="tab-pane fade show active" id="recent" role="tabpanel">
+        <div id="recent-events">
+            <div class="text-center py-4">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-2 text-muted">Loading recent events...</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Detections Tab -->
+    <div class="tab-pane fade" id="detections" role="tabpanel">
+        <div class="row" id="detection-cards">
+            <!-- Detection cards will be loaded here -->
+        </div>
+    </div>
+    
+    <!-- Analytics Tab -->
+    <div class="tab-pane fade" id="analytics" role="tabpanel">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="chart-container">
+                    <h6 class="mb-3">Events Over Time</h6>
+                    <canvas id="eventsChart"></canvas>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="chart-container">
+                    <h6 class="mb-3">Top Event Sources</h6>
+                    <canvas id="sourcesChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="chart-container">
+                    <h6 class="mb-3">Severity Distribution</h6>
+                    <canvas id="severityChart"></canvas>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="chart-container">
+                    <h6 class="mb-3">Detection Trends</h6>
+                    <canvas id="trendsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Raw Logs Tab -->
+    <div class="tab-pane fade" id="raw" role="tabpanel">
+        <div class="log-details p-3" id="raw-logs" style="height: 500px; overflow-y: auto; background: #1a1d20;">
+            <div class="text-center text-muted">
+                <i class="fas fa-file-alt fa-2x mb-2"></i>
+                <p>Execute a search to view raw log data</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Event Detail Modal -->
+<div class="modal fade" id="eventDetailModal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title" id="eventDetailTitle">
+                    <i class="fas fa-info-circle"></i> Event Details
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="eventDetailBody">
+                <!-- Event details will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="askWhisAboutEvent()">
+                    <i class="fas fa-robot"></i> Ask Whis
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Whis Integration Modal -->
+<div class="modal fade" id="whisAnalysisModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-robot text-success"></i> Whis Analysis
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="whisAnalysisBody">
+                <div class="text-center">
+                    <div class="spinner-border text-success mb-3" role="status">
+                        <span class="visually-hidden">Analyzing...</span>
+                    </div>
+                    <p>Whis is analyzing the event data...</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" onclick="openFullChat()">
+                    <i class="fas fa-comments"></i> Continue in Chat
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+let currentEventData = null;
+let liveMode = false;
+let refreshInterval = null;
+
+// Sample data for demonstration
+const sampleLogs = [
+    {
+        id: 'evt-001',
+        timestamp: new Date(Date.now() - 300000),
+        source: 'limacharlie',
+        severity: 'high',
+        title: 'Suspicious PowerShell Execution',
+        description: 'Encoded PowerShell command detected on HOST-DESKTOP-01',
+        details: {
+            host: 'HOST-DESKTOP-01',
+            process: 'powershell.exe',
+            command_line: 'powershell.exe -EncodedCommand UABvAHcAZ...',
+            user: 'DOMAIN\\john.doe',
+            parent_process: 'cmd.exe',
+            mitre_technique: 'T1059.001',
+            confidence: 0.87
+        }
+    },
+    {
+        id: 'evt-002',
+        timestamp: new Date(Date.now() - 600000),
+        source: 'splunk',
+        severity: 'medium',
+        title: 'Multiple Failed Login Attempts',
+        description: '15 failed login attempts from IP 192.168.1.100',
+        details: {
+            src_ip: '192.168.1.100',
+            dest_host: 'dc01.company.com',
+            user_attempted: 'administrator',
+            attempts: 15,
+            time_span: '5 minutes',
+            geo_location: 'United States',
+            mitre_technique: 'T1110'
+        }
+    },
+    {
+        id: 'evt-003',
+        timestamp: new Date(Date.now() - 900000),
+        source: 'crowdstrike',
+        severity: 'critical',
+        title: 'Malware Detection',
+        description: 'Trojan.Win32.Agent detected and quarantined',
+        details: {
+            host: 'LAPTOP-SALES-05',
+            file_path: 'C:\\Users\\jane.doe\\Downloads\\invoice.pdf.exe',
+            file_hash: 'a1b2c3d4e5f6789012345678901234567890abcd',
+            action_taken: 'Quarantined',
+            user: 'DOMAIN\\jane.doe',
+            detection_time: new Date(Date.now() - 900000),
+            mitre_technique: 'T1204.002'
+        }
+    }
+];
+
+const sampleDetections = [
+    {
+        id: 'det-001',
+        title: 'APT Campaign Detection',
+        description: 'Coordinated attack indicators across multiple hosts',
+        severity: 'critical',
+        affected_hosts: 5,
+        mitre_techniques: ['T1566.001', 'T1059.001', 'T1055'],
+        first_seen: new Date(Date.now() - 1800000),
+        last_seen: new Date(Date.now() - 300000),
+        status: 'active'
+    },
+    {
+        id: 'det-002',
+        title: 'Credential Stuffing Attack',
+        description: 'Automated login attempts against web application',
+        severity: 'high',
+        affected_hosts: 1,
+        mitre_techniques: ['T1110.003'],
+        first_seen: new Date(Date.now() - 3600000),
+        last_seen: new Date(Date.now() - 1800000),
+        status: 'contained'
+    }
+];
+
+function loadRecentEvents() {
+    const container = document.getElementById('recent-events');
+    container.innerHTML = '';
+    
+    sampleLogs.forEach((event, index) => {
+        const eventDiv = document.createElement('div');
+        eventDiv.className = `log-entry ${event.severity} p-3`;
+        eventDiv.style.cursor = 'pointer';
+        eventDiv.onclick = () => showEventDetails(event.id);
+        
+        const timeAgo = getTimeAgo(event.timestamp);
+        
+        eventDiv.innerHTML = `
+            <div class="d-flex justify-content-between align-items-start">
+                <div class="flex-grow-1">
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="log-source source-${event.source} me-2">${event.source.toUpperCase()}</span>
+                        <span class="badge bg-${getSeverityColor(event.severity)} me-2">${event.severity.toUpperCase()}</span>
+                        <span class="log-timestamp">${event.timestamp.toLocaleString()}</span>
+                        <span class="text-muted ms-2">(${timeAgo})</span>
+                    </div>
+                    <h6 class="mb-1">${escapeHtml(event.title)}</h6>
+                    <p class="mb-1 text-muted">${escapeHtml(event.description)}</p>
+                    <div class="d-flex align-items-center">
+                        ${event.details.host ? `<small class="text-info me-3"><i class="fas fa-desktop"></i> ${event.details.host}</small>` : ''}
+                        ${event.details.user ? `<small class="text-warning me-3"><i class="fas fa-user"></i> ${event.details.user}</small>` : ''}
+                        ${event.details.mitre_technique ? `<small class="text-danger"><i class="fas fa-bullseye"></i> ${event.details.mitre_technique}</small>` : ''}
+                    </div>
+                </div>
+                <div class="text-end">
+                    <button class="btn btn-outline-info btn-sm" onclick="event.stopPropagation(); askWhisAboutSpecificEvent('${event.id}')">
+                        <i class="fas fa-robot"></i> Ask Whis
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        container.appendChild(eventDiv);
+    });
+    
+    updateMetrics();
+}
+
+function loadDetections() {
+    const container = document.getElementById('detection-cards');
+    container.innerHTML = '';
+    
+    sampleDetections.forEach(detection => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'col-md-6 mb-3';
+        
+        const statusColor = detection.status === 'active' ? 'danger' : 'success';
+        const statusIcon = detection.status === 'active' ? 'exclamation-triangle' : 'check-circle';
+        
+        cardDiv.innerHTML = `
+            <div class="detection-card p-3">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h6 class="mb-0">${escapeHtml(detection.title)}</h6>
+                    <span class="badge bg-${getSeverityColor(detection.severity)}">${detection.severity.toUpperCase()}</span>
+                </div>
+                <p class="text-muted mb-2">${escapeHtml(detection.description)}</p>
+                <div class="row mb-2">
+                    <div class="col-6">
+                        <small class="text-info">
+                            <i class="fas fa-desktop"></i> Hosts: ${detection.affected_hosts}
+                        </small>
+                    </div>
+                    <div class="col-6">
+                        <small class="text-${statusColor}">
+                            <i class="fas fa-${statusIcon}"></i> ${detection.status.toUpperCase()}
+                        </small>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <small class="text-muted">MITRE Techniques:</small><br>
+                    ${detection.mitre_techniques.map(technique => 
+                        `<span class="badge bg-secondary me-1">${technique}</span>`
+                    ).join('')}
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">
+                        First: ${detection.first_seen.toLocaleTimeString()}<br>
+                        Last: ${detection.last_seen.toLocaleTimeString()}
+                    </small>
+                    <button class="btn btn-outline-primary btn-sm" onclick="analyzeDetection('${detection.id}')">
+                        <i class="fas fa-search"></i> Analyze
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        container.appendChild(cardDiv);
+    });
+}
+
+function showEventDetails(eventId) {
+    const event = sampleLogs.find(e => e.id === eventId);
+    if (!event) return;
+    
+    currentEventData = event;
+    
+    document.getElementById('eventDetailTitle').innerHTML = `
+        <i class="fas fa-info-circle"></i> ${escapeHtml(event.title)}
+    `;
+    
+    let detailsHTML = `
+        <div class="row">
+            <div class="col-md-6">
+                <h6>Event Information</h6>
+                <table class="table table-dark table-sm">
+                    <tr><td><strong>Event ID:</strong></td><td>${event.id}</td></tr>
+                    <tr><td><strong>Timestamp:</strong></td><td>${event.timestamp.toLocaleString()}</td></tr>
+                    <tr><td><strong>Source:</strong></td><td>
+                        <span class="log-source source-${event.source}">${event.source.toUpperCase()}</span>
+                    </td></tr>
+                    <tr><td><strong>Severity:</strong></td><td>
+                        <span class="badge bg-${getSeverityColor(event.severity)}">${event.severity.toUpperCase()}</span>
+                    </td></tr>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <h6>Technical Details</h6>
+                <div class="log-details p-2">
+                    <pre>${JSON.stringify(event.details, null, 2)}</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-3">
+            <h6>Event Description</h6>
+            <div class="alert alert-info">${escapeHtml(event.description)}</div>
+        </div>
+    `;
+    
+    document.getElementById('eventDetailBody').innerHTML = detailsHTML;
+    new bootstrap.Modal(document.getElementById('eventDetailModal')).show();
+}
+
+function askWhisAboutEvent() {
+    if (!currentEventData) return;
+    
+    const modal = new bootstrap.Modal(document.getElementById('whisAnalysisModal'));
+    modal.show();
+    
+    // Simulate Whis analysis
+    setTimeout(() => {
+        const analysisHTML = `
+            <div class="alert alert-success">
+                <h6><i class="fas fa-robot"></i> Whis Analysis Complete</h6>
+                <p><strong>Event Assessment:</strong> This appears to be a ${currentEventData.severity} severity security event.</p>
+                
+                <h6 class="mt-3">Recommended Actions:</h6>
+                <ol>
+                    <li>Isolate the affected host: ${currentEventData.details.host}</li>
+                    <li>Collect forensic evidence from the endpoint</li>
+                    <li>Review similar activities across the environment</li>
+                    <li>Update detection rules to prevent future occurrences</li>
+                </ol>
+                
+                <h6 class="mt-3">MITRE ATT&CK Mapping:</h6>
+                <p>This activity aligns with technique <strong>${currentEventData.details.mitre_technique}</strong></p>
+                
+                <div class="mt-3">
+                    <button class="btn btn-warning btn-sm me-2" onclick="createIncident()">
+                        <i class="fas fa-exclamation-triangle"></i> Create Incident
+                    </button>
+                    <button class="btn btn-info btn-sm" onclick="generatePlaybook()">
+                        <i class="fas fa-book"></i> Generate Playbook
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        document.getElementById('whisAnalysisBody').innerHTML = analysisHTML;
+    }, 2000);
+}
+
+function askWhisAboutSpecificEvent(eventId) {
+    const event = sampleLogs.find(e => e.id === eventId);
+    if (!event) return;
+    
+    currentEventData = event;
+    askWhisAboutEvent();
+}
+
+function analyzeDetection(detectionId) {
+    const detection = sampleDetections.find(d => d.id === detectionId);
+    if (!detection) return;
+    
+    // Open chat with pre-filled analysis request
+    const message = `Analyze this detection: ${detection.title}. ${detection.description}. MITRE techniques: ${detection.mitre_techniques.join(', ')}. Affects ${detection.affected_hosts} hosts. Status: ${detection.status}. Provide detailed incident response recommendations.`;
+    
+    localStorage.setItem('whisPrefillMessage', message);
+    window.location.href = '/chat';
+}
+
+function executeSearch() {
+    const query = document.getElementById('searchQuery').value;
+    const queryType = document.getElementById('queryType').value;
+    const timeRange = document.getElementById('timeRange').value;
+    const source = document.getElementById('sourceFilter').value;
+    const severity = document.getElementById('severityFilter').value;
+    
+    if (!query.trim()) {
+        showToast('Please enter a search query', 'warning');
+        return;
+    }
+    
+    // Show loading state
+    const tabs = ['recent-events', 'raw-logs'];
+    tabs.forEach(tabId => {
+        const container = document.getElementById(tabId);
+        if (container) {
+            container.innerHTML = `
+                <div class="text-center py-4">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Searching...</span>
+                    </div>
+                    <p class="mt-2 text-muted">Searching ${source === 'all' ? 'all sources' : source}...</p>
+                </div>
+            `;
+        }
+    });
+    
+    // Simulate search execution
+    setTimeout(() => {
+        // Filter sample data based on search criteria
+        let filteredLogs = sampleLogs;
+        
+        if (source !== 'all') {
+            filteredLogs = filteredLogs.filter(log => log.source === source);
+        }
+        
+        if (severity !== 'all') {
+            filteredLogs = filteredLogs.filter(log => log.severity === severity);
+        }
+        
+        if (query.toLowerCase()) {
+            filteredLogs = filteredLogs.filter(log => 
+                log.title.toLowerCase().includes(query.toLowerCase()) ||
+                log.description.toLowerCase().includes(query.toLowerCase())
+            );
+        }
+        
+        displaySearchResults(filteredLogs, query);
+        showToast(`Found ${filteredLogs.length} results for "${query}"`, 'success');
+    }, 1500);
+}
+
+function displaySearchResults(logs, query) {
+    // Update recent events tab
+    const recentContainer = document.getElementById('recent-events');
+    recentContainer.innerHTML = '';
+    
+    if (logs.length === 0) {
+        recentContainer.innerHTML = `
+            <div class="text-center py-4">
+                <i class="fas fa-search fa-2x text-muted mb-3"></i>
+                <h5 class="text-muted">No Results Found</h5>
+                <p class="text-muted">Try adjusting your search criteria or time range.</p>
+            </div>
+        `;
+    } else {
+        logs.forEach(event => {
+            const eventDiv = document.createElement('div');
+            eventDiv.className = `log-entry ${event.severity} p-3`;
+            eventDiv.style.cursor = 'pointer';
+            eventDiv.onclick = () => showEventDetails(event.id);
+            
+            const timeAgo = getTimeAgo(event.timestamp);
+            
+            // Highlight search terms
+            let title = escapeHtml(event.title);
+            let description = escapeHtml(event.description);
+            if (query) {
+                const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+                title = title.replace(regex, '<mark>$1</mark>');
+                description = description.replace(regex, '<mark>$1</mark>');
+            }
+            
+            eventDiv.innerHTML = `
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="flex-grow-1">
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="log-source source-${event.source} me-2">${event.source.toUpperCase()}</span>
+                            <span class="badge bg-${getSeverityColor(event.severity)} me-2">${event.severity.toUpperCase()}</span>
+                            <span class="log-timestamp">${event.timestamp.toLocaleString()}</span>
+                            <span class="text-muted ms-2">(${timeAgo})</span>
+                        </div>
+                        <h6 class="mb-1">${title}</h6>
+                        <p class="mb-1 text-muted">${description}</p>
+                    </div>
+                    <button class="btn btn-outline-info btn-sm" onclick="event.stopPropagation(); askWhisAboutSpecificEvent('${event.id}')">
+                        <i class="fas fa-robot"></i> Ask Whis
+                    </button>
+                </div>
+            `;
+            
+            recentContainer.appendChild(eventDiv);
+        });
+    }
+    
+    // Update raw logs tab
+    const rawContainer = document.getElementById('raw-logs');
+    const rawLogsHTML = logs.map(log => {
+        const logLine = `${log.timestamp.toISOString()} [${log.source.toUpperCase()}] [${log.severity.toUpperCase()}] ${log.title}: ${log.description}`;
+        return escapeHtml(logLine);
+    }).join('\n');
+    
+    rawContainer.innerHTML = `<pre class="text-light">${rawLogsHTML || 'No raw log data available for the current search.'}</pre>`;
+}
+
+function quickSearch(searchType) {
+    const queries = {
+        'malware': 'malware OR trojan OR virus OR ransomware',
+        'failed_logins': 'failed login OR authentication failure OR invalid credentials',
+        'network_anomaly': 'unusual network activity OR suspicious connection OR anomalous traffic'
+    };
+    
+    const severityMap = {
+        'malware': 'high',
+        'failed_logins': 'medium',
+        'network_anomaly': 'medium'
+    };
+    
+    document.getElementById('searchQuery').value = queries[searchType] || '';
+    document.getElementById('severityFilter').value = severityMap[searchType] || 'all';
+    executeSearch();
+}
+
+function toggleLiveMode() {
+    liveMode = !liveMode;
+    const button = document.getElementById('liveToggle');
+    
+    if (liveMode) {
+        button.className = 'btn btn-success btn-sm';
+        button.innerHTML = '<span class="live-indicator"></span> Live Mode ON';
+        refreshInterval = setInterval(() => {
+            loadRecentEvents();
+            loadDetections();
+        }, 10000); // Refresh every 10 seconds
+        showToast('Live mode enabled - auto-refreshing every 10 seconds', 'success');
+    } else {
+        button.className = 'btn btn-outline-success btn-sm';
+        button.innerHTML = '<span class="live-indicator" style="background: #6c757d;"></span> Live Mode';
+        if (refreshInterval) {
+            clearInterval(refreshInterval);
+            refreshInterval = null;
+        }
+        showToast('Live mode disabled', 'info');
+    }
+}
+
+function refreshLogs() {
+    loadRecentEvents();
+    loadDetections();
+    showToast('Logs refreshed', 'success');
+}
+
+function exportLogs() {
+    const logs = sampleLogs;
+    let csvContent = 'Timestamp,Source,Severity,Title,Description,Host,User\n';
+    
+    logs.forEach(log => {
+        const row = [
+            log.timestamp.toISOString(),
+            log.source,
+            log.severity,
+            `"${log.title.replace(/"/g, '""')}"`,
+            `"${log.description.replace(/"/g, '""')}"`,
+            log.details.host || '',
+            log.details.user || ''
+        ].join(',');
+        csvContent += row + '\n';
+    });
+    
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `whis-logs-${new Date().toISOString().split('T')[0]}.csv`;
+    a.click();
+    
+    showToast('Logs exported successfully', 'success');
+}
+
+function updateMetrics() {
+    document.getElementById('active-alerts').textContent = sampleLogs.filter(l => l.severity === 'high' || l.severity === 'critical').length;
+    document.getElementById('events-per-hour').textContent = Math.floor(Math.random() * 1000) + 500;
+    
+    // Animate metrics
+    const metrics = ['active-alerts', 'events-per-hour'];
+    metrics.forEach(metricId => {
+        const element = document.getElementById(metricId);
+        element.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+            element.style.transform = 'scale(1)';
+        }, 200);
+    });
+}
+
+function createIncident() {
+    showToast('Incident created successfully', 'success');
+    bootstrap.Modal.getInstance(document.getElementById('whisAnalysisModal')).hide();
+}
+
+function generatePlaybook() {
+    showToast('Playbook generated and saved', 'success');
+}
+
+function openFullChat() {
+    if (currentEventData) {
+        const message = `Analyze this security event: ${currentEventData.title}. ${currentEventData.description}. Provide detailed incident response guidance.`;
+        localStorage.setItem('whisPrefillMessage', message);
+    }
+    window.location.href = '/chat';
+}
+
+function initializeCharts() {
+    // Events Over Time Chart
+    const eventsCtx = document.getElementById('eventsChart');
+    if (eventsCtx) {
+        new Chart(eventsCtx, {
+            type: 'line',
+            data: {
+                labels: ['6h ago', '5h ago', '4h ago', '3h ago', '2h ago', '1h ago', 'Now'],
+                datasets: [{
+                    label: 'Events',
+                    data: [120, 190, 300, 250, 200, 180, 220],
+                    borderColor: '#0dcaf0',
+                    backgroundColor: 'rgba(13, 202, 240, 0.1)',
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: { color: '#fff' }
+                    }
+                },
+                scales: {
+                    x: { 
+                        ticks: { color: '#6c757d' },
+                        grid: { color: '#495057' }
+                    },
+                    y: { 
+                        ticks: { color: '#6c757d' },
+                        grid: { color: '#495057' }
+                    }
+                }
+            }
+        });
+    }
+    
+    // Sources Chart
+    const sourcesCtx = document.getElementById('sourcesChart');
+    if (sourcesCtx) {
+        new Chart(sourcesCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['LimaCharlie', 'Splunk', 'CrowdStrike', 'Palo Alto'],
+                datasets: [{
+                    data: [40, 30, 20, 10],
+                    backgroundColor: ['#e74c3c', '#ff6b35', '#ff0000', '#00c0ef']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: { color: '#fff' }
+                    }
+                }
+            }
+        });
+    }
+}
+
+// Utility functions
+function getSeverityColor(severity) {
+    const colors = {
+        'critical': 'danger',
+        'high': 'warning',
+        'medium': 'info',
+        'low': 'success',
+        'info': 'secondary'
+    };
+    return colors[severity] || 'secondary';
+}
+
+function getTimeAgo(date) {
+    const now = new Date();
+    const diff = now - date;
+    const minutes = Math.floor(diff / 60000);
+    const hours = Math.floor(diff / 3600000);
+    
+    if (hours > 0) return `${hours}h ago`;
+    if (minutes > 0) return `${minutes}m ago`;
+    return 'Just now';
+}
+
+function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function showToast(message, type = 'info') {
+    const colors = {
+        'success': 'success',
+        'error': 'danger',
+        'warning': 'warning',
+        'info': 'info'
+    };
+    
+    const toast = document.getElementById('status-toast');
+    const toastBody = document.getElementById('status-message');
+    
+    toastBody.textContent = message;
+    toast.className = `toast align-items-center text-white bg-${colors[type]} border-0`;
+    
+    new bootstrap.Toast(toast).show();
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadRecentEvents();
+    loadDetections();
+    initializeCharts();
+    
+    // Set up tab change handlers
+    const tabButtons = document.querySelectorAll('[data-bs-toggle="tab"]');
+    tabButtons.forEach(button => {
+        button.addEventListener('shown.bs.tab', function(e) {
+            const target = e.target.getAttribute('data-bs-target');
+            if (target === '#analytics') {
+                setTimeout(initializeCharts, 100); // Reinitialize charts when tab is shown
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

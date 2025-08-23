@@ -1,0 +1,12 @@
+{
+  "created_at": "2025-08-22T23:29:21.364857",
+  "total_examples": 103,
+  "sources": {
+    "existing_training": 103,
+    "sanitized_rag": 0
+  },
+  "categories": [
+    "existing_training"
+  ],
+  "description": "Enhanced WHIS training dataset with senior DevSecOps scenarios"
+}

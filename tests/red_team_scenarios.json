@@ -1,0 +1,195 @@
+[
+  {
+    "scenario": "Advanced Persistent Threat - Initial Access",
+    "test_query": "We detected a spear-phishing email that bypassed our email security. Three executives clicked the link. How do we respond immediately?",
+    "expected_capabilities": ["immediate containment steps", "user isolation procedures", "forensic collection", "executive communication", "NIST IR alignment"],
+    "red_team_tricks": ["time pressure", "executive involvement", "multi-vector attack"],
+    "passing_criteria": {
+      "mentions_nist_800_61": true,
+      "provides_executable_steps": true,
+      "includes_communication_plan": true,
+      "addresses_forensics": true,
+      "timeline_under_30_minutes": true
+    }
+  },
+  {
+    "scenario": "Zero-Day Exploitation",
+    "test_query": "Our vulnerability scanner found a new critical RCE in our public-facing Exchange server. There's no patch yet. The CEO is asking for immediate risk assessment and action plan. How do I present this to leadership?",
+    "expected_capabilities": ["risk quantification", "virtual patching", "executive communication", "business impact analysis"],
+    "red_team_tricks": ["no available patch", "public-facing system", "executive pressure"],
+    "passing_criteria": {
+      "quantifies_financial_risk": true,
+      "provides_interim_mitigations": true,
+      "executive_friendly_summary": true,
+      "includes_rollback_plan": true
+    }
+  },
+  {
+    "scenario": "Insider Threat Detection",
+    "test_query": "Our SIEM flagged unusual activity: a database admin downloaded 500GB of customer data at 3 AM from a personal device. HR says they're going through a divorce. How do we investigate without tipping them off?",
+    "expected_capabilities": ["discrete investigation", "legal considerations", "HR coordination", "evidence preservation"],
+    "red_team_tricks": ["insider access", "personal information", "legal complexities"],
+    "passing_criteria": {
+      "maintains_discretion": true,
+      "involves_legal_team": true,
+      "preserves_evidence": true,
+      "coordinates_with_hr": true
+    }
+  },
+  {
+    "scenario": "Ransomware Deployment",
+    "test_query": "Our EDR just detected file encryption activity across 50+ servers. The ransom note demands $2.5M in Bitcoin. Systems are still going down. I need an immediate action plan that I can brief to the CEO in 15 minutes.",
+    "expected_capabilities": ["rapid response", "containment at scale", "executive briefing", "recovery planning"],
+    "red_team_tricks": ["time pressure", "ongoing damage", "executive briefing requirement"],
+    "passing_criteria": {
+      "immediate_containment_steps": true,
+      "executive_communication_ready": true,
+      "recovery_timeline": true,
+      "decision_framework_for_payment": true
+    }
+  },
+  {
+    "scenario": "Supply Chain Compromise",
+    "test_query": "We just learned that SolarWinds-style backdoor was discovered in monitoring software we use on 200+ servers. The vendor hasn't responded yet. How do I assess our exposure and protect our customers?",
+    "expected_capabilities": ["supply chain risk assessment", "customer communication", "forensic analysis", "vendor management"],
+    "red_team_tricks": ["widespread deployment", "customer impact", "vendor unavailable"],
+    "passing_criteria": {
+      "assesses_organizational_impact": true,
+      "includes_customer_notification_plan": true,
+      "forensic_analysis_steps": true,
+      "vendor_coordination_strategy": true
+    }
+  },
+  {
+    "scenario": "API Key Exposure",
+    "test_query": "A developer accidentally committed AWS root account keys to our public GitHub repo. It's been public for 6 hours and we're seeing unauthorized API calls. The CFO wants to know potential financial impact. What's our playbook?",
+    "expected_capabilities": ["immediate key rotation", "impact assessment", "financial analysis", "prevention measures"],
+    "red_team_tricks": ["public exposure", "financial implications", "developer error"],
+    "passing_criteria": {
+      "immediate_key_rotation": true,
+      "financial_impact_assessment": true,
+      "unauthorized_activity_analysis": true,
+      "prevention_recommendations": true
+    }
+  },
+  {
+    "scenario": "Data Breach Notification",
+    "test_query": "We confirmed that attackers accessed our customer database with 100K records including SSNs and credit cards. Legal says we have 72 hours for GDPR notification. What's our complete response plan including regulatory compliance?",
+    "expected_capabilities": ["regulatory compliance", "customer notification", "legal coordination", "regulatory reporting"],
+    "red_team_tricks": ["multiple regulations", "tight deadlines", "sensitive data types"],
+    "passing_criteria": {
+      "addresses_gdpr_timeline": true,
+      "includes_regulatory_notifications": true,
+      "customer_communication_plan": true,
+      "legal_team_coordination": true
+    }
+  },
+  {
+    "scenario": "Business Email Compromise",
+    "test_query": "Our CFO's email account was compromised and sent wire transfer requests to three vendors. Two payments of $150K each went through before we caught it. The board is having an emergency meeting in 2 hours. How do I present this and our response?",
+    "expected_capabilities": ["financial crime response", "board communication", "recovery procedures", "control improvements"],
+    "red_team_tricks": ["financial loss", "board pressure", "reputation damage"],
+    "passing_criteria": {
+      "addresses_financial_recovery": true,
+      "board_ready_presentation": true,
+      "control_improvement_plan": true,
+      "legal_law_enforcement_coordination": true
+    }
+  },
+  {
+    "scenario": "Cloud Misconfiguration Exploit",
+    "test_query": "Someone found our S3 bucket was publicly readable and posted about it on Twitter. It contains customer support tickets with PII. The story is trending. Marketing is panicking. I need immediate damage control and technical response.",
+    "expected_capabilities": ["cloud security response", "PR crisis management", "technical remediation", "customer communication"],
+    "red_team_tricks": ["public disclosure", "social media amplification", "PR pressure"],
+    "passing_criteria": {
+      "immediate_technical_remediation": true,
+      "pr_crisis_response": true,
+      "customer_impact_assessment": true,
+      "regulatory_notification_plan": true
+    }
+  },
+  {
+    "scenario": "NIST Framework Interview Question",
+    "test_query": "Walk me through how you would implement the NIST Cybersecurity Framework in an organization that currently has no formal security program. The CEO wants to see ROI within 6 months. What's your approach?",
+    "expected_capabilities": ["NIST CSF implementation", "business case development", "ROI demonstration", "phased approach"],
+    "red_team_tricks": ["greenfield implementation", "ROI pressure", "executive expectations"],
+    "passing_criteria": {
+      "references_csf_functions": true,
+      "phased_implementation_plan": true,
+      "roi_calculation_methodology": true,
+      "quick_wins_identification": true
+    }
+  },
+  {
+    "scenario": "Zero Trust Architecture Challenge",
+    "test_query": "The network team says implementing Zero Trust will break half our legacy applications and the business will revolt. The CISO wants Zero Trust implemented in 6 months. How do you make this work without causing a business disruption?",
+    "expected_capabilities": ["zero trust implementation", "legacy system accommodation", "business continuity", "change management"],
+    "red_team_tricks": ["legacy system constraints", "business resistance", "aggressive timeline"],
+    "passing_criteria": {
+      "addresses_legacy_systems": true,
+      "phased_implementation_approach": true,
+      "business_continuity_plan": true,
+      "stakeholder_management_strategy": true
+    }
+  },
+  {
+    "scenario": "Compliance Audit Under Pressure",
+    "test_query": "We have a surprise SOC2 audit starting Monday and our documentation is incomplete. The auditor is known for being extremely thorough. We can't afford to fail this audit as it would kill our biggest contract. What's our 72-hour game plan?",
+    "expected_capabilities": ["audit preparation", "documentation creation", "control validation", "risk management"],
+    "red_team_tricks": ["time pressure", "business critical outcome", "documentation gaps"],
+    "passing_criteria": {
+      "prioritizes_critical_controls": true,
+      "documentation_strategy": true,
+      "evidence_collection_plan": true,
+      "risk_mitigation_for_gaps": true
+    }
+  },
+  {
+    "scenario": "Budget Cuts Security Decision",
+    "test_query": "The company is cutting IT budget by 40% and wants to eliminate our SIEM, EDR on half our endpoints, and reduce security team by 60%. I need to present alternative cost-saving measures that don't eliminate critical security controls. Help me build this case.",
+    "expected_capabilities": ["business case development", "risk-based prioritization", "cost-benefit analysis", "alternative solutions"],
+    "red_team_tricks": ["severe budget constraints", "executive cost pressure", "security vs. business tension"],
+    "passing_criteria": {
+      "risk_based_prioritization": true,
+      "alternative_cost_savings": true,
+      "business_impact_analysis": true,
+      "executive_communication_ready": true
+    }
+  },
+  {
+    "scenario": "Mentor Mode Test - Junior Analyst",
+    "test_query": "I'm a junior SOC analyst and just got my first potential APT alert. The SIEM is showing lateral movement patterns but I'm not sure if it's real or a false positive. My manager is in meetings all day. Can you walk me through how to investigate this step-by-step?",
+    "expected_capabilities": ["mentoring tone", "step-by-step guidance", "confidence building", "practical learning"],
+    "red_team_tricks": ["junior level question", "manager unavailable", "confidence issues"],
+    "passing_criteria": {
+      "uses_mentoring_tone": true,
+      "provides_step_by_step_guidance": true,
+      "builds_analyst_confidence": true,
+      "includes_learning_opportunities": true
+    }
+  },
+  {
+    "scenario": "Executive Communication Test",
+    "test_query": "I need to explain to our board why we need to spend $500K on security improvements when we haven't had any major incidents. They think our current security is 'good enough.' How do I make the business case?",
+    "expected_capabilities": ["executive communication", "business case development", "risk communication", "ROI justification"],
+    "red_team_tricks": ["board level audience", "no recent incidents", "cost justification challenge"],
+    "passing_criteria": {
+      "executive_appropriate_language": true,
+      "quantified_risk_assessment": true,
+      "competitive_advantage_framing": true,
+      "clear_roi_calculation": true
+    }
+  },
+  {
+    "scenario": "Technical Deep Dive Challenge",
+    "test_query": "I found suspicious PowerShell execution with encoded commands and WMI calls. The process tree shows unusual parent-child relationships. Can you help me analyze what this might be and how to investigate further? I need specific technical steps, not general advice.",
+    "expected_capabilities": ["technical analysis", "forensic procedures", "malware analysis", "specific actionable steps"],
+    "red_team_tricks": ["technical complexity", "specific analysis request", "forensic expertise needed"],
+    "passing_criteria": {
+      "provides_specific_analysis_steps": true,
+      "includes_forensic_procedures": true,
+      "addresses_technical_indicators": true,
+      "gives_actionable_commands": true
+    }
+  }
+]

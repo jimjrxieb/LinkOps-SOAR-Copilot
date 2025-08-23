@@ -1,0 +1,759 @@
+{% extends "base.html" %}
+
+{% block title %}Action Approvals - Whis{% endblock %}
+
+{% block extra_css %}
+<style>
+    .approval-card {
+        border: 1px solid #495057;
+        border-radius: 8px;
+        background: #2c2c2c;
+        transition: all 0.3s ease;
+    }
+    
+    .approval-card:hover {
+        border-color: #6c757d;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    
+    .approval-card.pending {
+        border-left: 4px solid #ffc107;
+    }
+    
+    .approval-card.approved {
+        border-left: 4px solid #198754;
+    }
+    
+    .approval-card.rejected {
+        border-left: 4px solid #dc3545;
+    }
+    
+    .approval-card.executed {
+        border-left: 4px solid #0d6efd;
+    }
+    
+    .action-preview {
+        background: #343a40;
+        border-radius: 5px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9em;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+    
+    .risk-indicator {
+        font-size: 0.8em;
+        padding: 0.25rem 0.5rem;
+        border-radius: 12px;
+        font-weight: bold;
+    }
+    
+    .risk-low { background: #198754; }
+    .risk-medium { background: #ffc107; color: #000; }
+    .risk-high { background: #dc3545; }
+    .risk-critical { background: #6f42c1; }
+    
+    .approval-actions {
+        border-top: 1px solid #495057;
+        padding-top: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .execution-log {
+        background: #1a1d20;
+        border: 1px solid #495057;
+        border-radius: 5px;
+        max-height: 300px;
+        overflow-y: auto;
+        font-family: monospace;
+        font-size: 0.85em;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2><i class="fas fa-clipboard-check text-warning"></i> Action Approvals</h2>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-outline-success btn-sm" onclick="approveAll()">
+                    <i class="fas fa-check-double"></i> Approve All
+                </button>
+                <button type="button" class="btn btn-outline-danger btn-sm" onclick="rejectAll()">
+                    <i class="fas fa-times-circle"></i> Reject All
+                </button>
+                <button type="button" class="btn btn-outline-info btn-sm" onclick="refreshApprovals()">
+                    <i class="fas fa-sync"></i> Refresh
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Filter Tabs -->
+<div class="row mb-4">
+    <div class="col-12">
+        <ul class="nav nav-tabs" id="approvalTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pending-tab" data-bs-toggle="tab" 
+                        data-bs-target="#pending" type="button" role="tab">
+                    <i class="fas fa-clock text-warning"></i> Pending 
+                    <span class="badge bg-warning text-dark ms-1" id="pending-count">0</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="approved-tab" data-bs-toggle="tab" 
+                        data-bs-target="#approved" type="button" role="tab">
+                    <i class="fas fa-check text-success"></i> Approved
+                    <span class="badge bg-success ms-1" id="approved-count">0</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="executed-tab" data-bs-toggle="tab" 
+                        data-bs-target="#executed" type="button" role="tab">
+                    <i class="fas fa-play text-info"></i> Executed
+                    <span class="badge bg-info ms-1" id="executed-count">0</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="all-tab" data-bs-toggle="tab" 
+                        data-bs-target="#all" type="button" role="tab">
+                    <i class="fas fa-list"></i> All History
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Tab Content -->
+<div class="tab-content" id="approvalTabContent">
+    <div class="tab-pane fade show active" id="pending" role="tabpanel">
+        <div id="pending-approvals">
+            <!-- Pending approvals will be loaded here -->
+        </div>
+    </div>
+    
+    <div class="tab-pane fade" id="approved" role="tabpanel">
+        <div id="approved-approvals">
+            <!-- Approved approvals will be loaded here -->
+        </div>
+    </div>
+    
+    <div class="tab-pane fade" id="executed" role="tabpanel">
+        <div id="executed-approvals">
+            <!-- Executed approvals will be loaded here -->
+        </div>
+    </div>
+    
+    <div class="tab-pane fade" id="all" role="tabpanel">
+        <div id="all-approvals">
+            <!-- All approvals history will be loaded here -->
+        </div>
+    </div>
+</div>
+
+<!-- Empty State -->
+<div class="text-center py-5" id="empty-state" style="display: none;">
+    <i class="fas fa-clipboard-list fa-3x text-muted mb-3"></i>
+    <h4 class="text-muted">No Actions Pending Approval</h4>
+    <p class="text-muted">When Whis recommends actions that require approval, they'll appear here.</p>
+    <a href="{{ url_for('chat') }}" class="btn btn-primary">
+        <i class="fas fa-comments"></i> Chat with Whis
+    </a>
+</div>
+
+<!-- Action Detail Modal -->
+<div class="modal fade" id="actionDetailModal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title" id="actionDetailTitle">
+                    <i class="fas fa-cog"></i> Action Details
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="actionDetailBody">
+                <!-- Action details will be loaded here -->
+            </div>
+            <div class="modal-footer" id="actionDetailFooter">
+                <!-- Action buttons will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Execution Modal -->
+<div class="modal fade" id="executionModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-play text-info"></i> Executing Actions
+                </h5>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <div class="spinner-border text-info mb-3" role="status">
+                        <span class="visually-hidden">Executing...</span>
+                    </div>
+                    <p>Executing approved actions. This may take a few moments...</p>
+                    <div class="execution-log" id="execution-log">
+                        <div class="p-2">
+                            <span class="text-info">[INFO]</span> Starting execution process...<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let approvals = [];
+let currentApprovalId = null;
+
+function loadApprovals() {
+    // Simulate loading approvals - replace with actual API call
+    fetch('/api/approvals')
+        .then(response => response.json())
+        .then(data => {
+            approvals = data.approvals || [];
+            renderApprovals();
+            updateCounts();
+        })
+        .catch(error => {
+            console.error('Error loading approvals:', error);
+            // Show sample data for demo
+            loadSampleApprovals();
+        });
+}
+
+function loadSampleApprovals() {
+    // Sample approvals for demonstration
+    approvals = [
+        {
+            id: 'approval-001',
+            conversation_id: 'conv-001',
+            action_type: 'terraform_deployment',
+            status: 'pending',
+            created_at: new Date().toISOString(),
+            risk_level: 'medium',
+            title: 'Deploy Azure Conditional Access MFA Policy',
+            description: 'Terraform configuration to deploy MFA policy for executives',
+            actions: [
+                {
+                    type: 'terraform',
+                    name: 'conditional_access.tf',
+                    content: 'resource "azuread_conditional_access_policy" "executive_mfa" {...}',
+                    risk: 'medium'
+                },
+                {
+                    type: 'powershell',
+                    name: 'validate_mfa.ps1',
+                    content: 'Connect-AzureAD -TenantId $TenantId...',
+                    risk: 'low'
+                }
+            ],
+            estimated_impact: 'Limited to pilot user group (20 executives)',
+            rollback_plan: 'Disable policy via Azure portal or PowerShell'
+        },
+        {
+            id: 'approval-002',
+            conversation_id: 'conv-002',
+            action_type: 'incident_response',
+            status: 'pending',
+            created_at: new Date(Date.now() - 300000).toISOString(),
+            risk_level: 'high',
+            title: 'Contain Suspected Malware on HOST-001',
+            description: 'Isolate endpoint and block malicious file hash globally',
+            actions: [
+                {
+                    type: 'containment',
+                    name: 'isolate_endpoint',
+                    content: 'Isolate HOST-001 via CrowdStrike API',
+                    risk: 'high'
+                },
+                {
+                    type: 'blocking',
+                    name: 'block_hash',
+                    content: 'Block SHA256: a1b2c3d4... across all security tools',
+                    risk: 'medium'
+                }
+            ],
+            estimated_impact: 'Single endpoint isolation - minimal business impact',
+            rollback_plan: 'Restore network connectivity via CrowdStrike console'
+        },
+        {
+            id: 'approval-003',
+            conversation_id: 'conv-003',
+            action_type: 'configuration_change',
+            status: 'approved',
+            created_at: new Date(Date.now() - 3600000).toISOString(),
+            approved_at: new Date(Date.now() - 1800000).toISOString(),
+            approved_by: 'admin',
+            risk_level: 'low',
+            title: 'Update Firewall Rules for New Application',
+            description: 'Allow HTTPS traffic for new web application deployment'
+        }
+    ];
+    
+    renderApprovals();
+    updateCounts();
+}
+
+function renderApprovals() {
+    const pendingContainer = document.getElementById('pending-approvals');
+    const approvedContainer = document.getElementById('approved-approvals');
+    const executedContainer = document.getElementById('executed-approvals');
+    const allContainer = document.getElementById('all-approvals');
+    
+    // Clear containers
+    [pendingContainer, approvedContainer, executedContainer, allContainer].forEach(container => {
+        container.innerHTML = '';
+    });
+    
+    if (approvals.length === 0) {
+        document.getElementById('empty-state').style.display = 'block';
+        return;
+    } else {
+        document.getElementById('empty-state').style.display = 'none';
+    }
+    
+    approvals.forEach(approval => {
+        const card = createApprovalCard(approval);
+        
+        // Add to appropriate containers
+        if (approval.status === 'pending') {
+            pendingContainer.appendChild(card.cloneNode(true));
+        } else if (approval.status === 'approved') {
+            approvedContainer.appendChild(card.cloneNode(true));
+        } else if (approval.status === 'executed') {
+            executedContainer.appendChild(card.cloneNode(true));
+        }
+        
+        allContainer.appendChild(card.cloneNode(true));
+    });
+}
+
+function createApprovalCard(approval) {
+    const card = document.createElement('div');
+    card.className = `approval-card ${approval.status} mb-3`;
+    
+    const riskColor = {
+        'low': 'risk-low',
+        'medium': 'risk-medium',
+        'high': 'risk-high',
+        'critical': 'risk-critical'
+    }[approval.risk_level] || 'risk-medium';
+    
+    const statusIcon = {
+        'pending': '<i class="fas fa-clock text-warning"></i>',
+        'approved': '<i class="fas fa-check text-success"></i>',
+        'rejected': '<i class="fas fa-times text-danger"></i>',
+        'executed': '<i class="fas fa-play text-info"></i>'
+    }[approval.status] || '<i class="fas fa-question text-muted"></i>';
+    
+    const timeAgo = getTimeAgo(new Date(approval.created_at));
+    
+    card.innerHTML = `
+        <div class="card-body p-3">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+                <div>
+                    <h6 class="mb-1">${statusIcon} ${escapeHtml(approval.title)}</h6>
+                    <small class="text-muted">${escapeHtml(approval.description)}</small>
+                </div>
+                <div class="text-end">
+                    <span class="risk-indicator ${riskColor}">${approval.risk_level?.toUpperCase()}</span>
+                    <br><small class="text-muted">${timeAgo}</small>
+                </div>
+            </div>
+            
+            ${approval.actions ? `
+                <div class="mb-2">
+                    <small class="text-info">Actions (${approval.actions.length}):</small>
+                    <div class="mt-1">
+                        ${approval.actions.map(action => 
+                            `<span class="badge bg-secondary me-1">${escapeHtml(action.name)}</span>`
+                        ).join('')}
+                    </div>
+                </div>
+            ` : ''}
+            
+            ${approval.estimated_impact ? `
+                <div class="mb-2">
+                    <small class="text-warning">
+                        <i class="fas fa-exclamation-triangle"></i> Impact: ${escapeHtml(approval.estimated_impact)}
+                    </small>
+                </div>
+            ` : ''}
+            
+            <div class="approval-actions">
+                <div class="btn-group w-100" role="group">
+                    <button type="button" class="btn btn-outline-info btn-sm" 
+                            onclick="viewApprovalDetails('${approval.id}')">
+                        <i class="fas fa-eye"></i> View Details
+                    </button>
+                    
+                    ${approval.status === 'pending' ? `
+                        <button type="button" class="btn btn-outline-success btn-sm" 
+                                onclick="approveAction('${approval.id}')">
+                            <i class="fas fa-check"></i> Approve
+                        </button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" 
+                                onclick="rejectAction('${approval.id}')">
+                            <i class="fas fa-times"></i> Reject
+                        </button>
+                    ` : ''}
+                    
+                    ${approval.status === 'approved' ? `
+                        <button type="button" class="btn btn-outline-primary btn-sm" 
+                                onclick="executeAction('${approval.id}')">
+                            <i class="fas fa-play"></i> Execute
+                        </button>
+                    ` : ''}
+                </div>
+            </div>
+            
+            ${approval.approved_by ? `
+                <div class="mt-2">
+                    <small class="text-success">
+                        <i class="fas fa-user-check"></i> Approved by: ${escapeHtml(approval.approved_by)}
+                        ${approval.approved_at ? ` • ${getTimeAgo(new Date(approval.approved_at))}` : ''}
+                    </small>
+                </div>
+            ` : ''}
+        </div>
+    `;
+    
+    return card;
+}
+
+function viewApprovalDetails(approvalId) {
+    const approval = approvals.find(a => a.id === approvalId);
+    if (!approval) return;
+    
+    currentApprovalId = approvalId;
+    
+    document.getElementById('actionDetailTitle').innerHTML = `
+        <i class="fas fa-cog"></i> ${escapeHtml(approval.title)}
+    `;
+    
+    let detailsHTML = `
+        <div class="row">
+            <div class="col-md-6">
+                <h6>Overview</h6>
+                <ul class="list-unstyled">
+                    <li><strong>Type:</strong> ${escapeHtml(approval.action_type)}</li>
+                    <li><strong>Status:</strong> <span class="text-${getStatusColor(approval.status)}">${approval.status}</span></li>
+                    <li><strong>Risk Level:</strong> <span class="risk-indicator ${getRiskClass(approval.risk_level)}">${approval.risk_level?.toUpperCase()}</span></li>
+                    <li><strong>Created:</strong> ${new Date(approval.created_at).toLocaleString()}</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h6>Impact Assessment</h6>
+                <p class="text-warning">${escapeHtml(approval.estimated_impact || 'No impact assessment available')}</p>
+                
+                <h6>Rollback Plan</h6>
+                <p class="text-info">${escapeHtml(approval.rollback_plan || 'No rollback plan specified')}</p>
+            </div>
+        </div>
+    `;
+    
+    if (approval.actions && approval.actions.length > 0) {
+        detailsHTML += '<h6 class="mt-4">Actions to Execute</h6>';
+        approval.actions.forEach((action, index) => {
+            detailsHTML += `
+                <div class="card bg-secondary mb-3">
+                    <div class="card-header d-flex justify-content-between">
+                        <span><strong>${index + 1}. ${escapeHtml(action.name)}</strong></span>
+                        <span class="risk-indicator ${getRiskClass(action.risk)}">${action.risk?.toUpperCase()}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="action-preview">
+                            <pre class="p-2 mb-0"><code>${escapeHtml(action.content)}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    }
+    
+    document.getElementById('actionDetailBody').innerHTML = detailsHTML;
+    
+    // Update footer buttons
+    let footerHTML = '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>';
+    
+    if (approval.status === 'pending') {
+        footerHTML += `
+            <button type="button" class="btn btn-danger" onclick="rejectAction('${approvalId}')">
+                <i class="fas fa-times"></i> Reject
+            </button>
+            <button type="button" class="btn btn-success" onclick="approveAction('${approvalId}')">
+                <i class="fas fa-check"></i> Approve
+            </button>
+        `;
+    } else if (approval.status === 'approved') {
+        footerHTML += `
+            <button type="button" class="btn btn-primary" onclick="executeAction('${approvalId}')">
+                <i class="fas fa-play"></i> Execute
+            </button>
+        `;
+    }
+    
+    document.getElementById('actionDetailFooter').innerHTML = footerHTML;
+    
+    new bootstrap.Modal(document.getElementById('actionDetailModal')).show();
+}
+
+function approveAction(approvalId) {
+    fetch('/api/approve_action', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            approval_id: approvalId,
+            action: 'approve'
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            updateApprovalStatus(approvalId, 'approved');
+            showToast('Action approved successfully', 'success');
+            
+            // Close modal if open
+            const modal = bootstrap.Modal.getInstance(document.getElementById('actionDetailModal'));
+            if (modal) modal.hide();
+        } else {
+            showToast('Failed to approve action', 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error approving action:', error);
+        // For demo, update locally
+        updateApprovalStatus(approvalId, 'approved');
+        showToast('Action approved successfully', 'success');
+    });
+}
+
+function rejectAction(approvalId) {
+    if (confirm('Are you sure you want to reject this action?')) {
+        fetch('/api/approve_action', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                approval_id: approvalId,
+                action: 'reject'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                updateApprovalStatus(approvalId, 'rejected');
+                showToast('Action rejected', 'warning');
+                
+                // Close modal if open
+                const modal = bootstrap.Modal.getInstance(document.getElementById('actionDetailModal'));
+                if (modal) modal.hide();
+            } else {
+                showToast('Failed to reject action', 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error rejecting action:', error);
+            // For demo, update locally
+            updateApprovalStatus(approvalId, 'rejected');
+            showToast('Action rejected', 'warning');
+        });
+    }
+}
+
+function executeAction(approvalId) {
+    const approval = approvals.find(a => a.id === approvalId);
+    if (!approval) return;
+    
+    // Show execution modal
+    const modal = new bootstrap.Modal(document.getElementById('executionModal'));
+    modal.show();
+    
+    // Simulate execution process
+    simulateExecution(approvalId).then(() => {
+        updateApprovalStatus(approvalId, 'executed');
+        modal.hide();
+        showToast('Action executed successfully', 'success');
+    });
+}
+
+function simulateExecution(approvalId) {
+    const logContainer = document.getElementById('execution-log');
+    const steps = [
+        '[INFO] Validating prerequisites...',
+        '[INFO] Connecting to target systems...',
+        '[INFO] Applying configuration changes...',
+        '[SUCCESS] Configuration applied successfully',
+        '[INFO] Running validation tests...',
+        '[SUCCESS] All validation tests passed',
+        '[INFO] Execution completed successfully'
+    ];
+    
+    return new Promise(resolve => {
+        let stepIndex = 0;
+        
+        function addLogEntry() {
+            if (stepIndex < steps.length) {
+                const timestamp = new Date().toLocaleTimeString();
+                const entry = document.createElement('div');
+                entry.className = 'p-1';
+                entry.innerHTML = `<span class="text-muted">${timestamp}</span> ${steps[stepIndex]}`;
+                logContainer.appendChild(entry);
+                logContainer.scrollTop = logContainer.scrollHeight;
+                
+                stepIndex++;
+                setTimeout(addLogEntry, 1000);
+            } else {
+                resolve();
+            }
+        }
+        
+        setTimeout(addLogEntry, 500);
+    });
+}
+
+function updateApprovalStatus(approvalId, newStatus) {
+    const approval = approvals.find(a => a.id === approvalId);
+    if (approval) {
+        approval.status = newStatus;
+        approval.approved_at = new Date().toISOString();
+        approval.approved_by = '{{ session.user_id }}';
+        renderApprovals();
+        updateCounts();
+    }
+}
+
+function updateCounts() {
+    const counts = {
+        pending: approvals.filter(a => a.status === 'pending').length,
+        approved: approvals.filter(a => a.status === 'approved').length,
+        executed: approvals.filter(a => a.status === 'executed').length
+    };
+    
+    document.getElementById('pending-count').textContent = counts.pending;
+    document.getElementById('approved-count').textContent = counts.approved;
+    document.getElementById('executed-count').textContent = counts.executed;
+    
+    // Update navbar badge
+    const navBadge = document.getElementById('pending-approvals-badge');
+    if (navBadge) {
+        navBadge.textContent = counts.pending;
+        navBadge.style.display = counts.pending > 0 ? 'inline' : 'none';
+    }
+}
+
+function approveAll() {
+    const pendingApprovals = approvals.filter(a => a.status === 'pending');
+    if (pendingApprovals.length === 0) {
+        showToast('No pending approvals to approve', 'info');
+        return;
+    }
+    
+    if (confirm(`Approve all ${pendingApprovals.length} pending actions?`)) {
+        pendingApprovals.forEach(approval => {
+            updateApprovalStatus(approval.id, 'approved');
+        });
+        showToast(`Approved ${pendingApprovals.length} actions`, 'success');
+    }
+}
+
+function rejectAll() {
+    const pendingApprovals = approvals.filter(a => a.status === 'pending');
+    if (pendingApprovals.length === 0) {
+        showToast('No pending approvals to reject', 'info');
+        return;
+    }
+    
+    if (confirm(`Reject all ${pendingApprovals.length} pending actions?`)) {
+        pendingApprovals.forEach(approval => {
+            updateApprovalStatus(approval.id, 'rejected');
+        });
+        showToast(`Rejected ${pendingApprovals.length} actions`, 'warning');
+    }
+}
+
+function refreshApprovals() {
+    loadApprovals();
+    showToast('Approvals refreshed', 'info');
+}
+
+function getTimeAgo(date) {
+    const now = new Date();
+    const diff = now - date;
+    const minutes = Math.floor(diff / 60000);
+    const hours = Math.floor(diff / 3600000);
+    const days = Math.floor(diff / 86400000);
+    
+    if (days > 0) return `${days} day${days > 1 ? 's' : ''} ago`;
+    if (hours > 0) return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+    if (minutes > 0) return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+    return 'Just now';
+}
+
+function getStatusColor(status) {
+    const colors = {
+        'pending': 'warning',
+        'approved': 'success',
+        'rejected': 'danger',
+        'executed': 'info'
+    };
+    return colors[status] || 'secondary';
+}
+
+function getRiskClass(risk) {
+    const classes = {
+        'low': 'risk-low',
+        'medium': 'risk-medium',
+        'high': 'risk-high',
+        'critical': 'risk-critical'
+    };
+    return classes[risk] || 'risk-medium';
+}
+
+function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function showToast(message, type = 'info') {
+    // Use the global toast function from base template
+    const colors = {
+        'success': 'success',
+        'error': 'danger',
+        'warning': 'warning',
+        'info': 'info'
+    };
+    
+    const toast = document.getElementById('status-toast');
+    const toastBody = document.getElementById('status-message');
+    
+    toastBody.textContent = message;
+    toast.className = `toast align-items-center text-white bg-${colors[type]} border-0`;
+    
+    new bootstrap.Toast(toast).show();
+}
+
+// Initialize approvals when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadApprovals();
+    
+    // Auto-refresh every 30 seconds
+    setInterval(loadApprovals, 30000);
+});
+</script>
+{% endblock %}

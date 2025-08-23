@@ -1,0 +1,651 @@
+{% extends "base.html" %}
+
+{% block title %}Chat with Whis - AI Security Copilot{% endblock %}
+
+{% block extra_css %}
+<style>
+    .chat-container {
+        height: 70vh;
+        overflow-y: auto;
+        border: 1px solid #495057;
+        border-radius: 8px;
+        background: #2c2c2c;
+    }
+    
+    .message {
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        border-radius: 8px;
+    }
+    
+    .message.user {
+        background: #0d6efd;
+        margin-left: 20%;
+        text-align: right;
+    }
+    
+    .message.whis {
+        background: #198754;
+        margin-right: 20%;
+        text-align: left;
+    }
+    
+    .message.thinking {
+        background: #6c757d;
+        margin-right: 20%;
+        opacity: 0.8;
+        animation: pulse 1.5s ease-in-out infinite alternate;
+    }
+    
+    @keyframes pulse {
+        0% { opacity: 0.6; }
+        100% { opacity: 1.0; }
+    }
+    
+    .message-header {
+        font-size: 0.85em;
+        opacity: 0.8;
+        margin-bottom: 0.25rem;
+    }
+    
+    .response-actions {
+        background: #343a40;
+        border-radius: 5px;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        font-size: 0.9em;
+    }
+    
+    .action-item {
+        background: #495057;
+        border: 1px solid #6c757d;
+        border-radius: 3px;
+        padding: 0.25rem 0.5rem;
+        margin: 0.25rem;
+        display: inline-block;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    
+    .action-item:hover {
+        background: #5a6268;
+    }
+    
+    .input-group {
+        position: sticky;
+        bottom: 0;
+        background: #212529;
+        padding-top: 1rem;
+    }
+    
+    .typing-indicator {
+        display: none;
+        font-style: italic;
+        color: #6c757d;
+    }
+    
+    .whis-avatar {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(45deg, #198754, #20c997);
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.5rem;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+    
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(45deg, #0d6efd, #6610f2);
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0.5rem;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2><i class="fas fa-robot text-success"></i> Chat with Whis</h2>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-outline-info btn-sm" onclick="clearChat()">
+                    <i class="fas fa-trash"></i> Clear Chat
+                </button>
+                <button type="button" class="btn btn-outline-warning btn-sm" onclick="exportChat()">
+                    <i class="fas fa-download"></i> Export
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <!-- Chat Container -->
+        <div class="chat-container p-3" id="chatContainer">
+            <div class="message whis">
+                <div class="d-flex align-items-start">
+                    <div class="whis-avatar">W</div>
+                    <div class="flex-grow-1">
+                        <div class="message-header">
+                            <strong>Whis</strong> • <span class="text-muted">Just now</span>
+                        </div>
+                        <div class="message-content">
+                            👋 Hello! I'm Whis, your AI security copilot. I'm here to help with:
+                            <ul class="mt-2 mb-0">
+                                <li><strong>Incident Response</strong> - Step-by-step guidance aligned with NIST SP 800-61</li>
+                                <li><strong>Technical Analysis</strong> - PowerShell, network traffic, malware investigation</li>
+                                <li><strong>Executive Communication</strong> - Risk quantification and business justification</li>
+                                <li><strong>Implementation Help</strong> - Terraform, Kubernetes, security automation</li>
+                                <li><strong>Compliance Guidance</strong> - NIST CSF 2.0, SOC2, PCI-DSS alignment</li>
+                            </ul>
+                            <p class="mt-2 mb-0">Ask me anything about cybersecurity - I'll provide detailed, actionable guidance!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chat Input -->
+        <div class="input-group mt-3">
+            <span class="typing-indicator" id="typingIndicator">
+                <i class="fas fa-circle-notch fa-spin"></i> Whis is thinking...
+            </span>
+            <div class="input-group w-100">
+                <textarea class="form-control" id="messageInput" 
+                         placeholder="Ask Whis about security incidents, compliance, or implementation..." 
+                         rows="3" onkeypress="handleKeyPress(event)"></textarea>
+                <button class="btn btn-success" type="button" id="sendButton" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i> Send
+                </button>
+            </div>
+        </div>
+        
+        <!-- Quick Actions -->
+        <div class="row mt-3">
+            <div class="col-12">
+                <h6 class="text-muted">Quick Actions:</h6>
+                <div class="btn-group-toggle" data-toggle="buttons">
+                    <button class="btn btn-outline-primary btn-sm me-2 mb-2" 
+                            onclick="quickMessage('Explain how to investigate a potential APT attack')">
+                        <i class="fas fa-user-ninja"></i> APT Investigation
+                    </button>
+                    <button class="btn btn-outline-danger btn-sm me-2 mb-2" 
+                            onclick="quickMessage('We detected ransomware encryption. Need immediate response plan.')">
+                        <i class="fas fa-lock"></i> Ransomware Response
+                    </button>
+                    <button class="btn btn-outline-warning btn-sm me-2 mb-2" 
+                            onclick="quickMessage('How do I implement MFA without disrupting business?')">
+                        <i class="fas fa-key"></i> MFA Implementation
+                    </button>
+                    <button class="btn btn-outline-info btn-sm me-2 mb-2" 
+                            onclick="quickMessage('Need to align our security program with NIST CSF 2.0')">
+                        <i class="fas fa-clipboard-list"></i> NIST Compliance
+                    </button>
+                    <button class="btn btn-outline-success btn-sm me-2 mb-2" 
+                            onclick="quickMessage('Help me prepare a security budget presentation for the board')">
+                        <i class="fas fa-chart-line"></i> Executive Briefing
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Action Approval Modal -->
+<div class="modal fade" id="actionModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-cogs text-warning"></i> Actions Require Approval
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="actionModalBody">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" onclick="rejectActions()">Reject All</button>
+                <button type="button" class="btn btn-success" onclick="approveActions()">Approve All</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let socket;
+let currentActions = [];
+
+function initializeChat() {
+    socket = io();
+    
+    socket.on('connect', function() {
+        console.log('Connected to Whis interface');
+        showStatus('Connected to Whis', 'success');
+    });
+    
+    socket.on('disconnect', function() {
+        console.log('Disconnected from Whis interface');
+        showStatus('Disconnected from Whis', 'error');
+    });
+    
+    socket.on('whis_thinking', function(data) {
+        showThinkingMessage();
+    });
+    
+    socket.on('whis_response', function(data) {
+        hideThinkingMessage();
+        addWhisMessage(data.response, data.timestamp);
+        
+        // Check if response contains actions
+        if (data.response.artifacts || data.response.how) {
+            currentActions = data.response;
+            showActionModal(data.response);
+        }
+    });
+    
+    // Auto-scroll chat container
+    const chatContainer = document.getElementById('chatContainer');
+    const observer = new MutationObserver(() => {
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    });
+    observer.observe(chatContainer, { childList: true });
+}
+
+function sendMessage() {
+    const input = document.getElementById('messageInput');
+    const message = input.value.trim();
+    
+    if (!message) return;
+    
+    // Add user message to chat
+    addUserMessage(message);
+    
+    // Clear input
+    input.value = '';
+    
+    // Send to Whis via WebSocket
+    socket.emit('chat_message', { message: message });
+    
+    // Disable send button temporarily
+    const sendButton = document.getElementById('sendButton');
+    sendButton.disabled = true;
+    setTimeout(() => { sendButton.disabled = false; }, 2000);
+}
+
+function addUserMessage(message) {
+    const chatContainer = document.getElementById('chatContainer');
+    const timestamp = new Date().toLocaleTimeString();
+    
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message user';
+    messageDiv.innerHTML = `
+        <div class="d-flex align-items-start">
+            <div class="flex-grow-1">
+                <div class="message-header">
+                    <strong>You</strong> • <span class="text-muted">${timestamp}</span>
+                </div>
+                <div class="message-content">${escapeHtml(message)}</div>
+            </div>
+            <div class="user-avatar">{{ session.user_id[0].upper() }}</div>
+        </div>
+    `;
+    
+    chatContainer.appendChild(messageDiv);
+}
+
+function addWhisMessage(response, timestamp) {
+    const chatContainer = document.getElementById('chatContainer');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message whis';
+    
+    let content = '';
+    
+    // Format response based on type
+    if (response.error) {
+        content = `<div class="text-danger"><i class="fas fa-exclamation-triangle"></i> ${escapeHtml(response.error)}</div>`;
+    } else {
+        // Main guidance
+        if (response.guidance) {
+            content += `<div class="mb-2">${escapeHtml(response.guidance)}</div>`;
+        }
+        
+        // Triage steps
+        if (response.triage_steps && response.triage_steps.length > 0) {
+            content += `<div class="response-actions">
+                <h6><i class="fas fa-search"></i> Triage Steps:</h6>
+                <ol class="mb-0">
+                    ${response.triage_steps.map(step => `<li>${escapeHtml(step)}</li>`).join('')}
+                </ol>
+            </div>`;
+        }
+        
+        // Containment
+        if (response.containment && response.containment.length > 0) {
+            content += `<div class="response-actions">
+                <h6><i class="fas fa-shield-alt"></i> Containment:</h6>
+                <ol class="mb-0">
+                    ${response.containment.map(step => `<li>${escapeHtml(step)}</li>`).join('')}
+                </ol>
+            </div>`;
+        }
+        
+        // Remediation
+        if (response.remediation && response.remediation.length > 0) {
+            content += `<div class="response-actions">
+                <h6><i class="fas fa-tools"></i> Remediation:</h6>
+                <ol class="mb-0">
+                    ${response.remediation.map(step => `<li>${escapeHtml(step)}</li>`).join('')}
+                </ol>
+            </div>`;
+        }
+        
+        // MITRE techniques
+        if (response.mitre && response.mitre.length > 0) {
+            content += `<div class="response-actions">
+                <h6><i class="fas fa-bullseye"></i> MITRE ATT&CK:</h6>
+                <div class="mb-0">
+                    ${response.mitre.map(technique => 
+                        `<span class="action-item">${escapeHtml(technique)}</span>`
+                    ).join('')}
+                </div>
+            </div>`;
+        }
+        
+        // HOW implementation details
+        if (response.how) {
+            content += `<div class="response-actions">
+                <h6><i class="fas fa-cogs"></i> Implementation Plan:</h6>
+                ${formatHowDetails(response.how)}
+            </div>`;
+        }
+        
+        // Artifacts
+        if (response.artifacts && response.artifacts.length > 0) {
+            content += `<div class="response-actions">
+                <h6><i class="fas fa-file-code"></i> Generated Artifacts:</h6>
+                <div class="row">
+                    ${response.artifacts.map(artifact => 
+                        `<div class="col-md-6 mb-2">
+                            <div class="action-item w-100 text-center">
+                                <i class="fas fa-download"></i> ${escapeHtml(artifact.name)}
+                                <br><small class="text-muted">${escapeHtml(artifact.type)}</small>
+                            </div>
+                        </div>`
+                    ).join('')}
+                </div>
+            </div>`;
+        }
+        
+        // Citations
+        if (response.citations && response.citations.length > 0) {
+            content += `<div class="response-actions">
+                <h6><i class="fas fa-book"></i> References:</h6>
+                <div class="mb-0">
+                    ${response.citations.map(citation => 
+                        `<small class="text-info me-2">${escapeHtml(citation)}</small>`
+                    ).join('')}
+                </div>
+            </div>`;
+        }
+        
+        // Confidence score
+        if (response.confidence) {
+            const confidencePercent = Math.round(response.confidence * 100);
+            const confidenceColor = confidencePercent >= 90 ? 'success' : confidencePercent >= 70 ? 'warning' : 'danger';
+            content += `<div class="mt-2">
+                <small class="text-${confidenceColor}">
+                    <i class="fas fa-chart-line"></i> Confidence: ${confidencePercent}%
+                </small>
+            </div>`;
+        }
+    }
+    
+    const formattedTime = timestamp ? new Date(timestamp).toLocaleTimeString() : new Date().toLocaleTimeString();
+    
+    messageDiv.innerHTML = `
+        <div class="d-flex align-items-start">
+            <div class="whis-avatar">W</div>
+            <div class="flex-grow-1">
+                <div class="message-header">
+                    <strong>Whis</strong> • <span class="text-muted">${formattedTime}</span>
+                    ${response.response_time ? `• <span class="text-info">${response.response_time.toFixed(1)}s</span>` : ''}
+                </div>
+                <div class="message-content">${content}</div>
+            </div>
+        </div>
+    `;
+    
+    chatContainer.appendChild(messageDiv);
+}
+
+function showThinkingMessage() {
+    const chatContainer = document.getElementById('chatContainer');
+    const thinkingDiv = document.createElement('div');
+    thinkingDiv.className = 'message thinking';
+    thinkingDiv.id = 'thinking-message';
+    thinkingDiv.innerHTML = `
+        <div class="d-flex align-items-start">
+            <div class="whis-avatar"><i class="fas fa-circle-notch fa-spin"></i></div>
+            <div class="flex-grow-1">
+                <div class="message-header">
+                    <strong>Whis</strong> • <span class="text-muted">thinking...</span>
+                </div>
+                <div class="message-content">
+                    <i class="fas fa-brain"></i> Analyzing your request and consulting knowledge base...
+                </div>
+            </div>
+        </div>
+    `;
+    
+    chatContainer.appendChild(thinkingDiv);
+    document.getElementById('typingIndicator').style.display = 'block';
+}
+
+function hideThinkingMessage() {
+    const thinkingMessage = document.getElementById('thinking-message');
+    if (thinkingMessage) {
+        thinkingMessage.remove();
+    }
+    document.getElementById('typingIndicator').style.display = 'none';
+}
+
+function formatHowDetails(how) {
+    let content = '';
+    
+    if (how.plan && how.plan.length > 0) {
+        content += `<div class="mb-2">
+            <strong>Plan:</strong>
+            <ol class="mb-0">
+                ${how.plan.map(step => `<li>${escapeHtml(step)}</li>`).join('')}
+            </ol>
+        </div>`;
+    }
+    
+    if (how.prechecks && how.prechecks.length > 0) {
+        content += `<div class="mb-2">
+            <strong>Pre-checks:</strong>
+            <ul class="mb-0">
+                ${how.prechecks.map(check => `<li>${escapeHtml(check)}</li>`).join('')}
+            </ul>
+        </div>`;
+    }
+    
+    if (how.apply && how.apply.length > 0) {
+        content += `<div class="mb-2">
+            <strong>Apply Commands:</strong>
+            <pre class="bg-secondary p-2 rounded"><code>${how.apply.join('\\n')}</code></pre>
+        </div>`;
+    }
+    
+    return content;
+}
+
+function quickMessage(message) {
+    document.getElementById('messageInput').value = message;
+    sendMessage();
+}
+
+function handleKeyPress(event) {
+    if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        sendMessage();
+    }
+}
+
+function clearChat() {
+    if (confirm('Clear all chat history?')) {
+        document.getElementById('chatContainer').innerHTML = '';
+        // Add welcome message back
+        location.reload();
+    }
+}
+
+function exportChat() {
+    const messages = document.querySelectorAll('.message');
+    let exportText = 'Whis Chat Export\\n' + '='.repeat(50) + '\\n\\n';
+    
+    messages.forEach(message => {
+        const header = message.querySelector('.message-header').textContent;
+        const content = message.querySelector('.message-content').textContent;
+        exportText += header + '\\n' + content + '\\n\\n';
+    });
+    
+    const blob = new Blob([exportText], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `whis-chat-${new Date().toISOString().split('T')[0]}.txt`;
+    a.click();
+}
+
+function showActionModal(response) {
+    let modalContent = '';
+    
+    if (response.artifacts) {
+        modalContent += '<h6><i class="fas fa-file-code"></i> Generated Artifacts:</h6>';
+        modalContent += '<div class="row">';
+        response.artifacts.forEach(artifact => {
+            modalContent += `
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-secondary">
+                        <div class="card-body">
+                            <h6 class="card-title">${escapeHtml(artifact.name)}</h6>
+                            <p class="card-text">
+                                <small class="text-muted">Type: ${escapeHtml(artifact.type)}</small><br>
+                                <small class="text-muted">Path: ${escapeHtml(artifact.path)}</small>
+                            </p>
+                            <button class="btn btn-sm btn-outline-info" 
+                                    onclick="viewArtifact('${encodeURIComponent(JSON.stringify(artifact))}')">
+                                View Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        modalContent += '</div>';
+    }
+    
+    if (response.how) {
+        modalContent += '<h6 class="mt-3"><i class="fas fa-cogs"></i> Implementation Commands:</h6>';
+        if (response.how.apply) {
+            modalContent += '<pre class="bg-dark p-3 rounded"><code>';
+            modalContent += response.how.apply.join('\\n');
+            modalContent += '</code></pre>';
+        }
+    }
+    
+    document.getElementById('actionModalBody').innerHTML = modalContent;
+    new bootstrap.Modal(document.getElementById('actionModal')).show();
+}
+
+function viewArtifact(artifactJson) {
+    const artifact = JSON.parse(decodeURIComponent(artifactJson));
+    
+    const modal = document.createElement('div');
+    modal.className = 'modal fade';
+    modal.innerHTML = `
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title">${escapeHtml(artifact.name)}</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <pre class="bg-secondary p-3 rounded" style="max-height: 60vh; overflow-y: auto;"><code>${escapeHtml(artifact.contents)}</code></pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="downloadArtifact('${encodeURIComponent(JSON.stringify(artifact))}')">
+                        <i class="fas fa-download"></i> Download
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    new bootstrap.Modal(modal).show();
+    
+    modal.addEventListener('hidden.bs.modal', () => {
+        document.body.removeChild(modal);
+    });
+}
+
+function downloadArtifact(artifactJson) {
+    const artifact = JSON.parse(decodeURIComponent(artifactJson));
+    const blob = new Blob([artifact.contents], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = artifact.name;
+    a.click();
+}
+
+function approveActions() {
+    showStatus('Actions approved - ready for execution', 'success');
+    bootstrap.Modal.getInstance(document.getElementById('actionModal')).hide();
+}
+
+function rejectActions() {
+    showStatus('Actions rejected', 'warning');
+    bootstrap.Modal.getInstance(document.getElementById('actionModal')).hide();
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function showStatus(message, type = 'info') {
+    const toast = document.getElementById('status-toast');
+    const toastBody = document.getElementById('status-message');
+    
+    toastBody.textContent = message;
+    toast.className = `toast align-items-center text-white bg-${type} border-0`;
+    
+    new bootstrap.Toast(toast).show();
+}
+
+// Initialize chat when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initializeChat();
+});
+</script>
+{% endblock %}

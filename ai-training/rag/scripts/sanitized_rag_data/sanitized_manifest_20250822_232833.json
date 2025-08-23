@@ -1,0 +1,27 @@
+{
+  "sanitizer_version": "1.0",
+  "processed_at": "2025-08-23T03:28:33.144877Z",
+  "total_chunks": 39,
+  "security_controls": {
+    "pii_redacted": true,
+    "secrets_masked": true,
+    "deterministic_pseudonyms": true,
+    "provenance_tracking": true
+  },
+  "retrieval_policy": {
+    "teacher_mode": {
+      "k": 6,
+      "min_sources": 2,
+      "fallback": "insufficient_evidence_response"
+    },
+    "assistant_mode": {
+      "k": 8,
+      "required_patterns": [
+        "ATTACK",
+        "tool_specific"
+      ],
+      "fallback": "generic_with_disclaimer"
+    }
+  },
+  "chunks_file": "sanitized_rag_data/sanitized_chunks_20250822_232833.jsonl"
+}

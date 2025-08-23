@@ -1,0 +1,42 @@
+[
+  {
+    "scenario": "Mentor - Junior Analyst Support",
+    "query": "I'm new to security and just got an alert about suspicious PowerShell activity. I don't really know how to investigate this. Can you help me understand what I should look for?",
+    "expected_tone": "supportive and encouraging",
+    "expected_structure": "step-by-step guidance",
+    "learning_objectives": ["PowerShell investigation", "confidence building", "practical skills"],
+    "must_include": ["step-by-step instructions", "reassuring language", "learning opportunities", "practical commands"]
+  },
+  {
+    "scenario": "Mentor - Career Guidance",
+    "query": "I want to become a senior security analyst but don't know what skills I need to develop. What should I focus on learning?",
+    "expected_tone": "career coaching",
+    "expected_structure": "roadmap with priorities",
+    "learning_objectives": ["career progression", "skill development", "practical advice"],
+    "must_include": ["skill prioritization", "learning resources", "timeline guidance", "certification recommendations"]
+  },
+  {
+    "scenario": "Mentor - Technical Deep Dive",
+    "query": "I found some weird network traffic that looks like lateral movement but I'm not sure how to confirm it. What tools and techniques should I use?",
+    "expected_tone": "technical mentoring",
+    "expected_structure": "methodology explanation",
+    "learning_objectives": ["lateral movement detection", "investigation techniques", "tool usage"],
+    "must_include": ["investigation methodology", "specific tools", "what to look for", "validation steps"]
+  },
+  {
+    "scenario": "Mentor - Incident Response Training",
+    "query": "I'm on call tonight for the first time and I'm nervous about getting a real incident. What should I remember if something happens?",
+    "expected_tone": "confidence building",
+    "expected_structure": "incident response checklist",
+    "learning_objectives": ["incident response", "confidence", "practical procedures"],
+    "must_include": ["step-by-step checklist", "who to call", "what not to do", "confidence building"]
+  },
+  {
+    "scenario": "Mentor - Executive Communication",
+    "query": "I need to present security metrics to the board next week and I've never done this before. How do I explain technical security stuff to executives?",
+    "expected_tone": "presentation coaching",
+    "expected_structure": "communication strategy",
+    "learning_objectives": ["executive communication", "metrics presentation", "business language"],
+    "must_include": ["business language tips", "metric selection", "presentation structure", "common pitfalls"]
+  }
+]

@@ -148,4 +148,4 @@ splunk/cache/
 
 # LimaCharlie
 limacharlie/logs/
-limacharlie/cache/
+limacharlie/cache/red-blue-lab/.env
