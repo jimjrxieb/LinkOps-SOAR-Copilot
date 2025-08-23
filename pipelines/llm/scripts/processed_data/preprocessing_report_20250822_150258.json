@@ -1,0 +1,71 @@
+{
+  "preprocessing_config": {
+    "min_instruction_length": 30,
+    "max_instruction_length": 800,
+    "min_output_length": 100,
+    "max_output_length": 3000,
+    "min_quality_score": 0.65,
+    "remove_duplicates": true,
+    "normalize_whitespace": true,
+    "validate_cybersec_content": true,
+    "required_tags": [
+      "Teacher",
+      "Assistant"
+    ],
+    "cybersec_keywords": [
+      "security",
+      "attack",
+      "T1110",
+      "4625",
+      "SOAR",
+      "SIEM"
+    ],
+    "prompt_template": "alpaca",
+    "sequence_length": 2048,
+    "validation_split": 0.15,
+    "test_split": 0.1
+  },
+  "statistics": {
+    "original_examples": 123,
+    "processed_examples": 42,
+    "filtered_examples": 45,
+    "duplicate_examples": 36,
+    "invalid_examples": 45,
+    "train_examples": 32,
+    "validation_examples": 6,
+    "test_examples": 4
+  },
+  "dataset_analysis": {
+    "total_examples": 42,
+    "avg_instruction_length": 139.04761904761904,
+    "avg_output_length": 951.1666666666666,
+    "instruction_length_std": 44.41522281989126,
+    "output_length_std": 198.97103362605878,
+    "tag_distribution": {
+      "Assistant": 20,
+      "SOAR:playbook": 20,
+      "Response": 20,
+      "Teacher": 9,
+      "Windows:4625": 5,
+      "ATTACK:T1110": 5,
+      "Severity:Low": 5,
+      "Severity:Medium": 5,
+      "Severity:High": 5,
+      "Severity:Critical": 5
+    },
+    "avg_quality_score": 0.8303431423941243,
+    "quality_score_std": 0.08002487975172035,
+    "low_quality_examples": 0,
+    "content_features": {
+      "examples_with_code": 37,
+      "examples_with_formatting": 42,
+      "examples_with_lists": 42
+    }
+  },
+  "output_files": {
+    "train_dataset": "processed_data/train_dataset_20250822_150258.json",
+    "validation_dataset": "processed_data/val_dataset_20250822_150258.json",
+    "test_dataset": "processed_data/test_dataset_20250822_150258.json"
+  },
+  "processing_timestamp": "2025-08-22T15:02:58.242870"
+}

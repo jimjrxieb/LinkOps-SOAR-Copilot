@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            🤖 <strong>Whis SOAR-Copilot</strong>
+        </div>
+        <div class="nav-links">
+            <a href="/" class="active">Dashboard</a>
+            <a href="/incidents">Incidents</a>
+            <a href="/approvals">Approvals</a>
+            <a href="/training">Training</a>
+        </div>
+        <div class="nav-status">
+            <span class="status-dot online"></span>
+            <span>Live</span>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>🖥️ Operator Dashboard</h1>
+            <p>Real-time monitoring of Whis SOAR-Copilot operations</p>
+        </div>
+
+        <!-- Key Metrics Cards -->
+        <div class="metrics-grid">
+            <div class="metric-card incidents">
+                <div class="metric-icon">🚨</div>
+                <div class="metric-content">
+                    <h3>Active Incidents</h3>
+                    <div class="metric-value" id="active-incidents">--</div>
+                    <div class="metric-change">+2 in last hour</div>
+                </div>
+            </div>
+
+            <div class="metric-card approvals">
+                <div class="metric-icon">✋</div>
+                <div class="metric-content">
+                    <h3>Pending Approvals</h3>
+                    <div class="metric-value" id="pending-approvals">--</div>
+                    <div class="metric-change">Requiring attention</div>
+                </div>
+            </div>
+
+            <div class="metric-card training">
+                <div class="metric-icon">🧠</div>
+                <div class="metric-content">
+                    <h3>Training Examples</h3>
+                    <div class="metric-value" id="training-examples">--</div>
+                    <div class="metric-change">From red vs blue</div>
+                </div>
+            </div>
+
+            <div class="metric-card system">
+                <div class="metric-icon">⚡</div>
+                <div class="metric-content">
+                    <h3>System Status</h3>
+                    <div class="metric-value" id="system-status">Operational</div>
+                    <div class="metric-change">All systems green</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="dashboard-grid">
+            <div class="dashboard-section">
+                <h2>🔥 Recent Incidents</h2>
+                <div class="incident-list" id="recent-incidents">
+                    <div class="loading">Loading incidents...</div>
+                </div>
+                <div class="section-footer">
+                    <a href="/incidents" class="view-all-link">View All Incidents →</a>
+                </div>
+            </div>
+
+            <div class="dashboard-section">
+                <h2>⏳ Pending Approvals</h2>
+                <div class="approval-list" id="pending-approvals-list">
+                    <div class="loading">Loading approvals...</div>
+                </div>
+                <div class="section-footer">
+                    <a href="/approvals" class="view-all-link">View All Approvals →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Attack Chain Analysis -->
+        <div class="dashboard-section full-width">
+            <h2>🔗 Attack Chain Analysis</h2>
+            <div class="chain-stats" id="chain-stats">
+                <div class="loading">Loading attack chain data...</div>
+            </div>
+        </div>
+
+        <!-- Red vs Blue Training Status -->
+        <div class="dashboard-section full-width">
+            <h2>🎯 Red vs Blue Training Loop</h2>
+            <div class="training-status" id="training-status">
+                <div class="training-metric">
+                    <span class="label">Attack Chains Ready:</span>
+                    <span class="value" id="chains-ready">--</span>
+                </div>
+                <div class="training-metric">
+                    <span class="label">Model Version:</span>
+                    <span class="value" id="model-version">whis-mega-v1.0</span>
+                </div>
+                <div class="training-metric">
+                    <span class="label">Quality Score:</span>
+                    <span class="value" id="quality-score">--</span>
+                </div>
+                <div class="training-actions">
+                    <button class="btn btn-primary" onclick="generateTrainingData()">
+                        🔄 Generate Training Data
+                    </button>
+                    <button class="btn btn-secondary" onclick="triggerRetraining()">
+                        🚀 Trigger Retraining
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/dashboard.js"></script>
+</body>
+</html>

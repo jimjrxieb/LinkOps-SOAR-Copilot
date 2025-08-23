@@ -1,0 +1,1 @@
+torch>=2.1.0\ntransformers>=4.40.0\npeft>=0.7.0\ndatasets>=2.16.0\naccelerate>=0.25.0\nbitsandbytes>=0.41.0\nsentence-transformers>=2.2.0\nscikit-learn>=1.3.0\npandas>=2.1.0\nnumpy>=1.24.0\ntqdm>=4.65.0\ntensorboard>=2.15.0\njupyter>=1.0.0\njupyterlab>=4.0.0\nmatplotlib>=3.7.0\nseaborn>=0.12.0

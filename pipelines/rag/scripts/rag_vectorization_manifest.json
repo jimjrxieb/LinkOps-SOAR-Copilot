@@ -1,0 +1,39 @@
+{
+  "vectorization_config": {
+    "dataset_file": "consolidated_rag_training_data.json",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "vector_dimension": 384,
+    "chunk_size": 512,
+    "chunk_overlap": 64,
+    "similarity_threshold": 0.75,
+    "index_type": "faiss_flat"
+  },
+  "preprocessing_config": {
+    "sanitization_required": true,
+    "pii_redaction": true,
+    "content_validation": true,
+    "quality_threshold": 0.8
+  },
+  "dataset_summary": {
+    "total_examples": 50,
+    "categories": 146,
+    "complexity_levels": [
+      "standard",
+      "advanced"
+    ],
+    "source_datasets": [
+      "basic_rag",
+      "advanced_rag",
+      "threat_intel_rag",
+      "soar_automation_rag"
+    ]
+  },
+  "quality_metrics": {
+    "deduplication_rate": "0.0%",
+    "avg_query_length": 87,
+    "avg_response_length": 346,
+    "coverage_score": 2.92
+  },
+  "created_date": "2025-08-22T17:57:01.817393",
+  "ready_for_vectorization": true
+}

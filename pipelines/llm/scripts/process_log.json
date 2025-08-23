@@ -1,0 +1,40 @@
+[
+  {
+    "timestamp": "2025-08-22T15:44:33.240495",
+    "event_type": "duplicate_cleanup",
+    "details": {
+      "action": "processes_killed",
+      "processes_killed": 1,
+      "killed_pids": [
+        215271
+      ],
+      "kept_process": {
+        "pid": 215295,
+        "name": "python3",
+        "cmdline": "/home/jimmie/.pyenv/versions/3.11.9/bin/python3 safe_train_whis.py",
+        "create_time": "2025-08-22T15:44:30.570000",
+        "memory_mb": 14.1
+      },
+      "message": "Killed 1 duplicate processes"
+    }
+  },
+  {
+    "timestamp": "2025-08-22T17:11:28.113516",
+    "event_type": "duplicate_cleanup",
+    "details": {
+      "action": "processes_killed",
+      "processes_killed": 1,
+      "killed_pids": [
+        216776
+      ],
+      "kept_process": {
+        "pid": 216800,
+        "name": "python3",
+        "cmdline": "/home/jimmie/.pyenv/versions/3.11.9/bin/python3 safe_train_whis.py",
+        "create_time": "2025-08-22T17:11:25.440000",
+        "memory_mb": 13.9
+      },
+      "message": "Killed 1 duplicate processes"
+    }
+  }
+]

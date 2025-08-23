@@ -1,0 +1,43 @@
+{
+  "setup_timestamp": "2025-08-22T14:22:41.725449",
+  "project_root": "/home/jimmie/linkops-industries/SOAR-copilot",
+  "training_directory": "/home/jimmie/linkops-industries/SOAR-copilot/training",
+  "model_configuration": {
+    "base_model": "codellama/CodeLlama-7b-Instruct-hf",
+    "model_name": "whis-cybersec-7b",
+    "max_sequence_length": 4096,
+    "use_lora": true,
+    "use_4bit": true
+  },
+  "training_domains": [
+    "attack_techniques",
+    "detection_rules",
+    "incident_response",
+    "vulnerability_analysis",
+    "compliance_frameworks",
+    "cloud_security",
+    "security_tools"
+  ],
+  "target_certifications": [
+    "CKS",
+    "CCSP",
+    "CISSP",
+    "GCIH",
+    "GIAC"
+  ],
+  "integration_points": [
+    "Splunk SIEM",
+    "LimaCharlie EDR",
+    "SOAR platforms",
+    "Threat intelligence feeds"
+  ],
+  "files_created": [
+    "model_config.py",
+    "data_collection.py",
+    "evaluation_metrics.py",
+    "whis_cybersec_finetuning.ipynb",
+    "train_whis.py",
+    "launch_jupyter.sh",
+    "requirements.txt"
+  ]
+}

@@ -1,0 +1,31 @@
+# WHIS Red vs Blue Lab Configuration
+# Copy this file to terraform.tfvars and update with your values
+
+# Basic Configuration
+resource_group_name = "whis-redvsblue-lab"
+location           = "East US"
+prefix             = "whis-lab"
+
+# VM Configuration  
+vm_size        = "Standard_D2s_v3"  # 2 vCPU, 8GB RAM
+admin_username = "labadmin"
+
+# Network Access (UPDATE THESE!)
+attacker_ip = "YOUR_COWORKER_IP/32"  # Red team IP - CHANGE THIS
+soc_ip      = "YOUR_IP/32"           # Blue team IP - CHANGE THIS
+
+# Monitoring Configuration
+splunk_server_ip = "10.10.1.10"           # Can be same as VM for standalone
+splunk_hec_token = "YOUR_SPLUNK_HEC_TOKEN" # Get from Splunk HEC config
+lc_install_key   = "YOUR_LC_INSTALL_KEY"   # Get from LimaCharlie portal
+
+# Lab Scenario
+lab_scenario = "basic"  # Options: basic, apt, ransomware, lateral_movement
+
+# Optional: Additional VMs for complex scenarios
+additional_vulnerable_vms = 0
+
+# Vulnerability Flags
+enable_file_shares         = true
+enable_weak_passwords      = true  
+install_vulnerable_software = true

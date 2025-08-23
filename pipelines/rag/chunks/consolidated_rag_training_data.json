@@ -1,0 +1,37 @@
+{
+  "dataset_info": {
+    "name": "Whis Consolidated RAG Training Data",
+    "version": "4.0",
+    "created_date": "2025-08-22T18:32:04.084703",
+    "total_examples": 0,
+    "total_loaded": 0,
+    "total_deduplicated": 0,
+    "deduplication_rate": "0.0%",
+    "source_datasets": {
+      "basic_rag": {
+        "loaded": 0,
+        "unique": 0,
+        "duplicates": 0
+      },
+      "advanced_rag": {
+        "loaded": 0,
+        "unique": 0,
+        "duplicates": 0
+      },
+      "threat_intel_rag": {
+        "loaded": 0,
+        "unique": 0,
+        "duplicates": 0
+      },
+      "soar_automation_rag": {
+        "loaded": 0,
+        "unique": 0,
+        "duplicates": 0
+      }
+    },
+    "categories": {},
+    "complexity_distribution": {},
+    "tag_distribution": {}
+  },
+  "examples": []
+}

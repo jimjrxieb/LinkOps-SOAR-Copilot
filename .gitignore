@@ -55,13 +55,58 @@ logs/
 *.sqlite3
 *.sqlite
 
-# Models and Data
-models/
-data/
-*.gguf
-*.bin
-*.pt
-*.safetensors
+# env & secrets
+.env
+.env.*
+*.tfvars
+
+# caches
+**/__pycache__/
+**/.pytest_cache/
+**/.ruff_cache/
+**/.mypy_cache/
+**/.ipynb_checkpoints/
+
+# node
+**/node_modules/
+**/dist/
+**/build/
+
+# big artifacts (generated) - NEVER commit these
+**/*.safetensors
+**/*.bin
+**/*.pt
+**/*.onnx
+**/*.faiss
+**/*.sqlite3
+**/*.npy
+**/*.pkl
+**/*.ckpt
+**/*.pth
+
+# pipeline artifacts
+pipelines/**/scripts/logs/**
+pipelines/**/scripts/results/**
+pipelines/rag/chunks/*embeddings*.json
+pipelines/rag/vectorstore/*.faiss
+pipelines/llm/models/**/*.safetensors
+pipelines/llm/models/**/*.bin
+pipelines/llm/scripts/codellama-cache/**
+
+# training logs (keep summaries only)
+**/*training*.log
+**/*gpu*.log
+**/runs/**
+
+# training artifacts
+*.tfevents.*
+runs/
+wandb/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+*:*Zone.Identifier
 
 # Security
 *.key

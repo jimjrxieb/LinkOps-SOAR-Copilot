@@ -1,0 +1,42 @@
+{
+  "demo_timestamp": "2025-08-22T15:27:43.719065",
+  "duration_seconds": 0.02669811248779297,
+  "score": "1/6",
+  "components": {
+    "gpu_active": false,
+    "training_complete": false,
+    "teacher_quality": false,
+    "assistant_sections": false,
+    "approval_gates": false,
+    "transparency": true
+  },
+  "detailed_results": {
+    "gpu_status": {
+      "utilization": 0,
+      "memory_used": 3372,
+      "memory_total": 16303,
+      "active": false
+    },
+    "training_complete": false,
+    "teacher_demo": {
+      "status": "model_not_ready"
+    },
+    "assistant_demo": {
+      "status": "model_not_ready"
+    },
+    "rag_transparency": {
+      "manifests_exist": true,
+      "source_count": 4,
+      "citation_policy": "mandatory",
+      "transparency": "full"
+    }
+  },
+  "mentor_criteria": {
+    "teacher_fields_mentioned": "LogonType, AccountName, IpAddress",
+    "fp_patterns_covered": "service accounts, user behavior",
+    "attack_mapping": "T1110",
+    "four_sections": "detection_outline, playbook_choice, limacharlie_actions, team_update",
+    "approval_required": true,
+    "manifests_transparency": "MANIFESTS.md available"
+  }
+}

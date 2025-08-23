@@ -1,0 +1,875 @@
+instruction,input,output,category,source,quality_score,word_count,has_code
+Explain MITRE ATT&CK technique T1110 (Brute Force) and provide comprehensive detection and response guidance.,Security analyst needs to understand Brute Force attacks and how to detect them.,"**MITRE ATT&CK T1110: Brute Force**
+
+**Description:**
+Adversaries may use brute force techniques to gain access to accounts
+
+**Detection Strategy:**
+Monitor for multiple failed authentication attempts
+
+**Key Indicators:**
+- Unusual process behavior
+- Suspicious network connections
+- Anomalous authentication patterns
+- Unexpected file modifications
+
+**Response Actions:**
+1. **Immediate**: Isolate affected systems
+2. **Investigation**: Analyze attack timeline and scope
+3. **Containment**: Block malicious IPs and processes
+4. **Recovery**: Restore from clean backups if needed
+
+**Mitigation:**
+Implement account lockout policies and MFA
+
+**Hunting Queries:**
+```spl
+index=security technique_id=""T1110""
+| stats count by src_ip, dest_host, process_name
+| where count > threshold
+```
+
+**References:**
+- MITRE ATT&CK: https://attack.mitre.org/techniques/T1110/
+- NIST SP 800-53 controls
+- CIS Critical Security Controls",attack_techniques,mitre_attack,0.95,112,True
+Explain MITRE ATT&CK technique T1566 (Phishing) and provide comprehensive detection and response guidance.,Security analyst needs to understand Phishing attacks and how to detect them.,"**MITRE ATT&CK T1566: Phishing**
+
+**Description:**
+Adversaries may send phishing messages to gain access to victim systems
+
+**Detection Strategy:**
+Monitor email attachments and suspicious links
+
+**Key Indicators:**
+- Unusual process behavior
+- Suspicious network connections
+- Anomalous authentication patterns
+- Unexpected file modifications
+
+**Response Actions:**
+1. **Immediate**: Isolate affected systems
+2. **Investigation**: Analyze attack timeline and scope
+3. **Containment**: Block malicious IPs and processes
+4. **Recovery**: Restore from clean backups if needed
+
+**Mitigation:**
+User training and email security controls
+
+**Hunting Queries:**
+```spl
+index=security technique_id=""T1566""
+| stats count by src_ip, dest_host, process_name
+| where count > threshold
+```
+
+**References:**
+- MITRE ATT&CK: https://attack.mitre.org/techniques/T1566/
+- NIST SP 800-53 controls
+- CIS Critical Security Controls",attack_techniques,mitre_attack,0.95,111,True
+Explain MITRE ATT&CK technique T1055 (Process Injection) and provide comprehensive detection and response guidance.,Security analyst needs to understand Process Injection attacks and how to detect them.,"**MITRE ATT&CK T1055: Process Injection**
+
+**Description:**
+Adversaries may inject code into processes to evade defenses
+
+**Detection Strategy:**
+Monitor for process creation and memory modification
+
+**Key Indicators:**
+- Unusual process behavior
+- Suspicious network connections
+- Anomalous authentication patterns
+- Unexpected file modifications
+
+**Response Actions:**
+1. **Immediate**: Isolate affected systems
+2. **Investigation**: Analyze attack timeline and scope
+3. **Containment**: Block malicious IPs and processes
+4. **Recovery**: Restore from clean backups if needed
+
+**Mitigation:**
+Application isolation and endpoint protection
+
+**Hunting Queries:**
+```spl
+index=security technique_id=""T1055""
+| stats count by src_ip, dest_host, process_name
+| where count > threshold
+```
+
+**References:**
+- MITRE ATT&CK: https://attack.mitre.org/techniques/T1055/
+- NIST SP 800-53 controls
+- CIS Critical Security Controls",attack_techniques,mitre_attack,0.95,110,True
+Explain MITRE ATT&CK technique T1021 (Remote Services) and provide comprehensive detection and response guidance.,Security analyst needs to understand Remote Services attacks and how to detect them.,"**MITRE ATT&CK T1021: Remote Services**
+
+**Description:**
+Adversaries may use valid accounts to log into remote services
+
+**Detection Strategy:**
+Monitor for unusual logon patterns and geographic anomalies
+
+**Key Indicators:**
+- Unusual process behavior
+- Suspicious network connections
+- Anomalous authentication patterns
+- Unexpected file modifications
+
+**Response Actions:**
+1. **Immediate**: Isolate affected systems
+2. **Investigation**: Analyze attack timeline and scope
+3. **Containment**: Block malicious IPs and processes
+4. **Recovery**: Restore from clean backups if needed
+
+**Mitigation:**
+Network segmentation and privileged access management
+
+**Hunting Queries:**
+```spl
+index=security technique_id=""T1021""
+| stats count by src_ip, dest_host, process_name
+| where count > threshold
+```
+
+**References:**
+- MITRE ATT&CK: https://attack.mitre.org/techniques/T1021/
+- NIST SP 800-53 controls
+- CIS Critical Security Controls",attack_techniques,mitre_attack,0.95,113,True
+Explain MITRE ATT&CK technique T1059 (Command and Scripting Interpreter) and provide comprehensive detection and response guidance.,Security analyst needs to understand Command and Scripting Interpreter attacks and how to detect them.,"**MITRE ATT&CK T1059: Command and Scripting Interpreter**
+
+**Description:**
+Adversaries may abuse command interpreters to execute commands
+
+**Detection Strategy:**
+Monitor command-line activity and script execution
+
+**Key Indicators:**
+- Unusual process behavior
+- Suspicious network connections
+- Anomalous authentication patterns
+- Unexpected file modifications
+
+**Response Actions:**
+1. **Immediate**: Isolate affected systems
+2. **Investigation**: Analyze attack timeline and scope
+3. **Containment**: Block malicious IPs and processes
+4. **Recovery**: Restore from clean backups if needed
+
+**Mitigation:**
+Application controls and PowerShell logging
+
+**Hunting Queries:**
+```spl
+index=security technique_id=""T1059""
+| stats count by src_ip, dest_host, process_name
+| where count > threshold
+```
+
+**References:**
+- MITRE ATT&CK: https://attack.mitre.org/techniques/T1059/
+- NIST SP 800-53 controls
+- CIS Critical Security Controls",attack_techniques,mitre_attack,0.95,110,True
+Create detection rules for MITRE ATT&CK technique T1110 (Brute Force).,Need to detect Brute Force attacks in SIEM environment.,"**Detection Rules for T1110: Brute Force**
+
+**Splunk Detection:**
+```spl
+index=security sourcetype=WinEventLog:Security
+| eval technique_id=""T1110""
+| search EventCode=4624 OR EventCode=4625
+| stats count by src_ip, user, technique_id
+| where count > 5
+| eval severity=case(count > 20, ""High"", count > 10, ""Medium"", 1=1, ""Low"")
+```
+
+**LimaCharlie D&R Rule:**
+```yaml
+detect:
+  event: NEW_PROCESS
+  op: and
+  rules:
+    - op: contains
+      path: event/COMMAND_LINE
+      value: suspicious_pattern
+      case_sensitive: false
+
+respond:
+  - action: report
+    name: t1110_detection
+  - action: isolation
+    duration: 3600
+    reason: Potential Brute Force detected
+```
+
+**Sigma Rule:**
+```yaml
+title: Brute Force Detection
+id: 5b080f9d-8945-4e77-981c-16699dceb0b5
+status: experimental
+description: Detects potential Brute Force activity
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    Image|endswith: '.exe'
+    CommandLine|contains: 'suspicious'
+  condition: selection
+falsepositives:
+  - Legitimate administrative activity
+level: medium
+tags:
+  - attack.t1110
+```
+
+**Tuning Guidance:**
+- Adjust thresholds based on environment baseline
+- Whitelist known legitimate processes
+- Correlate with threat intelligence feeds",detection_rules,mitre_attack,0.9,141,True
+Create detection rules for MITRE ATT&CK technique T1566 (Phishing).,Need to detect Phishing attacks in SIEM environment.,"**Detection Rules for T1566: Phishing**
+
+**Splunk Detection:**
+```spl
+index=security sourcetype=WinEventLog:Security
+| eval technique_id=""T1566""
+| search EventCode=4624 OR EventCode=4625
+| stats count by src_ip, user, technique_id
+| where count > 5
+| eval severity=case(count > 20, ""High"", count > 10, ""Medium"", 1=1, ""Low"")
+```
+
+**LimaCharlie D&R Rule:**
+```yaml
+detect:
+  event: NEW_PROCESS
+  op: and
+  rules:
+    - op: contains
+      path: event/COMMAND_LINE
+      value: suspicious_pattern
+      case_sensitive: false
+
+respond:
+  - action: report
+    name: t1566_detection
+  - action: isolation
+    duration: 3600
+    reason: Potential Phishing detected
+```
+
+**Sigma Rule:**
+```yaml
+title: Phishing Detection
+id: 77fbb308-98fb-4e77-981c-16699dceb0b5
+status: experimental
+description: Detects potential Phishing activity
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    Image|endswith: '.exe'
+    CommandLine|contains: 'suspicious'
+  condition: selection
+falsepositives:
+  - Legitimate administrative activity
+level: medium
+tags:
+  - attack.t1566
+```
+
+**Tuning Guidance:**
+- Adjust thresholds based on environment baseline
+- Whitelist known legitimate processes
+- Correlate with threat intelligence feeds",detection_rules,mitre_attack,0.9,137,True
+Create detection rules for MITRE ATT&CK technique T1055 (Process Injection).,Need to detect Process Injection attacks in SIEM environment.,"**Detection Rules for T1055: Process Injection**
+
+**Splunk Detection:**
+```spl
+index=security sourcetype=WinEventLog:Security
+| eval technique_id=""T1055""
+| search EventCode=4624 OR EventCode=4625
+| stats count by src_ip, user, technique_id
+| where count > 5
+| eval severity=case(count > 20, ""High"", count > 10, ""Medium"", 1=1, ""Low"")
+```
+
+**LimaCharlie D&R Rule:**
+```yaml
+detect:
+  event: NEW_PROCESS
+  op: and
+  rules:
+    - op: contains
+      path: event/COMMAND_LINE
+      value: suspicious_pattern
+      case_sensitive: false
+
+respond:
+  - action: report
+    name: t1055_detection
+  - action: isolation
+    duration: 3600
+    reason: Potential Process Injection detected
+```
+
+**Sigma Rule:**
+```yaml
+title: Process Injection Detection
+id: 6b5b16b3-3e55-4e77-981c-16699dceb0b5
+status: experimental
+description: Detects potential Process Injection activity
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    Image|endswith: '.exe'
+    CommandLine|contains: 'suspicious'
+  condition: selection
+falsepositives:
+  - Legitimate administrative activity
+level: medium
+tags:
+  - attack.t1055
+```
+
+**Tuning Guidance:**
+- Adjust thresholds based on environment baseline
+- Whitelist known legitimate processes
+- Correlate with threat intelligence feeds",detection_rules,mitre_attack,0.9,141,True
+Create detection rules for MITRE ATT&CK technique T1021 (Remote Services).,Need to detect Remote Services attacks in SIEM environment.,"**Detection Rules for T1021: Remote Services**
+
+**Splunk Detection:**
+```spl
+index=security sourcetype=WinEventLog:Security
+| eval technique_id=""T1021""
+| search EventCode=4624 OR EventCode=4625
+| stats count by src_ip, user, technique_id
+| where count > 5
+| eval severity=case(count > 20, ""High"", count > 10, ""Medium"", 1=1, ""Low"")
+```
+
+**LimaCharlie D&R Rule:**
+```yaml
+detect:
+  event: NEW_PROCESS
+  op: and
+  rules:
+    - op: contains
+      path: event/COMMAND_LINE
+      value: suspicious_pattern
+      case_sensitive: false
+
+respond:
+  - action: report
+    name: t1021_detection
+  - action: isolation
+    duration: 3600
+    reason: Potential Remote Services detected
+```
+
+**Sigma Rule:**
+```yaml
+title: Remote Services Detection
+id: 3c2f966b-e9fd-4e77-981c-16699dceb0b5
+status: experimental
+description: Detects potential Remote Services activity
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    Image|endswith: '.exe'
+    CommandLine|contains: 'suspicious'
+  condition: selection
+falsepositives:
+  - Legitimate administrative activity
+level: medium
+tags:
+  - attack.t1021
+```
+
+**Tuning Guidance:**
+- Adjust thresholds based on environment baseline
+- Whitelist known legitimate processes
+- Correlate with threat intelligence feeds",detection_rules,mitre_attack,0.9,141,True
+Create detection rules for MITRE ATT&CK technique T1059 (Command and Scripting Interpreter).,Need to detect Command and Scripting Interpreter attacks in SIEM environment.,"**Detection Rules for T1059: Command and Scripting Interpreter**
+
+**Splunk Detection:**
+```spl
+index=security sourcetype=WinEventLog:Security
+| eval technique_id=""T1059""
+| search EventCode=4624 OR EventCode=4625
+| stats count by src_ip, user, technique_id
+| where count > 5
+| eval severity=case(count > 20, ""High"", count > 10, ""Medium"", 1=1, ""Low"")
+```
+
+**LimaCharlie D&R Rule:**
+```yaml
+detect:
+  event: NEW_PROCESS
+  op: and
+  rules:
+    - op: contains
+      path: event/COMMAND_LINE
+      value: suspicious_pattern
+      case_sensitive: false
+
+respond:
+  - action: report
+    name: t1059_detection
+  - action: isolation
+    duration: 3600
+    reason: Potential Command and Scripting Interpreter detected
+```
+
+**Sigma Rule:**
+```yaml
+title: Command and Scripting Interpreter Detection
+id: 1d9003eb-907c-4e77-981c-16699dceb0b5
+status: experimental
+description: Detects potential Command and Scripting Interpreter activity
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    Image|endswith: '.exe'
+    CommandLine|contains: 'suspicious'
+  condition: selection
+falsepositives:
+  - Legitimate administrative activity
+level: medium
+tags:
+  - attack.t1059
+```
+
+**Tuning Guidance:**
+- Adjust thresholds based on environment baseline
+- Whitelist known legitimate processes
+- Correlate with threat intelligence feeds",detection_rules,mitre_attack,0.9,149,True
+Explain Kubernetes pod security standards security best practices for CKS certification.,DevSecOps team needs to implement pod security standards enforce security policies.,"**Kubernetes Pod Security Standards (CKS)**
+
+**Restricted Profile Configuration:**
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: secure-namespace
+  labels:
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/warn: restricted
+spec: {}
+```
+
+**Secure Pod Configuration:**
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secure-pod
+spec:
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+  - name: app
+    image: nginx:alpine
+    securityContext:
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop:
+        - ALL
+    resources:
+      limits:
+        memory: ""256Mi""
+        cpu: ""200m""
+```
+
+**Implementation Steps:**
+1. Enable Pod Security admission controller
+2. Configure namespace labels for enforcement
+3. Test policies in warn/audit mode first
+4. Gradually enforce across environments",cloud_security,cks_knowledge,0.92,98,True
+Explain Kubernetes network policies security best practices for CKS certification.,DevSecOps team needs to implement control network traffic between pods.,"**Kubernetes Network Policies (CKS)**
+
+**Default Deny-All Policy:**
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: production
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+```
+
+**Selective Allow Policy:**
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: web-to-api
+spec:
+  podSelector:
+    matchLabels:
+      app: api
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: web
+    ports:
+    - protocol: TCP
+      port: 8080
+```
+
+**Best Practices:**
+- Implement zero-trust networking
+- Use label selectors for granular control
+- Test policies in non-production first
+- Monitor network flows for compliance",cloud_security,cks_knowledge,0.92,85,True
+Explain Kubernetes rbac security best practices for CKS certification.,DevSecOps team needs to implement role-based access control for kubernetes resources.,"**Rbac Security**
+
+Role-Based Access Control for Kubernetes resources
+
+Example: Implement least privilege access with specific role bindings",cloud_security,cks_knowledge,0.92,17,False
+Explain Kubernetes secrets management security best practices for CKS certification.,DevSecOps team needs to implement secure handling of sensitive data in kubernetes.,"**Secrets Management Security**
+
+Secure handling of sensitive data in Kubernetes
+
+Example: Use external secret managers and encryption at rest",cloud_security,cks_knowledge,0.92,19,False
+Explain Kubernetes runtime security security best practices for CKS certification.,DevSecOps team needs to implement monitor and protect running containers.,"**Runtime Security Security**
+
+Monitor and protect running containers
+
+Example: Deploy Falco for runtime threat detection",cloud_security,cks_knowledge,0.92,15,False
+Explain data classification best practices for CCSP certification.,Cloud security team needs guidance on identify and classify data based on sensitivity.,"**CCSP Domain: Data Classification**
+
+**Overview:**
+Identify and classify data based on sensitivity
+
+**Key Concepts:**
+- Shared responsibility model
+- Cloud service models (IaaS, PaaS, SaaS)
+- Compliance and regulatory requirements
+- Risk management frameworks
+
+**Implementation Guidelines:**
+1. **Assessment**: Evaluate current cloud security posture
+2. **Design**: Implement security controls based on requirements
+3. **Deploy**: Roll out security measures with proper testing
+4. **Monitor**: Continuous monitoring and improvement
+
+**Best Practices:**
+- Follow cloud provider security recommendations
+- Implement defense in depth strategies
+- Regular security assessments and audits
+- Staff training and awareness programs
+
+**Common Challenges:**
+- Multi-cloud complexity
+- Shared responsibility confusion
+- Compliance across jurisdictions
+- Skills and resource gaps",cloud_security,ccsp_knowledge,0.9,110,False
+Explain identity access management best practices for CCSP certification.,Cloud security team needs guidance on implement strong iam controls in cloud.,"**CCSP Domain: Identity Access Management**
+
+**Overview:**
+Implement strong IAM controls in cloud
+
+**Key Concepts:**
+- Shared responsibility model
+- Cloud service models (IaaS, PaaS, SaaS)
+- Compliance and regulatory requirements
+- Risk management frameworks
+
+**Implementation Guidelines:**
+1. **Assessment**: Evaluate current cloud security posture
+2. **Design**: Implement security controls based on requirements
+3. **Deploy**: Roll out security measures with proper testing
+4. **Monitor**: Continuous monitoring and improvement
+
+**Best Practices:**
+- Follow cloud provider security recommendations
+- Implement defense in depth strategies
+- Regular security assessments and audits
+- Staff training and awareness programs
+
+**Common Challenges:**
+- Multi-cloud complexity
+- Shared responsibility confusion
+- Compliance across jurisdictions
+- Skills and resource gaps",cloud_security,ccsp_knowledge,0.9,110,False
+Explain encryption best practices for CCSP certification.,Cloud security team needs guidance on protect data in transit and at rest.,"**CCSP Domain: Encryption**
+
+**Overview:**
+Protect data in transit and at rest
+
+**Key Concepts:**
+- Shared responsibility model
+- Cloud service models (IaaS, PaaS, SaaS)
+- Compliance and regulatory requirements
+- Risk management frameworks
+
+**Implementation Guidelines:**
+1. **Assessment**: Evaluate current cloud security posture
+2. **Design**: Implement security controls based on requirements
+3. **Deploy**: Roll out security measures with proper testing
+4. **Monitor**: Continuous monitoring and improvement
+
+**Best Practices:**
+- Follow cloud provider security recommendations
+- Implement defense in depth strategies
+- Regular security assessments and audits
+- Staff training and awareness programs
+
+**Common Challenges:**
+- Multi-cloud complexity
+- Shared responsibility confusion
+- Compliance across jurisdictions
+- Skills and resource gaps",cloud_security,ccsp_knowledge,0.9,109,False
+Explain security monitoring best practices for CCSP certification.,Cloud security team needs guidance on continuous monitoring of cloud environments.,"**CCSP Domain: Security Monitoring**
+
+**Overview:**
+Continuous monitoring of cloud environments
+
+**Key Concepts:**
+- Shared responsibility model
+- Cloud service models (IaaS, PaaS, SaaS)
+- Compliance and regulatory requirements
+- Risk management frameworks
+
+**Implementation Guidelines:**
+1. **Assessment**: Evaluate current cloud security posture
+2. **Design**: Implement security controls based on requirements
+3. **Deploy**: Roll out security measures with proper testing
+4. **Monitor**: Continuous monitoring and improvement
+
+**Best Practices:**
+- Follow cloud provider security recommendations
+- Implement defense in depth strategies
+- Regular security assessments and audits
+- Staff training and awareness programs
+
+**Common Challenges:**
+- Multi-cloud complexity
+- Shared responsibility confusion
+- Compliance across jurisdictions
+- Skills and resource gaps",cloud_security,ccsp_knowledge,0.9,108,False
+Explain incident response best practices for CCSP certification.,Cloud security team needs guidance on cloud-specific incident response procedures.,"**CCSP Domain: Incident Response**
+
+**Overview:**
+Cloud-specific incident response procedures
+
+**Key Concepts:**
+- Shared responsibility model
+- Cloud service models (IaaS, PaaS, SaaS)
+- Compliance and regulatory requirements
+- Risk management frameworks
+
+**Implementation Guidelines:**
+1. **Assessment**: Evaluate current cloud security posture
+2. **Design**: Implement security controls based on requirements
+3. **Deploy**: Roll out security measures with proper testing
+4. **Monitor**: Continuous monitoring and improvement
+
+**Best Practices:**
+- Follow cloud provider security recommendations
+- Implement defense in depth strategies
+- Regular security assessments and audits
+- Staff training and awareness programs
+
+**Common Challenges:**
+- Multi-cloud complexity
+- Shared responsibility confusion
+- Compliance across jurisdictions
+- Skills and resource gaps",cloud_security,ccsp_knowledge,0.9,107,False
+Create a comprehensive SOAR playbook for phishing investigation.,Security team needs automated response for: User reports suspicious email,"**SOAR Playbook: Phishing Investigation**
+
+**Trigger Condition:**
+User reports suspicious email
+
+**Playbook Steps:**
+1. Email analysis
+2. URL/attachment scanning
+3. User impact assessment
+4. Response actions
+
+**Automation Workflow:**
+```python
+# SOAR Playbook Implementation
+class PhishingInvestigationPlaybook:
+    def __init__(self):
+        self.name = ""phishing_investigation""
+        self.severity_threshold = ""medium""
+        self.auto_approve = False
+    
+    async def execute(self, incident):
+        # Step 1: Initial assessment
+        assessment = await self.assess_incident(incident)
+        
+        # Step 2: Automated actions
+        if assessment.confidence > 0.8:
+            await self.execute_immediate_actions(incident)
+        
+        # Step 3: Human approval for critical actions
+        if assessment.requires_approval:
+            approval = await self.request_approval(incident, assessment)
+            if approval.approved:
+                await self.execute_approved_actions(incident, approval.actions)
+        
+        # Step 4: Documentation and learning
+        await self.document_incident(incident, assessment)
+        return assessment
+    
+    async def assess_incident(self, incident):
+        # Implement assessment logic
+        pass
+```
+
+**Integration Points:**
+- SIEM: Receive alerts and enrich with context
+- EDR: Execute containment actions
+- Threat Intelligence: Correlate with known threats
+- Communication: Notify stakeholders
+
+**Approval Gates:**
+- High-impact actions require human approval
+- Low-risk actions can be auto-executed
+- All actions are logged and auditable
+
+**Success Metrics:**
+- Mean time to detection (MTTD)
+- Mean time to response (MTTR)
+- False positive reduction
+- Analyst productivity improvement",soar_automation,soar_playbooks,0.93,179,True
+Create a comprehensive SOAR playbook for malware containment.,Security team needs automated response for: Endpoint detection alert,"**SOAR Playbook: Malware Containment**
+
+**Trigger Condition:**
+Endpoint detection alert
+
+**Playbook Steps:**
+1. Isolate endpoint
+2. Collect forensics
+3. Analyze malware
+4. Remediate systems
+
+**Automation Workflow:**
+```python
+# SOAR Playbook Implementation
+class MalwareContainmentPlaybook:
+    def __init__(self):
+        self.name = ""malware_containment""
+        self.severity_threshold = ""medium""
+        self.auto_approve = False
+    
+    async def execute(self, incident):
+        # Step 1: Initial assessment
+        assessment = await self.assess_incident(incident)
+        
+        # Step 2: Automated actions
+        if assessment.confidence > 0.8:
+            await self.execute_immediate_actions(incident)
+        
+        # Step 3: Human approval for critical actions
+        if assessment.requires_approval:
+            approval = await self.request_approval(incident, assessment)
+            if approval.approved:
+                await self.execute_approved_actions(incident, approval.actions)
+        
+        # Step 4: Documentation and learning
+        await self.document_incident(incident, assessment)
+        return assessment
+    
+    async def assess_incident(self, incident):
+        # Implement assessment logic
+        pass
+```
+
+**Integration Points:**
+- SIEM: Receive alerts and enrich with context
+- EDR: Execute containment actions
+- Threat Intelligence: Correlate with known threats
+- Communication: Notify stakeholders
+
+**Approval Gates:**
+- High-impact actions require human approval
+- Low-risk actions can be auto-executed
+- All actions are logged and auditable
+
+**Success Metrics:**
+- Mean time to detection (MTTD)
+- Mean time to response (MTTR)
+- False positive reduction
+- Analyst productivity improvement",soar_automation,soar_playbooks,0.93,177,True
+Create a comprehensive SOAR playbook for data breach response.,Security team needs automated response for: Data exfiltration detected,"**SOAR Playbook: Data Breach Response**
+
+**Trigger Condition:**
+Data exfiltration detected
+
+**Playbook Steps:**
+1. Assess scope
+2. Contain breach
+3. Notify stakeholders
+4. Forensic analysis
+
+**Automation Workflow:**
+```python
+# SOAR Playbook Implementation
+class DataBreachResponsePlaybook:
+    def __init__(self):
+        self.name = ""data_breach_response""
+        self.severity_threshold = ""medium""
+        self.auto_approve = False
+    
+    async def execute(self, incident):
+        # Step 1: Initial assessment
+        assessment = await self.assess_incident(incident)
+        
+        # Step 2: Automated actions
+        if assessment.confidence > 0.8:
+            await self.execute_immediate_actions(incident)
+        
+        # Step 3: Human approval for critical actions
+        if assessment.requires_approval:
+            approval = await self.request_approval(incident, assessment)
+            if approval.approved:
+                await self.execute_approved_actions(incident, approval.actions)
+        
+        # Step 4: Documentation and learning
+        await self.document_incident(incident, assessment)
+        return assessment
+    
+    async def assess_incident(self, incident):
+        # Implement assessment logic
+        pass
+```
+
+**Integration Points:**
+- SIEM: Receive alerts and enrich with context
+- EDR: Execute containment actions
+- Threat Intelligence: Correlate with known threats
+- Communication: Notify stakeholders
+
+**Approval Gates:**
+- High-impact actions require human approval
+- Low-risk actions can be auto-executed
+- All actions are logged and auditable
+
+**Success Metrics:**
+- Mean time to detection (MTTD)
+- Mean time to response (MTTR)
+- False positive reduction
+- Analyst productivity improvement",soar_automation,soar_playbooks,0.93,178,True

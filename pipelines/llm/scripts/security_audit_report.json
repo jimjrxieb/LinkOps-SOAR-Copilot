@@ -1,0 +1,140 @@
+{
+  "audit_timestamp": "2025-08-22T15:27:26.462661",
+  "overall_status": "NEEDS_ATTENTION",
+  "score": "2/4",
+  "checks": {
+    "token_security": {
+      "hardcoded_tokens": [],
+      "env_tokens": [
+        "ANTHROPIC_API_KEY"
+      ],
+      "status": "SECURE",
+      "recommendation": "All tokens should be in environment variables only"
+    },
+    "approval_flags": {
+      "validation_issues": [
+        {
+          "file": "training_data/expanded_dataset_20250822_145947.json",
+          "example_index": 45,
+          "issue": "Assistant mode LC action without approval_required: true"
+        },
+        {
+          "file": "training_data/expanded_dataset_20250822_145947.json",
+          "example_index": 46,
+          "issue": "Assistant mode LC action without approval_required: true"
+        },
+        {
+          "file": "training_data/expanded_dataset_20250822_145947.json",
+          "example_index": 49,
+          "issue": "Assistant mode LC action without approval_required: true"
+        },
+        {
+          "file": "training_data/expanded_dataset_20250822_145947.json",
+          "example_index": 50,
+          "issue": "Assistant mode LC action without approval_required: true"
+        },
+        {
+          "file": "training_data/expanded_dataset_20250822_145947.json",
+          "example_index": 53,
+          "issue": "Assistant mode LC action without approval_required: true"
+        },
+        {
+          "file": "training_data/expanded_dataset_20250822_145947.json",
+          "example_index": 54,
+          "issue": "Assistant mode LC action without approval_required: true"
+        },
+        {
+          "file": "training_data/expanded_dataset_20250822_145947.json",
+          "example_index": 57,
+          "issue": "Assistant mode LC action without approval_required: true"
+        },
+        {
+          "file": "training_data/expanded_dataset_20250822_145947.json",
+          "example_index": 58,
+          "issue": "Assistant mode LC action without approval_required: true"
+        },
+        {
+          "file": "training_data/expanded_dataset_20250822_145947.json",
+          "example_index": 61,
+          "issue": "Assistant mode LC action without approval_required: true"
+        },
+        {
+          "file": "training_data/expanded_dataset_20250822_145947.json",
+          "example_index": 62,
+          "issue": "Assistant mode LC action without approval_required: true"
+        }
+      ],
+      "files_checked": 4,
+      "status": "NEEDS_FIX",
+      "policy": "All LimaCharlie actions must have approval_required: true"
+    },
+    "pii_redaction": {
+      "pii_findings": [
+        {
+          "file": "processed_data/train_dataset_20250822_150258.json",
+          "pattern_type": "Other",
+          "matches": [
+            "Response Plan",
+            "Authentication Incident",
+            "Detection Outline",
+            "Playbook Selection",
+            "Brute Force"
+          ],
+          "count": 294
+        },
+        {
+          "file": "processed_data/val_dataset_20250822_150258.json",
+          "pattern_type": "Other",
+          "matches": [
+            "Response Plan",
+            "Authentication Incident",
+            "Detection Outline",
+            "Playbook Selection",
+            "Brute Force"
+          ],
+          "count": 55
+        },
+        {
+          "file": "processed_data/test_dataset_20250822_150258.json",
+          "pattern_type": "Other",
+          "matches": [
+            "Password Spraying",
+            "Password Spraying",
+            "Technique Description",
+            "Detection Indicators",
+            "Detection Rules"
+          ],
+          "count": 35
+        },
+        {
+          "file": "training_data/expanded_dataset_20250822_145947.json",
+          "pattern_type": "Other",
+          "matches": [
+            "Explain Windows",
+            "Failed Logon",
+            "Windows Event",
+            "Event Overview",
+            "Key Fields"
+          ],
+          "count": 680
+        }
+      ],
+      "files_checked": 4,
+      "status": "NEEDS_REVIEW",
+      "policy": "Only synthetic/redacted data allowed in training"
+    },
+    "lora_only_policy": {
+      "violations": [],
+      "compliant_dirs": [],
+      "status": "COMPLIANT",
+      "policy": "Save only LoRA adapters, not merged base weights"
+    }
+  },
+  "recommendations": [
+    "Rotate HuggingFace token after demo",
+    "Keep all tokens in environment variables only",
+    "Ensure all LC actions have approval_required: true",
+    "Use only synthetic data in training examples",
+    "Save only LoRA adapters, not full model weights"
+  ]
+}

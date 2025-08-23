@@ -1,0 +1,38 @@
+======================================================================
+🎯 WHIS LLM TRAINING MONITOR - LIVE PIPELINE
+======================================================================
+📅 Updated: 2025-08-22 21:23:48
+⏱️ Running Time: 14840s | Iteration: 2607
+
+📊 TRAINING PROCESS:
+------------------------------
+❌ Status: NOT RUNNING
+
+🎮 GPU STATUS:
+------------------------------
+⚡ Utilization: [░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 0.0%
+💾 VRAM: 7350MB / 16303MB
+🌡️ Temperature: 45°C
+📦 Phase: MODEL LOADED
+
+🔧 LLM FINE-TUNING PIPELINE:
+------------------------------
+⏳ 1. Load Dataset
+✅ 2. Load Base Model
+✅ 3. Apply LoRA Adapters
+⏳ 4. Training Loop
+⏳ 5. Save Checkpoint
+⏳ 6. Complete
+
+💾 MODEL OUTPUT:
+------------------------------
+⏳ No model output yet...
+
+⚙️ CONFIGURATION:
+------------------------------
+📚 Base Model: CodeLlama-7b-Instruct
+🔧 Method: LoRA (Low-Rank Adaptation)
+📊 Dataset: 23 cybersecurity examples
+🎯 Optimization: 4-bit quantization
+
+======================================================================

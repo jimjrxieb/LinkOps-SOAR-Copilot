@@ -1,0 +1,175 @@
+{
+  "timestamp": "2025-08-22T18:48:58.366691",
+  "model_path": "./whis-cybersec-model",
+  "test_count": 9,
+  "overall_score": 0.6425925925925927,
+  "mode_averages": {
+    "teacher": 0.7333333333333334,
+    "assistant": 0.5,
+    "rag": 0.6944444444444443
+  },
+  "detailed_results": [
+    {
+      "mode": "teacher",
+      "test": "MITRE ATT&CK Explanation",
+      "prompt": "Explain MITRE ATT&CK T1110.004 (Credential Stuffing) with detection strategies.",
+      "response": "T1110.004 Credential Stuffing: Adversaries steal valid credentials from compromised systems or data sources. Subtechnique: Network Service Scanning. Detection: Monitor network traffic for suspicious credential queries, unusual destination IPs, high-volume account logon activity, and credential reuse over time....",
+      "score": 0.6,
+      "elements_found": 3,
+      "total_elements": 5
+    },
+    {
+      "mode": "teacher",
+      "test": "Windows Event Analysis",
+      "prompt": "What is Windows Event ID 4625 and how is it used for security monitoring?",
+      "response": "Windows Event ID 4625 is generated during network logon attempts. This event is critical for security monitoring due to its potential impact on network security and integrity. The following key fields should be monitored: Account Name, Target Server, Authentication Status, and Source Network Address. Anomalous behavior can arise from failed or unsuccessful logon attempts, which may indicate lateral movement or malicious activities. It's essential to establish baselines regularly and investigate unusual patterns in this data.",
+      "score": 0.8,
+      "elements_found": 4,
+      "total_elements": 5
+    },
+    {
+      "mode": "teacher",
+      "test": "Splunk Query Education",
+      "prompt": "How do you create a Splunk search to detect brute force attacks?",
+      "response": "A Splunk search to detect brute force attacks involves analyzing Windows Event 4625 logs for frequent failed logon attempts from a single source. To complete this task, follow these steps:\n\n1. Index the event data: `index=security`\n2. Filter events: `EventCode=4625`\n3. Bucket data: `bucket _time span=5m`\n4. Group results: `stats count as failures, dc(Account_Name) as unique_accounts by src_ip, _time`\n5. Filter results: `where failures > 5 AND unique_accounts > 1`\n6. Calculate risk score: `eval risk_score = failures * unique_accounts`\n\nThis search will identify potential brute force attacks based on multiple failed logon events from the same source within a 5-minute time window. The resulting risk score represents the potential impact of each attack, providing context for further investigation.",
+      "score": 0.8,
+      "elements_found": 4,
+      "total_elements": 5
+    },
+    {
+      "mode": "assistant",
+      "test": "SOAR Playbook Generation",
+      "prompt": "Create a SOAR response plan for a brute force authentication attack with 50 failed logons from external IP.",
+      "response": "Action: **Determine if it's a legitimate user or a brute force attack**\n* Query: `index=security EventCode=4625 | bucket _time span=5m | stats count as failures, dc(Account_Name) as unique_accounts by src_ip, _time | where failures > 5 AND unique_accounts > 1`\n* Response: `if failures > 5 AND unique_accounts > 1 { label incident.category \"Brute Force Attack\" } else { label incident.category \"Legitimate User\" }`\n\nAction: **Initiate incident response**\n* Query: `index=security EventCode=4625 | bucket _time span=5m | stats count as failures, dc(Account_Name) as unique_accounts by src_ip, _time | where failures > 5 AND unique_accounts > 1`\n* Response: `label incident.category \"Brute Force Attack\" | eval risk_score = failures * unique_accounts | set severity high | run command \"block ip <src_ip>\" | create incident`\n\nAction: **Execute incident response procedure**\n* Query: `incident where category=\"Brute Force Attack\"`\n* Response: `run command \"block ip <src_ip>\" | run command \"reset password <user>\" | set status acknowledged | run command \"notify <owner> of <severity> incident on <category>\"`\n\nAction: **Approve automation remediation**\n* Query: `incident where category=\"Brute Force Attack\" AND severity=\"high\"`\n* Response: `approve automation remediation \"Block IP\" | approve automation remediation \"Reset Password\"`\n\nAction:",
+      "score": 0.3333333333333333,
+      "elements_found": 2,
+      "total_elements": 6
+    },
+    {
+      "mode": "assistant",
+      "test": "LimaCharlie Automation",
+      "prompt": "Generate LimaCharlie EDR automation rules to detect and respond to suspicious process injection.",
+      "response": "\ud83d\udd0e **Detection rule:**\n```yaml\ndetect:\n  event: NEW_PROCESS\n  op: and\n  rules:\n    - op: contains\n      path: event/PARENT_NAME\n      value: \"CMD.exe\"\n    - op: contains\n      path: event/COMMAND_LINE\n      value: \"/c\"\n    - op: contains\n      path: event/COMMAND_LINE\n      value: \"powershell\"\nrespond:\n  - action: report\n    name: suspicious_cmd_ps_injection\n```\n\ud83d\udee1\ufe0f **Approval gate:** `approval_required: true`\n\ud83d\udcbb **Implementation details:** Rule should be applied in real-time, with response triggering upon match. Acknowledgement should be required for each incident, with escalation to security operations team as needed.\n\ud83d\ude80 **SOAR playbook:** [Malware - Suspicious process injection](https://github.com/whosonfirst/limacharlie-soar-playbooks/blob/main/malware-suspicious-process-injection.md)",
+      "score": 0.8333333333333334,
+      "elements_found": 5,
+      "total_elements": 6
+    },
+    {
+      "mode": "assistant",
+      "test": "Incident Response Actions",
+      "prompt": "Provide immediate response actions for a detected ransomware attack on domain controller.",
+      "response": "**Immediate response actions**: 1) Isolate affected systems (network isolation, not power-off), 2) Assess scope via EDR/SIEM queries, 3) Preserve memory dumps and logs, 4) Notify incident commander and legal team, 5) Begin asset inventory of impacted systems, 6) Implement backup assessment and recovery planning...",
+      "score": 0.3333333333333333,
+      "elements_found": 2,
+      "total_elements": 6
+    },
+    {
+      "mode": "rag",
+      "test": "RAG Retrieval 1",
+      "query": "MITRE ATT&CK brute force detection",
+      "results_count": 3,
+      "score": 0.6666666666666666,
+      "best_result": {
+        "rank": 1,
+        "score": 0.5383215896328881,
+        "distance": 0.8576256632804871,
+        "entry": {
+          "id": "rag_example_004",
+          "query": "Explain MITRE ATT&CK technique T1078 and provide detection strategies",
+          "context": "T1078 (Valid Accounts) involves adversaries using legitimate credentials to maintain access. Subtechniques include T1078.001 (Default Accounts), T1078.002 (Domain Accounts), T1078.003 (Local Accounts), and T1078.004 (Cloud Accounts). Detection focuses on unusual access patterns, privilege usage, and cross-system authentication.",
+          "expected_response": "T1078 Valid Accounts: Adversaries use legitimate credentials. Subtechniques: Default/Domain/Local/Cloud accounts. Detection: Monitor unusual login patterns, privilege escalation, geographic anomalies, and failed-then-successful authentication sequences.",
+          "knowledge_source": "MITRE ATT&CK Framework",
+          "tags": [
+            "mitre_attack",
+            "T1078",
+            "valid_accounts",
+            "detection"
+          ],
+          "source_dataset": "basic_rag",
+          "created_date": "2025-08-22T17:52:22.260386",
+          "content_hash": "f88ec881",
+          "retrieval_type": "supervised_learning",
+          "complexity_level": "standard",
+          "intelligence_type": "tactical"
+        },
+        "metadata": {
+          "id": 3,
+          "source": "unknown",
+          "domain": "cybersecurity"
+        }
+      }
+    },
+    {
+      "mode": "rag",
+      "test": "RAG Retrieval 2",
+      "query": "Windows Event 4625 failed authentication",
+      "results_count": 3,
+      "score": 0.75,
+      "best_result": {
+        "rank": 1,
+        "score": 0.5809403598660526,
+        "distance": 0.7213470935821533,
+        "entry": {
+          "id": "rag_example_001",
+          "query": "What does Windows Event ID 4624 indicate and what are the key fields?",
+          "context": "Windows Event 4624 represents successful logon events. Key fields include LogonType (2=interactive, 3=network, 10=RemoteInteractive), Account Name, Source Network Address, and Logon Process. This event is crucial for tracking user authentication activity.",
+          "expected_response": "Event 4624 indicates successful user logon. Key fields: LogonType (2=interactive, 3=network, 10=remote), Account Name, Source IP, Logon Process. Critical for authentication monitoring and baseline establishment.",
+          "knowledge_source": "Windows Security Event Reference",
+          "tags": [
+            "windows",
+            "authentication",
+            "event_4624",
+            "teacher_mode"
+          ],
+          "source_dataset": "basic_rag",
+          "created_date": "2025-08-22T17:52:22.260351",
+          "content_hash": "37060eed",
+          "retrieval_type": "supervised_learning",
+          "complexity_level": "standard",
+          "intelligence_type": "tactical"
+        },
+        "metadata": {
+          "id": 0,
+          "source": "unknown",
+          "domain": "cybersecurity"
+        }
+      }
+    },
+    {
+      "mode": "rag",
+      "test": "RAG Retrieval 3",
+      "query": "Splunk SIEM correlation rules",
+      "results_count": 3,
+      "score": 0.6666666666666666,
+      "best_result": {
+        "rank": 1,
+        "score": 0.5390040572086793,
+        "distance": 0.8552736043930054,
+        "entry": {
+          "id": "rag_example_009",
+          "query": "How do you create a Splunk correlation search for lateral movement detection?",
+          "context": "Lateral movement involves authentication across multiple systems in short time periods. Detection should correlate successful logons (4624) across different hosts from the same user account within suspicious timeframes.",
+          "expected_response": "index=security EventCode=4624 | eval src_category=case(cidrmatch(\"192.168.0.0/16\",src_ip),\"internal\", 1=1,\"external\") | where src_category=\"internal\" | stats dc(dest_host) as unique_hosts, values(dest_host) as hosts by user, _time | where unique_hosts > 3",
+          "knowledge_source": "Splunk Security Use Cases",
+          "tags": [
+            "splunk",
+            "lateral_movement",
+            "correlation",
+            "advanced"
+          ],
+          "source_dataset": "basic_rag",
+          "created_date": "2025-08-22T17:52:22.260394",
+          "content_hash": "5d15b52d",
+          "retrieval_type": "supervised_learning",
+          "complexity_level": "standard",
+          "intelligence_type": "tactical"
+        },
+        "metadata": {
+          "id": 8,
+          "source": "unknown",
+          "domain": "cybersecurity"
+        }
+      }
+    }
+  ]
+}

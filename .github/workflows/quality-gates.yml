@@ -1,0 +1,124 @@
+name: 🚦 WHIS Quality Gates
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'apps/api/**'
+      - 'tests/**'
+      - 'pipelines/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'apps/api/**'
+      - 'tests/**'
+      - 'pipelines/**'
+
+jobs:
+  quality-gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    
+    steps:
+    - name: 🔄 Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+        
+    - name: 📦 Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+        pip install transformers peft accelerate bitsandbytes
+        pip install fastapi uvicorn pydantic aiohttp
+        pip install pytest pytest-asyncio
+        
+    - name: 🏗️ Setup Environment
+      run: |
+        echo "Setting up WHIS test environment..."
+        export PYTHONPATH="${PYTHONPATH}:${GITHUB_WORKSPACE}/apps/api"
+        
+    - name: 🧪 Run Unit Tests
+      run: |
+        cd tests
+        python -m pytest --tb=short -v || true
+        
+    - name: 🚦 Run Quality Gates
+      id: quality_gates
+      run: |
+        cd tests
+        python ci_quality_check.py
+        
+    - name: 📊 Upload Quality Gate Results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: quality-gate-results
+        path: tests/quality_gate_results.json
+        retention-days: 30
+        
+    - name: 📈 Comment PR Results
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          try {
+            const results = JSON.parse(fs.readFileSync('tests/quality_gate_results.json', 'utf8'));
+            
+            const status = results.deployment_approved ? '✅ PASSED' : '❌ FAILED';
+            const summary = results.summary;
+            
+            let comment = `## 🚦 WHIS Quality Gates Results\n\n`;
+            comment += `**Overall Status:** ${status}\n`;
+            comment += `**Gates:** ${summary.passed} passed, ${summary.warnings} warnings, ${summary.failed} failed\n\n`;
+            
+            comment += `### Gate Details\n`;
+            for (const [gateName, gateData] of Object.entries(results.gates)) {
+              const statusEmoji = gateData.status === 'passed' ? '✅' : 
+                                gateData.status === 'warning' ? '⚠️' : '❌';
+              comment += `${statusEmoji} **${gateName.replace('_', ' ').toUpperCase()}**: ${gateData.score.toFixed(3)} (req: ${gateData.threshold})\n`;
+            }
+            
+            if (!results.deployment_approved) {
+              comment += `\n🛑 **Deployment blocked** - Please fix failed quality gates before merging.\n`;
+            }
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+          } catch (error) {
+            console.error('Failed to post comment:', error);
+          }
+          
+    - name: 🛑 Fail Build on Quality Gate Failure
+      if: failure()
+      run: |
+        echo "Quality gates failed - blocking deployment"
+        exit 1
+
+  security-scan:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - name: 🔄 Checkout Code  
+      uses: actions/checkout@v4
+      
+    - name: 🔒 Security Scan with Bandit
+      run: |
+        pip install bandit[toml]
+        bandit -r apps/api/ -f json -o bandit-report.json || true
+        
+    - name: 📊 Upload Security Scan
+      uses: actions/upload-artifact@v3
+      with:
+        name: security-scan-results
+        path: bandit-report.json

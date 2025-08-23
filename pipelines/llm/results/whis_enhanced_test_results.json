@@ -1,0 +1,110 @@
+{
+  "timestamp": "2025-08-22T20:31:35.945759",
+  "model_version": "whis-cybersec-k8s-enhanced",
+  "total_tests": 11,
+  "overall_score": 0.48719474546014147,
+  "category_scores": {
+    "kubernetes_security": 0.36,
+    "multi_domain_integration": 0.6,
+    "enhanced_rag": 0.586380733353852
+  },
+  "knowledge_base_size": 106,
+  "detailed_results": [
+    {
+      "mode": "kubernetes",
+      "test": "Pod Security Context",
+      "prompt": "Create a secure Pod specification with security context best practices",
+      "response": "```yaml\napiVersion: v1\nkind: Pod\nmetadata:\n  name: secure-nginx\n  labels:\n    app: secure-nginx\nspec:\n  securityContext:\n    runAsNonRoot: true\n    runAsUser: 1001\n    runAsGroup: 1001\n    fsGroup: 1001\n    seccompProfile:\n      type: RuntimeDefault\n  containers:\n  - name: nginx\n    image: nginx:1.21.6@sha256:2834dc507516af02784808c5f48b7cbe38b8ed5d0f4837f16e78d00deb7e7767\n    securityContext:\n      allowPrivilegeEscalation: false\n      readOnlyRootFilesystem: true\n      capabilities:\n        drop: [\"all\"]\n---\nApproved for execution. Detection query: ```\n\n### Action Item:\nReview and approve the generated response",
+      "score": 1.0,
+      "elements_found": 5,
+      "total_elements": 5
+    },
+    {
+      "mode": "kubernetes",
+      "test": "Network Policy Zero Trust",
+      "prompt": "Design NetworkPolicies for zero-trust networking in Kubernetes",
+      "response": "\ud83d\udca1 Implement network policies to restrict communication between pods and services based on their roles and responsibilities.\n\n\ud83d\udd0e Query detection: Detect network-policy violations based on unrestricted communication patterns.\n\n\ud83d\udcdd Response: Apply network-policies to restrict access to sensitive resources and applications.\n\n\ud83d\udc69\u200d\ud83c\udfeb Operational guidance: Implement network policies across all namespaces to maintain zero-trust networking.\n\n\ud83d\udd17 References:\n- [Kubernetes Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)\n- [Zero-Trust Network Design Patterns](https://www.usenix.org/system/files/conference/sec20/sec20-final-93.pdf)\n- [Network Security Best Practices](https://docs.aws.amazon.com/whitepapers/latest/network-security-best-practices/index.html)",
+      "score": 0.0,
+      "elements_found": 0,
+      "total_elements": 5
+    },
+    {
+      "mode": "kubernetes",
+      "test": "RBAC Least Privilege",
+      "prompt": "Create RBAC configuration for a CI/CD pipeline with least privilege",
+      "response": "\ud83d\ude80 Deploy `ci-pipeline` service account with limited privileges\n\n```sh\nkubectl apply -f ci-pipeline-sa.yaml\n```\n\n\ud83d\udcaa Verify RBAC settings\n\n```sh\nkubectl get sa ci-pipeline -o yaml\n```\n\n\ud83c\udfaf Next steps:\n- Review RBAC audit logs\n- Rotate credentials regularly\n\n### Applicable Knowledge Entries:\nKubernetes security best practices, rbac-security implementation, CI/CD pipelines, RBAC principles",
+      "score": 0.0,
+      "elements_found": 0,
+      "total_elements": 5
+    },
+    {
+      "mode": "kubernetes",
+      "test": "Container Image Security",
+      "prompt": "Explain container image signing and verification with cosign",
+      "response": "**Container Image Signing and Verification with Cosign:**\n\n**1. Signed Image Deployment:**\n```yaml\napiVersion: apps/v1\nkind: Deployment\nspec:\n  selector:\n    matchLabels:\n      app: nginx\n  template:\n    metadata:\n      labels:\n        app: nginx\n    spec:\n      containers:\n      - name: nginx\n        image: myregistry.com/myapp:v1.0.0\n        imagePullPolicy: Always\n```\n**2. Signature Verification (Kyverno):**\n```yaml\napiVersion: kyverno.io/v1\nkind: ClusterImageSignatureVerify\nmetadata:\n  name: verify-signature\nspec:\n  imageSignatures:\n  - image: myregistry.com/myapp:v1.0.0\n    predicateType: sbom\n  - image: myregistry.com/myapp:v1.0.0\n    predicateType: cosign\n  # ...\n  validationFailureAction: enforce\n```\n\n### Approval:\nN/A",
+      "score": 0.6,
+      "elements_found": 3,
+      "total_elements": 5
+    },
+    {
+      "mode": "kubernetes",
+      "test": "Kubernetes Incident Response",
+      "prompt": "Respond to a Kubernetes security incident with privileged container escape",
+      "response": "\ud83d\udca1 **SOAR Action:** Isolate the compromised pod immediately and scale down deployment\n\ud83d\udcdd **Detection Query:** `runAsRoot: true` or `imagePullSecrets: \"privileged\"` in `Pod` objects\n\ud83d\ude80 **Approval Gates:**\n- Confirm isolation of compromised pod\n- Verify deployment scaling to zero\n\ud83d\udcca **Metrics:**\n- Number of pods running as root\n- Time to contain incident\n- Cost of remediation\n\n\ud83d\udc4d **Next Steps:**\n- Review Kubernetes security best practices\n- Update Gatekeeper constraints\n- Implement automated incident response",
+      "score": 0.2,
+      "elements_found": 1,
+      "total_elements": 5
+    },
+    {
+      "mode": "integration",
+      "test": "SIEM + K8s Monitoring",
+      "prompt": "How would you integrate Kubernetes security monitoring with Splunk SIEM for container threat detection?",
+      "response": "\ud83d\udca1 **KUBERNETES SECURITY MONITORING WITH SPLUNK SIEM**\n\n**Splunk Configuration:**\n- Configure Splunk to index Kubernetes audit logs\n- Enable Kubernetes event collection in Splunk Add-on\n\n**Ruleset Creation:**\n- Define custom rules for Kubernetes security alerts\n- Utilize Splunk Analytic Framework (SAF) for efficient rule creation\n- Leverage machine learning algorithms for real-time detection\n\n**Integration Strategy:**\n- Implement a SOAR playbook for incident response\n- Monitor Kubernetes cluster health through Splunk dashboards\n- Foster collaboration between Splunk and Kubernetes teams\n\n**Remediation Plan:**\n- Develop automated remediation workflows for detected threats\n- Increase compliance by enforcing Kubernetes security policies\n\n**Continuous Improvement:**\n- Refine rulesets based on incident patterns and feedback\n- Integrate with Splunk Threat Intelligence Platform (STIP)\n\n### Evaluation Criteria:\n\ud83c\udfc6 **Complexity**: \u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f\n\ud83d\udcb0 **Cost**: \u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f\n\ud83d\udcca **Value**: \u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f\n\ud83e\udd1d **Collaboration**: \u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f\n\n### Feedback:\nThanks for sharing your insights! Your responses demonstrate a solid understanding of Kubernetes security",
+      "score": 0.8,
+      "domains_found": 4,
+      "total_domains": 5
+    },
+    {
+      "mode": "integration",
+      "test": "MITRE ATT&CK + K8s",
+      "prompt": "Map MITRE ATT&CK techniques to Kubernetes attack vectors and detection strategies",
+      "response": "\ud83d\udd25 Tactic: Credential Access | Technique: Brute Force | Detection Strategy: **Log Analysis**\n- Monitor system logs for unusual login attempts\n- Implement rate limiting on login attempts per IP address or user account\n- Use anomaly detection algorithms to identify abnormal behavior\n- Configure access controls for sensitive systems\n\n\ud83d\udd25 Tactic: Defense Evasion | Technique: Fileless Execution | Detection Strategy: **Endpoint Protection**\n- Implement endpoint detection and response tools\n- Configure anti-virus software and file integrity monitoring\n- Review system logs for fileless execution activities\n\n\ud83d\udd25 Tactic: Initial Access | Technique: Lateral Movement | Detection Strategy: **Network Traffic Analysis**\n- Monitor network traffic for suspicious activity\n- Analyze network traffic patterns\n- Detect anomalous network traffic using machine learning algorithms\n\n\ud83d\udd25 Tactic: Persistence | Technique: Privilege Escalation | Detection Strategy: **Endpoint Protection**\n- Monitor system logs for unexpected changes in system configuration\n- Review system logs for indicators of compromise (IOCs)\n- Use anomaly detection algorithms to identify potential threats\n\n\ud83d\udd25 Tactic: Discovery | Technique: Data Encrypted | Detection Strategy: **Log Analysis**\n- Monitor system logs for unusual data access patterns\n- Review system logs for indicators of compromise (IOCs)\n- Use anomaly detection algorithms to identify potential threats\n\n\ud83d\udd25 Tactic: Command and Control | Technique: Exfiltration | Detection Strategy: **Network Traffic Analysis**\n- Monitor network traffic for exfiltration patterns\n- Anal",
+      "score": 0.2,
+      "domains_found": 1,
+      "total_domains": 5
+    },
+    {
+      "mode": "integration",
+      "test": "Incident Response Hybrid",
+      "prompt": "Create an incident response plan for a breach that spans traditional infrastructure and Kubernetes clusters",
+      "response": "**\ud83d\udea8 TOTAL REACTION TIME: 1 minute**\n\n**Containment (Priority 1):**\n\n1. **Immediate network segmentation**:\n\t* Apply network policies to restrict lateral movement within affected clusters and VPCs\n\t* Restrict ingress traffic from infected IPs to minimize attack surface\n2. **Isolate affected workloads**:\n\t* Use Kubernetes node labels to isolate infected nodes from healthy ones\n\t* Create a new workload isolation strategy that separates infected pods into quarantine or delete\n3. **Network-based containment**:\n\t* Implement network policies to prevent outbound traffic from infected containers\n\t* Enhance existing security groups and NACLs to limit traffic to and from infected subnets\n4. **Identify compromised assets**:\n\t* Analyze audit logs and incident response data to identify impacted workloads and assets\n\t* Identify potential vulnerabilities and trigger incident response process\n\n**Containment (Priority 2):**\n\n1. **Incident response playbook automation**:\n\t* Integrate incident response tasks with existing automation tools to reduce manual effort\n\t* Create modular playbooks for common scenarios to improve efficiency and consistency\n2. **Cloud-specific isolation**:\n\t* Implement cloud-provider specific isolation mechanisms to ensure region-wide containment\n\t* Enhance network security groups to provide additional containment layers\n3. **Access control and compliance**:\n\t* Review access control policies and implement remediation measures to prevent future incidents\n\t* Conduct regular security audits to maintain compliance and detect anomalies\n\n**Eradication (Priority 3):**",
+      "score": 0.8,
+      "domains_found": 4,
+      "total_domains": 5
+    },
+    {
+      "mode": "enhanced_rag",
+      "test": "Enhanced RAG 1",
+      "query": "Kubernetes Pod security best practices",
+      "score": 0.6447178737534379,
+      "k8s_relevant": true,
+      "results_count": 3
+    },
+    {
+      "mode": "enhanced_rag",
+      "test": "Enhanced RAG 4",
+      "query": "Kubernetes RBAC service account security",
+      "score": 0.6104425853702625,
+      "k8s_relevant": true,
+      "results_count": 3
+    },
+    {
+      "mode": "enhanced_rag",
+      "test": "Enhanced RAG 5",
+      "query": "Supply chain security for container images",
+      "score": 0.5039817409378554,
+      "k8s_relevant": true,
+      "results_count": 1
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "rag_system": "whis_knowledge_base",
+  "created_date": "2025-08-22T15:26:40.665721",
+  "total_documents": 2,
+  "total_chunks": 35,
+  "chunk_statistics": {
+    "avg_word_count": 53.8,
+    "total_words": 1883,
+    "content_types": {}
+  },
+  "retrieval_config": {
+    "teacher_mode": {
+      "k": 6,
+      "min_sources": 2,
+      "fallback_policy": "insufficient_evidence_response"
+    },
+    "assistant_mode": {
+      "k": 8,
+      "required_patterns": [
+        "attack_technique",
+        "tool_specific"
+      ],
+      "fallback_policy": "generic_with_disclaimer"
+    }
+  },
+  "citation_format": "source_title + section + hash[:8]",
+  "documents": {
+    "KB-SECOPS-CRAM-001": {
+      "chunk_count": 25,
+      "total_words": 1467,
+      "sections": [
+        "# SecOps Interview Cram Guide - RAG Knowledge Base",
+        "Document Metadata",
+        "1. Core Security Pillars - CIA Triad",
+        "1. Core Security Pillars - Defense in Depth",
+        "1. Core Security Pillars - Zero Trust Architecture",
+        "1. Core Security Pillars - Kill Chain & MITRE ATT&CK",
+        "2. Day-to-Day SecOps Responsibilities - Monitoring Operations",
+        "2. Day-to-Day SecOps Responsibilities - Detection Engineering",
+        "2. Day-to-Day SecOps Responsibilities - Incident Response",
+        "2. Day-to-Day SecOps Responsibilities - Threat Hunting",
+        "3. Common SIEM/SOAR Workflows - Windows Authentication Monitoring",
+        "3. Common SIEM/SOAR Workflows - PowerShell Monitoring",
+        "3. Common SIEM/SOAR Workflows - Lateral Movement Detection",
+        "3. Common SIEM/SOAR Workflows - Phishing Response Workflow",
+        "4. Threat Intelligence & Frameworks - MITRE ATT&CK Framework",
+        "4. Threat Intelligence & Frameworks - NIST Cybersecurity Framework",
+        "4. Threat Intelligence & Frameworks - Indicators of Compromise vs. Attack",
+        "5. Security Tools and Technologies",
+        "6. Senior-Level Concepts - Security Metrics and KPIs",
+        "6. Senior-Level Concepts - Cloud Security Operations",
+        "6. Senior-Level Concepts - Compliance Integration",
+        "7. Interview Sound Bites and Talking Points - Professional Responses",
+        "7. Interview Sound Bites and Talking Points - Technical Depth Examples",
+        "8. Practical Scenarios and Responses - Scenario: Suspected Data Exfiltration",
+        "8. Practical Scenarios and Responses - Scenario: Advanced Persistent Threat (APT)"
+      ],
+      "tags": [
+        "SecOps",
+        "Interview",
+        "SIEM",
+        "SOAR",
+        "MITRE",
+        "Detection",
+        "Response"
+      ],
+      "source_file": "knowledge/secops-interview-cram.md",
+      "content_hash": "38a6fe08"
+    },
+    "T1110-brute-force": {
+      "chunk_count": 10,
+      "total_words": 416,
+      "sections": [
+        "# MITRE ATT&CK T1110: Brute Force",
+        "Overview",
+        "Sub-Techniques",
+        "Detection: Windows Event 4625 (Failed Logon)",
+        "False Positives",
+        "Detection Tuning",
+        "Response Playbooks",
+        "Best Practices",
+        "References",
+        "Whis Training Notes"
+      ],
+      "tags": [],
+      "source_file": "knowledge/attack-framework/T1110-brute-force.md",
+      "content_hash": "5681e779"
+    }
+  }
+}

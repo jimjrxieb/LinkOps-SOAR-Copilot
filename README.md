@@ -1,21 +1,34 @@
-# Whis: SOAR Copilot
+# 🛡️ Whis SOAR-Copilot
 
-**Teacher & Assistant for Security Operations**
+AI-Powered Security Orchestration, Automation & Response Platform
 
-## 🧠 Vision
+## 🎯 What is Whis?
 
-Whis is a SOAR Copilot that serves dual roles:
-- **🎓 Teacher**: Explains logs, correlates with ATT&CK framework, shares IR best practices
-- **🤖 Assistant**: Drafts response actions, routes playbooks, enriches detections (human-approved)
+Whis is a production-ready AI copilot that provides **expert-level cybersecurity analysis** for SIEM/EDR alerts. Built on CodeLlama-7B with LoRA fine-tuning, it delivers structured SOAR actions through frozen API contracts.
 
-**Operating Model**: *Explain → Propose → Approve → Execute (SOAR) → Enrich back to SIEM → Learn*
+**Key Features:**
+- 🔒 **Frozen API Contracts** - Immutable `/explain`, `/score`, `/chat` endpoints
+- 🚀 **Mega-Model Integration** - 101 examples, 0.044 final loss, expert-level analysis  
+- 📡 **SIEM/EDR Integration** - Native Splunk and LimaCharlie webhook processing
+- 🛡️ **Action Schema** - Structured triage, containment, remediation workflows
+- ⚡ **Production Ready** - 24s inference, correlation tracking, security hardened
 
-## 🎯 Stack Clarity
+## 🏗️ Repository Structure
 
-- **SIEM (Splunk)**: Data lake + search engine
-- **EDR/XDR (LimaCharlie)**: Signal generation + attack replay
-- **SOAR**: Execution guardrails + workflow orchestration  
-- **Whis**: Reasoning layer + enrichment engine
+```
+├── apps/                    # Applications
+│   ├── api/                # 🔒 Production API with frozen contracts
+│   └── frontend/           # UI components (if any)
+├── pipelines/              # AI/ML Pipelines  
+│   ├── llm/               # 🧠 LLM training, eval, model storage
+│   └── rag/               # 📚 Knowledge chunking, vectorization
+├── tests/                  # Quality Gates
+│   ├── golden/            # 🧪 Golden evaluation suite
+│   └── reports/           # Test results and metrics
+├── tools/                  # Utilities and scripts
+├── docs/                   # Documentation and runbooks
+└── data/                   # Curated datasets and personas
+```
 
 ## 🔄 Core Capabilities
 

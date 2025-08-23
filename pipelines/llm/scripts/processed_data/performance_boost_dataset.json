@@ -1,0 +1,72 @@
+[
+  {
+    "text": "Below is an instruction that describes a cybersecurity task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nCreate an automated SOAR playbook for phishing email response with LimaCharlie integration\n\n### Input:\nDetected phishing email with malicious attachment targeting finance team - automate containment and investigation\n\n### Response:\n**AUTOMATED PHISHING RESPONSE PLAYBOOK**\n\n**\ud83d\udea8 IMMEDIATE AUTOMATED ACTIONS (0-5 minutes):**\n\n```yaml\n# LimaCharlie Automated Response\nresponses:\n  - name: block_sender_domain\n    action: network_block\n    target: email_sender_domain\n    duration: 3600\n    approval_required: false\n    \n  - name: quarantine_attachment_hash\n    action: file_quarantine  \n    target: attachment_sha256\n    scope: organization\n    approval_required: false\n    \n  - name: isolate_recipient_endpoints\n    action: host_isolation\n    target: recipient_endpoints\n    duration: 1800\n    approval_required: true\n```\n\n**\ud83d\udce7 EMAIL ANALYSIS AUTOMATION:**\n```spl\nindex=email_security subject=\"*\" attachment_present=true\n| eval risk_score = if(sender_reputation<2, 50, 0) + if(attachment_entropy>7.5, 30, 0) + if(url_count>5, 20, 0)\n| where risk_score > 70\n| eval action = if(risk_score>90, \"quarantine\", \"flag\")\n```\n\n**\ud83d\udd0d AUTOMATED INVESTIGATION STEPS:**\n1. **Hash Analysis**: Submit to VirusTotal + internal sandbox\n2. **Domain Reputation**: Query threat intelligence feeds  \n3. **User Behavior**: Analyze recipient click patterns\n4. **Network Traffic**: Hunt for C2 communications\n\n**\u2705 SUCCESS CRITERIA:**\n- Malicious attachment quarantined: < 2 minutes\n- Sender domain blocked: < 1 minute  \n- Affected users identified: < 5 minutes\n- Incident ticket created: Automatic",
+    "metadata": {
+      "original_instruction": "Create an automated SOAR playbook for phishing email response with LimaCharlie integration",
+      "quality_score": 0.95,
+      "tags": [
+        "PerformanceBoost",
+        "Category:soar-automation",
+        "Difficulty:advanced",
+        "HighQuality"
+      ],
+      "category": "soar-automation"
+    }
+  },
+  {
+    "text": "Below is an instruction that describes a cybersecurity task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nDesign SOAR response for lateral movement detection with automated containment\n\n### Input:\nSuspicious lateral movement detected across 3 systems using compromised service account - need automated response\n\n### Response:\n**LATERAL MOVEMENT CONTAINMENT PLAYBOOK**\n\n**\u26a1 IMMEDIATE AUTOMATED CONTAINMENT:**\n\n```yaml\n# Automated Service Account Response\nsoar_actions:\n  - name: disable_service_account\n    action: identity_disable\n    target: compromised_service_account\n    approval_required: false\n    priority: critical\n    \n  - name: kill_suspicious_processes\n    action: process_termination\n    target: suspicious_process_list\n    scope: affected_hosts\n    approval_required: false\n    \n  - name: network_micro_isolation\n    action: network_isolation\n    target: affected_hosts\n    allow_management_only: true\n    approval_required: true\n```\n\n**\ud83d\udd0d AUTOMATED DETECTION LOGIC:**\n```spl\nindex=security EventCode IN (4624,4625,4768,4769)\n| stats dc(Computer) as host_count, values(Computer) as hosts by Account_Name\n| where host_count >= 3 AND NOT Account_Name IN (\"SYSTEM\", \"LOCAL SERVICE\")\n| eval lateral_movement_score = host_count * 10\n| where lateral_movement_score > 25\n| eval response_action = \"isolate_and_investigate\"\n```\n\n**\ud83d\udcca AUTOMATED ENRICHMENT:**\n- **Timeline Analysis**: Correlate logon events across hosts\n- **Privilege Mapping**: Identify account permissions on each system\n- **Network Flow**: Analyze inter-host communications  \n- **File Activity**: Hunt for suspicious file transfers\n\n**\ud83d\udee1\ufe0f AUTOMATED RECOVERY:**\n1. **Password Reset**: Force password change for affected account\n2. **Ticket Routing**: Escalate to Tier 2 analyst automatically\n3. **Evidence Collection**: Preserve memory dumps + logs\n4. **Stakeholder Notification**: Alert security team + IT management",
+    "metadata": {
+      "original_instruction": "Design SOAR response for lateral movement detection with automated containment",
+      "quality_score": 0.93,
+      "tags": [
+        "PerformanceBoost",
+        "Category:soar-automation",
+        "Difficulty:expert",
+        "HighQuality"
+      ],
+      "category": "soar-automation"
+    }
+  },
+  {
+    "text": "Below is an instruction that describes a cybersecurity task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nCreate SOAR automation for malware detection with dynamic analysis integration\n\n### Input:\nUnknown binary detected on endpoint - automate malware analysis and response workflow\n\n### Response:\n**AUTOMATED MALWARE ANALYSIS PLAYBOOK**\n\n**\ud83d\udd2c IMMEDIATE AUTOMATED ANALYSIS:**\n\n```yaml\n# Dynamic Analysis Pipeline\nanalysis_workflow:\n  - name: file_isolation\n    action: quarantine_file\n    target: suspicious_binary_hash\n    scope: organization\n    approval_required: false\n    \n  - name: sandbox_submission\n    action: dynamic_analysis\n    targets: [cuckoo_sandbox, joe_sandbox, vmray]\n    timeout: 300\n    approval_required: false\n    \n  - name: static_analysis\n    action: malware_analysis\n    tools: [yara_scan, entropy_check, pe_analysis]\n    approval_required: false\n```\n\n**\ud83e\udde0 AUTOMATED DECISION LOGIC:**\n```python\ndef malware_verdict(analysis_results):\n    risk_score = 0\n    \n    # Static analysis indicators\n    if analysis_results.entropy > 7.0: risk_score += 25\n    if analysis_results.packed: risk_score += 20\n    if analysis_results.suspicious_imports: risk_score += 15\n    \n    # Dynamic analysis indicators  \n    if analysis_results.network_connections: risk_score += 30\n    if analysis_results.registry_modifications: risk_score += 20\n    if analysis_results.file_system_changes: risk_score += 15\n    \n    # Threat intelligence\n    if analysis_results.ioc_matches: risk_score += 40\n    \n    return \"malicious\" if risk_score >= 75 else \"suspicious\" if risk_score >= 40 else \"benign\"\n```\n\n**\u26a1 AUTOMATED RESPONSE ACTIONS:**\n- **Score \u2265 75**: Immediate quarantine + network isolation\n- **Score 40-74**: Enhanced monitoring + user notification  \n- **Score < 40**: Log event + continue monitoring\n\n**\ud83d\udcc8 AUTOMATED REPORTING:**\n- Real-time dashboard updates\n- IOC extraction and sharing\n- MITRE ATT&CK technique mapping\n- Executive summary generation",
+    "metadata": {
+      "original_instruction": "Create SOAR automation for malware detection with dynamic analysis integration",
+      "quality_score": 0.91,
+      "tags": [
+        "PerformanceBoost",
+        "Category:soar-automation",
+        "Difficulty:advanced",
+        "HighQuality"
+      ],
+      "category": "soar-automation"
+    }
+  },
+  {
+    "text": "Below is an instruction that describes a cybersecurity task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nProvide step-by-step incident response for ransomware attack on domain controller with specific commands\n\n### Input:\nRansomware detected on primary domain controller - systems being encrypted rapidly - immediate response needed\n\n### Response:\n**\ud83d\udea8 CRITICAL RANSOMWARE INCIDENT RESPONSE**\n\n**PHASE 1: IMMEDIATE CONTAINMENT (0-15 minutes)**\n\n```bash\n# 1. ISOLATE INFECTED DOMAIN CONTROLLER\n# On affected DC (if accessible):\nnetsh advfirewall set allprofiles firewallpolicy blockinbound,blockoutbound\nshutdown /s /t 60 /c \"Emergency ransomware isolation\"\n\n# 2. PREVENT LATERAL SPREAD\n# On network infrastructure:\n# Block DC IP at core switches/firewalls\n# Disable replication ports: 389, 636, 3268, 3269, 88, 53\n```\n\n**PHASE 2: ASSESSMENT & FORENSICS (15-60 minutes)**\n\n```powershell\n# 3. RAPID DAMAGE ASSESSMENT\nGet-ADComputer -Filter * | Test-Connection -Count 1 -Quiet | \n    Where {$_ -eq $false} | Export-CSV affected_systems.csv\n\n# 4. BACKUP VERIFICATION\nGet-WBSummary | Select BackupTime, BackupTarget, LastSuccessfulBackupTime\n\n# 5. EVIDENCE PRESERVATION\n# Create forensic images of critical systems\ndd if=/dev/sda of=/mnt/evidence/dc_memory_dump.img bs=1M\n```\n\n**PHASE 3: RECOVERY PLANNING (1-4 hours)**\n\n```bash\n# 6. ISOLATE CLEAN BACKUP DC\n# Promote secondary DC to primary role\ndcpromo /unattend:promote_dc.txt\n\n# 7. RESET ALL PRIVILEGED ACCOUNTS\ndsquery user \"CN=Users,DC=domain,DC=com\" -scope subtree | \n    dsmod user -mustchpwd yes -disabled yes\n\n# 8. NETWORK SEGMENTATION\n# Implement micro-segmentation for critical assets\n```\n\n**PHASE 4: ERADICATION & RECOVERY (4-24 hours)**\n\n- **Malware Removal**: Use specialized anti-ransomware tools\n- **System Restoration**: Restore from known-clean backups  \n- **Network Rebuild**: Implement defense-in-depth architecture\n- **Monitoring Enhancement**: Deploy additional EDR sensors\n\n**PHASE 5: POST-INCIDENT (24+ hours)**\n\n- **Forensic Analysis**: Full timeline reconstruction\n- **Lessons Learned**: Update playbooks and procedures\n- **Regulatory Reporting**: Notify required authorities\n- **Insurance Claims**: Document all damages and costs",
+    "metadata": {
+      "original_instruction": "Provide step-by-step incident response for ransomware attack on domain controller with specific commands",
+      "quality_score": 0.96,
+      "tags": [
+        "PerformanceBoost",
+        "Category:incident-response",
+        "Difficulty:expert",
+        "HighQuality"
+      ],
+      "category": "incident-response"
+    }
+  },
+  {
+    "text": "Below is an instruction that describes a cybersecurity task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nCreate comprehensive Kubernetes cluster hardening checklist with validation commands\n\n### Input:\nNeed to audit and harden Kubernetes cluster security across all components\n\n### Response:\n**KUBERNETES CLUSTER SECURITY HARDENING**\n\n**\ud83d\udd10 API SERVER HARDENING:**\n\n```bash\n# 1. Verify API server configuration\nkubectl get configmap kube-system/kubeadm-config -o yaml | grep -A 20 apiServer\n\n# Required flags validation:\n--anonymous-auth=false\n--authorization-mode=RBAC,Node\n--admission-control-config-file=/etc/kubernetes/admission-config.yaml\n--enable-admission-plugins=NodeRestriction,PodSecurityPolicy,LimitRanger\n--audit-log-path=/var/log/kube-audit.log\n--audit-log-maxage=30\n--tls-cert-file=/etc/kubernetes/pki/apiserver.crt\n--tls-private-key-file=/etc/kubernetes/pki/apiserver.key\n--client-ca-file=/etc/kubernetes/pki/ca.crt\n--service-account-key-file=/etc/kubernetes/pki/sa.pub\n--service-account-signing-key-file=/etc/kubernetes/pki/sa.key\n```\n\n**\ud83d\udd12 KUBELET SECURITY:**\n\n```bash\n# 2. Kubelet configuration hardening\n# /etc/kubernetes/kubelet/kubelet-config.yaml\nauthentication:\n  anonymous:\n    enabled: false\n  webhook:\n    enabled: true\nauthorization:\n  mode: Webhook\nreadOnlyPort: 0\nprotectKernelDefaults: true\nmakeIPTablesUtilChains: true\neventRecordQPS: 0\n```\n\n**\ud83d\udee1\ufe0f POD SECURITY STANDARDS:**\n\n```yaml\n# 3. Enforce restricted Pod Security Standards\napiVersion: v1\nkind: Namespace\nmetadata:\n  name: production\n  labels:\n    pod-security.kubernetes.io/enforce: restricted\n    pod-security.kubernetes.io/audit: restricted\n    pod-security.kubernetes.io/warn: restricted\n```\n\n**\ud83d\udd0d SECURITY AUDIT COMMANDS:**\n\n```bash\n# 4. Comprehensive security audit\n# Check for privileged containers\nkubectl get pods --all-namespaces -o jsonpath='{range .items[*]}{.metadata.namespace}{\"\t\"}{.metadata.name}{\"\t\"}{.spec.securityContext.privileged}{\"\n\"}{end}' | grep true\n\n# Audit service accounts with cluster-admin\nkubectl get clusterrolebindings -o json | jq -r '.items[] | select(.roleRef.name==\"cluster-admin\") | .subjects[]? | select(.kind==\"ServiceAccount\") | \"\\(.namespace)/\\(.name)\"'\n\n# Check for containers running as root\nkubectl get pods --all-namespaces -o jsonpath='{range .items[*]}{range .spec.containers[*]}{.securityContext.runAsUser}{\"\t\"}{.name}{\"\n\"}{end}{end}' | grep -E \"^0|^$\"\n```\n\n**\ud83d\udcca VALIDATION CHECKLIST:**\n\n- [ ] API server anonymous auth disabled\n- [ ] RBAC authorization enabled\n- [ ] Pod Security Standards enforced\n- [ ] Network policies implemented\n- [ ] Container images signed and scanned\n- [ ] Secrets encrypted at rest\n- [ ] Audit logging enabled\n- [ ] Resource quotas configured\n- [ ] Node OS hardened (CIS benchmarks)\n- [ ] Regular security scanning automated",
+    "metadata": {
+      "original_instruction": "Create comprehensive Kubernetes cluster hardening checklist with validation commands",
+      "quality_score": 0.94,
+      "tags": [
+        "PerformanceBoost",
+        "Category:k8s-security",
+        "Difficulty:advanced",
+        "HighQuality"
+      ],
+      "category": "k8s-security"
+    }
+  }
+]

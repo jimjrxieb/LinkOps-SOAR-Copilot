@@ -1,0 +1,69 @@
+[
+  {
+    "text": "Below is an instruction that describes a cybersecurity task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nPropose comprehensive SOAR response actions for this high severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.\n\n### Input:\nAuthentication attack detected: 38 failed logons from external IP, targeting 4 accounts, severity High\n\n### Response:\n**SOAR Response Plan: Authentication Incident** **Detection Outline:** ```spl index=security EventCode=4625 src_ip=\"$source_ip$\" | stats count, dc(Account_Name) as accounts by src_ip | eval severity=\"High\" | where count > 19 OR accounts > 1 ``` **Playbook Selection:** - **Primary**: PB-AUTH-001 (Brute Force Response) - **Severity**: High - **ETA**: 24 minutes **LimaCharlie Actions (Approval Required):** ```yaml responses: - action: isolate_host approval_required: true duration: 6000 - action: block_ip approval_required: true duration: 12000 ``` **Stakeholder Communication:** 🛡️ **SECURITY INCIDENT**: Authentication attack 📊 **Severity**: High ⏰ **Response Time**: 24 minutes 👤 **Analyst**: {analyst_name} **Next Steps:** 1. Execute containment actions 2. Investigate account compromise 3. Document findings and lessons learned",
+    "metadata": {
+      "quality_score": 0.8846442033123929,
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:High",
+        "Response"
+      ]
+    }
+  },
+  {
+    "text": "Below is an instruction that describes a cybersecurity task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nCreate detection rules for MITRE ATT&CK technique T1110 (Brute Force).\n\n### Input:\nNeed to detect Brute Force attacks in SIEM environment.\n\n### Response:\n**Detection Rules for T1110: Brute Force** **Splunk Detection:** ```spl index=security sourcetype=WinEventLog:Security | eval technique_id=\"T1110\" | search EventCode=4624 OR EventCode=4625 | stats count by src_ip, user, technique_id | where count > 5 | eval severity=case(count > 20, \"High\", count > 10, \"Medium\", 1=1, \"Low\") ``` **LimaCharlie D&R Rule:** ```yaml detect: event: NEW_PROCESS op: and rules: - op: contains path: event/COMMAND_LINE value: suspicious_pattern case_sensitive: false respond: - action: report name: t1110_detection - action: isolation duration: 3600 reason: Potential Brute Force detected ``` **Sigma Rule:** ```yaml title: Brute Force Detection id: 5b080f9d-8945-4e77-981c-16699dceb0b5 status: experimental description: Detects potential Brute Force activity logsource: category: process_creation product: windows detection: selection: Image|endswith: '.exe' CommandLine|contains: 'suspicious' condition: selection falsepositives: - Legitimate administrative activity level: medium tags: - attack.t1110 ``` **Tuning Guidance:** - Adjust thresholds based on environment baseline - Whitelist known legitimate processes - Correlate with threat intelligence feeds",
+    "metadata": {
+      "quality_score": 0.8432766164316966,
+      "tags": []
+    }
+  },
+  {
+    "text": "Below is an instruction that describes a cybersecurity task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nPropose comprehensive SOAR response actions for this medium severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.\n\n### Input:\nAuthentication attack detected: 12 failed logons from external IP, targeting 3 accounts, severity Medium\n\n### Response:\n**SOAR Response Plan: Authentication Incident** **Detection Outline:** ```spl index=security EventCode=4625 src_ip=\"$source_ip$\" | stats count, dc(Account_Name) as accounts by src_ip | eval severity=\"Medium\" | where count > 6 OR accounts > 2 ``` **Playbook Selection:** - **Primary**: PB-AUTH-001 (Brute Force Response) - **Severity**: Medium - **ETA**: 11 minutes **LimaCharlie Actions (Approval Required):** ```yaml responses: - action: isolate_host approval_required: false duration: 2100 - action: block_ip approval_required: false duration: 4200 ``` **Stakeholder Communication:** 🛡️ **SECURITY INCIDENT**: Authentication attack 📊 **Severity**: Medium ⏰ **Response Time**: 11 minutes 👤 **Analyst**: {analyst_name} **Next Steps:** 1. Execute containment actions 2. Investigate account compromise 3. Document findings and lessons learned",
+    "metadata": {
+      "quality_score": 0.8823383209594517,
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Medium",
+        "Response"
+      ]
+    }
+  },
+  {
+    "text": "Below is an instruction that describes a cybersecurity task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nPropose comprehensive SOAR response actions for this medium severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.\n\n### Input:\nAuthentication attack detected: 36 failed logons from external IP, targeting 3 accounts, severity Medium\n\n### Response:\n**SOAR Response Plan: Authentication Incident** **Detection Outline:** ```spl index=security EventCode=4625 src_ip=\"$source_ip$\" | stats count, dc(Account_Name) as accounts by src_ip | eval severity=\"Medium\" | where count > 18 OR accounts > 2 ``` **Playbook Selection:** - **Primary**: PB-AUTH-001 (Brute Force Response) - **Severity**: Medium - **ETA**: 23 minutes **LimaCharlie Actions (Approval Required):** ```yaml responses: - action: isolate_host approval_required: false duration: 5700 - action: block_ip approval_required: false duration: 11400 ``` **Stakeholder Communication:** 🛡️ **SECURITY INCIDENT**: Authentication attack 📊 **Severity**: Medium ⏰ **Response Time**: 23 minutes 👤 **Analyst**: {analyst_name} **Next Steps:** 1. Execute containment actions 2. Investigate account compromise 3. Document findings and lessons learned",
+    "metadata": {
+      "quality_score": 0.8821030268418046,
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Medium",
+        "Response"
+      ]
+    }
+  },
+  {
+    "text": "Below is an instruction that describes a cybersecurity task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nPropose comprehensive SOAR response actions for this medium severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.\n\n### Input:\nAuthentication attack detected: 28 failed logons from external IP, targeting 2 accounts, severity Medium\n\n### Response:\n**SOAR Response Plan: Authentication Incident** **Detection Outline:** ```spl index=security EventCode=4625 src_ip=\"$source_ip$\" | stats count, dc(Account_Name) as accounts by src_ip | eval severity=\"Medium\" | where count > 14 OR accounts > 2 ``` **Playbook Selection:** - **Primary**: PB-AUTH-001 (Brute Force Response) - **Severity**: Medium - **ETA**: 19 minutes **LimaCharlie Actions (Approval Required):** ```yaml responses: - action: isolate_host approval_required: false duration: 4500 - action: block_ip approval_required: false duration: 9000 ``` **Stakeholder Communication:** 🛡️ **SECURITY INCIDENT**: Authentication attack 📊 **Severity**: Medium ⏰ **Response Time**: 19 minutes 👤 **Analyst**: {analyst_name} **Next Steps:** 1. Execute containment actions 2. Investigate account compromise 3. Document findings and lessons learned",
+    "metadata": {
+      "quality_score": 0.8822206739006282,
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Medium",
+        "Response"
+      ]
+    }
+  },
+  {
+    "text": "Below is an instruction that describes a cybersecurity task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nPropose comprehensive SOAR response actions for this critical severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.\n\n### Input:\nAuthentication attack detected: 32 failed logons from external IP, targeting 4 accounts, severity Critical\n\n### Response:\n**SOAR Response Plan: Authentication Incident** **Detection Outline:** ```spl index=security EventCode=4625 src_ip=\"$source_ip$\" | stats count, dc(Account_Name) as accounts by src_ip | eval severity=\"Critical\" | where count > 16 OR accounts > 2 ``` **Playbook Selection:** - **Primary**: PB-AUTH-001 (Brute Force Response) - **Severity**: Critical - **ETA**: 21 minutes **LimaCharlie Actions (Approval Required):** ```yaml responses: - action: isolate_host approval_required: true duration: 5100 - action: block_ip approval_required: true duration: 10200 ``` **Stakeholder Communication:** 🛡️ **SECURITY INCIDENT**: Authentication attack 📊 **Severity**: Critical ⏰ **Response Time**: 21 minutes 👤 **Analyst**: {analyst_name} **Next Steps:** 1. Execute containment actions 2. Investigate account compromise 3. Document findings and lessons learned",
+    "metadata": {
+      "quality_score": 0.8800324386065106,
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Critical",
+        "Response"
+      ]
+    }
+  }
+]

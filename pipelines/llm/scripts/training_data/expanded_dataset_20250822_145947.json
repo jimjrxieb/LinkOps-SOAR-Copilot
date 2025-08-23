@@ -1,0 +1,1099 @@
+{
+  "metadata": {
+    "generation_date": "2025-08-22T14:59:47.215042",
+    "total_examples": 100,
+    "mentor_requirements": {
+      "target": "100+ examples",
+      "focus": "4625/T1110 + LC Replay",
+      "achieved": true
+    },
+    "categories": {
+      "teacher_mode": 45,
+      "assistant_mode": 20,
+      "detection_rules": 20,
+      "soar_playbooks": 20
+    }
+  },
+  "examples": [
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for external_attack scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: external_attack pattern with LogonType 3, 5 failures in 2 minutes",
+      "output": "**Windows Event 4625 Analysis: External_Attack**\n\n**Event Overview:**\nFailed logon events indicating external attack pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (False)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:external_attack"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for service_account scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: service_account pattern with LogonType 3, 6 failures in 3 minutes",
+      "output": "**Windows Event 4625 Analysis: Service_Account**\n\n**Event Overview:**\nFailed logon events indicating service account pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (True)\n- User behavior patterns (False)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:service_account"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for user_mistake scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: user_mistake pattern with LogonType 3, 7 failures in 4 minutes",
+      "output": "**Windows Event 4625 Analysis: User_Mistake**\n\n**Event Overview:**\nFailed logon events indicating user mistake pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (True)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:user_mistake"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for time_sync scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: time_sync pattern with LogonType 3, 8 failures in 2 minutes",
+      "output": "**Windows Event 4625 Analysis: Time_Sync**\n\n**Event Overview:**\nFailed logon events indicating time sync pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (False)\n- Infrastructure issues (True)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:time_sync"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for policy_change scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: policy_change pattern with LogonType 3, 9 failures in 3 minutes",
+      "output": "**Windows Event 4625 Analysis: Policy_Change**\n\n**Event Overview:**\nFailed logon events indicating policy change pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (False)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:policy_change"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for external_attack scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: external_attack pattern with LogonType 3, 10 failures in 4 minutes",
+      "output": "**Windows Event 4625 Analysis: External_Attack**\n\n**Event Overview:**\nFailed logon events indicating external attack pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (False)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:external_attack"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for service_account scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: service_account pattern with LogonType 3, 11 failures in 2 minutes",
+      "output": "**Windows Event 4625 Analysis: Service_Account**\n\n**Event Overview:**\nFailed logon events indicating service account pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (True)\n- User behavior patterns (False)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:service_account"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for user_mistake scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: user_mistake pattern with LogonType 3, 12 failures in 3 minutes",
+      "output": "**Windows Event 4625 Analysis: User_Mistake**\n\n**Event Overview:**\nFailed logon events indicating user mistake pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (True)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:user_mistake"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for time_sync scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: time_sync pattern with LogonType 3, 13 failures in 4 minutes",
+      "output": "**Windows Event 4625 Analysis: Time_Sync**\n\n**Event Overview:**\nFailed logon events indicating time sync pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (False)\n- Infrastructure issues (True)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:time_sync"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for policy_change scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: policy_change pattern with LogonType 3, 14 failures in 2 minutes",
+      "output": "**Windows Event 4625 Analysis: Policy_Change**\n\n**Event Overview:**\nFailed logon events indicating policy change pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (False)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:policy_change"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for external_attack scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: external_attack pattern with LogonType 3, 5 failures in 3 minutes",
+      "output": "**Windows Event 4625 Analysis: External_Attack**\n\n**Event Overview:**\nFailed logon events indicating external attack pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (False)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:external_attack"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for service_account scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: service_account pattern with LogonType 3, 6 failures in 4 minutes",
+      "output": "**Windows Event 4625 Analysis: Service_Account**\n\n**Event Overview:**\nFailed logon events indicating service account pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (True)\n- User behavior patterns (False)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:service_account"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for user_mistake scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: user_mistake pattern with LogonType 3, 7 failures in 2 minutes",
+      "output": "**Windows Event 4625 Analysis: User_Mistake**\n\n**Event Overview:**\nFailed logon events indicating user mistake pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (True)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:user_mistake"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for time_sync scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: time_sync pattern with LogonType 3, 8 failures in 3 minutes",
+      "output": "**Windows Event 4625 Analysis: Time_Sync**\n\n**Event Overview:**\nFailed logon events indicating time sync pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (False)\n- Infrastructure issues (True)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:time_sync"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for policy_change scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: policy_change pattern with LogonType 3, 9 failures in 4 minutes",
+      "output": "**Windows Event 4625 Analysis: Policy_Change**\n\n**Event Overview:**\nFailed logon events indicating policy change pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (False)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:policy_change"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for external_attack scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: external_attack pattern with LogonType 3, 10 failures in 2 minutes",
+      "output": "**Windows Event 4625 Analysis: External_Attack**\n\n**Event Overview:**\nFailed logon events indicating external attack pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (False)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:external_attack"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for service_account scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: service_account pattern with LogonType 3, 11 failures in 3 minutes",
+      "output": "**Windows Event 4625 Analysis: Service_Account**\n\n**Event Overview:**\nFailed logon events indicating service account pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (True)\n- User behavior patterns (False)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:service_account"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for user_mistake scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: user_mistake pattern with LogonType 3, 12 failures in 4 minutes",
+      "output": "**Windows Event 4625 Analysis: User_Mistake**\n\n**Event Overview:**\nFailed logon events indicating user mistake pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (True)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:user_mistake"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for time_sync scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: time_sync pattern with LogonType 3, 13 failures in 2 minutes",
+      "output": "**Windows Event 4625 Analysis: Time_Sync**\n\n**Event Overview:**\nFailed logon events indicating time sync pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (False)\n- Infrastructure issues (True)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:time_sync"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for policy_change scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: policy_change pattern with LogonType 3, 14 failures in 3 minutes",
+      "output": "**Windows Event 4625 Analysis: Policy_Change**\n\n**Event Overview:**\nFailed logon events indicating policy change pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (False)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:policy_change"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for external_attack scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: external_attack pattern with LogonType 3, 5 failures in 4 minutes",
+      "output": "**Windows Event 4625 Analysis: External_Attack**\n\n**Event Overview:**\nFailed logon events indicating external attack pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (False)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:external_attack"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for service_account scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: service_account pattern with LogonType 3, 6 failures in 2 minutes",
+      "output": "**Windows Event 4625 Analysis: Service_Account**\n\n**Event Overview:**\nFailed logon events indicating service account pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (True)\n- User behavior patterns (False)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:service_account"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for user_mistake scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: user_mistake pattern with LogonType 3, 7 failures in 3 minutes",
+      "output": "**Windows Event 4625 Analysis: User_Mistake**\n\n**Event Overview:**\nFailed logon events indicating user mistake pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (True)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:user_mistake"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for time_sync scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: time_sync pattern with LogonType 3, 8 failures in 4 minutes",
+      "output": "**Windows Event 4625 Analysis: Time_Sync**\n\n**Event Overview:**\nFailed logon events indicating time sync pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (False)\n- Infrastructure issues (True)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:time_sync"
+      ]
+    },
+    {
+      "instruction": "Explain Windows Event 4625 (Failed Logon) for policy_change scenario. Include key fields, false positive patterns, and ATT&CK mapping.",
+      "input": "Multiple 4625 events detected: policy_change pattern with LogonType 3, 9 failures in 2 minutes",
+      "output": "**Windows Event 4625 Analysis: Policy_Change**\n\n**Event Overview:**\nFailed logon events indicating policy change pattern with specific characteristics requiring analysis.\n\n**Key Fields:**\n- **EventID**: 4625 (Authentication failure)\n- **LogonType**: 3 (Network logon)\n- **FailureReason**: 0xC000006D (Unknown username or bad password)\n- **IpAddress**: Source IP for geographic and reputation analysis\n- **AccountName**: Target account for privilege assessment\n\n**ATT&CK Mapping:**\n- **Technique**: T1110 (Brute Force)\n- **Sub-technique**: T1110.001 (Password Guessing) or T1110.003 (Password Spraying)\n\n**False Positive Analysis:**\n- Service account password expiration (False)\n- User behavior patterns (False)\n- Infrastructure issues (False)\n\n**Investigation Steps:**\n1. Verify source IP legitimacy\n2. Check account privileges and usage patterns  \n3. Correlate with successful authentications\n4. Review business context and timing",
+      "tags": [
+        "Windows:4625",
+        "ATTACK:T1110",
+        "Teacher",
+        "Scenario:policy_change"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.001 (Password Guessing) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand systematic password attempts attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.001: Password Guessing**\n\n**Technique Description:**\nSystematic password attempts - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.001\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.001",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.002 (Password Cracking) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand offline hash cracking attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.002: Password Cracking**\n\n**Technique Description:**\nOffline hash cracking - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.002\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.002",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.003 (Password Spraying) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand low-volume across many accounts attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.003: Password Spraying**\n\n**Technique Description:**\nLow-volume across many accounts - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.003\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.003",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.004 (Credential Stuffing) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand reusing leaked credentials attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.004: Credential Stuffing**\n\n**Technique Description:**\nReusing leaked credentials - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.004\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.004",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.001 (Password Guessing) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand systematic password attempts attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.001: Password Guessing**\n\n**Technique Description:**\nSystematic password attempts - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.001\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.001",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.002 (Password Cracking) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand offline hash cracking attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.002: Password Cracking**\n\n**Technique Description:**\nOffline hash cracking - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.002\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.002",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.003 (Password Spraying) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand low-volume across many accounts attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.003: Password Spraying**\n\n**Technique Description:**\nLow-volume across many accounts - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.003\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.003",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.004 (Credential Stuffing) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand reusing leaked credentials attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.004: Credential Stuffing**\n\n**Technique Description:**\nReusing leaked credentials - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.004\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.004",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.001 (Password Guessing) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand systematic password attempts attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.001: Password Guessing**\n\n**Technique Description:**\nSystematic password attempts - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.001\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.001",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.002 (Password Cracking) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand offline hash cracking attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.002: Password Cracking**\n\n**Technique Description:**\nOffline hash cracking - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.002\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.002",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.003 (Password Spraying) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand low-volume across many accounts attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.003: Password Spraying**\n\n**Technique Description:**\nLow-volume across many accounts - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.003\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.003",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.004 (Credential Stuffing) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand reusing leaked credentials attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.004: Credential Stuffing**\n\n**Technique Description:**\nReusing leaked credentials - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.004\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.004",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.001 (Password Guessing) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand systematic password attempts attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.001: Password Guessing**\n\n**Technique Description:**\nSystematic password attempts - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.001\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.001",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.002 (Password Cracking) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand offline hash cracking attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.002: Password Cracking**\n\n**Technique Description:**\nOffline hash cracking - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.002\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.002",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.003 (Password Spraying) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand low-volume across many accounts attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.003: Password Spraying**\n\n**Technique Description:**\nLow-volume across many accounts - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.003\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.003",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.004 (Credential Stuffing) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand reusing leaked credentials attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.004: Credential Stuffing**\n\n**Technique Description:**\nReusing leaked credentials - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.004\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.004",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.001 (Password Guessing) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand systematic password attempts attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.001: Password Guessing**\n\n**Technique Description:**\nSystematic password attempts - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.001\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.001",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.002 (Password Cracking) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand offline hash cracking attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.002: Password Cracking**\n\n**Technique Description:**\nOffline hash cracking - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.002\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.002",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.003 (Password Spraying) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand low-volume across many accounts attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.003: Password Spraying**\n\n**Technique Description:**\nLow-volume across many accounts - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.003\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.003",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Explain MITRE ATT&CK T1110.004 (Credential Stuffing) with detection strategies and response procedures.",
+      "input": "SOC analyst needs to understand reusing leaked credentials attacks and implement detection",
+      "output": "**MITRE ATT&CK T1110.004: Credential Stuffing**\n\n**Technique Description:**\nReusing leaked credentials - adversaries attempt to gain unauthorized access through automated credential testing.\n\n**Detection Indicators:**\n- Multiple authentication failures with consistent patterns\n- Sequential account targeting from single source\n- Timing patterns indicating automated tools\n- Low success rate with high volume attempts\n\n**Detection Rules:**\n```spl\nindex=security EventCode=4625\n| stats count, dc(Account_Name) as unique_accounts by src_ip\n| where count > 10 AND unique_accounts > 3\n| eval technique_id=\"T1110.004\"\n```\n\n**Response Actions:**\n1. **Immediate**: Block source IP at perimeter\n2. **Investigation**: Analyze attack patterns and scope\n3. **Containment**: Implement additional access controls\n4. **Recovery**: Review compromised accounts",
+      "tags": [
+        "ATTACK:T1110.004",
+        "Teacher",
+        "Detection"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this low severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 10 failed logons from external IP, targeting 2 accounts, severity Low",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"Low\"\n| where count > 5 OR accounts > 1\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: Low\n- **ETA**: 10 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: false\n    duration: 1800\n    \n  - action: block_ip\n    approval_required: false\n    duration: 3600\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: Low\n⏰ **Response Time**: 10 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Low",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this medium severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 12 failed logons from external IP, targeting 3 accounts, severity Medium",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"Medium\"\n| where count > 6 OR accounts > 2\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: Medium\n- **ETA**: 11 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: false\n    duration: 2100\n    \n  - action: block_ip\n    approval_required: false\n    duration: 4200\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: Medium\n⏰ **Response Time**: 11 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Medium",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this high severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 14 failed logons from external IP, targeting 4 accounts, severity High",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"High\"\n| where count > 7 OR accounts > 1\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: High\n- **ETA**: 12 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: true\n    duration: 2400\n    \n  - action: block_ip\n    approval_required: true\n    duration: 4800\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: High\n⏰ **Response Time**: 12 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:High",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this critical severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 16 failed logons from external IP, targeting 2 accounts, severity Critical",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"Critical\"\n| where count > 8 OR accounts > 2\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: Critical\n- **ETA**: 13 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: true\n    duration: 2700\n    \n  - action: block_ip\n    approval_required: true\n    duration: 5400\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: Critical\n⏰ **Response Time**: 13 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Critical",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this low severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 18 failed logons from external IP, targeting 3 accounts, severity Low",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"Low\"\n| where count > 9 OR accounts > 1\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: Low\n- **ETA**: 14 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: false\n    duration: 3000\n    \n  - action: block_ip\n    approval_required: false\n    duration: 6000\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: Low\n⏰ **Response Time**: 14 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Low",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this medium severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 20 failed logons from external IP, targeting 4 accounts, severity Medium",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"Medium\"\n| where count > 10 OR accounts > 2\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: Medium\n- **ETA**: 15 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: false\n    duration: 3300\n    \n  - action: block_ip\n    approval_required: false\n    duration: 6600\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: Medium\n⏰ **Response Time**: 15 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Medium",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this high severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 22 failed logons from external IP, targeting 2 accounts, severity High",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"High\"\n| where count > 11 OR accounts > 1\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: High\n- **ETA**: 16 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: true\n    duration: 3600\n    \n  - action: block_ip\n    approval_required: true\n    duration: 7200\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: High\n⏰ **Response Time**: 16 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:High",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this critical severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 24 failed logons from external IP, targeting 3 accounts, severity Critical",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"Critical\"\n| where count > 12 OR accounts > 2\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: Critical\n- **ETA**: 17 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: true\n    duration: 3900\n    \n  - action: block_ip\n    approval_required: true\n    duration: 7800\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: Critical\n⏰ **Response Time**: 17 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Critical",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this low severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 26 failed logons from external IP, targeting 4 accounts, severity Low",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"Low\"\n| where count > 13 OR accounts > 1\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: Low\n- **ETA**: 18 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: false\n    duration: 4200\n    \n  - action: block_ip\n    approval_required: false\n    duration: 8400\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: Low\n⏰ **Response Time**: 18 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Low",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this medium severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 28 failed logons from external IP, targeting 2 accounts, severity Medium",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"Medium\"\n| where count > 14 OR accounts > 2\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: Medium\n- **ETA**: 19 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: false\n    duration: 4500\n    \n  - action: block_ip\n    approval_required: false\n    duration: 9000\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: Medium\n⏰ **Response Time**: 19 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Medium",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this high severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 30 failed logons from external IP, targeting 3 accounts, severity High",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"High\"\n| where count > 15 OR accounts > 1\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: High\n- **ETA**: 20 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: true\n    duration: 4800\n    \n  - action: block_ip\n    approval_required: true\n    duration: 9600\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: High\n⏰ **Response Time**: 20 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:High",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this critical severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 32 failed logons from external IP, targeting 4 accounts, severity Critical",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"Critical\"\n| where count > 16 OR accounts > 2\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: Critical\n- **ETA**: 21 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: true\n    duration: 5100\n    \n  - action: block_ip\n    approval_required: true\n    duration: 10200\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: Critical\n⏰ **Response Time**: 21 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Critical",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this low severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 34 failed logons from external IP, targeting 2 accounts, severity Low",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"Low\"\n| where count > 17 OR accounts > 1\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: Low\n- **ETA**: 22 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: false\n    duration: 5400\n    \n  - action: block_ip\n    approval_required: false\n    duration: 10800\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: Low\n⏰ **Response Time**: 22 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Low",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this medium severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 36 failed logons from external IP, targeting 3 accounts, severity Medium",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"Medium\"\n| where count > 18 OR accounts > 2\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: Medium\n- **ETA**: 23 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: false\n    duration: 5700\n    \n  - action: block_ip\n    approval_required: false\n    duration: 11400\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: Medium\n⏰ **Response Time**: 23 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Medium",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this high severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 38 failed logons from external IP, targeting 4 accounts, severity High",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"High\"\n| where count > 19 OR accounts > 1\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: High\n- **ETA**: 24 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: true\n    duration: 6000\n    \n  - action: block_ip\n    approval_required: true\n    duration: 12000\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: High\n⏰ **Response Time**: 24 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:High",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this critical severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 40 failed logons from external IP, targeting 2 accounts, severity Critical",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"Critical\"\n| where count > 20 OR accounts > 2\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: Critical\n- **ETA**: 25 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: true\n    duration: 6300\n    \n  - action: block_ip\n    approval_required: true\n    duration: 12600\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: Critical\n⏰ **Response Time**: 25 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Critical",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this low severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 42 failed logons from external IP, targeting 3 accounts, severity Low",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"Low\"\n| where count > 21 OR accounts > 1\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: Low\n- **ETA**: 26 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: false\n    duration: 6600\n    \n  - action: block_ip\n    approval_required: false\n    duration: 13200\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: Low\n⏰ **Response Time**: 26 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Low",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this medium severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 44 failed logons from external IP, targeting 4 accounts, severity Medium",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"Medium\"\n| where count > 22 OR accounts > 2\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: Medium\n- **ETA**: 27 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: false\n    duration: 6900\n    \n  - action: block_ip\n    approval_required: false\n    duration: 13800\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: Medium\n⏰ **Response Time**: 27 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Medium",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this high severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 46 failed logons from external IP, targeting 2 accounts, severity High",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"High\"\n| where count > 23 OR accounts > 1\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: High\n- **ETA**: 28 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: true\n    duration: 7200\n    \n  - action: block_ip\n    approval_required: true\n    duration: 14400\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: High\n⏰ **Response Time**: 28 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:High",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Propose comprehensive SOAR response actions for this critical severity authentication incident. Include detection outline, playbook, LimaCharlie actions, and stakeholder communication.",
+      "input": "Authentication attack detected: 48 failed logons from external IP, targeting 3 accounts, severity Critical",
+      "output": "**SOAR Response Plan: Authentication Incident**\n\n**Detection Outline:**\n```spl\nindex=security EventCode=4625 src_ip=\"$source_ip$\"\n| stats count, dc(Account_Name) as accounts by src_ip\n| eval severity=\"Critical\"\n| where count > 24 OR accounts > 2\n```\n\n**Playbook Selection:**\n- **Primary**: PB-AUTH-001 (Brute Force Response)\n- **Severity**: Critical\n- **ETA**: 29 minutes\n\n**LimaCharlie Actions (Approval Required):**\n```yaml\nresponses:\n  - action: isolate_host\n    approval_required: true\n    duration: 7500\n    \n  - action: block_ip\n    approval_required: true\n    duration: 15000\n```\n\n**Stakeholder Communication:**\n🛡️ **SECURITY INCIDENT**: Authentication attack\n📊 **Severity**: Critical\n⏰ **Response Time**: 29 minutes\n👤 **Analyst**: {analyst_name}\n\n**Next Steps:**\n1. Execute containment actions\n2. Investigate account compromise\n3. Document findings and lessons learned",
+      "tags": [
+        "Assistant",
+        "SOAR:playbook",
+        "Severity:Critical",
+        "Response"
+      ]
+    },
+    {
+      "instruction": "Create LimaCharlie D&R detection rule for authentication security monitoring with approval workflow.",
+      "input": "Need automated detection for failed authentication patterns with human oversight",
+      "output": "**LimaCharlie D&R Rule: Authentication Detection**\n\n```yaml\ndetect:\n  event: LOG\n  op: and\n  rules:\n    - op: is\n      path: event/EVENT/System/EventID  \n      value: 4625\n    - op: exists\n      path: event/EVENT/EventData/IpAddress\n\nrespond:\n  - action: report\n    name: auth_detection_detected\n    metadata:\n      severity: medium\n      technique: T1110\n      \n  - action: extension_request\n    extension: threat_intel\n    request: check_reputation\n    params:\n      ip: \"{{ .event.EVENT.EventData.IpAddress }}\"\n```\n\n**Approval Workflow:**\n- **Auto-approve**: Monitoring and reporting actions\n- **Human approval**: Isolation and blocking actions\n- **Escalation**: Critical severity incidents\n\n**Integration:**\n- **SIEM**: Forward events to Splunk for correlation\n- **SOAR**: Trigger playbook execution\n- **Communication**: Slack notifications for approval requests",
+      "tags": [
+        "LimaCharlie",
+        "D&R",
+        "Type:detection",
+        "Approval"
+      ]
+    },
+    {
+      "instruction": "Create LimaCharlie D&R response rule for authentication security monitoring with approval workflow.",
+      "input": "Need automated response for failed authentication patterns with human oversight",
+      "output": "**LimaCharlie D&R Rule: Authentication Response**\n\n```yaml\ndetect:\n  event: LOG\n  op: and\n  rules:\n    - op: is\n      path: event/EVENT/System/EventID  \n      value: 4625\n    - op: exists\n      path: event/EVENT/EventData/IpAddress\n\nrespond:\n  - action: report\n    name: auth_response_detected\n    metadata:\n      severity: medium\n      technique: T1110\n      \n  - action: extension_request\n    extension: threat_intel\n    request: check_reputation\n    params:\n      ip: \"{{ .event.EVENT.EventData.IpAddress }}\"\n```\n\n**Approval Workflow:**\n- **Auto-approve**: Monitoring and reporting actions\n- **Human approval**: Isolation and blocking actions\n- **Escalation**: Critical severity incidents\n\n**Integration:**\n- **SIEM**: Forward events to Splunk for correlation\n- **SOAR**: Trigger playbook execution\n- **Communication**: Slack notifications for approval requests",
+      "tags": [
+        "LimaCharlie",
+        "D&R",
+        "Type:response",
+        "Approval"
+      ]
+    },
+    {
+      "instruction": "Create LimaCharlie D&R investigation rule for authentication security monitoring with approval workflow.",
+      "input": "Need automated investigation for failed authentication patterns with human oversight",
+      "output": "**LimaCharlie D&R Rule: Authentication Investigation**\n\n```yaml\ndetect:\n  event: LOG\n  op: and\n  rules:\n    - op: is\n      path: event/EVENT/System/EventID  \n      value: 4625\n    - op: exists\n      path: event/EVENT/EventData/IpAddress\n\nrespond:\n  - action: report\n    name: auth_investigation_detected\n    metadata:\n      severity: medium\n      technique: T1110\n      \n  - action: extension_request\n    extension: threat_intel\n    request: check_reputation\n    params:\n      ip: \"{{ .event.EVENT.EventData.IpAddress }}\"\n```\n\n**Approval Workflow:**\n- **Auto-approve**: Monitoring and reporting actions\n- **Human approval**: Isolation and blocking actions\n- **Escalation**: Critical severity incidents\n\n**Integration:**\n- **SIEM**: Forward events to Splunk for correlation\n- **SOAR**: Trigger playbook execution\n- **Communication**: Slack notifications for approval requests",
+      "tags": [
+        "LimaCharlie",
+        "D&R",
+        "Type:investigation",
+        "Approval"
+      ]
+    },
+    {
+      "instruction": "Create LimaCharlie D&R detection rule for authentication security monitoring with approval workflow.",
+      "input": "Need automated detection for failed authentication patterns with human oversight",
+      "output": "**LimaCharlie D&R Rule: Authentication Detection**\n\n```yaml\ndetect:\n  event: LOG\n  op: and\n  rules:\n    - op: is\n      path: event/EVENT/System/EventID  \n      value: 4625\n    - op: exists\n      path: event/EVENT/EventData/IpAddress\n\nrespond:\n  - action: report\n    name: auth_detection_detected\n    metadata:\n      severity: medium\n      technique: T1110\n      \n  - action: extension_request\n    extension: threat_intel\n    request: check_reputation\n    params:\n      ip: \"{{ .event.EVENT.EventData.IpAddress }}\"\n```\n\n**Approval Workflow:**\n- **Auto-approve**: Monitoring and reporting actions\n- **Human approval**: Isolation and blocking actions\n- **Escalation**: Critical severity incidents\n\n**Integration:**\n- **SIEM**: Forward events to Splunk for correlation\n- **SOAR**: Trigger playbook execution\n- **Communication**: Slack notifications for approval requests",
+      "tags": [
+        "LimaCharlie",
+        "D&R",
+        "Type:detection",
+        "Approval"
+      ]
+    },
+    {
+      "instruction": "Create LimaCharlie D&R response rule for authentication security monitoring with approval workflow.",
+      "input": "Need automated response for failed authentication patterns with human oversight",
+      "output": "**LimaCharlie D&R Rule: Authentication Response**\n\n```yaml\ndetect:\n  event: LOG\n  op: and\n  rules:\n    - op: is\n      path: event/EVENT/System/EventID  \n      value: 4625\n    - op: exists\n      path: event/EVENT/EventData/IpAddress\n\nrespond:\n  - action: report\n    name: auth_response_detected\n    metadata:\n      severity: medium\n      technique: T1110\n      \n  - action: extension_request\n    extension: threat_intel\n    request: check_reputation\n    params:\n      ip: \"{{ .event.EVENT.EventData.IpAddress }}\"\n```\n\n**Approval Workflow:**\n- **Auto-approve**: Monitoring and reporting actions\n- **Human approval**: Isolation and blocking actions\n- **Escalation**: Critical severity incidents\n\n**Integration:**\n- **SIEM**: Forward events to Splunk for correlation\n- **SOAR**: Trigger playbook execution\n- **Communication**: Slack notifications for approval requests",
+      "tags": [
+        "LimaCharlie",
+        "D&R",
+        "Type:response",
+        "Approval"
+      ]
+    },
+    {
+      "instruction": "Create LimaCharlie D&R investigation rule for authentication security monitoring with approval workflow.",
+      "input": "Need automated investigation for failed authentication patterns with human oversight",
+      "output": "**LimaCharlie D&R Rule: Authentication Investigation**\n\n```yaml\ndetect:\n  event: LOG\n  op: and\n  rules:\n    - op: is\n      path: event/EVENT/System/EventID  \n      value: 4625\n    - op: exists\n      path: event/EVENT/EventData/IpAddress\n\nrespond:\n  - action: report\n    name: auth_investigation_detected\n    metadata:\n      severity: medium\n      technique: T1110\n      \n  - action: extension_request\n    extension: threat_intel\n    request: check_reputation\n    params:\n      ip: \"{{ .event.EVENT.EventData.IpAddress }}\"\n```\n\n**Approval Workflow:**\n- **Auto-approve**: Monitoring and reporting actions\n- **Human approval**: Isolation and blocking actions\n- **Escalation**: Critical severity incidents\n\n**Integration:**\n- **SIEM**: Forward events to Splunk for correlation\n- **SOAR**: Trigger playbook execution\n- **Communication**: Slack notifications for approval requests",
+      "tags": [
+        "LimaCharlie",
+        "D&R",
+        "Type:investigation",
+        "Approval"
+      ]
+    },
+    {
+      "instruction": "Create LimaCharlie D&R detection rule for authentication security monitoring with approval workflow.",
+      "input": "Need automated detection for failed authentication patterns with human oversight",
+      "output": "**LimaCharlie D&R Rule: Authentication Detection**\n\n```yaml\ndetect:\n  event: LOG\n  op: and\n  rules:\n    - op: is\n      path: event/EVENT/System/EventID  \n      value: 4625\n    - op: exists\n      path: event/EVENT/EventData/IpAddress\n\nrespond:\n  - action: report\n    name: auth_detection_detected\n    metadata:\n      severity: medium\n      technique: T1110\n      \n  - action: extension_request\n    extension: threat_intel\n    request: check_reputation\n    params:\n      ip: \"{{ .event.EVENT.EventData.IpAddress }}\"\n```\n\n**Approval Workflow:**\n- **Auto-approve**: Monitoring and reporting actions\n- **Human approval**: Isolation and blocking actions\n- **Escalation**: Critical severity incidents\n\n**Integration:**\n- **SIEM**: Forward events to Splunk for correlation\n- **SOAR**: Trigger playbook execution\n- **Communication**: Slack notifications for approval requests",
+      "tags": [
+        "LimaCharlie",
+        "D&R",
+        "Type:detection",
+        "Approval"
+      ]
+    },
+    {
+      "instruction": "Create LimaCharlie D&R response rule for authentication security monitoring with approval workflow.",
+      "input": "Need automated response for failed authentication patterns with human oversight",
+      "output": "**LimaCharlie D&R Rule: Authentication Response**\n\n```yaml\ndetect:\n  event: LOG\n  op: and\n  rules:\n    - op: is\n      path: event/EVENT/System/EventID  \n      value: 4625\n    - op: exists\n      path: event/EVENT/EventData/IpAddress\n\nrespond:\n  - action: report\n    name: auth_response_detected\n    metadata:\n      severity: medium\n      technique: T1110\n      \n  - action: extension_request\n    extension: threat_intel\n    request: check_reputation\n    params:\n      ip: \"{{ .event.EVENT.EventData.IpAddress }}\"\n```\n\n**Approval Workflow:**\n- **Auto-approve**: Monitoring and reporting actions\n- **Human approval**: Isolation and blocking actions\n- **Escalation**: Critical severity incidents\n\n**Integration:**\n- **SIEM**: Forward events to Splunk for correlation\n- **SOAR**: Trigger playbook execution\n- **Communication**: Slack notifications for approval requests",
+      "tags": [
+        "LimaCharlie",
+        "D&R",
+        "Type:response",
+        "Approval"
+      ]
+    },
+    {
+      "instruction": "Create LimaCharlie D&R investigation rule for authentication security monitoring with approval workflow.",
+      "input": "Need automated investigation for failed authentication patterns with human oversight",
+      "output": "**LimaCharlie D&R Rule: Authentication Investigation**\n\n```yaml\ndetect:\n  event: LOG\n  op: and\n  rules:\n    - op: is\n      path: event/EVENT/System/EventID  \n      value: 4625\n    - op: exists\n      path: event/EVENT/EventData/IpAddress\n\nrespond:\n  - action: report\n    name: auth_investigation_detected\n    metadata:\n      severity: medium\n      technique: T1110\n      \n  - action: extension_request\n    extension: threat_intel\n    request: check_reputation\n    params:\n      ip: \"{{ .event.EVENT.EventData.IpAddress }}\"\n```\n\n**Approval Workflow:**\n- **Auto-approve**: Monitoring and reporting actions\n- **Human approval**: Isolation and blocking actions\n- **Escalation**: Critical severity incidents\n\n**Integration:**\n- **SIEM**: Forward events to Splunk for correlation\n- **SOAR**: Trigger playbook execution\n- **Communication**: Slack notifications for approval requests",
+      "tags": [
+        "LimaCharlie",
+        "D&R",
+        "Type:investigation",
+        "Approval"
+      ]
+    },
+    {
+      "instruction": "Create LimaCharlie D&R detection rule for authentication security monitoring with approval workflow.",
+      "input": "Need automated detection for failed authentication patterns with human oversight",
+      "output": "**LimaCharlie D&R Rule: Authentication Detection**\n\n```yaml\ndetect:\n  event: LOG\n  op: and\n  rules:\n    - op: is\n      path: event/EVENT/System/EventID  \n      value: 4625\n    - op: exists\n      path: event/EVENT/EventData/IpAddress\n\nrespond:\n  - action: report\n    name: auth_detection_detected\n    metadata:\n      severity: medium\n      technique: T1110\n      \n  - action: extension_request\n    extension: threat_intel\n    request: check_reputation\n    params:\n      ip: \"{{ .event.EVENT.EventData.IpAddress }}\"\n```\n\n**Approval Workflow:**\n- **Auto-approve**: Monitoring and reporting actions\n- **Human approval**: Isolation and blocking actions\n- **Escalation**: Critical severity incidents\n\n**Integration:**\n- **SIEM**: Forward events to Splunk for correlation\n- **SOAR**: Trigger playbook execution\n- **Communication**: Slack notifications for approval requests",
+      "tags": [
+        "LimaCharlie",
+        "D&R",
+        "Type:detection",
+        "Approval"
+      ]
+    },
+    {
+      "instruction": "Create LimaCharlie D&R response rule for authentication security monitoring with approval workflow.",
+      "input": "Need automated response for failed authentication patterns with human oversight",
+      "output": "**LimaCharlie D&R Rule: Authentication Response**\n\n```yaml\ndetect:\n  event: LOG\n  op: and\n  rules:\n    - op: is\n      path: event/EVENT/System/EventID  \n      value: 4625\n    - op: exists\n      path: event/EVENT/EventData/IpAddress\n\nrespond:\n  - action: report\n    name: auth_response_detected\n    metadata:\n      severity: medium\n      technique: T1110\n      \n  - action: extension_request\n    extension: threat_intel\n    request: check_reputation\n    params:\n      ip: \"{{ .event.EVENT.EventData.IpAddress }}\"\n```\n\n**Approval Workflow:**\n- **Auto-approve**: Monitoring and reporting actions\n- **Human approval**: Isolation and blocking actions\n- **Escalation**: Critical severity incidents\n\n**Integration:**\n- **SIEM**: Forward events to Splunk for correlation\n- **SOAR**: Trigger playbook execution\n- **Communication**: Slack notifications for approval requests",
+      "tags": [
+        "LimaCharlie",
+        "D&R",
+        "Type:response",
+        "Approval"
+      ]
+    },
+    {
+      "instruction": "Create LimaCharlie D&R investigation rule for authentication security monitoring with approval workflow.",
+      "input": "Need automated investigation for failed authentication patterns with human oversight",
+      "output": "**LimaCharlie D&R Rule: Authentication Investigation**\n\n```yaml\ndetect:\n  event: LOG\n  op: and\n  rules:\n    - op: is\n      path: event/EVENT/System/EventID  \n      value: 4625\n    - op: exists\n      path: event/EVENT/EventData/IpAddress\n\nrespond:\n  - action: report\n    name: auth_investigation_detected\n    metadata:\n      severity: medium\n      technique: T1110\n      \n  - action: extension_request\n    extension: threat_intel\n    request: check_reputation\n    params:\n      ip: \"{{ .event.EVENT.EventData.IpAddress }}\"\n```\n\n**Approval Workflow:**\n- **Auto-approve**: Monitoring and reporting actions\n- **Human approval**: Isolation and blocking actions\n- **Escalation**: Critical severity incidents\n\n**Integration:**\n- **SIEM**: Forward events to Splunk for correlation\n- **SOAR**: Trigger playbook execution\n- **Communication**: Slack notifications for approval requests",
+      "tags": [
+        "LimaCharlie",
+        "D&R",
+        "Type:investigation",
+        "Approval"
+      ]
+    },
+    {
+      "instruction": "Create LimaCharlie D&R detection rule for authentication security monitoring with approval workflow.",
+      "input": "Need automated detection for failed authentication patterns with human oversight",
+      "output": "**LimaCharlie D&R Rule: Authentication Detection**\n\n```yaml\ndetect:\n  event: LOG\n  op: and\n  rules:\n    - op: is\n      path: event/EVENT/System/EventID  \n      value: 4625\n    - op: exists\n      path: event/EVENT/EventData/IpAddress\n\nrespond:\n  - action: report\n    name: auth_detection_detected\n    metadata:\n      severity: medium\n      technique: T1110\n      \n  - action: extension_request\n    extension: threat_intel\n    request: check_reputation\n    params:\n      ip: \"{{ .event.EVENT.EventData.IpAddress }}\"\n```\n\n**Approval Workflow:**\n- **Auto-approve**: Monitoring and reporting actions\n- **Human approval**: Isolation and blocking actions\n- **Escalation**: Critical severity incidents\n\n**Integration:**\n- **SIEM**: Forward events to Splunk for correlation\n- **SOAR**: Trigger playbook execution\n- **Communication**: Slack notifications for approval requests",
+      "tags": [
+        "LimaCharlie",
+        "D&R",
+        "Type:detection",
+        "Approval"
+      ]
+    },
+    {
+      "instruction": "Create LimaCharlie D&R response rule for authentication security monitoring with approval workflow.",
+      "input": "Need automated response for failed authentication patterns with human oversight",
+      "output": "**LimaCharlie D&R Rule: Authentication Response**\n\n```yaml\ndetect:\n  event: LOG\n  op: and\n  rules:\n    - op: is\n      path: event/EVENT/System/EventID  \n      value: 4625\n    - op: exists\n      path: event/EVENT/EventData/IpAddress\n\nrespond:\n  - action: report\n    name: auth_response_detected\n    metadata:\n      severity: medium\n      technique: T1110\n      \n  - action: extension_request\n    extension: threat_intel\n    request: check_reputation\n    params:\n      ip: \"{{ .event.EVENT.EventData.IpAddress }}\"\n```\n\n**Approval Workflow:**\n- **Auto-approve**: Monitoring and reporting actions\n- **Human approval**: Isolation and blocking actions\n- **Escalation**: Critical severity incidents\n\n**Integration:**\n- **SIEM**: Forward events to Splunk for correlation\n- **SOAR**: Trigger playbook execution\n- **Communication**: Slack notifications for approval requests",
+      "tags": [
+        "LimaCharlie",
+        "D&R",
+        "Type:response",
+        "Approval"
+      ]
+    },
+    {
+      "instruction": "Create LimaCharlie D&R investigation rule for authentication security monitoring with approval workflow.",
+      "input": "Need automated investigation for failed authentication patterns with human oversight",
+      "output": "**LimaCharlie D&R Rule: Authentication Investigation**\n\n```yaml\ndetect:\n  event: LOG\n  op: and\n  rules:\n    - op: is\n      path: event/EVENT/System/EventID  \n      value: 4625\n    - op: exists\n      path: event/EVENT/EventData/IpAddress\n\nrespond:\n  - action: report\n    name: auth_investigation_detected\n    metadata:\n      severity: medium\n      technique: T1110\n      \n  - action: extension_request\n    extension: threat_intel\n    request: check_reputation\n    params:\n      ip: \"{{ .event.EVENT.EventData.IpAddress }}\"\n```\n\n**Approval Workflow:**\n- **Auto-approve**: Monitoring and reporting actions\n- **Human approval**: Isolation and blocking actions\n- **Escalation**: Critical severity incidents\n\n**Integration:**\n- **SIEM**: Forward events to Splunk for correlation\n- **SOAR**: Trigger playbook execution\n- **Communication**: Slack notifications for approval requests",
+      "tags": [
+        "LimaCharlie",
+        "D&R",
+        "Type:investigation",
+        "Approval"
+      ]
+    },
+    {
+      "instruction": "Create Splunk detection search for authentication security analysis and monitoring.",
+      "input": "Security team needs detection capabilities for failed authentication events",
+      "output": "**Splunk Detection Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"detection\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 5 AND unique_accounts > 1\n\n| eval risk_score = failures * unique_accounts * 1.5\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 20\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:detection",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk hunting search for authentication security analysis and monitoring.",
+      "input": "Security team needs hunting capabilities for failed authentication events",
+      "output": "**Splunk Hunting Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"hunting\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 6 AND unique_accounts > 2\n\n| eval risk_score = failures * unique_accounts * 1.6\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 25\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:hunting",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk investigation search for authentication security analysis and monitoring.",
+      "input": "Security team needs investigation capabilities for failed authentication events",
+      "output": "**Splunk Investigation Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"investigation\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 7 AND unique_accounts > 3\n\n| eval risk_score = failures * unique_accounts * 1.7\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 30\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:investigation",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk correlation search for authentication security analysis and monitoring.",
+      "input": "Security team needs correlation capabilities for failed authentication events",
+      "output": "**Splunk Correlation Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"correlation\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 8 AND unique_accounts > 1\n\n| eval risk_score = failures * unique_accounts * 1.8\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 35\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:correlation",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk detection search for authentication security analysis and monitoring.",
+      "input": "Security team needs detection capabilities for failed authentication events",
+      "output": "**Splunk Detection Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"detection\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 9 AND unique_accounts > 2\n\n| eval risk_score = failures * unique_accounts * 1.9\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 40\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:detection",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk hunting search for authentication security analysis and monitoring.",
+      "input": "Security team needs hunting capabilities for failed authentication events",
+      "output": "**Splunk Hunting Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"hunting\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 10 AND unique_accounts > 3\n\n| eval risk_score = failures * unique_accounts * 2.0\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 45\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:hunting",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk investigation search for authentication security analysis and monitoring.",
+      "input": "Security team needs investigation capabilities for failed authentication events",
+      "output": "**Splunk Investigation Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"investigation\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 11 AND unique_accounts > 1\n\n| eval risk_score = failures * unique_accounts * 2.1\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 50\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:investigation",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk correlation search for authentication security analysis and monitoring.",
+      "input": "Security team needs correlation capabilities for failed authentication events",
+      "output": "**Splunk Correlation Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"correlation\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 12 AND unique_accounts > 2\n\n| eval risk_score = failures * unique_accounts * 2.2\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 55\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:correlation",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk detection search for authentication security analysis and monitoring.",
+      "input": "Security team needs detection capabilities for failed authentication events",
+      "output": "**Splunk Detection Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"detection\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 13 AND unique_accounts > 3\n\n| eval risk_score = failures * unique_accounts * 2.3\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 60\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:detection",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk hunting search for authentication security analysis and monitoring.",
+      "input": "Security team needs hunting capabilities for failed authentication events",
+      "output": "**Splunk Hunting Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"hunting\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 14 AND unique_accounts > 1\n\n| eval risk_score = failures * unique_accounts * 2.4\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 65\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:hunting",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk investigation search for authentication security analysis and monitoring.",
+      "input": "Security team needs investigation capabilities for failed authentication events",
+      "output": "**Splunk Investigation Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"investigation\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 15 AND unique_accounts > 2\n\n| eval risk_score = failures * unique_accounts * 2.5\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 70\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:investigation",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk correlation search for authentication security analysis and monitoring.",
+      "input": "Security team needs correlation capabilities for failed authentication events",
+      "output": "**Splunk Correlation Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"correlation\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 16 AND unique_accounts > 3\n\n| eval risk_score = failures * unique_accounts * 2.6\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 75\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:correlation",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk detection search for authentication security analysis and monitoring.",
+      "input": "Security team needs detection capabilities for failed authentication events",
+      "output": "**Splunk Detection Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"detection\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 17 AND unique_accounts > 1\n\n| eval risk_score = failures * unique_accounts * 2.7\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 80\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:detection",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk hunting search for authentication security analysis and monitoring.",
+      "input": "Security team needs hunting capabilities for failed authentication events",
+      "output": "**Splunk Hunting Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"hunting\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 18 AND unique_accounts > 2\n\n| eval risk_score = failures * unique_accounts * 2.8\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 85\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:hunting",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk investigation search for authentication security analysis and monitoring.",
+      "input": "Security team needs investigation capabilities for failed authentication events",
+      "output": "**Splunk Investigation Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"investigation\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 19 AND unique_accounts > 3\n\n| eval risk_score = failures * unique_accounts * 2.9000000000000004\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 90\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:investigation",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk correlation search for authentication security analysis and monitoring.",
+      "input": "Security team needs correlation capabilities for failed authentication events",
+      "output": "**Splunk Correlation Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"correlation\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 20 AND unique_accounts > 1\n\n| eval risk_score = failures * unique_accounts * 3.0\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 95\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:correlation",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk detection search for authentication security analysis and monitoring.",
+      "input": "Security team needs detection capabilities for failed authentication events",
+      "output": "**Splunk Detection Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"detection\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 21 AND unique_accounts > 2\n\n| eval risk_score = failures * unique_accounts * 3.1\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 100\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:detection",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk hunting search for authentication security analysis and monitoring.",
+      "input": "Security team needs hunting capabilities for failed authentication events",
+      "output": "**Splunk Hunting Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"hunting\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 22 AND unique_accounts > 3\n\n| eval risk_score = failures * unique_accounts * 3.2\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 105\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:hunting",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk investigation search for authentication security analysis and monitoring.",
+      "input": "Security team needs investigation capabilities for failed authentication events",
+      "output": "**Splunk Investigation Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"investigation\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 23 AND unique_accounts > 1\n\n| eval risk_score = failures * unique_accounts * 3.3\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 110\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:investigation",
+        "Correlation",
+        "Dashboard"
+      ]
+    },
+    {
+      "instruction": "Create Splunk correlation search for authentication security analysis and monitoring.",
+      "input": "Security team needs correlation capabilities for failed authentication events",
+      "output": "**Splunk Correlation Search: Authentication Analysis**\n\n```spl\nindex=security sourcetype=WinEventLog:Security EventCode=4625\n| eval search_type=\"correlation\"\n| bucket _time span=5m\n| stats \n    count as failures,\n    dc(Account_Name) as unique_accounts,\n    values(Account_Name) as targeted_accounts\n    by _time, src_ip\n    \n| where failures > 24 AND unique_accounts > 2\n\n| eval risk_score = failures * unique_accounts * 3.4000000000000004\n| eval alert_level = case(\n    risk_score > 80, \"Critical\",\n    risk_score > 40, \"High\",\n    risk_score > 20, \"Medium\", \n    1=1, \"Low\")\n    \n| table _time, src_ip, failures, unique_accounts, risk_score, alert_level\n| sort - risk_score\n```\n\n**Alert Configuration:**\n- **Schedule**: Every 5 minutes\n- **Threshold**: Risk score > 115\n- **Actions**: Email SOC team, create notable event\n- **Severity**: Dynamic based on risk score\n\n**Dashboard Integration:**\n- Real-time authentication failure monitoring\n- Geographic analysis of attack sources  \n- Trending analysis for pattern identification\n- Integration with threat intelligence feeds",
+      "tags": [
+        "Splunk",
+        "SearchType:correlation",
+        "Correlation",
+        "Dashboard"
+      ]
+    }
+  ]
+}

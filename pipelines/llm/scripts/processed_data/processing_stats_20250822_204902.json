@@ -1,0 +1,31 @@
+{
+  "processing_summary": {
+    "total_examples": 100,
+    "converted_examples": 100,
+    "success_rate": 1.0,
+    "average_quality_score": 0.9843999999999994
+  },
+  "domain_breakdown": {
+    "SecOps/Splunk": 40,
+    "SecOps/LimaCharlie": 30,
+    "Kubernetes": 30
+  },
+  "mitre_techniques_found": 10,
+  "mitre_techniques": [
+    "T1003.001",
+    "T1041",
+    "T1059.001",
+    "T1060",
+    "T1071.004",
+    "T1110",
+    "T1204.002",
+    "T1543",
+    "T1558.003",
+    "T1611"
+  ],
+  "quality_distribution": {
+    "high_quality": 100,
+    "medium_quality": 0,
+    "low_quality": 0
+  }
+}
