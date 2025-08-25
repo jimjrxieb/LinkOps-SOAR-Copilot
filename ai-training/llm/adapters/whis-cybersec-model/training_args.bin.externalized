@@ -1,0 +1,10 @@
+# EXTERNALIZED ARTIFACT
+# This file has been moved to external storage for repository hygiene.
+# 
+# Original file: ai-training/llm/adapters/whis-cybersec-model/training_args.bin
+# External path: external-artifacts/ai-training/llm/adapters/whis-cybersec-model/training_args.bin
+# Size: 5,713 bytes
+# Checksum: 4b47dafd78625bd326609cb4f5fdc94ca2f845702298f939cd6faec81065c722
+# Externalized: 2025-08-23T15:53:04.401906
+#
+# To restore: ./scripts/restore-artifacts.py ai-training/llm/adapters/whis-cybersec-model/training_args.bin

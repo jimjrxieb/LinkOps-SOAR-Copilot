@@ -1,0 +1,9 @@
+{
+  "dataset_name": "agamage/incident-response-playbooks",
+  "description": "Additional incident response playbooks",
+  "category": "ir_playbooks_extended",
+  "priority": "high",
+  "sample_count": 49,
+  "file_path": "ai-training/rag/soar-data/ir_playbooks_extended/agamage_incident-response-playbooks_samples.jsonl",
+  "downloaded_at": "2025-08-24T02:23:51.301038"
+}

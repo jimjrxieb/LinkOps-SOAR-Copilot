@@ -1,0 +1,10 @@
+# EXTERNALIZED ARTIFACT
+# This file has been moved to external storage for repository hygiene.
+# 
+# Original file: ai-training/llm/adapters/whis-cybersec-model/adapter_model.safetensors
+# External path: external-artifacts/ai-training/llm/adapters/whis-cybersec-model/adapter_model.safetensors
+# Size: 67,143,296 bytes
+# Checksum: 64858b4ce957de8665fc12b56f4d97c5d97d65dbe19acac4aa1c99e3ee2a7571
+# Externalized: 2025-08-23T15:53:02.373248
+#
+# To restore: ./scripts/restore-artifacts.py ai-training/llm/adapters/whis-cybersec-model/adapter_model.safetensors

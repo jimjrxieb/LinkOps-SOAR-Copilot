@@ -1,0 +1,19 @@
+{
+  "feature_store_version": "1.0",
+  "created_at": "2025-08-24T21:00:10.266259",
+  "tables": [
+    "auth_events",
+    "process_events",
+    "admin_events"
+  ],
+  "total_rows": 2000,
+  "use_cases": [
+    "anomaly_detection",
+    "incident_likelihood",
+    "privilege_escalation_detection"
+  ],
+  "data_sources": [
+    "synthetic_based_on_open_malsec_patterns",
+    "threat_intelligence_derived"
+  ]
+}

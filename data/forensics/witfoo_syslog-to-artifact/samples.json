@@ -1,0 +1,7007 @@
+{
+  "dataset": "witfoo/syslog-to-artifact",
+  "description": "Syslog lines mapped to security artifacts",
+  "sample_count": 1000,
+  "samples": [
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    },
+    {
+      "source_dataset": "witfoo/syslog-to-artifact",
+      "type": "forensics",
+      "log_line": "",
+      "artifact": "",
+      "category": "syslog_analysis"
+    }
+  ]
+}

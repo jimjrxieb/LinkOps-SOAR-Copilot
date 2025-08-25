@@ -1,0 +1,238 @@
+# WHIS SOAR-Copilot Monitoring Configuration
+# =========================================
+
+telemetry:
+  service_name: "whis-soar-copilot"
+  environment: "production"  # production, staging, development
+  
+  # OpenTelemetry configuration
+  otel:
+    endpoint: "${OTEL_EXPORTER_OTLP_ENDPOINT:-http://localhost:4317}"
+    insecure: true
+    service_version: "1.0.0"
+    
+  # Metrics collection
+  metrics:
+    enabled: true
+    collection_interval: 15  # seconds
+    retention_days: 30
+    
+    # Custom metrics
+    custom_metrics:
+      - name: "whis_session_quality"
+        type: "histogram"
+        description: "Quality scores for WHIS sessions"
+      - name: "whis_playbook_execution_time"
+        type: "histogram" 
+        description: "Time to execute security playbooks"
+      - name: "whis_detection_accuracy"
+        type: "gauge"
+        description: "Detection accuracy percentage"
+        
+  # Distributed tracing
+  tracing:
+    enabled: true
+    sample_rate: 0.1  # 10% sampling for production
+    max_spans_per_trace: 100
+    
+# Prometheus configuration
+prometheus:
+  enabled: true
+  port: 9090
+  metrics_path: "/metrics"
+  scrape_interval: "15s"
+  
+  # Alert rules
+  alerts:
+    - name: "HighErrorRate"
+      condition: "whis_requests_total{status='error'} / whis_requests_total > 0.1"
+      duration: "5m"
+      severity: "critical"
+      
+    - name: "HighInferenceLatency" 
+      condition: "whis_inference_duration_seconds > 5.0"
+      duration: "2m"
+      severity: "warning"
+      
+    - name: "LowCacheHitRate"
+      condition: "whis_cache_hits / (whis_cache_hits + whis_cache_misses) < 0.8"
+      duration: "10m"
+      severity: "warning"
+      
+    - name: "GPUMemoryHigh"
+      condition: "whis_gpu_memory_percent > 90"
+      duration: "1m"
+      severity: "critical"
+
+# Logging configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "structured"  # structured, text
+  
+  # Log destinations
+  handlers:
+    console:
+      enabled: true
+      level: "INFO"
+      
+    file:
+      enabled: true
+      path: "logs/whis.log"
+      level: "INFO"
+      max_size: "100MB"
+      backup_count: 5
+      
+    remote:
+      enabled: false
+      endpoint: "${LOG_ENDPOINT}"
+      level: "WARNING"
+      
+  # Component-specific logging
+  loggers:
+    "whis.inference":
+      level: "INFO"
+      trace_requests: true
+      
+    "whis.rag":
+      level: "INFO"
+      log_retrieval_results: false  # Can be verbose
+      
+    "whis.security":
+      level: "DEBUG"  # Security events need detailed logging
+      
+    "whis.monitoring":
+      level: "WARNING"  # Avoid recursive logging
+      
+# Health checks
+health:
+  enabled: true
+  endpoint: "/health"
+  
+  checks:
+    - name: "model_loaded"
+      type: "custom"
+      timeout: 5
+      
+    - name: "rag_available"
+      type: "custom" 
+      timeout: 3
+      
+    - name: "database_connection"
+      type: "tcp"
+      host: "${DB_HOST:-localhost}"
+      port: "${DB_PORT:-5432}"
+      timeout: 2
+      
+    - name: "vector_store"
+      type: "http"
+      url: "${CHROMA_URL:-http://localhost:8000}"
+      timeout: 5
+      
+  # Health thresholds
+  thresholds:
+    response_time_ms: 1000
+    error_rate_percent: 5
+    memory_usage_percent: 85
+    
+# Performance monitoring
+performance:
+  enabled: true
+  
+  # Resource monitoring
+  resources:
+    cpu_threshold: 80  # percent
+    memory_threshold: 85  # percent
+    gpu_memory_threshold: 90  # percent
+    disk_threshold: 90  # percent
+    
+  # Model performance
+  model:
+    max_inference_time: 10  # seconds
+    min_tokens_per_second: 20
+    max_queue_size: 10
+    
+  # RAG performance  
+  rag:
+    max_retrieval_time: 2  # seconds
+    min_similarity_threshold: 0.7
+    max_context_length: 4000  # tokens
+
+# Dashboard configuration
+dashboards:
+  grafana:
+    enabled: true
+    url: "${GRAFANA_URL:-http://localhost:3000}"
+    
+    # Pre-configured dashboards
+    dashboards:
+      - name: "WHIS Overview"
+        path: "dashboards/whis-overview.json"
+        
+      - name: "Model Performance"
+        path: "dashboards/model-performance.json"
+        
+      - name: "RAG Analytics"
+        path: "dashboards/rag-analytics.json"
+        
+      - name: "Security Metrics"
+        path: "dashboards/security-metrics.json"
+        
+# Alerting
+alerting:
+  enabled: true
+  
+  # Alert channels
+  channels:
+    slack:
+      enabled: false
+      webhook_url: "${SLACK_WEBHOOK_URL}"
+      channel: "#whis-alerts"
+      
+    email:
+      enabled: false
+      smtp_host: "${SMTP_HOST}"
+      smtp_port: 587
+      from_email: "alerts@whis.local"
+      to_emails: ["admin@whis.local"]
+      
+    pagerduty:
+      enabled: false
+      integration_key: "${PAGERDUTY_KEY}"
+      
+  # Alert routing
+  routing:
+    critical: ["pagerduty", "slack"]
+    warning: ["slack"]
+    info: []
+    
+# Data retention
+retention:
+  metrics: "30d"
+  traces: "7d" 
+  logs: "90d"
+  
+  # Cleanup policies
+  cleanup:
+    enabled: true
+    schedule: "0 2 * * *"  # 2 AM daily
+    
+# Security monitoring
+security:
+  enabled: true
+  
+  # Audit logging
+  audit:
+    log_all_requests: true
+    log_response_data: false  # Privacy
+    sensitive_fields: ["password", "token", "key", "secret"]
+    
+  # Anomaly detection
+  anomaly_detection:
+    enabled: true
+    models: ["isolation_forest", "autoencoder"]
+    sensitivity: 0.1
+    
+  # Rate limiting monitoring
+  rate_limiting:
+    track_violations: true
+    alert_threshold: 10  # violations per minute

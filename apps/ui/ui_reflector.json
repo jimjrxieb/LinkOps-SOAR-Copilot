@@ -1,0 +1,206 @@
+{
+  "whis_ui_reflector": {
+    "version": "1.0.0",
+    "description": "Maps backend events and routes to frontend UI updates",
+    
+    "route_ui_mapping": {
+      "/chat": {
+        "triggers_update": [
+          "chat-messages-container",
+          "confidence-indicator", 
+          "training-queue-size"
+        ],
+        "ui_changes": {
+          "add_message": {
+            "target": "#messages",
+            "method": "append",
+            "template": "message_bubble"
+          },
+          "update_confidence": {
+            "target": "[data-testid='confidence-indicator']",
+            "method": "set_attribute",
+            "attribute": "data-confidence"
+          },
+          "show_thinking": {
+            "target": "#thinking",
+            "method": "show",
+            "temporary": true,
+            "duration_ms": 2000
+          }
+        }
+      },
+      
+      "/health": {
+        "triggers_update": [
+          "system-status"
+        ],
+        "ui_changes": {
+          "update_status": {
+            "target": "[data-testid='system-status']",
+            "method": "set_class",
+            "classes": ["healthy", "degraded", "down"]
+          }
+        }
+      },
+      
+      "/metrics": {
+        "triggers_update": [
+          "training-queue-size",
+          "confidence-threshold-display"
+        ],
+        "polling_interval_ms": 30000,
+        "ui_changes": {
+          "update_queue_size": {
+            "target": "#trainingQueueSize",
+            "method": "set_text",
+            "source_field": "training_queue_size"
+          }
+        }
+      },
+      
+      "/training-queue": {
+        "triggers_update": [
+          "training-queue-size",
+          "training-queue-list"
+        ],
+        "ui_changes": {
+          "update_count": {
+            "target": "[data-testid='training-queue-size']", 
+            "method": "set_text",
+            "source_field": "count"
+          }
+        }
+      }
+    },
+    
+    "event_driven_updates": {
+      "chat_message_sent": {
+        "trigger": "form_submit",
+        "form_id": "chatForm",
+        "immediate_ui_changes": [
+          {
+            "target": "#thinking",
+            "action": "show",
+            "text": "🤔 WHIS is thinking..."
+          },
+          {
+            "target": "#send",
+            "action": "disable"
+          }
+        ]
+      },
+      
+      "chat_response_received": {
+        "trigger": "api_response",
+        "endpoint": "/chat",
+        "immediate_ui_changes": [
+          {
+            "target": "#thinking", 
+            "action": "hide"
+          },
+          {
+            "target": "#send",
+            "action": "enable"
+          }
+        ],
+        "conditional_changes": [
+          {
+            "condition": "response.training_queued === true",
+            "target": "[data-testid='training-queue-size']",
+            "action": "increment"
+          },
+          {
+            "condition": "response.confidence_score < 0.6",
+            "target": ".whis:last-child",
+            "action": "add_emoji",
+            "emoji": "🤔"
+          },
+          {
+            "condition": "response.confidence_score > 0.8",
+            "target": ".whis:last-child", 
+            "action": "add_emoji",
+            "emoji": "✅"
+          }
+        ]
+      }
+    },
+    
+    "state_synchronization": {
+      "training_queue": {
+        "local_storage_key": "whis_training_queue_count",
+        "sync_interval_ms": 10000,
+        "ui_element": "#trainingQueueSize"
+      },
+      
+      "confidence_threshold": {
+        "local_storage_key": "whis_confidence_threshold",
+        "source_endpoint": "/metrics",
+        "ui_element": "[data-confidence-threshold]"
+      },
+      
+      "system_health": {
+        "local_storage_key": "whis_system_health",
+        "sync_interval_ms": 5000,
+        "source_endpoint": "/health",
+        "ui_elements": [".status-indicator"]
+      }
+    },
+    
+    "error_handling": {
+      "api_error": {
+        "target": "#messages",
+        "fallback_message": "Error connecting to AI engine. Please try again.",
+        "ui_changes": [
+          {
+            "target": "#thinking",
+            "action": "hide"
+          },
+          {
+            "target": "#send", 
+            "action": "enable"
+          }
+        ]
+      },
+      
+      "network_error": {
+        "target": "[data-testid='system-status']",
+        "action": "set_class",
+        "class": "error",
+        "message": "Connection lost. Retrying..."
+      }
+    },
+    
+    "testing_hooks": {
+      "playwright_ready_indicators": [
+        "#messages",
+        "#send:not([disabled])",
+        "[data-testid='system-status']"
+      ],
+      
+      "state_debugging": {
+        "expose_window_object": "whisUIState",
+        "include_fields": [
+          "last_response",
+          "confidence_score",
+          "training_queue_size", 
+          "system_health"
+        ]
+      },
+      
+      "test_data_injection": {
+        "mock_responses": {
+          "greeting": {
+            "response": "Hello! What security matter can I help you investigate?",
+            "confidence_score": 0.95,
+            "intent_classified": "greeting"
+          },
+          "dangerous_action": {
+            "response": "I can't execute that action without proper authorization.",
+            "confidence_score": 0.9,
+            "security_flags": ["dangerous_action_detected"]
+          }
+        }
+      }
+    }
+  }
+}

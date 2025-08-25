@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_8ed7a129fd69",
+    "timestamp": "2025-08-24T00:47:10.860811",
+    "query_preview": "What is AWS CloudTrail and how does it help with security?",
+    "why_abstained": "no_rag_hits",
+    "intent": "definition",
+    "confidence_score": 0.4,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_8ed7a129fd69",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T00:47:10.861234",
+  "delivery_failed": true
+}

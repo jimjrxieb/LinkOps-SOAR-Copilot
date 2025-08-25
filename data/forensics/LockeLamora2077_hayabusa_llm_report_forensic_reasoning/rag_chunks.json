@@ -1,0 +1,10 @@
+[
+  {
+    "id": "forensics_LockeLamora2077_hayabusa_llm_report_forensic_reasoning_dfir_reasoning",
+    "content": "# Forensics Knowledge: Dfir Reasoning\n\n**Source Dataset**: LockeLamora2077/hayabusa_llm_report_forensic_reasoning\n\n**Sample Count**: 68\n\n## Representative Examples:\n\n- **Question**: What is Hayabusa and who developed it?\n  **Analysis**: ...\n\n- **Question**: What does the name 'Hayabusa' mean and why is it relevant?\n  **Analysis**: ...\n\n- **Question**: What are some of the key features of Hayabusa?\n  **Analysis**: ...\n\n- **Question**: What are typical use cases for Hayabusa?\n  **Analysis**: ...\n\n- **Question**: What is a major limitation regarding the scope of Hayabusa?\n  **Analysis**: ...\n\n",
+    "title": "Forensics: Dfir Reasoning",
+    "source": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+    "category": "forensics_knowledge",
+    "type": "reference"
+  }
+]

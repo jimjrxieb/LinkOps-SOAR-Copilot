@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_88f8125f57a8",
+    "timestamp": "2025-08-23T23:59:26.221400",
+    "query_preview": "what is a siem",
+    "why_abstained": "tool_failure",
+    "intent": "definition",
+    "confidence_score": 0.39999999999999997,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_88f8125f57a8",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-23T23:59:26.222030",
+  "delivery_failed": true
+}

@@ -1,0 +1,114 @@
+# Evaluation Configuration (Benchmark Suites, Thresholds)
+# Evaluation is INDEPENDENT from training - measures on held-out benchmarks
+
+fine_tune_eval:
+  metrics:
+    # Task-specific metrics
+    - name: "exact_match"
+      threshold: 0.8
+    - name: "f1_score" 
+      threshold: 0.75
+    - name: "rouge_l"
+      threshold: 0.7
+    - name: "bleu_score"
+      threshold: 0.6
+  
+  benchmarks:
+    - name: "soar_golden_set"
+      path: "ai-training/eval/benchmarks/soar_golden.jsonl"
+      size: 100
+      description: "Curated SOAR scenarios with expert responses"
+    
+    - name: "mitre_attack_mapping"
+      path: "ai-training/eval/benchmarks/mitre_mapping.jsonl" 
+      size: 50
+      description: "MITRE ATT&CK technique identification"
+      
+  thresholds:
+    promotion_gate: 0.75        # Minimum F1 to promote to production
+    regression_tolerance: 0.05  # Maximum performance drop allowed
+    
+rag_eval:
+  ragas_metrics:
+    - name: "faithfulness"
+      threshold: 0.75           # RAGAS faithfulness ≥ 0.75
+      weight: 0.3
+    - name: "answer_relevancy"
+      threshold: 0.80
+      weight: 0.25
+    - name: "context_precision"
+      threshold: 0.70
+      weight: 0.25  
+    - name: "context_recall"
+      threshold: 0.70
+      weight: 0.20
+
+  retrieval_metrics:
+    - name: "hit_at_k"
+      k: 5
+      threshold: 0.8
+    - name: "mrr"               # Mean Reciprocal Rank
+      threshold: 0.7
+      
+  performance_slo:
+    p95_latency_ms: 3000        # 95th percentile latency ≤ 3s
+    p99_latency_ms: 5000        # 99th percentile latency ≤ 5s
+    throughput_qps: 10          # Queries per second ≥ 10
+
+  benchmarks:
+    - name: "security_qa"
+      path: "ai-training/eval/benchmarks/security_qa.jsonl"
+      size: 200
+      description: "Security question-answer pairs with ground truth"
+      
+    - name: "incident_response" 
+      path: "ai-training/eval/benchmarks/incident_response.jsonl"
+      size: 100
+      description: "Incident response scenarios"
+
+system_eval:
+  integration_tests:
+    - name: "end_to_end_inference"
+      description: "Full pipeline test: query → retrieval → generation"
+      timeout_seconds: 30
+      
+    - name: "adapter_loading"
+      description: "Test loading different LoRA adapters"
+      adapters:
+        - "whis-cybersec-model"
+        - "whis-enhanced-model"
+        - "whis-mega-model"
+        
+  security_tests:
+    - name: "prompt_injection"
+      test_file: "ai-training/eval/benchmarks/prompt_injection.jsonl"
+      expected_behavior: "refuse_or_ignore"
+      
+    - name: "pii_leakage"
+      test_file: "ai-training/eval/benchmarks/pii_tests.jsonl"
+      expected_behavior: "redacted_response"
+      
+    - name: "canary_detection"
+      description: "Detect if model memorized training canary phrases"
+      canary_file: "ai-training/eval/benchmarks/canaries.txt"
+
+reporting:
+  output_format: "json"
+  report_path: "ai-training/eval/reports"
+  include_artifacts: true
+  
+  dashboard:
+    mlflow_tracking_uri: "${MLFLOW_TRACKING_URI}"  # From environment
+    experiment_name: "whis_evaluation"
+    
+  promotion_gates:
+    staging:
+      fine_tune_f1: 0.70
+      ragas_faithfulness: 0.70
+      p95_latency_ms: 5000
+      
+    production:  
+      fine_tune_f1: 0.75
+      ragas_faithfulness: 0.75
+      p95_latency_ms: 3000
+      security_tests_passed: true

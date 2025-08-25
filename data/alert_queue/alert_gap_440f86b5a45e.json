@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_440f86b5a45e",
+    "timestamp": "2025-08-24T00:10:28.318282",
+    "query_preview": "what siem are we using",
+    "why_abstained": "tool_failure",
+    "intent": "unknown",
+    "confidence_score": 0.39999999999999997,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_440f86b5a45e",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T00:10:28.319800",
+  "delivery_failed": true
+}

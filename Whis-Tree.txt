@@ -1,0 +1,591 @@
+.
+├── DEBUG_TAGS.md
+├── EXTERNAL_ARTIFACTS_MANIFEST.json
+├── LAUNCH-FULL-WHIS.sh
+├── LAUNCH.sh
+├── Makefile
+├── OPERATIONS.md
+├── QUICK_START.md
+├── README.md
+├── README_OLD.md
+├── RELEASE_MANIFEST.json
+├── RELEASE_MANIFEST.template.json
+├── REPO_CLEANUP_PLAN.md
+├── WHIS_RED_TEAM_READINESS.md
+├── Whis-Tree.txt
+├── Whis-Tree2.txt
+├── ai-training
+│   ├── 01_Data_Preprocessing_Hub.ipynb
+│   ├── README.md
+│   ├── attack_chain_analyzer.py
+│   ├── ci
+│   │   └── index_refresh.py
+│   ├── cli
+│   │   └── whis_status.py
+│   ├── configs
+│   │   ├── config_manager.py
+│   │   ├── data_governance.yaml
+│   │   ├── eval.yaml
+│   │   ├── model.whis.yaml
+│   │   ├── monitoring.yaml
+│   │   ├── rag.yaml
+│   │   └── security.yaml
+│   ├── core
+│   │   └── logging.py
+│   ├── data
+│   │   ├── datasets
+│   │   ├── governance
+│   │   │   └── pii_redaction.py
+│   │   ├── raw
+│   │   │   ├── README.md
+│   │   │   ├── external
+│   │   │   │   ├── malsec_botnet-ddos-misc.jsonl
+│   │   │   │   ├── malsec_ceo-hr-phish-invoice-scam.jsonl
+│   │   │   │   ├── malsec_common-malware-vectors.jsonl
+│   │   │   │   ├── malsec_defi-meme-crypto-token-scams.jsonl
+│   │   │   │   ├── malsec_discord-social-engineering.jsonl
+│   │   │   │   ├── malsec_facebook-romance-scams.jsonl
+│   │   │   │   ├── malsec_mobile-threats-detection.jsonl
+│   │   │   │   ├── malsec_onlyfans-subscription-fake-scams.jsonl
+│   │   │   │   ├── malsec_ransomware-cases.jsonl
+│   │   │   │   └── malsec_runescape-wow-diablo-mmo-scams.jsonl
+│   │   │   ├── limacharlie
+│   │   │   │   └── advanced_threats.jsonl
+│   │   │   ├── llm
+│   │   │   │   ├── demo_training.jsonl
+│   │   │   │   ├── whis_actions.jsonl
+│   │   │   │   └── whis_actions_test.jsonl
+│   │   │   ├── rag
+│   │   │   │   └── chunks
+│   │   │   └── splunk
+│   │   │       ├── demo_events.jsonl
+│   │   │       └── security_scenarios.jsonl
+│   │   └── staging
+│   ├── drop_zone
+│   ├── eval
+│   │   ├── benchmarks
+│   │   ├── reports
+│   │   └── run_eval.py
+│   ├── fine_tune
+│   │   ├── adapters
+│   │   ├── experiments
+│   │   └── lora_train.py
+│   ├── llm
+│   │   ├── README.md
+│   │   ├── adapters
+│   │   │   ├── whis-cybersec-model
+│   │   │   │   ├── README.md
+│   │   │   │   ├── adapter_config.json
+│   │   │   │   ├── adapter_model.safetensors.externalized
+│   │   │   │   ├── chat_template.jinja
+│   │   │   │   ├── checkpoint-12
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── training_args.bin.externalized
+│   │   │   │   └── training_complete.json
+│   │   │   ├── whis-enhanced-model
+│   │   │   │   ├── README.md
+│   │   │   │   ├── adapter_config.json
+│   │   │   │   ├── adapter_model.safetensors.externalized
+│   │   │   │   ├── chat_template.jinja
+│   │   │   │   ├── checkpoint-30
+│   │   │   │   ├── runs
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   └── training_args.bin.externalized
+│   │   │   └── whis-mega-model
+│   │   │       ├── README.md
+│   │   │       ├── adapter_config.json
+│   │   │       ├── adapter_model.safetensors.externalized
+│   │   │       ├── chat_template.jinja
+│   │   │       ├── checkpoint-25
+│   │   │       ├── checkpoint-50
+│   │   │       ├── checkpoint-65
+│   │   │       ├── runs
+│   │   │       ├── special_tokens_map.json
+│   │   │       ├── tokenizer.json
+│   │   │       ├── tokenizer_config.json
+│   │   │       └── training_args.bin.externalized
+│   │   ├── data
+│   │   │   ├── devsecops_senior_scenarios.jsonl
+│   │   │   ├── external
+│   │   │   │   ├── open-malsec
+│   │   │   │   ├── open_malsec
+│   │   │   │   ├── open_malsec_data -> ../../../open-malsec
+│   │   │   │   ├── primus
+│   │   │   │   ├── primus-instruct
+│   │   │   │   ├── purple-team
+│   │   │   │   └── purple_team
+│   │   │   ├── how_engine_training.jsonl
+│   │   │   ├── mega_external_20250823_115923.jsonl
+│   │   │   ├── nist_frameworks_training.jsonl
+│   │   │   ├── security_interview_questions.jsonl
+│   │   │   ├── soar_consolidated_20250823_113728.jsonl
+│   │   │   ├── soar_fixed.jsonl
+│   │   │   ├── soar_metadata_20250823_113728.json
+│   │   │   ├── whis_action_schema_100.jsonl
+│   │   │   ├── whis_comprehensive_training_20250822_233143.jsonl
+│   │   │   ├── whis_comprehensive_training_latest.jsonl -> whis_comprehensive_training_20250822_233143.jsonl
+│   │   │   ├── whis_enhanced_metadata_20250822_232921.json
+│   │   │   ├── whis_enhanced_metadata_latest.json -> whis_enhanced_metadata_20250822_232921.json
+│   │   │   ├── whis_enhanced_training_20250822_232921.jsonl
+│   │   │   ├── whis_enhanced_training_latest.jsonl -> whis_enhanced_training_20250822_232921.jsonl
+│   │   │   ├── whis_mega_enhanced_training_20250822_233019.jsonl
+│   │   │   └── whis_mega_enhanced_training_latest.jsonl -> whis_mega_enhanced_training_20250822_233019.jsonl
+│   │   ├── external-models
+│   │   │   └── README.md
+│   │   ├── models
+│   │   ├── results
+│   │   │   ├── whis_enhanced_test_results.json
+│   │   │   ├── whis_security_compliance_report.json
+│   │   │   └── whis_test_results.json
+│   │   └── scripts
+│   │       ├── =0.7.0
+│   │       ├── =2.2.0
+│   │       ├── ai-training
+│   │       │   └── llm
+│   │       ├── auto_pipeline.py
+│   │       ├── check_status.py
+│   │       ├── checkpoints
+│   │       ├── codellama-cache
+│   │       │   ├── config.json.externalized
+│   │       │   ├── generation_config.json.externalized
+│   │       │   ├── model-00001-of-00002.safetensors.externalized.externalized
+│   │       │   ├── model-00002-of-00002.safetensors.externalized.externalized
+│   │       │   ├── model.safetensors.index.json.externalized
+│   │       │   ├── pytorch_model.bin.index.json.externalized
+│   │       │   ├── special_tokens_map.json.externalized
+│   │       │   ├── tokenizer.json.externalized
+│   │       │   └── tokenizer_config.json.externalized
+│   │       ├── data_collection.py
+│   │       ├── debug_tokenize.py
+│   │       ├── demo_checklist.py
+│   │       ├── demo_report.json
+│   │       ├── enhanced_train.py
+│   │       ├── evaluation_metrics.py
+│   │       ├── expanded_dataset_generator.py
+│   │       ├── gpu_run.log
+│   │       ├── gpu_run_final.log
+│   │       ├── gpu_run_fixed.log
+│   │       ├── gpu_run_success.log
+│   │       ├── k8s_security_integration.py
+│   │       ├── launch_jupyter.sh
+│   │       ├── live_monitor.py
+│   │       ├── logs
+│   │       ├── mega_dataset_integration.py
+│   │       ├── mega_train.py
+│   │       ├── mentor_validation.py
+│   │       ├── model_config.py
+│   │       ├── models
+│   │       ├── monitor_download.py
+│   │       ├── monitor_training.py
+│   │       ├── optimized_config.py
+│   │       ├── performance_booster.py
+│   │       ├── preprocessing_pipeline.py
+│   │       ├── process_jsonl_dataset.py
+│   │       ├── process_log.json
+│   │       ├── process_manager.py
+│   │       ├── processed_data
+│   │       │   ├── enhanced_k8s_dataset_20250822_202328.json
+│   │       │   ├── mega_integration_stats_20250822_204938.json
+│   │       │   ├── performance_boost_dataset.json
+│   │       │   ├── preprocessing_report_20250822_150258.json
+│   │       │   ├── processing_stats_20250822_204902.json
+│   │       │   ├── test_dataset_20250822_150258.json
+│   │       │   ├── train_dataset_20250822_150258.json
+│   │       │   ├── val_dataset_20250822_150258.json
+│   │       │   ├── whis_action_schema_processed_20250822_204902.json
+│   │       │   ├── whis_mega_dataset_20250822_204938.json
+│   │       │   ├── whis_mega_dataset_formatted.json
+│   │       │   ├── whis_mega_dataset_latest.json
+│   │       │   └── whis_ultimate_dataset_20250823_013159.json
+│   │       ├── push_to_hf_hub.py
+│   │       ├── quick_expanded_dataset.py
+│   │       ├── quick_train_local.py
+│   │       ├── requirements.txt
+│   │       ├── results
+│   │       ├── retrain_robust.py
+│   │       ├── safe_train_whis.py
+│   │       ├── security_audit_report.json
+│   │       ├── security_hygiene.py
+│   │       ├── senior_whis_train.py
+│   │       ├── setup_summary.json
+│   │       ├── setup_training_pipeline.py
+│   │       ├── simple_train.py
+│   │       ├── simple_training.log
+│   │       ├── test_model_load.py
+│   │       ├── test_whis_model.py
+│   │       ├── track_download.py
+│   │       ├── train_whis.py
+│   │       ├── training
+│   │       │   └── processed_data
+│   │       ├── training_dashboard.py
+│   │       ├── training_data
+│   │       │   ├── collection_summary_20250822_141536.json
+│   │       │   ├── collection_summary_20250822_141551.json
+│   │       │   ├── collection_summary_20250822_142241.json
+│   │       │   ├── cybersec_training_data_20250822_141536.csv
+│   │       │   ├── cybersec_training_data_20250822_141536.json
+│   │       │   ├── cybersec_training_data_20250822_141551.csv
+│   │       │   ├── cybersec_training_data_20250822_141551.json
+│   │       │   ├── cybersec_training_data_20250822_142241.csv
+│   │       │   ├── cybersec_training_data_20250822_142241.json
+│   │       │   ├── cybersec_training_data_latest.json -> cybersec_training_data_20250822_142241.json
+│   │       │   └── expanded_dataset_20250822_145947.json
+│   │       ├── training_final.log
+│   │       ├── training_monitor.txt
+│   │       ├── training_output.log
+│   │       ├── validation_report_20250823_113749.json
+│   │       ├── whis-cybersec-model
+│   │       └── whis_cybersec_finetuning.ipynb
+│   ├── monitoring
+│   │   └── telemetry.py
+│   ├── processed
+│   ├── quarantine
+│   ├── rag
+│   │   ├── README.md
+│   │   ├── README_EXPANSION_PACKS.md
+│   │   ├── chunks
+│   │   │   ├── cloud_security_economics.md
+│   │   │   ├── compliance_automation_economics.md
+│   │   │   ├── consolidated_rag_training_data.json
+│   │   │   ├── credential_access_playbook.md
+│   │   │   ├── devsecops_cost_scenarios.md
+│   │   │   ├── incident_response_economics.md
+│   │   │   ├── lateral_movement_playbook.md
+│   │   │   ├── nist_frameworks_comprehensive.md
+│   │   │   ├── powershell_empire_playbook.md
+│   │   │   ├── rag_chunks_20250822_152640.json
+│   │   │   ├── rag_manifest_20250822_152640.json
+│   │   │   ├── sanitized_chunks_20250822_153721.jsonl
+│   │   │   ├── sanitized_manifest_20250822_153721.json
+│   │   │   ├── vendor_risk_management_economics.md
+│   │   │   ├── whis_rag_chunks_with_embeddings.json
+│   │   │   ├── whis_senior_knowledge_base.json
+│   │   │   └── whis_vectorization_ready.json
+│   │   ├── chunks_for_sanitization
+│   │   │   ├── cloud_security_economics.md
+│   │   │   ├── compliance_automation_economics.md
+│   │   │   ├── devsecops_cost_scenarios.md
+│   │   │   ├── incident_response_economics.md
+│   │   │   └── vendor_risk_management_economics.md
+│   │   ├── delta_indexing.py
+│   │   ├── embed.py
+│   │   ├── hybrid_retrieval.py
+│   │   ├── index
+│   │   ├── indices
+│   │   │   └── pointers.json
+│   │   ├── repo_ingestion.py
+│   │   ├── retriever
+│   │   ├── scripts
+│   │   │   ├── advanced_rag_generator.py
+│   │   │   ├── consolidate_rag_datasets.py
+│   │   │   ├── consolidated_rag_training_data.json
+│   │   │   ├── create_embeddings.py
+│   │   │   ├── create_whis_embeddings.py
+│   │   │   ├── debug_rag_scenarios.py
+│   │   │   ├── final_rag_converter.py
+│   │   │   ├── improved_rag_converter.py
+│   │   │   ├── integrate_training_data.py
+│   │   │   ├── knowledge
+│   │   │   │   ├── cloud_security_economics.md
+│   │   │   │   ├── compliance_automation_economics.md
+│   │   │   │   ├── devsecops_cost_scenarios.md
+│   │   │   │   ├── incident_response_economics.md
+│   │   │   │   ├── vectors
+│   │   │   │   └── vendor_risk_management_economics.md
+│   │   │   ├── prepare_for_sanitization.py
+│   │   │   ├── process_markdown_chunks.py
+│   │   │   ├── production_embeddings.py
+│   │   │   ├── rag_data_generator.py
+│   │   │   ├── rag_retriever.py
+│   │   │   ├── rag_sanitizer.py
+│   │   │   ├── rag_vectorization_manifest.json
+│   │   │   ├── rag_vectorization_prep.py
+│   │   │   ├── sanitized_rag_data
+│   │   │   │   ├── sanitized_chunks_20250822_232833.jsonl
+│   │   │   │   ├── sanitized_chunks_20250823_013503.jsonl
+│   │   │   │   ├── sanitized_manifest_20250822_232833.json
+│   │   │   │   └── sanitized_manifest_20250823_013503.json
+│   │   │   ├── soar_automation_rag_generator.py
+│   │   │   ├── threat_intel_rag_generator.py
+│   │   │   └── vectorize_rag.py
+│   │   ├── soc_ingestion.py
+│   │   └── vectorstore
+│   │       ├── whis_knowledge_index.faiss.externalized
+│   │       ├── whis_nist_knowledge_20250823_013537.json
+│   │       ├── whis_nist_knowledge_latest.json
+│   │       ├── whis_production_chunks_20250822_153822.json
+│   │       ├── whis_production_manifest_20250822_153822.json
+│   │       ├── whis_senior_knowledge_20250822_232313.faiss.externalized
+│   │       ├── whis_senior_knowledge_latest.faiss.externalized
+│   │       ├── whis_senior_metadata_20250822_232313.json
+│   │       └── whis_senior_metadata_latest.json -> whis_senior_metadata_20250822_232313.json
+│   ├── registry
+│   │   └── model_registry.py
+│   ├── scripts
+│   │   ├── cli.py
+│   │   └── utils
+│   │       ├── __init__.py
+│   │       └── progress_tracker.py
+│   ├── security
+│   │   ├── SECURITY_CHECKLIST.md
+│   │   └── model_security.py
+│   ├── serving
+│   ├── testing
+│   ├── training_pipeline.py
+│   └── use_schema.json
+├── apps
+│   ├── __init__.py
+│   ├── api
+│   │   ├── __init__.py
+│   │   ├── legacy
+│   │   │   ├── README.md
+│   │   │   ├── __init__.py
+│   │   │   ├── connectors
+│   │   │   │   ├── limacharlie
+│   │   │   │   └── splunk
+│   │   │   ├── core
+│   │   │   ├── engines
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── llm_engine.py
+│   │   │   │   ├── rag_engine.py
+│   │   │   │   └── whis_engine.py
+│   │   │   ├── hec_client.py
+│   │   │   ├── main.py
+│   │   │   ├── models
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── incident.py
+│   │   │   │   └── playbook.py
+│   │   │   ├── normalizer.py
+│   │   │   ├── requirements.txt
+│   │   │   ├── routes
+│   │   │   │   └── whis.py
+│   │   │   ├── schemas
+│   │   │   │   ├── __init__.py
+│   │   │   │   └── detection.py
+│   │   │   ├── schemas.py
+│   │   │   ├── senior_decisions.py
+│   │   │   ├── services
+│   │   │   ├── start_api.py
+│   │   │   ├── test_integration.py
+│   │   │   ├── utils
+│   │   │   ├── validators.py
+│   │   │   ├── whis_api.log
+│   │   │   ├── whis_minimal_api.py
+│   │   │   └── whis_production_api.py
+│   │   ├── legacy-disabled
+│   │   │   └── whis_server.py
+│   │   ├── main.py
+│   │   ├── schemas.py
+│   │   └── whis_integrated_server.py
+│   ├── ui
+│   │   ├── legacy-disabled
+│   │   │   ├── static
+│   │   │   ├── templates
+│   │   │   │   ├── notebook.html
+│   │   │   │   └── pipeline_dashboard.html
+│   │   │   └── whis-frontend
+│   │   │       ├── README.md
+│   │   │       ├── app.py
+│   │   │       ├── debug_frontend.js
+│   │   │       ├── frontend.log
+│   │   │       ├── monitoring
+│   │   │       ├── package-lock.json
+│   │   │       ├── package.json
+│   │   │       ├── playwright-report
+│   │   │       ├── playwright-test.js
+│   │   │       ├── playwright.config.js
+│   │   │       ├── requirements.txt
+│   │   │       ├── run.sh
+│   │   │       ├── simple_test.js
+│   │   │       ├── static
+│   │   │       ├── templates
+│   │   │       ├── test-results
+│   │   │       ├── test_page.html
+│   │   │       ├── test_ui.js
+│   │   │       ├── tests
+│   │   │       ├── venv
+│   │   │       └── whis_frontend.db
+│   │   ├── notebook_interface.py
+│   │   ├── pipeline_monitor.py
+│   │   └── whis-dashboard.html
+│   └── workers
+│       ├── grafana
+│       │   ├── dashboards
+│       │   │   └── whis-security-dashboard.json
+│       │   └── provisioning
+│       │       ├── dashboards
+│       │       └── datasources
+│       ├── manual-monitoring.py
+│       └── prometheus.yml
+├── archive
+│   └── legacy-pipelines
+├── claude-code.md
+├── docker-compose.yml
+├── docs
+│   ├── ARCHITECTURE.md
+│   ├── DATA_GOVERNANCE.md
+│   ├── HOW_ENGINE.md
+│   ├── RAG_SHARDS.md
+│   └── RUNBOOKS
+├── documentation
+│   ├── MANIFESTS.md
+│   ├── QUALITY_GATES.md
+│   ├── RED_VS_BLUE_LAB.md
+│   ├── SENIOR_DECISIONS.md
+│   ├── SOPs
+│   ├── compliance
+│   ├── enhanced-rag-knowledge.md
+│   ├── playbooks
+│   │   ├── attack-framework
+│   │   │   └── T1110-brute-force.md
+│   │   ├── brute-force-response.md
+│   │   └── ir-playbooks
+│   ├── secops-interview-cram.md
+│   └── siem
+├── external-artifacts
+│   ├── ai-training
+│   │   ├── llm
+│   │   │   ├── adapters
+│   │   │   │   ├── whis-cybersec-model
+│   │   │   │   ├── whis-enhanced-model
+│   │   │   │   └── whis-mega-model
+│   │   │   └── scripts
+│   │   │       └── codellama-cache
+│   │   └── rag
+│   │       └── vectorstore
+│   │           ├── whis_knowledge_index.faiss
+│   │           ├── whis_senior_knowledge_20250822_232313.faiss
+│   │           └── whis_senior_knowledge_latest.faiss -> whis_senior_knowledge_20250822_232313.faiss
+│   └── apps
+│       └── ui
+│           └── legacy-disabled
+│               └── whis-frontend
+├── model_test_results.json
+├── models
+│   └── soar-copilot-phi
+├── monitor_training.py
+├── monitoring
+├── open-malsec
+│   ├── README.md
+│   ├── Ransomware-as-a-Service-RaaS
+│   ├── ai-agents-social-phishing
+│   ├── botnet-ddos-misc.json
+│   ├── ceo-hr-phish-invoice-scam.json
+│   ├── common-malware-vectors.json
+│   ├── defi-meme-crypto-token-scams.json
+│   ├── discord-social-engineering.json
+│   ├── facebook-romance-scams.json
+│   ├── mobile-threats-detection.json
+│   ├── onlyfans-subscription-fake-scams.json
+│   ├── phishing-email-inbound.json
+│   ├── ransomware-cases.json
+│   └── runescape-wow-diablo-mmo-scams.json
+├── operator-dashboard
+│   ├── start_dashboard.py
+│   ├── static
+│   │   ├── dashboard.js
+│   │   └── style.css
+│   ├── templates
+│   │   └── dashboard.html
+│   └── whis_operator_ui.py
+├── pyproject.toml
+├── red-blue-lab
+│   ├── README.md
+│   ├── deploy.sh
+│   ├── deploy_lab.sh
+│   ├── destroy_lab.sh
+│   ├── scripts
+│   │   ├── bootstrap.ps1
+│   │   └── install-monitoring.ps1
+│   ├── terraform
+│   │   ├── main.tf
+│   │   ├── terraform.tfvars.example
+│   │   └── variables.tf
+│   └── terraform.tfvars
+├── requirements.txt
+├── requirements_production.txt
+├── results
+│   ├── chunk_1_progress.json
+│   ├── chunk_2_progress.json
+│   ├── chunk_3_progress.json
+│   ├── chunk_4_progress.json
+│   ├── chunk_5_progress.json
+│   ├── final_training_summary.json
+│   ├── intake
+│   ├── llm_eval
+│   ├── pipeline_validation.json
+│   ├── progress
+│   │   └── status.jsonl
+│   ├── rag_eval
+│   ├── sanitize
+│   ├── training_chunks
+│   │   ├── chunk_model_0
+│   │   │   └── runs
+│   │   │       ├── Aug23_12-33-06_Jimjrx
+│   │   │       ├── Aug23_12-34-25_Jimjrx
+│   │   │       └── Aug23_12-39-28_Jimjrx
+│   │   ├── chunk_model_1
+│   │   │   └── runs
+│   │   │       └── Aug23_12-40-38_Jimjrx
+│   │   ├── chunk_model_2
+│   │   │   └── runs
+│   │   │       └── Aug23_12-41-42_Jimjrx
+│   │   ├── chunk_model_3
+│   │   │   └── runs
+│   │   │       └── Aug23_12-42-46_Jimjrx
+│   │   └── chunk_model_4
+│   │       └── runs
+│   │           └── Aug23_12-43-51_Jimjrx
+│   ├── training_readiness.json
+│   ├── ui_e2e
+│   └── {intake,sanitize,rag_eval,llm_eval}
+├── scripts
+│   ├── activate-live-rag.py
+│   ├── activate-whis-ai.py
+│   ├── deploy-production.sh
+│   ├── externalize-artifacts.py
+│   ├── integrate_external_datasets.py
+│   ├── launch-monitoring.py
+│   ├── production-validation.py
+│   ├── quarantine-enforcer.py
+│   ├── start-integrated-api.sh
+│   └── train-whis-production.py
+├── security_audit_results.json
+├── siem-validation-results.json
+├── test_trained_model.py
+├── test_whis_complete.py
+├── tests
+│   ├── ci_quality_check.py
+│   ├── e2e
+│   │   └── test_pipeline.py
+│   ├── golden
+│   │   ├── README.md
+│   │   ├── test_k8s_whis.py
+│   │   └── test_whis.py
+│   ├── golden_set.py
+│   ├── mentor_validation.json
+│   ├── pipeline_validation.py
+│   ├── quality_gate_results.json
+│   ├── quality_gates.py
+│   ├── red_team_scenarios.json
+│   ├── red_team_validator.py
+│   ├── reports
+│   ├── security
+│   │   └── security_audit.py
+│   ├── test_quality_gates.py
+│   └── test_senior_decisions.py
+├── tools
+│   ├── gpu_sanity.sh
+│   ├── mcp-tools
+│   ├── push_to_hf.py
+│   └── siem-validation.py
+├── train_chunked.py
+├── train_now.py
+├── train_simple.py
+└── train_soar_model.py
+
+182 directories, 407 files

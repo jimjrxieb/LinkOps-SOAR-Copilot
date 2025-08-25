@@ -1,0 +1,52 @@
+{
+  "table_name": "process_events",
+  "schema_version": "1.0",
+  "created_at": "2025-08-24T21:00:10.264854",
+  "row_count": 800,
+  "columns": [
+    "ts",
+    "host",
+    "parent_proc",
+    "child_proc",
+    "cmd_line_hash",
+    "cmd_len",
+    "cmd_entropy",
+    "has_encoded",
+    "signed_parent",
+    "user_hash",
+    "hour_of_day",
+    "is_suspicious",
+    "schema_ver",
+    "rare_parent_child_7d"
+  ],
+  "dtypes": {
+    "ts": "datetime64[ns]",
+    "host": "object",
+    "parent_proc": "object",
+    "child_proc": "object",
+    "cmd_line_hash": "object",
+    "cmd_len": "int64",
+    "cmd_entropy": "float64",
+    "has_encoded": "bool",
+    "signed_parent": "bool",
+    "user_hash": "object",
+    "hour_of_day": "int64",
+    "is_suspicious": "bool",
+    "schema_ver": "object",
+    "rare_parent_child_7d": "bool"
+  },
+  "suspicious_rate": 0.85625,
+  "time_range": {
+    "start": "2025-07-25T21:06:10.226006",
+    "end": "2025-08-24T20:04:10.226006"
+  },
+  "privacy": {
+    "pii_columns": [
+      "user_hash",
+      "src_ip_hash",
+      "cmd_line_hash"
+    ],
+    "hash_method": "SHA256 + salt",
+    "retention_days": 90
+  }
+}

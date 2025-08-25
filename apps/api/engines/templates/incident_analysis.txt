@@ -1,0 +1,1 @@
+I can analyze that incident. Which specific aspect would you like me to investigate - the timeline, affected systems, or indicators of compromise?

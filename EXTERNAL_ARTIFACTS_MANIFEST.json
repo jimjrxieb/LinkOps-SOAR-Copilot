@@ -1,0 +1,270 @@
+{
+  "metadata": {
+    "externalized_at": "2025-08-23T15:53:04.484483",
+    "total_files": 37,
+    "total_size_bytes": 16812098376,
+    "total_size_mb": 16033.27,
+    "external_storage_path": "external-artifacts"
+  },
+  "artifacts": {
+    "ai-training/llm/scripts/codellama-cache/model-00002-of-00002.safetensors": {
+      "external_path": "external-artifacts/ai-training/llm/scripts/codellama-cache/model-00002-of-00002.safetensors",
+      "size_bytes": 3500425616,
+      "checksum_sha256": "9ddab1824225fbe405cea67c5d8d87666f1ab5c59ec89abdf2cacae9b555da75",
+      "externalized_at": "2025-08-23T15:52:50.546720",
+      "type": "safetensors"
+    },
+    "ai-training/llm/scripts/codellama-cache/model-00001-of-00002.safetensors": {
+      "external_path": "external-artifacts/ai-training/llm/scripts/codellama-cache/model-00001-of-00002.safetensors",
+      "size_bytes": 9976701592,
+      "checksum_sha256": "0f52c0eab2dafa0a13e8103a426b17137f7b053e9211334158d7bd7cc1148ceb",
+      "externalized_at": "2025-08-23T15:53:01.693856",
+      "type": "safetensors"
+    },
+    "ai-training/llm/adapters/whis-mega-model/adapter_model.safetensors": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-mega-model/adapter_model.safetensors",
+      "size_bytes": 639691872,
+      "checksum_sha256": "0aadb96ee54fda3915889e3b78425fef0508325c5809f5df5a0ddf5ae0616738",
+      "externalized_at": "2025-08-23T15:53:02.317074",
+      "type": "safetensors"
+    },
+    "ai-training/llm/adapters/whis-cybersec-model/adapter_model.safetensors": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-cybersec-model/adapter_model.safetensors",
+      "size_bytes": 67143296,
+      "checksum_sha256": "64858b4ce957de8665fc12b56f4d97c5d97d65dbe19acac4aa1c99e3ee2a7571",
+      "externalized_at": "2025-08-23T15:53:02.373218",
+      "type": "safetensors"
+    },
+    "ai-training/llm/adapters/whis-enhanced-model/adapter_model.safetensors": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-enhanced-model/adapter_model.safetensors",
+      "size_bytes": 319876032,
+      "checksum_sha256": "1c79ea583d59bfd2e5a12c70d5d00e6de3593c5a75c3fc03c5790dc6ccce77f1",
+      "externalized_at": "2025-08-23T15:53:02.664732",
+      "type": "safetensors"
+    },
+    "ai-training/llm/adapters/whis-mega-model/checkpoint-65/adapter_model.safetensors": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-mega-model/checkpoint-65/adapter_model.safetensors",
+      "size_bytes": 639691872,
+      "checksum_sha256": "0aadb96ee54fda3915889e3b78425fef0508325c5809f5df5a0ddf5ae0616738",
+      "externalized_at": "2025-08-23T15:53:03.130195",
+      "type": "safetensors"
+    },
+    "ai-training/llm/adapters/whis-mega-model/checkpoint-25/adapter_model.safetensors": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-mega-model/checkpoint-25/adapter_model.safetensors",
+      "size_bytes": 639691872,
+      "checksum_sha256": "5791848808f722412db905054d351ecbc3656277033c9cb4407c4f54a00ee3c5",
+      "externalized_at": "2025-08-23T15:53:03.622533",
+      "type": "safetensors"
+    },
+    "ai-training/llm/adapters/whis-mega-model/checkpoint-50/adapter_model.safetensors": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-mega-model/checkpoint-50/adapter_model.safetensors",
+      "size_bytes": 639691872,
+      "checksum_sha256": "4ca04d153b9209327aa63b5203e8698bfd6fc9056fa88137d381839ff31e2f09",
+      "externalized_at": "2025-08-23T15:53:04.093728",
+      "type": "safetensors"
+    },
+    "ai-training/llm/adapters/whis-cybersec-model/checkpoint-12/adapter_model.safetensors": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-cybersec-model/checkpoint-12/adapter_model.safetensors",
+      "size_bytes": 67143296,
+      "checksum_sha256": "64858b4ce957de8665fc12b56f4d97c5d97d65dbe19acac4aa1c99e3ee2a7571",
+      "externalized_at": "2025-08-23T15:53:04.146428",
+      "type": "safetensors"
+    },
+    "ai-training/llm/adapters/whis-enhanced-model/checkpoint-30/adapter_model.safetensors": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-enhanced-model/checkpoint-30/adapter_model.safetensors",
+      "size_bytes": 319876032,
+      "checksum_sha256": "1c79ea583d59bfd2e5a12c70d5d00e6de3593c5a75c3fc03c5790dc6ccce77f1",
+      "externalized_at": "2025-08-23T15:53:04.381184",
+      "type": "safetensors"
+    },
+    "ai-training/llm/adapters/whis-mega-model/training_args.bin": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-mega-model/training_args.bin",
+      "size_bytes": 5713,
+      "checksum_sha256": "36d59e7e2783248119dcfbe6a7b15e4ed7268595ff72fea3feaf25c9a9006c6b",
+      "externalized_at": "2025-08-23T15:53:04.401543",
+      "type": "bin"
+    },
+    "ai-training/llm/adapters/whis-cybersec-model/training_args.bin": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-cybersec-model/training_args.bin",
+      "size_bytes": 5713,
+      "checksum_sha256": "4b47dafd78625bd326609cb4f5fdc94ca2f845702298f939cd6faec81065c722",
+      "externalized_at": "2025-08-23T15:53:04.401896",
+      "type": "bin"
+    },
+    "ai-training/llm/adapters/whis-enhanced-model/training_args.bin": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-enhanced-model/training_args.bin",
+      "size_bytes": 5777,
+      "checksum_sha256": "c3fc9b20bb549f45b098881bca152b9f3ec5f559a29c80194a5e273deca35504",
+      "externalized_at": "2025-08-23T15:53:04.402233",
+      "type": "bin"
+    },
+    "ai-training/llm/adapters/whis-mega-model/checkpoint-65/training_args.bin": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-mega-model/checkpoint-65/training_args.bin",
+      "size_bytes": 5713,
+      "checksum_sha256": "36d59e7e2783248119dcfbe6a7b15e4ed7268595ff72fea3feaf25c9a9006c6b",
+      "externalized_at": "2025-08-23T15:53:04.402673",
+      "type": "bin"
+    },
+    "ai-training/llm/adapters/whis-mega-model/checkpoint-25/training_args.bin": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-mega-model/checkpoint-25/training_args.bin",
+      "size_bytes": 5713,
+      "checksum_sha256": "36d59e7e2783248119dcfbe6a7b15e4ed7268595ff72fea3feaf25c9a9006c6b",
+      "externalized_at": "2025-08-23T15:53:04.403053",
+      "type": "bin"
+    },
+    "ai-training/llm/adapters/whis-mega-model/checkpoint-50/training_args.bin": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-mega-model/checkpoint-50/training_args.bin",
+      "size_bytes": 5713,
+      "checksum_sha256": "36d59e7e2783248119dcfbe6a7b15e4ed7268595ff72fea3feaf25c9a9006c6b",
+      "externalized_at": "2025-08-23T15:53:04.403380",
+      "type": "bin"
+    },
+    "ai-training/llm/adapters/whis-cybersec-model/checkpoint-12/training_args.bin": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-cybersec-model/checkpoint-12/training_args.bin",
+      "size_bytes": 5713,
+      "checksum_sha256": "4b47dafd78625bd326609cb4f5fdc94ca2f845702298f939cd6faec81065c722",
+      "externalized_at": "2025-08-23T15:53:04.403794",
+      "type": "bin"
+    },
+    "ai-training/llm/adapters/whis-enhanced-model/checkpoint-30/training_args.bin": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-enhanced-model/checkpoint-30/training_args.bin",
+      "size_bytes": 5777,
+      "checksum_sha256": "c3fc9b20bb549f45b098881bca152b9f3ec5f559a29c80194a5e273deca35504",
+      "externalized_at": "2025-08-23T15:53:04.404119",
+      "type": "bin"
+    },
+    "ai-training/rag/vectorstore/whis_senior_knowledge_latest.faiss": {
+      "external_path": "external-artifacts/ai-training/rag/vectorstore/whis_senior_knowledge_latest.faiss",
+      "size_bytes": 47661,
+      "checksum_sha256": "63fd889c617c00635ae07ef82b6afc607a48904df19b825ba061f86b97176a6a",
+      "externalized_at": "2025-08-23T15:53:04.420007",
+      "type": "faiss"
+    },
+    "ai-training/rag/vectorstore/whis_knowledge_index.faiss": {
+      "external_path": "external-artifacts/ai-training/rag/vectorstore/whis_knowledge_index.faiss",
+      "size_bytes": 53805,
+      "checksum_sha256": "1ed2b59125a7f09b991676988993762e03b0dfb20619f0ba0926dc615127561d",
+      "externalized_at": "2025-08-23T15:53:04.420529",
+      "type": "faiss"
+    },
+    "ai-training/rag/vectorstore/whis_senior_knowledge_20250822_232313.faiss": {
+      "external_path": "external-artifacts/ai-training/rag/vectorstore/whis_senior_knowledge_20250822_232313.faiss",
+      "size_bytes": 47661,
+      "checksum_sha256": "63fd889c617c00635ae07ef82b6afc607a48904df19b825ba061f86b97176a6a",
+      "externalized_at": "2025-08-23T15:53:04.420739",
+      "type": "faiss"
+    },
+    "apps/ui/legacy-disabled/whis-frontend/venv/lib/python3.11/site-packages/distutils-precedence.pth": {
+      "external_path": "external-artifacts/apps/ui/legacy-disabled/whis-frontend/venv/lib/python3.11/site-packages/distutils-precedence.pth",
+      "size_bytes": 151,
+      "checksum_sha256": "2638ce9e2500e572a5e0de7faed6661eb569d1b696fcba07b0dd223da5f5d224",
+      "externalized_at": "2025-08-23T15:53:04.428450",
+      "type": "pth"
+    },
+    "ai-training/llm/adapters/whis-mega-model/checkpoint-65/rng_state.pth": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-mega-model/checkpoint-65/rng_state.pth",
+      "size_bytes": 14645,
+      "checksum_sha256": "dcb5c7bcebce4c10e2073561775a25ad9cbe52f74e02d155b2d3c7d441d3ecdd",
+      "externalized_at": "2025-08-23T15:53:04.436379",
+      "type": "pth"
+    },
+    "ai-training/llm/adapters/whis-mega-model/checkpoint-25/rng_state.pth": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-mega-model/checkpoint-25/rng_state.pth",
+      "size_bytes": 14645,
+      "checksum_sha256": "7e076792d4d396b5d0418f5cf08a7b987edaec0e76dfc6e960c38f82d0923387",
+      "externalized_at": "2025-08-23T15:53:04.436768",
+      "type": "pth"
+    },
+    "ai-training/llm/adapters/whis-mega-model/checkpoint-50/rng_state.pth": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-mega-model/checkpoint-50/rng_state.pth",
+      "size_bytes": 14645,
+      "checksum_sha256": "ace9ed8a215173dfcacc4334c5226c0208acedd0b1fff1f5799aa3f498e74e7e",
+      "externalized_at": "2025-08-23T15:53:04.437120",
+      "type": "pth"
+    },
+    "ai-training/llm/adapters/whis-cybersec-model/checkpoint-12/rng_state.pth": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-cybersec-model/checkpoint-12/rng_state.pth",
+      "size_bytes": 14645,
+      "checksum_sha256": "142e39b4bb6305b87e4402505abc7c5a0dce2dfe6534ec91caa0d38ddcf1c630",
+      "externalized_at": "2025-08-23T15:53:04.437558",
+      "type": "pth"
+    },
+    "ai-training/llm/adapters/whis-enhanced-model/checkpoint-30/rng_state.pth": {
+      "external_path": "external-artifacts/ai-training/llm/adapters/whis-enhanced-model/checkpoint-30/rng_state.pth",
+      "size_bytes": 14645,
+      "checksum_sha256": "bf5e444f6bf77d86e84815bf1a37abb6f5f2903ee55e50fd6f96d2dd52b11037",
+      "externalized_at": "2025-08-23T15:53:04.437984",
+      "type": "pth"
+    },
+    "apps/ui/legacy-disabled/whis-frontend/venv/pyvenv.cfg": {
+      "external_path": "external-artifacts/apps/ui/legacy-disabled/whis-frontend/venv/pyvenv.cfg",
+      "size_bytes": 295,
+      "checksum_sha256": "a8d1aaf288ebfe2a26558ce15428c41437670dedb0b48eb5794432040f00821e",
+      "externalized_at": "2025-08-23T15:53:04.443882",
+      "type": "cfg"
+    },
+    "ai-training/llm/scripts/codellama-cache/model-00002-of-00002.safetensors.externalized": {
+      "external_path": "external-artifacts/ai-training/llm/scripts/codellama-cache/model-00002-of-00002.safetensors.externalized",
+      "size_bytes": 565,
+      "checksum_sha256": "fc6ae74de2547be93950d869e9989199b3d594fb196e844813d1ab8ca6e205e7",
+      "externalized_at": "2025-08-23T15:53:04.464395",
+      "type": "externalized"
+    },
+    "ai-training/llm/scripts/codellama-cache/config.json": {
+      "external_path": "external-artifacts/ai-training/llm/scripts/codellama-cache/config.json",
+      "size_bytes": 646,
+      "checksum_sha256": "8db7009bfcbcf58373a23636f817999d43a4d02764dd94d6313230dfb6568372",
+      "externalized_at": "2025-08-23T15:53:04.465501",
+      "type": "json"
+    },
+    "ai-training/llm/scripts/codellama-cache/generation_config.json": {
+      "external_path": "external-artifacts/ai-training/llm/scripts/codellama-cache/generation_config.json",
+      "size_bytes": 116,
+      "checksum_sha256": "95ac031bf2524d1a09cbedff7f1b7d11ea31deb7130b1839af973eab3a20197f",
+      "externalized_at": "2025-08-23T15:53:04.465753",
+      "type": "json"
+    },
+    "ai-training/llm/scripts/codellama-cache/model.safetensors.index.json": {
+      "external_path": "external-artifacts/ai-training/llm/scripts/codellama-cache/model.safetensors.index.json",
+      "size_bytes": 25125,
+      "checksum_sha256": "d835a5604bbdadf30916901d44e5ec7378463c79dc4b6ff11abccfb800bbb679",
+      "externalized_at": "2025-08-23T15:53:04.466220",
+      "type": "json"
+    },
+    "ai-training/llm/scripts/codellama-cache/special_tokens_map.json": {
+      "external_path": "external-artifacts/ai-training/llm/scripts/codellama-cache/special_tokens_map.json",
+      "size_bytes": 411,
+      "checksum_sha256": "ff3b4a612c4e447acb02d40071bddd989fe0da87eb5b7fe0dbadfc4f74de7531",
+      "externalized_at": "2025-08-23T15:53:04.466519",
+      "type": "json"
+    },
+    "ai-training/llm/scripts/codellama-cache/pytorch_model.bin.index.json": {
+      "external_path": "external-artifacts/ai-training/llm/scripts/codellama-cache/pytorch_model.bin.index.json",
+      "size_bytes": 23950,
+      "checksum_sha256": "c284eeaff3539c5248067959a2a3a142536ff19a09ae0c251d7aacd374d6be08",
+      "externalized_at": "2025-08-23T15:53:04.467063",
+      "type": "json"
+    },
+    "ai-training/llm/scripts/codellama-cache/model-00001-of-00002.safetensors.externalized": {
+      "external_path": "external-artifacts/ai-training/llm/scripts/codellama-cache/model-00001-of-00002.safetensors.externalized",
+      "size_bytes": 565,
+      "checksum_sha256": "368cbb32f117aa9aeb43f8881fb5ce7944f9cc7769da9356ba813c61290996fc",
+      "externalized_at": "2025-08-23T15:53:04.467210",
+      "type": "externalized"
+    },
+    "ai-training/llm/scripts/codellama-cache/tokenizer.json": {
+      "external_path": "external-artifacts/ai-training/llm/scripts/codellama-cache/tokenizer.json",
+      "size_bytes": 1843427,
+      "checksum_sha256": "dcb4337ba92f948b322e080f8b59a2a21cfe65dc2aa7ecf7df080ae8aa63c157",
+      "externalized_at": "2025-08-23T15:53:04.469895",
+      "type": "json"
+    },
+    "ai-training/llm/scripts/codellama-cache/tokenizer_config.json": {
+      "external_path": "external-artifacts/ai-training/llm/scripts/codellama-cache/tokenizer_config.json",
+      "size_bytes": 1589,
+      "checksum_sha256": "fc8807bb10349bacb929e8d051a2bf41cc624d9b0ff22dd467201af2846ba628",
+      "externalized_at": "2025-08-23T15:53:04.470171",
+      "type": "json"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_018def291586",
+    "timestamp": "2025-08-24T00:45:46.916257",
+    "query_preview": "What is the difference between IDS and IPS?",
+    "why_abstained": "no_rag_hits",
+    "intent": "definition",
+    "confidence_score": 0.4,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_018def291586",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T00:45:46.916636",
+  "delivery_failed": true
+}

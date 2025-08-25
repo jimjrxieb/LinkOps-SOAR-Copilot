@@ -1,0 +1,17 @@
+# Externalized model artifacts
+*.safetensors
+*.bin
+*.pth
+*.h5
+*.ckpt
+*.faiss
+*.model
+*.weights
+
+# But keep metadata and README
+!README.md
+!*.json
+!*.yaml
+!*.yml
+!*.txt
+!.gitignore

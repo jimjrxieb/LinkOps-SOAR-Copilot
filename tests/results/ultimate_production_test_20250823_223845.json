@@ -1,0 +1,189 @@
+{
+  "timestamp": "20250823_223845",
+  "final_success_rate": 0.0,
+  "total_tests": 8,
+  "successful_tests": 0,
+  "cycles_run": 3,
+  "production_status": "DEVELOPING",
+  "domain_breakdown": {
+    "secops": {
+      "total": 1,
+      "success": 0
+    },
+    "limacharlie": {
+      "total": 2,
+      "success": 0
+    },
+    "privacy": {
+      "total": 1,
+      "success": 0
+    },
+    "hipaa": {
+      "total": 4,
+      "success": 0
+    }
+  },
+  "detailed_results": [
+    {
+      "success": false,
+      "reason": "missing_keywords",
+      "answer": "A SOC is a centralized unit that deals with security issues on an organizational and technical level, providing 24/7 monitoring and analysis of security events.",
+      "citations": 3,
+      "found_keywords": [],
+      "expected_keywords": [
+        "triage",
+        "threat",
+        "workflow",
+        "analyst",
+        "investigation"
+      ],
+      "test_case": {
+        "category": "\ud83d\udd25 SECURITY OPERATIONS",
+        "question": "What is the SOC analyst workflow for threat triage?",
+        "expected": [
+          "triage",
+          "threat",
+          "workflow",
+          "analyst",
+          "investigation"
+        ],
+        "domain": "secops"
+      },
+      "test_number": 1
+    },
+    {
+      "success": false,
+      "reason": "generic_response",
+      "answer": "No answer",
+      "citations": 0,
+      "test_case": {
+        "category": "\ud83d\udee1\ufe0f LIMACHARLIE EDR",
+        "question": "How does LimaCharlie endpoint detection work?",
+        "expected": [
+          "limacharlie",
+          "endpoint",
+          "detection"
+        ],
+        "domain": "limacharlie"
+      },
+      "test_number": 2
+    },
+    {
+      "success": false,
+      "reason": "generic_response",
+      "answer": "No answer",
+      "citations": 0,
+      "test_case": {
+        "category": "\ud83d\udee1\ufe0f LIMACHARLIE EDR",
+        "question": "What are LimaCharlie's key EDR capabilities?",
+        "expected": [
+          "limacharlie",
+          "edr",
+          "capabilities"
+        ],
+        "domain": "limacharlie"
+      },
+      "test_number": 3
+    },
+    {
+      "success": false,
+      "reason": "missing_keywords",
+      "answer": "# WHIS System Configuration\n\n## Current Security Stack\n\n**SIEM System**: Splunk\n- Real-time log analysis and correlation\n- Custom detection rules and alerting\n- Integration with WHIS for automated response\n\n**EDR System**: LimaCharlie  \n- Endpoint monitoring and response\n- Real-time telemetry stream...",
+      "citations": 2,
+      "found_keywords": [],
+      "expected_keywords": [
+        "pii",
+        "personally",
+        "identifiable",
+        "information"
+      ],
+      "test_case": {
+        "category": "\ud83d\udd12 PHI/PII PROTECTION",
+        "question": "How do you handle PII in security operations?",
+        "expected": [
+          "pii",
+          "personally",
+          "identifiable",
+          "information"
+        ],
+        "domain": "privacy"
+      },
+      "test_number": 4
+    },
+    {
+      "success": false,
+      "reason": "generic_response",
+      "answer": "No answer",
+      "citations": 0,
+      "test_case": {
+        "category": "\ud83c\udfe5 HIPAA COMPLIANCE",
+        "question": "What is HIPAA and its security requirements?",
+        "expected": [
+          "hipaa",
+          "health",
+          "security",
+          "requirements"
+        ],
+        "domain": "hipaa"
+      },
+      "test_number": 5
+    },
+    {
+      "success": false,
+      "reason": "missing_keywords",
+      "answer": "Adversaries may circumvent mechanisms designed to control elevate privileges to gain higher-level permissions. Most modern systems contain native elevation control mechanisms that are intended to limit privileges that a user can perform on a machine. Authorization has to be granted to specific users...",
+      "citations": 1,
+      "found_keywords": [],
+      "expected_keywords": [
+        "hipaa",
+        "security",
+        "controls"
+      ],
+      "test_case": {
+        "category": "\ud83c\udfe5 HIPAA COMPLIANCE",
+        "question": "How do you implement HIPAA security controls?",
+        "expected": [
+          "hipaa",
+          "security",
+          "controls"
+        ],
+        "domain": "hipaa"
+      },
+      "test_number": 6
+    },
+    {
+      "success": false,
+      "reason": "generic_response",
+      "answer": "No answer",
+      "citations": 0,
+      "test_case": {
+        "category": "\ud83c\udfe5 HIPAA COMPLIANCE",
+        "question": "What are HIPAA breach notification requirements?",
+        "expected": [
+          "hipaa",
+          "breach",
+          "notification"
+        ],
+        "domain": "hipaa"
+      },
+      "test_number": 7
+    },
+    {
+      "success": false,
+      "reason": "generic_response",
+      "answer": "No answer",
+      "citations": 0,
+      "test_case": {
+        "category": "\ud83c\udfe5 HIPAA COMPLIANCE",
+        "question": "How do you audit HIPAA compliance in security operations?",
+        "expected": [
+          "hipaa",
+          "compliance",
+          "audit"
+        ],
+        "domain": "hipaa"
+      },
+      "test_number": 8
+    }
+  ]
+}

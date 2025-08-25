@@ -1,0 +1,286 @@
+{
+  "release_id": "whis-soar-v{YYYY.MM.DD}-{git_short_sha}",
+  "created_at": "{ISO_8601_timestamp}",
+  "created_by": "{user_or_system}",
+  "status": "staging|production|deprecated",
+  
+  "components": {
+    "base_model": {
+      "name": "microsoft/DialoGPT-medium",
+      "version": "4.21.0",
+      "location": "hf_hub://microsoft/DialoGPT-medium",
+      "sha256": "{checksum}",
+      "size_bytes": 863404032,
+      "license": "MIT"
+    },
+    
+    "lora_adapter": {
+      "name": "whis-lora-tooluse-{date}-{sha}",
+      "version": "{YYYY.MM.DD}",
+      "location": "s3://whis-artifacts/adapters/{name}",
+      "sha256": "{checksum}",
+      "size_bytes": 134217728,
+      "base_model_compatibility": "microsoft/DialoGPT-medium:4.21.0",
+      "training_dataset": "{dataset_reference}",
+      "training_config": "configs/model.whis.yaml",
+      "eval_metrics": {
+        "fine_tune_f1": 0.782,
+        "json_validity": 0.987,
+        "tool_call_success": 0.913,
+        "refusal_accuracy": 0.954
+      }
+    },
+    
+    "rag_indices": {
+      "repo_index": {
+        "name": "whis-repo-index-{date}",
+        "version": "{YYYY.MM.DD}",
+        "location": "s3://whis-artifacts/indices/repo/{name}",
+        "sha256": "{checksum}",
+        "size_bytes": 52428800,
+        "collection_name": "whis_code_index",
+        "embedding_model": "microsoft/codebert-base",
+        "chunk_count": 1247,
+        "last_updated": "{ISO_8601_timestamp}",
+        "source_commit": "{git_commit_hash}",
+        "eval_metrics": {
+          "hit_at_5": 0.923,
+          "citation_coverage": 0.967
+        }
+      },
+      
+      "docs_index": {
+        "name": "whis-docs-index-{date}",
+        "version": "{YYYY.MM.DD}",
+        "location": "s3://whis-artifacts/indices/docs/{name}",
+        "sha256": "{checksum}",
+        "size_bytes": 31457280,
+        "collection_name": "whis_docs_index",
+        "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+        "chunk_count": 892,
+        "last_updated": "{ISO_8601_timestamp}",
+        "eval_metrics": {
+          "ragas_faithfulness": 0.834,
+          "ragas_context_precision": 0.756,
+          "ragas_context_recall": 0.789
+        }
+      },
+      
+      "soc_index": {
+        "name": "whis-soc-index-{date}",
+        "version": "{YYYY.MM.DD}",
+        "location": "s3://whis-artifacts/indices/soc/{name}",
+        "sha256": "{checksum}",
+        "size_bytes": 15728640,
+        "collection_name": "whis_soc_detections",
+        "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+        "detection_count": 342,
+        "last_updated": "{ISO_8601_timestamp}",
+        "retention_days": 90,
+        "eval_metrics": {
+          "detection_retrieval_rate": 0.945,
+          "mitre_mapping_coverage": 0.878
+        }
+      }
+    },
+    
+    "datasets": {
+      "training": {
+        "name": "whis-training-sanitized-{date}",
+        "version": "{YYYY.MM.DD}",
+        "location": "s3://whis-artifacts/datasets/training/{name}.jsonl",
+        "sha256": "{checksum}",
+        "size_bytes": 10485760,
+        "example_count": 1834,
+        "sanitization_report": "s3://whis-artifacts/reports/pii_audit_{timestamp}.json",
+        "split": {
+          "train": 0.8,
+          "eval": 0.2
+        },
+        "quality_metrics": {
+          "pii_detections": 0,
+          "duplicate_ratio": 0.023,
+          "avg_response_length": 156.7
+        }
+      },
+      
+      "evaluation": {
+        "name": "whis-eval-golden-set-{date}",
+        "version": "{YYYY.MM.DD}",
+        "location": "s3://whis-artifacts/datasets/eval/{name}.jsonl",
+        "sha256": "{checksum}",
+        "size_bytes": 2097152,
+        "example_count": 247,
+        "benchmark_type": "security_qa"
+      }
+    }
+  },
+  
+  "configurations": {
+    "model_config": {
+      "path": "ai-training/configs/model.whis.yaml",
+      "sha256": "{checksum}",
+      "lora_params": {
+        "r": 16,
+        "alpha": 32,
+        "dropout": 0.1,
+        "target_modules": ["q_proj", "v_proj"]
+      }
+    },
+    
+    "rag_config": {
+      "path": "ai-training/configs/rag.yaml", 
+      "sha256": "{checksum}",
+      "retrieval_params": {
+        "top_k": 5,
+        "score_threshold": 0.7,
+        "vector_weight": 0.7,
+        "bm25_weight": 0.3
+      }
+    },
+    
+    "eval_config": {
+      "path": "ai-training/configs/eval.yaml",
+      "sha256": "{checksum}",
+      "promotion_gates": {
+        "staging": {
+          "fine_tune_f1": 0.70,
+          "ragas_faithfulness": 0.70,
+          "p95_latency_ms": 5000
+        },
+        "production": {
+          "fine_tune_f1": 0.75,
+          "ragas_faithfulness": 0.75,
+          "p95_latency_ms": 3000,
+          "security_tests_passed": true
+        }
+      }
+    }
+  },
+  
+  "evaluation_results": {
+    "timestamp": "{ISO_8601_timestamp}",
+    "evaluator_version": "whis-eval-v1.2.3",
+    "environment": "staging|production",
+    
+    "fine_tune_metrics": {
+      "exact_match": 0.789,
+      "f1_score": 0.782,
+      "rouge_l": 0.734,
+      "json_validity": 0.987,
+      "tool_call_success": 0.913,
+      "refusal_accuracy": 0.954
+    },
+    
+    "rag_metrics": {
+      "ragas_faithfulness": 0.834,
+      "ragas_answer_relevancy": 0.812,
+      "ragas_context_precision": 0.756,
+      "ragas_context_recall": 0.789,
+      "hit_at_5": 0.923,
+      "citation_coverage": 0.967
+    },
+    
+    "security_metrics": {
+      "prompt_injection_resistance": 0.967,
+      "pii_leakage_detected": false,
+      "canary_detection": false,
+      "security_tests_passed": true
+    },
+    
+    "performance_metrics": {
+      "p50_latency_ms": 1247,
+      "p95_latency_ms": 2834,
+      "p99_latency_ms": 4156,
+      "throughput_qps": 12.4,
+      "memory_usage_gb": 8.7
+    },
+    
+    "promotion_gates_status": {
+      "staging": {
+        "passed": true,
+        "gate_results": {
+          "fine_tune_f1": {"value": 0.782, "threshold": 0.70, "passed": true},
+          "ragas_faithfulness": {"value": 0.834, "threshold": 0.70, "passed": true},
+          "p95_latency_ms": {"value": 2834, "threshold": 5000, "passed": true}
+        }
+      },
+      "production": {
+        "passed": true,
+        "gate_results": {
+          "fine_tune_f1": {"value": 0.782, "threshold": 0.75, "passed": true},
+          "ragas_faithfulness": {"value": 0.834, "threshold": 0.75, "passed": true},
+          "p95_latency_ms": {"value": 2834, "threshold": 3000, "passed": true},
+          "security_tests_passed": {"value": true, "threshold": true, "passed": true}
+        }
+      }
+    }
+  },
+  
+  "deployment_info": {
+    "staging": {
+      "deployed_at": "{ISO_8601_timestamp}",
+      "deployed_by": "{user_or_system}",
+      "deployment_method": "canary|blue_green|rolling",
+      "health_check_url": "https://staging-api.whis.internal/health",
+      "rollback_target": "whis-soar-v{prev_version}"
+    },
+    
+    "production": {
+      "deployed_at": "{ISO_8601_timestamp}",
+      "deployed_by": "{user_or_system}", 
+      "deployment_method": "canary|blue_green|rolling",
+      "health_check_url": "https://api.whis.internal/health",
+      "rollback_target": "whis-soar-v{prev_version}",
+      "traffic_split": {
+        "current_version": 1.0,
+        "previous_version": 0.0
+      }
+    }
+  },
+  
+  "dependencies": {
+    "python_version": "3.11.5",
+    "torch_version": "2.1.1",
+    "transformers_version": "4.36.2",
+    "peft_version": "0.7.1",
+    "mlflow_version": "2.8.1",
+    "chromadb_version": "0.4.18",
+    "requirements_checksum": "{sha256_of_requirements_txt}",
+    "system_packages": {
+      "cuda_version": "12.1",
+      "cudnn_version": "8.9.0"
+    }
+  },
+  
+  "metadata": {
+    "git_commit": "{full_git_commit_hash}",
+    "git_branch": "main",
+    "git_tag": "v{YYYY.MM.DD}",
+    "build_number": "{ci_build_number}",
+    "build_timestamp": "{ISO_8601_timestamp}",
+    "build_environment": "github_actions|jenkins|local",
+    "operator": "{human_operator_or_system}",
+    "notes": "{optional_release_notes}",
+    "previous_release": "whis-soar-v{prev_version}",
+    "rollback_tested": true,
+    "security_scan_passed": true,
+    "license_audit_passed": true
+  },
+  
+  "operational_slos": {
+    "index_freshness_minutes": {
+      "sessions": 5,
+      "repo_changes": 5,
+      "soc_events": 2
+    },
+    "evaluation_thresholds": {
+      "ragas_faithfulness": 0.75,
+      "hit_at_k": 0.90,
+      "p95_latency_ms": 3000,
+      "citation_coverage": 0.95
+    },
+    "rollback_time_seconds": 30,
+    "availability_target": 0.999
+  }
+}

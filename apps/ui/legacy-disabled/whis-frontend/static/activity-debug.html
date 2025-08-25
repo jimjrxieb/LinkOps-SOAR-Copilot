@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recent Activity Debug</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #1a1a1a; color: #fff; }
+        .debug-section { margin: 20px 0; padding: 15px; border: 1px solid #333; background: #2b2b2b; }
+        button { padding: 10px 20px; margin: 5px; background: #667eea; color: white; border: none; cursor: pointer; }
+        button:hover { background: #5a6fd8; }
+        #debug-log { margin-top: 20px; padding: 10px; background: #333; height: 300px; overflow-y: auto; }
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        .info { color: #17a2b8; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Recent Activity Debug Tool</h1>
+    
+    <div class="debug-section">
+        <h3>1. Manual Activity Test</h3>
+        <button onclick="testLoadRecentActivity()">Load Recent Activity</button>
+        <button onclick="testRefreshActivity()">Refresh Activity</button>
+        <div id="activity-feed" style="border: 1px solid #666; padding: 10px; margin-top: 10px; min-height: 100px;">
+            <em>Activity feed will appear here...</em>
+        </div>
+    </div>
+    
+    <div class="debug-section">
+        <h3>2. API Test</h3>
+        <button onclick="testAPI()">Test Activity API</button>
+        <div id="api-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h3>3. JavaScript Function Test</h3>
+        <button onclick="testJSFunctions()">Test JS Functions</button>
+        <div id="js-result"></div>
+    </div>
+    
+    <div id="debug-log">
+        <strong>Debug Log:</strong><br>
+    </div>
+
+    <script>
+        function debugLog(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const log = document.getElementById('debug-log');
+            log.innerHTML += `<div class="${type}">[${timestamp}] ${message}</div>`;
+            log.scrollTop = log.scrollHeight;
+            console.log(`[${timestamp}] ${message}`);
+        }
+
+        // Copy the loadRecentActivity function from dashboard
+        function loadRecentActivity() {
+            debugLog('Starting loadRecentActivity...', 'info');
+            const activityFeed = document.getElementById('activity-feed');
+            
+            if (!activityFeed) {
+                debugLog('ERROR: activity-feed element not found', 'error');
+                return;
+            }
+            
+            // Sample activity data - replace with actual API calls
+            const activities = [
+                {
+                    type: 'threat_detected',
+                    severity: 'high',
+                    message: 'Malicious PowerShell execution detected on DESKTOP-ABC123',
+                    timestamp: '2 minutes ago',
+                    icon: 'fas fa-exclamation-triangle'
+                },
+                {
+                    type: 'whis_query',
+                    severity: 'info',
+                    message: 'Whis analyzed suspicious network traffic pattern',
+                    timestamp: '5 minutes ago',
+                    icon: 'fas fa-robot'
+                },
+                {
+                    type: 'approval_pending',
+                    severity: 'warning',
+                    message: 'Containment action awaiting approval',
+                    timestamp: '8 minutes ago',
+                    icon: 'fas fa-hourglass-half'
+                },
+                {
+                    type: 'system_update',
+                    severity: 'success',
+                    message: 'SIEM integration rules updated successfully',
+                    timestamp: '15 minutes ago',
+                    icon: 'fas fa-check-circle'
+                }
+            ];
+            
+            let activityHTML = '';
+            activities.forEach(activity => {
+                const severityClass = activity.severity === 'high' ? 'text-danger' : 
+                                    activity.severity === 'warning' ? 'text-warning' : 
+                                    activity.severity === 'success' ? 'text-success' : 'text-info';
+                
+                activityHTML += `
+                    <div class="activity-item mb-3 p-2" style="border-left: 3px solid #667eea;">
+                        <div class="d-flex justify-content-between">
+                            <div class="activity-content">
+                                <i class="${activity.icon} ${severityClass} me-2"></i>
+                                <span class="activity-message">${activity.message}</span>
+                            </div>
+                            <small class="text-muted">${activity.timestamp}</small>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            if (activityHTML) {
+                activityFeed.innerHTML = activityHTML;
+                debugLog(`SUCCESS: Loaded ${activities.length} activity items`, 'success');
+            } else {
+                activityFeed.innerHTML = '<div class="text-muted">No recent activity</div>';
+                debugLog('WARNING: No activity data to display', 'error');
+            }
+        }
+        
+        function refreshActivity() {
+            debugLog('Refreshing activity...', 'info');
+            loadRecentActivity();
+        }
+
+        function testLoadRecentActivity() {
+            debugLog('=== TESTING LOAD RECENT ACTIVITY ===', 'info');
+            try {
+                loadRecentActivity();
+                debugLog('loadRecentActivity completed without errors', 'success');
+            } catch (error) {
+                debugLog(`ERROR in loadRecentActivity: ${error.message}`, 'error');
+                debugLog(`Stack: ${error.stack}`, 'error');
+            }
+        }
+
+        function testRefreshActivity() {
+            debugLog('=== TESTING REFRESH ACTIVITY ===', 'info');
+            try {
+                refreshActivity();
+                debugLog('refreshActivity completed without errors', 'success');
+            } catch (error) {
+                debugLog(`ERROR in refreshActivity: ${error.message}`, 'error');
+            }
+        }
+
+        function testAPI() {
+            debugLog('=== TESTING API ENDPOINTS ===', 'info');
+            
+            fetch('/api/test-activity')
+                .then(response => {
+                    debugLog(`API response status: ${response.status}`, 'info');
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                })
+                .then(data => {
+                    debugLog(`API success: ${JSON.stringify(data)}`, 'success');
+                    document.getElementById('api-result').innerHTML = '<span class="success">✅ API Working</span>';
+                })
+                .catch(error => {
+                    debugLog(`API error: ${error.message}`, 'error');
+                    document.getElementById('api-result').innerHTML = `<span class="error">❌ API Error: ${error.message}</span>`;
+                });
+        }
+
+        function testJSFunctions() {
+            debugLog('=== TESTING JAVASCRIPT FUNCTIONS ===', 'info');
+            
+            // Test basic functionality
+            try {
+                const testArray = [1, 2, 3];
+                const testObj = { test: 'value' };
+                debugLog('✅ Basic JavaScript works', 'success');
+                
+                // Test DOM manipulation
+                const testDiv = document.getElementById('js-result');
+                if (testDiv) {
+                    testDiv.innerHTML = '<span class="success">✅ DOM manipulation works</span>';
+                    debugLog('✅ DOM manipulation works', 'success');
+                } else {
+                    debugLog('❌ Cannot find js-result element', 'error');
+                }
+                
+                // Test function existence
+                if (typeof loadRecentActivity === 'function') {
+                    debugLog('✅ loadRecentActivity function exists', 'success');
+                } else {
+                    debugLog('❌ loadRecentActivity function missing', 'error');
+                }
+                
+            } catch (error) {
+                debugLog(`JavaScript test error: ${error.message}`, 'error');
+            }
+        }
+
+        // Auto-run tests on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            debugLog('Page loaded, running automatic tests...', 'info');
+            testJSFunctions();
+        });
+    </script>
+</body>
+</html>

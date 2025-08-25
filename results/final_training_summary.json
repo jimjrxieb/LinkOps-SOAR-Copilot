@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-08-23T12:44:04.901934",
+  "status": "TRAINING_COMPLETE",
+  "total_examples": 313,
+  "chunks_processed": 5,
+  "chunk_size_percentage": 25,
+  "dataset_file": "ai-training/llm/data/soar_fixed.jsonl"
+}

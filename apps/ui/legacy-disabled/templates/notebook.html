@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 SOAR Training Notebook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style>
+        .cell { border-left: 4px solid #3b82f6; }
+        .cell-output { background: #1e293b; font-family: 'Courier New', monospace; }
+        .cell-input { background: #f8fafc; }
+        pre { white-space: pre-wrap; word-wrap: break-word; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="container mx-auto px-4 py-8" x-data="notebookInterface()">
+        
+        <!-- Header -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h1 class="text-4xl font-bold text-blue-600 mb-2">🚀 SOAR Training Notebook</h1>
+            <p class="text-gray-600">Interactive training interface with real-time outputs</p>
+            <div class="mt-4 flex space-x-4">
+                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                    ✅ GPU: RTX 5080 Ready
+                </span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+                    📊 Dataset: <span x-text="datasetStatus.total_examples">0</span> examples
+                </span>
+                <span class="px-3 py-1 rounded-full text-sm" 
+                      :class="connected ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'">
+                    <span x-text="connected ? '🟢 Connected' : '🔴 Disconnected'"></span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Cell 1: Dataset Overview -->
+        <div class="cell bg-white rounded-lg shadow-lg mb-6 overflow-hidden">
+            <div class="cell-input p-4 border-b">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm font-mono text-gray-500">[1]:</span>
+                    <button @click="executeCell('dataset_overview')" 
+                            class="px-3 py-1 bg-blue-500 text-white rounded text-sm hover:bg-blue-600">
+                        ▶ Run
+                    </button>
+                </div>
+                <pre class="text-sm text-gray-700"># Dataset Overview and Statistics
+show_dataset_stats()
+list_training_examples()
+show_gpu_status()</pre>
+            </div>
+            <div class="cell-output p-4 text-green-400 text-sm" x-show="outputs.dataset_overview">
+                <pre x-text="outputs.dataset_overview"></pre>
+            </div>
+        </div>
+
+        <!-- Cell 2: Training Data Sample -->
+        <div class="cell bg-white rounded-lg shadow-lg mb-6 overflow-hidden">
+            <div class="cell-input p-4 border-b">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm font-mono text-gray-500">[2]:</span>
+                    <button @click="executeCell('training_samples')" 
+                            class="px-3 py-1 bg-blue-500 text-white rounded text-sm hover:bg-blue-600">
+                        ▶ Run
+                    </button>
+                </div>
+                <pre class="text-sm text-gray-700"># Show Training Examples
+for category in ['malware_analysis', 'incident_response']:
+    show_sample_examples(category, limit=3)</pre>
+            </div>
+            <div class="cell-output p-4 text-green-400 text-sm" x-show="outputs.training_samples">
+                <pre x-text="outputs.training_samples"></pre>
+            </div>
+        </div>
+
+        <!-- Cell 3: Model Testing -->
+        <div class="cell bg-white rounded-lg shadow-lg mb-6 overflow-hidden">
+            <div class="cell-input p-4 border-b">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm font-mono text-gray-500">[3]:</span>
+                    <button @click="executeCell('model_test')" 
+                            class="px-3 py-1 bg-blue-500 text-white rounded text-sm hover:bg-blue-600">
+                        ▶ Run
+                    </button>
+                </div>
+                <pre class="text-sm text-gray-700"># Test Security Scenarios
+test_questions = [
+    "WMI lateral movement detected on PROD-DB01. What immediate actions?",
+    "Credential dumping on domain controller. Priority response?",
+    "PowerShell Empire C2 activity. How to contain?"
+]
+test_model_responses(test_questions)</pre>
+            </div>
+            <div class="cell-output p-4 text-green-400 text-sm" x-show="outputs.model_test">
+                <pre x-text="outputs.model_test"></pre>
+            </div>
+        </div>
+
+        <!-- Cell 4: Training Progress -->
+        <div class="cell bg-white rounded-lg shadow-lg mb-6 overflow-hidden">
+            <div class="cell-input p-4 border-b">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm font-mono text-gray-500">[4]:</span>
+                    <button @click="executeCell('training_progress')" 
+                            class="px-3 py-1 bg-blue-500 text-white rounded text-sm hover:bg-blue-600">
+                        ▶ Run
+                    </button>
+                </div>
+                <pre class="text-sm text-gray-700"># Real-time Training Monitor
+monitor_gpu_usage()
+show_training_metrics()
+plot_validation_curves()</pre>
+            </div>
+            <div class="cell-output p-4 text-green-400 text-sm" x-show="outputs.training_progress">
+                <pre x-text="outputs.training_progress"></pre>
+            </div>
+        </div>
+
+        <!-- Cell 5: Interactive Training -->
+        <div class="cell bg-white rounded-lg shadow-lg mb-6 overflow-hidden">
+            <div class="cell-input p-4 border-b">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm font-mono text-gray-500">[5]:</span>
+                    <button @click="startTraining()" 
+                            class="px-3 py-1 bg-green-500 text-white rounded text-sm hover:bg-green-600"
+                            :disabled="training_active">
+                        <span x-text="training_active ? '🔄 Training...' : '🚀 Start Training'"></span>
+                    </button>
+                </div>
+                <pre class="text-sm text-gray-700"># Start SOAR Model Training
+train_model = SOARTrainer(
+    dataset_path="ai-training/llm/data/whis_ultimate_training_*.jsonl",
+    base_model="whis-mega-model",
+    gpu="RTX 5080"
+)
+train_model.start()</pre>
+            </div>
+            <div class="cell-output p-4 text-green-400 text-sm" x-show="outputs.training_live">
+                <pre x-text="outputs.training_live"></pre>
+            </div>
+        </div>
+
+        <!-- Custom Input Cell -->
+        <div class="cell bg-white rounded-lg shadow-lg mb-6 overflow-hidden">
+            <div class="cell-input p-4 border-b">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm font-mono text-gray-500">[*]:</span>
+                    <button @click="executeCustom()" 
+                            class="px-3 py-1 bg-purple-500 text-white rounded text-sm hover:bg-purple-600">
+                        ▶ Execute
+                    </button>
+                </div>
+                <textarea x-model="customCode" 
+                          class="w-full h-24 p-2 font-mono text-sm border rounded resize-none"
+                          placeholder="# Enter your custom Python code here..."></textarea>
+            </div>
+            <div class="cell-output p-4 text-green-400 text-sm" x-show="outputs.custom">
+                <pre x-text="outputs.custom"></pre>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center text-gray-500 text-sm mt-8">
+            🚀 SOAR Training Notebook - Real-time AI Training Interface
+        </div>
+    </div>
+
+    <script>
+        function notebookInterface() {
+            return {
+                connected: false,
+                training_active: false,
+                customCode: '',
+                outputs: {
+                    dataset_overview: '',
+                    training_samples: '',
+                    model_test: '',
+                    training_progress: '',
+                    training_live: '',
+                    custom: ''
+                },
+                datasetStatus: {
+                    total_examples: 0
+                },
+                ws: null,
+
+                init() {
+                    this.connectWebSocket();
+                    this.loadInitialData();
+                },
+
+                connectWebSocket() {
+                    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+                    this.ws = new WebSocket(`${protocol}//${window.location.host}/ws`);
+                    
+                    this.ws.onopen = () => {
+                        this.connected = true;
+                        console.log('WebSocket connected');
+                    };
+                    
+                    this.ws.onmessage = (event) => {
+                        const data = JSON.parse(event.data);
+                        if (data.type === 'cell_output') {
+                            this.outputs[data.cell_id] = data.output;
+                        } else if (data.type === 'training_update') {
+                            this.outputs.training_live += data.message + '\n';
+                        }
+                    };
+                    
+                    this.ws.onclose = () => {
+                        this.connected = false;
+                        setTimeout(() => this.connectWebSocket(), 5000);
+                    };
+                },
+
+                async loadInitialData() {
+                    try {
+                        const response = await fetch('/api/dataset/status');
+                        this.datasetStatus = await response.json();
+                    } catch (error) {
+                        console.error('Error loading data:', error);
+                    }
+                },
+
+                async executeCell(cellId) {
+                    this.outputs[cellId] = 'Executing...\n';
+                    
+                    try {
+                        const response = await fetch('/api/execute', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ cell_id: cellId })
+                        });
+                        
+                        const result = await response.json();
+                        this.outputs[cellId] = result.output;
+                    } catch (error) {
+                        this.outputs[cellId] = `Error: ${error.message}`;
+                    }
+                },
+
+                async executeCustom() {
+                    this.outputs.custom = 'Executing custom code...\n';
+                    
+                    try {
+                        const response = await fetch('/api/execute/custom', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ code: this.customCode })
+                        });
+                        
+                        const result = await response.json();
+                        this.outputs.custom = result.output;
+                    } catch (error) {
+                        this.outputs.custom = `Error: ${error.message}`;
+                    }
+                },
+
+                async startTraining() {
+                    this.training_active = true;
+                    this.outputs.training_live = 'Starting SOAR model training...\n';
+                    
+                    try {
+                        const response = await fetch('/api/training/start', {
+                            method: 'POST'
+                        });
+                        
+                        const result = await response.json();
+                        if (result.success) {
+                            this.outputs.training_live += 'Training started successfully!\n';
+                        }
+                    } catch (error) {
+                        this.outputs.training_live += `Training failed: ${error.message}\n`;
+                        this.training_active = false;
+                    }
+                }
+            };
+        }
+    </script>
+</body>
+</html>

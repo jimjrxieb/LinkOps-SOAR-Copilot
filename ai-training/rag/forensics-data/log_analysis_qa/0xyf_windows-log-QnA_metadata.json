@@ -1,0 +1,12 @@
+{
+  "dataset_name": "0xyf/windows-log-QnA",
+  "description": "Windows event log question-answer pairs",
+  "category": "log_analysis_qa",
+  "sample_count": 0,
+  "columns": [
+    "question",
+    "answer"
+  ],
+  "file_path": "ai-training/rag/forensics-data/log_analysis_qa/0xyf_windows-log-QnA_samples.jsonl",
+  "downloaded_at": "2025-08-24T02:15:12.305785"
+}

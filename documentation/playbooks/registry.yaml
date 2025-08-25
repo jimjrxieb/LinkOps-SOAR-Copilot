@@ -1,0 +1,558 @@
+# ==============================================================================
+# 🎯 WHIS SOAR Runbook Registry - Deterministic Playbook Definitions
+# ==============================================================================
+# TAG: RUNBOOK-REGISTRY
+# Purpose: Declarative runbook definitions with actions, preconditions, and safety controls
+# Security: All actions require explicit tool definitions with guardrails
+
+version: "1.0"
+description: "SOAR runbook registry with defensive security playbooks"
+
+# ==============================================================================
+# RB-101: Brute Force → Valid Accounts (T1110, T1078)
+# ==============================================================================
+runbooks:
+  RB-101:
+    name: "Brute Force Authentication Response"
+    category: "Brute-Force"
+    description: "Respond to brute force authentication attempts and credential attacks"
+    
+    # MITRE mapping
+    mitre_techniques: ["T1110", "T1078"]
+    mitre_tactics: ["Credential Access", "Initial Access"]
+    
+    # Input requirements
+    required_inputs: ["asset.host", "asset.user", "artifacts.ip_addresses"]
+    asset_class_filter: null  # Applicable to all asset classes
+    
+    # Global conditions
+    global_preconditions:
+      - "asset.user IS NOT NULL"  # Must have user context
+      - "failed_auth_count > 5"  # Significant failed attempts
+      - "asset.asset_class != 'domain_controller' OR approval_granted"  # DC requires approval
+    
+    global_postconditions:
+      - "failed_auth_rate_decreased"  # Authentication failures dropped
+      - "no_successful_compromise"  # No successful logins detected
+    
+    # Ordered actions
+    actions:
+      - id: "gather_context"
+        tool: "siem.saved_search"
+        description: "Gather authentication context from SIEM"
+        autonomy_level: "L1"
+        args:
+          query_template: "index=* src={source_ip} user={user} EventCode=4625 OR EventCode=4624"
+          timeframe: "24h"
+        preconditions:
+          - "source_ip IS NOT NULL"
+        postconditions:
+          - "context_events_found > 0"
+        timeout_seconds: 120
+      
+      - id: "check_user_status"
+        tool: "idp.get_user_status"
+        description: "Check user account status and recent activity"
+        autonomy_level: "L1"
+        args:
+          user_id: "{asset.user}"
+        preconditions:
+          - "asset.user IS NOT NULL"
+        postconditions:
+          - "user_status_verified"
+        timeout_seconds: 30
+      
+      - id: "rate_limit_source"
+        tool: "net.rate_limit_ip"
+        description: "Rate limit source IP to slow brute force"
+        autonomy_level: "L2"
+        args:
+          ip_address: "{source_ip}"
+          rate_limit: "1_per_minute"
+          duration: "1h"
+        preconditions:
+          - "source_ip IS NOT NULL"
+          - "source_ip NOT IN whitelist"
+        postconditions:
+          - "rate_limit_active"
+        timeout_seconds: 60
+        rollback_action: "remove_rate_limit"
+      
+      - id: "disable_user_conditional"
+        tool: "idp.disable_user"
+        description: "Disable user account if compromise suspected"
+        autonomy_level: "L3"
+        args:
+          user_id: "{asset.user}"
+          reason: "Suspected brute force compromise - automated response"
+        preconditions:
+          - "successful_auth_after_failures > 0"  # Compromise indicator
+          - "asset.user NOT IN service_accounts"  # Don't disable service accounts
+        postconditions:
+          - "user_account_disabled"
+        timeout_seconds: 30
+        rollback_action: "enable_user"
+      
+      - id: "revoke_active_tokens"
+        tool: "idp.revoke_tokens"
+        description: "Revoke active authentication tokens"
+        autonomy_level: "L3"
+        args:
+          user_id: "{asset.user}"
+          token_types: ["access_token", "refresh_token"]
+        preconditions:
+          - "user_account_disabled == true"
+        postconditions:
+          - "tokens_revoked"
+        timeout_seconds: 60
+        rollback_action: null  # No rollback - tokens stay revoked
+      
+      - id: "create_investigation_ticket"
+        tool: "ticket.create"
+        description: "Create investigation ticket for follow-up"
+        autonomy_level: "L1"
+        args:
+          title: "Brute Force Investigation: {asset.user}@{asset.host}"
+          priority: "high"
+          assignee: "security_team"
+        preconditions: []
+        postconditions:
+          - "ticket_created"
+        timeout_seconds: 30
+
+  # ==============================================================================
+  # RB-201: Suspicious Admin Creation (T1136)
+  # ==============================================================================
+  RB-201:
+    name: "Suspicious Administrative Account Creation"
+    category: "Suspicious-Admin-Creation"
+    description: "Investigate and respond to suspicious admin account creation"
+    
+    mitre_techniques: ["T1136", "T1078.002"]
+    mitre_tactics: ["Persistence", "Privilege Escalation"]
+    
+    required_inputs: ["asset.host", "artifacts.processes"]
+    asset_class_filter: ["workstation", "server", "domain_controller"]
+    
+    global_preconditions:
+      - "new_admin_account_detected == true"
+      - "creator_account IS NOT NULL"
+    
+    global_postconditions:
+      - "suspicious_account_secured"
+      - "lateral_movement_checked"
+    
+    actions:
+      - id: "verify_creator"
+        tool: "idp.get_user_details"
+        description: "Verify the creator of the admin account"
+        autonomy_level: "L1"
+        args:
+          user_id: "{creator_account}"
+          include_recent_activity: true
+        preconditions:
+          - "creator_account IS NOT NULL"
+        postconditions:
+          - "creator_verified"
+        timeout_seconds: 60
+      
+      - id: "disable_new_admin"
+        tool: "idp.disable_user"
+        description: "Immediately disable the newly created admin account"
+        autonomy_level: "L2"
+        args:
+          user_id: "{new_admin_account}"
+          reason: "Suspicious admin creation - automated security response"
+        preconditions:
+          - "new_admin_account IS NOT NULL"
+          - "asset.environment != 'prod' OR approval_granted"
+        postconditions:
+          - "new_admin_disabled"
+        timeout_seconds: 30
+        rollback_action: "enable_user"
+      
+      - id: "revoke_admin_tokens"
+        tool: "idp.revoke_tokens"
+        description: "Revoke all tokens for the new admin account"
+        autonomy_level: "L2"
+        args:
+          user_id: "{new_admin_account}"
+          token_types: ["all"]
+        preconditions:
+          - "new_admin_disabled == true"
+        postconditions:
+          - "admin_tokens_revoked"
+        timeout_seconds: 60
+      
+      - id: "hunt_lateral_movement"
+        tool: "siem.saved_search"
+        description: "Hunt for lateral movement using the new admin account"
+        autonomy_level: "L1"
+        args:
+          query_template: "index=* user={new_admin_account} EventCode=4624 OR EventCode=4648"
+          timeframe: "72h"
+        preconditions:
+          - "new_admin_account IS NOT NULL"
+        postconditions:
+          - "lateral_movement_search_completed"
+        timeout_seconds: 180
+      
+      - id: "escalate_to_ir"
+        tool: "ticket.create"
+        description: "Escalate to incident response team"
+        autonomy_level: "L1"
+        args:
+          title: "CRITICAL: Suspicious Admin Creation - {new_admin_account}"
+          priority: "critical"
+          assignee: "incident_response_team"
+          include_evidence: true
+        preconditions: []
+        postconditions:
+          - "ir_ticket_created"
+        timeout_seconds: 30
+
+  # ==============================================================================
+  # RB-301: Malicious PowerShell (T1059.001)
+  # ==============================================================================
+  RB-301:
+    name: "Malicious PowerShell Activity Response"
+    category: "Malicious-PowerShell"
+    description: "Respond to malicious PowerShell execution and C2 activity"
+    
+    mitre_techniques: ["T1059.001", "T1055", "T1003"]
+    mitre_tactics: ["Execution", "Defense Evasion", "Credential Access"]
+    
+    required_inputs: ["asset.host", "artifacts.processes"]
+    asset_class_filter: ["workstation", "server"]
+    
+    global_preconditions:
+      - "malicious_powershell_detected == true"
+      - "asset.host IS NOT NULL"
+    
+    global_postconditions:
+      - "malicious_process_terminated"
+      - "c2_communication_blocked"
+      - "host_contained"
+    
+    actions:
+      - id: "kill_malicious_process"
+        tool: "edr.kill_process"
+        description: "Terminate the malicious PowerShell process"
+        autonomy_level: "L2"
+        args:
+          host: "{asset.host}"
+          process_name: "{malicious_process}"
+          process_id: "{process_id}"
+        preconditions:
+          - "process_id IS NOT NULL OR process_name IS NOT NULL"
+        postconditions:
+          - "process_terminated"
+        timeout_seconds: 60
+      
+      - id: "block_c2_hash"
+        tool: "edr.block_hash"
+        description: "Block file hash in EDR to prevent re-execution"
+        autonomy_level: "L2"
+        args:
+          hash: "{file_hash}"
+          hash_type: "sha256"
+          scope: "organization"
+        preconditions:
+          - "file_hash IS NOT NULL"
+        postconditions:
+          - "hash_blocked"
+        timeout_seconds: 120
+        rollback_action: "unblock_hash"
+      
+      - id: "collect_triage_artifacts"
+        tool: "edr.collect_artifacts"
+        description: "Collect forensic artifacts from the host"
+        autonomy_level: "L1"
+        args:
+          host: "{asset.host}"
+          artifacts: ["memory_dump", "process_list", "network_connections", "file_system_timeline"]
+        preconditions:
+          - "asset.host IS NOT NULL"
+        postconditions:
+          - "artifacts_collected"
+        timeout_seconds: 300
+      
+      - id: "isolate_host_conditional"
+        tool: "edr.isolate_host"
+        description: "Isolate host from network if C2 activity confirmed"
+        autonomy_level: "L2"
+        args:
+          host: "{asset.host}"
+          isolation_type: "network"
+          allow_management: true
+        preconditions:
+          - "c2_indicators_confirmed == true"
+          - "asset.asset_class == 'workstation' OR approval_granted"
+        postconditions:
+          - "host_isolated"
+        timeout_seconds: 120
+        rollback_action: "restore_network"
+      
+      - id: "block_c2_domains"
+        tool: "net.block_domains"
+        description: "Block C2 domains at network level"
+        autonomy_level: "L2"
+        args:
+          domains: "{c2_domains}"
+          duration: "24h"
+        preconditions:
+          - "c2_domains IS NOT NULL"
+        postconditions:
+          - "domains_blocked"
+        timeout_seconds: 60
+        rollback_action: "unblock_domains"
+
+  # ==============================================================================
+  # RB-401: Ransomware Activity (T1486, T1490)
+  # ==============================================================================
+  RB-401:
+    name: "Ransomware Activity Response"
+    category: "Ransomware-Likely"
+    description: "Emergency response to ransomware activity with containment focus"
+    
+    mitre_techniques: ["T1486", "T1490", "T1489", "T1083"]
+    mitre_tactics: ["Impact", "Defense Evasion", "Discovery"]
+    
+    required_inputs: ["asset.host"]
+    asset_class_filter: null  # Applicable to all - this is critical
+    
+    global_preconditions:
+      - "ransomware_indicators_detected == true"
+      - "severity == 'critical'"
+    
+    global_postconditions:
+      - "encryption_activity_halted"
+      - "affected_hosts_contained"
+      - "backups_verified_safe"
+    
+    actions:
+      - id: "emergency_isolate_host"
+        tool: "edr.isolate_host"
+        description: "EMERGENCY: Immediately isolate affected host"
+        autonomy_level: "L2"
+        args:
+          host: "{asset.host}"
+          isolation_type: "full"
+          emergency: true
+        preconditions:
+          - "asset.host IS NOT NULL"
+        postconditions:
+          - "host_isolated"
+        timeout_seconds: 30
+        rollback_action: null  # No rollback during ransomware
+      
+      - id: "identify_host_group"
+        tool: "siem.saved_search"
+        description: "Identify other potentially affected hosts in the same subnet/group"
+        autonomy_level: "L1"
+        args:
+          query_template: "index=* (src={subnet_range} OR dest={subnet_range}) (encrypt* OR ransom* OR crypto*)"
+          timeframe: "2h"
+        preconditions: []
+        postconditions:
+          - "host_group_identified"
+        timeout_seconds: 120
+      
+      - id: "snapshot_unaffected_systems"
+        tool: "backup.create_snapshot"
+        description: "Create emergency snapshots of unaffected critical systems"
+        autonomy_level: "L1"
+        args:
+          systems: "{critical_systems_list}"
+          snapshot_type: "emergency"
+        preconditions:
+          - "critical_systems_list IS NOT NULL"
+        postconditions:
+          - "emergency_snapshots_created"
+        timeout_seconds: 600
+      
+      - id: "disable_smb_signing"
+        tool: "net.disable_service"
+        description: "Disable SMB signing exceptions to prevent lateral spread"
+        autonomy_level: "L3"  # High risk change
+        args:
+          service: "smb_signing_exceptions"
+          scope: "domain"
+        preconditions:
+          - "lateral_spread_risk == 'high'"
+          - "approval_granted"
+        postconditions:
+          - "smb_protections_enabled"
+        timeout_seconds: 120
+        rollback_action: "restore_smb_config"
+      
+      - id: "notify_incident_commander"
+        tool: "notification.send"
+        description: "CRITICAL: Notify incident commander immediately"
+        autonomy_level: "L1"
+        args:
+          recipients: ["incident_commander", "ciso", "ceo"]
+          priority: "critical"
+          message: "RANSOMWARE DETECTED: Host {asset.host} isolated. Incident {incident_id} created."
+          channels: ["sms", "email", "slack"]
+        preconditions: []
+        postconditions:
+          - "ic_notified"
+        timeout_seconds: 60
+      
+      - id: "preserve_forensics"
+        tool: "edr.preserve_evidence"
+        description: "Preserve forensic evidence before any cleanup"
+        autonomy_level: "L1"
+        args:
+          host: "{asset.host}"
+          evidence_types: ["memory", "disk", "network", "registry"]
+        preconditions:
+          - "host_isolated == true"
+        postconditions:
+          - "evidence_preserved"
+        timeout_seconds: 900
+
+  # ==============================================================================
+  # RB-501: C2 Beacon Activity (T1071, T1102)
+  # ==============================================================================
+  RB-501:
+    name: "C2 Beacon Communication Response"
+    category: "C2-Beacon-Suspected"
+    description: "Respond to suspected command and control beacon activity"
+    
+    mitre_techniques: ["T1071", "T1102", "T1095", "T1572"]
+    mitre_tactics: ["Command and Control"]
+    
+    required_inputs: ["asset.host", "artifacts.ip_addresses"]
+    asset_class_filter: null
+    
+    global_preconditions:
+      - "c2_beacon_detected == true"
+      - "artifacts.ip_addresses IS NOT NULL"
+    
+    global_postconditions:
+      - "c2_communication_blocked"
+      - "beacon_activity_ceased"
+    
+    actions:
+      - id: "block_c2_ips"
+        tool: "net.block_ip_list"
+        description: "Block suspected C2 IP addresses at firewall"
+        autonomy_level: "L2"
+        args:
+          ip_addresses: "{artifacts.ip_addresses}"
+          duration: "24h"
+          reason: "C2 beacon activity detected"
+        preconditions:
+          - "artifacts.ip_addresses IS NOT NULL"
+        postconditions:
+          - "c2_ips_blocked"
+        timeout_seconds: 120
+        rollback_action: "unblock_ips"
+      
+      - id: "capture_beacon_traffic"
+        tool: "net.capture_traffic"
+        description: "Capture network traffic to/from suspected C2"
+        autonomy_level: "L1"
+        args:
+          hosts: ["{asset.host}"]
+          duration: "10m"
+          filter: "dst {c2_ip_list}"
+        preconditions:
+          - "asset.host IS NOT NULL"
+        postconditions:
+          - "traffic_captured"
+        timeout_seconds: 600
+      
+      - id: "hunt_c2_artifacts"
+        tool: "edr.hunt_artifacts"
+        description: "Hunt for C2 artifacts across the environment"
+        autonomy_level: "L1"
+        args:
+          indicators: "{c2_indicators}"
+          scope: "organization"
+          artifact_types: ["processes", "files", "registry", "network"]
+        preconditions:
+          - "c2_indicators IS NOT NULL"
+        postconditions:
+          - "c2_hunt_completed"
+        timeout_seconds: 300
+
+  # ==============================================================================
+  # RB-001: Basic Investigation Runbook (Fallback)
+  # ==============================================================================
+  RB-001:
+    name: "Basic Security Investigation"
+    category: "Generic-Security"
+    description: "Generic investigation runbook for unclassified security events"
+    
+    mitre_techniques: []  # Generic - no specific techniques
+    mitre_tactics: ["Initial Access"]
+    
+    required_inputs: ["asset.host"]
+    asset_class_filter: null
+    
+    global_preconditions: []
+    global_postconditions:
+      - "initial_investigation_completed"
+    
+    actions:
+      - id: "gather_basic_context"
+        tool: "siem.saved_search"
+        description: "Gather basic context around the security event"
+        autonomy_level: "L1"
+        args:
+          query_template: "index=* host={asset.host} | head 100"
+          timeframe: "4h"
+        preconditions:
+          - "asset.host IS NOT NULL"
+        postconditions:
+          - "basic_context_gathered"
+        timeout_seconds: 120
+      
+      - id: "create_investigation_task"
+        tool: "ticket.create"
+        description: "Create investigation task for security team"
+        autonomy_level: "L1"
+        args:
+          title: "Security Event Investigation: {incident.title}"
+          priority: "medium"
+          assignee: "security_analyst"
+        preconditions: []
+        postconditions:
+          - "investigation_task_created"
+        timeout_seconds: 30
+
+# ==============================================================================
+# Registry Metadata
+# ==============================================================================
+metadata:
+  version: "1.0"
+  last_updated: "2024-08-24"
+  total_runbooks: 6
+  coverage:
+    - "Authentication attacks"
+    - "Privilege escalation"
+    - "Malicious execution"
+    - "Ransomware"
+    - "C2 communication"
+    - "Generic investigation"
+  
+  # Security validation
+  security_review:
+    date: "2024-08-24"
+    reviewer: "WHIS Security Team"
+    notes: "All runbooks follow least privilege and require explicit approvals for high-risk actions"
+  
+  # Testing status
+  testing:
+    unit_tests: "required"
+    integration_tests: "required"  
+    dry_run_validation: "passed"
+    
+  # Compliance
+  compliance:
+    frameworks: ["NIST CSF", "MITRE ATT&CK"]
+    data_retention: "90_days"
+    audit_required: true

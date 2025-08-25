@@ -1,0 +1,589 @@
+{
+  "generated_at": "2025-08-23T20:31:54.781722",
+  "total_questions": 50,
+  "questions": [
+    {
+      "question_id": 1,
+      "category": "security_fundamentals",
+      "question": "What is a SIEM?",
+      "difficulty": "basic",
+      "gap_check": "core_definitions",
+      "expected_domains": [
+        "security_tools",
+        "log_analysis"
+      ]
+    },
+    {
+      "question_id": 2,
+      "category": "security_fundamentals",
+      "question": "Define EDR and how it differs from antivirus",
+      "difficulty": "basic",
+      "gap_check": "tool_comparisons",
+      "expected_domains": [
+        "endpoint_security",
+        "detection_response"
+      ]
+    },
+    {
+      "question_id": 3,
+      "category": "security_fundamentals",
+      "question": "What is the difference between IDS and IPS?",
+      "difficulty": "intermediate",
+      "gap_check": "network_security_tools",
+      "expected_domains": [
+        "network_security",
+        "intrusion_detection"
+      ]
+    },
+    {
+      "question_id": 4,
+      "category": "security_fundamentals",
+      "question": "Explain the CIA triad in cybersecurity",
+      "difficulty": "basic",
+      "gap_check": "core_principles",
+      "expected_domains": [
+        "security_principles",
+        "fundamentals"
+      ]
+    },
+    {
+      "question_id": 5,
+      "category": "security_fundamentals",
+      "question": "What is zero trust security architecture?",
+      "difficulty": "intermediate",
+      "gap_check": "modern_architectures",
+      "expected_domains": [
+        "architecture",
+        "access_control"
+      ]
+    },
+    {
+      "question_id": 6,
+      "category": "security_fundamentals",
+      "question": "Define threat intelligence and its types",
+      "difficulty": "intermediate",
+      "gap_check": "threat_intelligence",
+      "expected_domains": [
+        "threat_intel",
+        "intelligence_feeds"
+      ]
+    },
+    {
+      "question_id": 7,
+      "category": "security_fundamentals",
+      "question": "What is a SOC and what are its main functions?",
+      "difficulty": "basic",
+      "gap_check": "operational_concepts",
+      "expected_domains": [
+        "security_operations",
+        "soc_operations"
+      ]
+    },
+    {
+      "question_id": 8,
+      "category": "security_fundamentals",
+      "question": "Explain the concept of defense in depth",
+      "difficulty": "intermediate",
+      "gap_check": "security_strategies",
+      "expected_domains": [
+        "security_strategy",
+        "layered_defense"
+      ]
+    },
+    {
+      "question_id": 9,
+      "category": "security_fundamentals",
+      "question": "What is vulnerability management?",
+      "difficulty": "basic",
+      "gap_check": "vulnerability_processes",
+      "expected_domains": [
+        "vulnerability_assessment",
+        "risk_management"
+      ]
+    },
+    {
+      "question_id": 10,
+      "category": "security_fundamentals",
+      "question": "Define incident response and its phases",
+      "difficulty": "intermediate",
+      "gap_check": "ir_processes",
+      "expected_domains": [
+        "incident_response",
+        "breach_management"
+      ]
+    },
+    {
+      "question_id": 11,
+      "category": "mitre_attack",
+      "question": "What is the MITRE ATT&CK framework?",
+      "difficulty": "basic",
+      "gap_check": "framework_knowledge",
+      "expected_domains": [
+        "mitre_attack",
+        "threat_modeling"
+      ]
+    },
+    {
+      "question_id": 12,
+      "category": "mitre_attack",
+      "question": "Explain the Initial Access tactic in MITRE ATT&CK",
+      "difficulty": "intermediate",
+      "gap_check": "tactic_understanding",
+      "expected_domains": [
+        "mitre_tactics",
+        "attack_vectors"
+      ]
+    },
+    {
+      "question_id": 13,
+      "category": "mitre_attack",
+      "question": "What are some common techniques under Persistence tactic?",
+      "difficulty": "intermediate",
+      "gap_check": "technique_knowledge",
+      "expected_domains": [
+        "persistence_techniques",
+        "backdoors"
+      ]
+    },
+    {
+      "question_id": 14,
+      "category": "mitre_attack",
+      "question": "Describe PowerShell Empire and its MITRE ATT&CK mapping",
+      "difficulty": "advanced",
+      "gap_check": "tool_to_framework_mapping",
+      "expected_domains": [
+        "attack_tools",
+        "post_exploitation"
+      ]
+    },
+    {
+      "question_id": 15,
+      "category": "mitre_attack",
+      "question": "What is lateral movement in the context of MITRE ATT&CK?",
+      "difficulty": "intermediate",
+      "gap_check": "attack_progression",
+      "expected_domains": [
+        "lateral_movement",
+        "network_traversal"
+      ]
+    },
+    {
+      "question_id": 16,
+      "category": "mitre_attack",
+      "question": "Explain credential access techniques and countermeasures",
+      "difficulty": "advanced",
+      "gap_check": "defensive_mapping",
+      "expected_domains": [
+        "credential_access",
+        "password_attacks"
+      ]
+    },
+    {
+      "question_id": 17,
+      "category": "mitre_attack",
+      "question": "What is data exfiltration and how is it categorized in ATT&CK?",
+      "difficulty": "intermediate",
+      "gap_check": "data_protection",
+      "expected_domains": [
+        "exfiltration",
+        "data_theft"
+      ]
+    },
+    {
+      "question_id": 18,
+      "category": "mitre_attack",
+      "question": "Describe command and control (C2) techniques",
+      "difficulty": "advanced",
+      "gap_check": "c2_understanding",
+      "expected_domains": [
+        "command_control",
+        "c2_channels"
+      ]
+    },
+    {
+      "question_id": 19,
+      "category": "mitre_attack",
+      "question": "How does MITRE ATT&CK help with threat hunting?",
+      "difficulty": "advanced",
+      "gap_check": "hunting_methodologies",
+      "expected_domains": [
+        "threat_hunting",
+        "behavioral_analysis"
+      ]
+    },
+    {
+      "question_id": 20,
+      "category": "mitre_attack",
+      "question": "What are MITRE ATT&CK sub-techniques and why are they important?",
+      "difficulty": "intermediate",
+      "gap_check": "framework_depth",
+      "expected_domains": [
+        "attack_granularity",
+        "detection_specificity"
+      ]
+    },
+    {
+      "question_id": 21,
+      "category": "cloud_security",
+      "question": "What is AWS CloudTrail and how does it help with security?",
+      "difficulty": "intermediate",
+      "gap_check": "aws_services_knowledge",
+      "expected_domains": [
+        "aws_security",
+        "audit_logging"
+      ]
+    },
+    {
+      "question_id": 22,
+      "category": "cloud_security",
+      "question": "Explain Azure Security Center capabilities",
+      "difficulty": "intermediate",
+      "gap_check": "azure_knowledge",
+      "expected_domains": [
+        "azure_security",
+        "cloud_posture"
+      ]
+    },
+    {
+      "question_id": 23,
+      "category": "cloud_security",
+      "question": "What are the shared responsibility models in cloud security?",
+      "difficulty": "basic",
+      "gap_check": "cloud_fundamentals",
+      "expected_domains": [
+        "cloud_responsibility",
+        "compliance"
+      ]
+    },
+    {
+      "question_id": 24,
+      "category": "cloud_security",
+      "question": "How do you secure Kubernetes clusters?",
+      "difficulty": "advanced",
+      "gap_check": "kubernetes_security_missing",
+      "expected_domains": [
+        "kubernetes_security",
+        "container_security"
+      ]
+    },
+    {
+      "question_id": 25,
+      "category": "cloud_security",
+      "question": "What is CIS Kubernetes Benchmark?",
+      "difficulty": "advanced",
+      "gap_check": "kubernetes_standards_missing",
+      "expected_domains": [
+        "kubernetes_hardening",
+        "cis_benchmarks"
+      ]
+    },
+    {
+      "question_id": 26,
+      "category": "compliance",
+      "question": "What is SOC 2 compliance and its security controls?",
+      "difficulty": "intermediate",
+      "gap_check": "compliance_frameworks_missing",
+      "expected_domains": [
+        "soc2",
+        "audit_controls"
+      ]
+    },
+    {
+      "question_id": 27,
+      "category": "compliance",
+      "question": "Explain GDPR requirements for data breach notification",
+      "difficulty": "advanced",
+      "gap_check": "privacy_law_missing",
+      "expected_domains": [
+        "gdpr",
+        "privacy_regulations"
+      ]
+    },
+    {
+      "question_id": 28,
+      "category": "compliance",
+      "question": "What is NIST Cybersecurity Framework?",
+      "difficulty": "basic",
+      "gap_check": "nist_knowledge",
+      "expected_domains": [
+        "nist_framework",
+        "risk_management"
+      ]
+    },
+    {
+      "question_id": 29,
+      "category": "compliance",
+      "question": "Describe PCI DSS requirements for payment security",
+      "difficulty": "intermediate",
+      "gap_check": "payment_compliance_missing",
+      "expected_domains": [
+        "pci_dss",
+        "payment_security"
+      ]
+    },
+    {
+      "question_id": 30,
+      "category": "compliance",
+      "question": "What is ISO 27001 and its security domains?",
+      "difficulty": "intermediate",
+      "gap_check": "iso_standards_missing",
+      "expected_domains": [
+        "iso27001",
+        "information_security_management"
+      ]
+    },
+    {
+      "question_id": 31,
+      "category": "vendor_specific",
+      "question": "What is Guardpoint and what services does the company provide?",
+      "difficulty": "basic",
+      "gap_check": "guardpoint_company_missing",
+      "expected_domains": [
+        "guardpoint",
+        "managed_security"
+      ]
+    },
+    {
+      "question_id": 32,
+      "category": "vendor_specific",
+      "question": "How does Splunk Enterprise Security work for threat detection?",
+      "difficulty": "intermediate",
+      "gap_check": "splunk_advanced_features",
+      "expected_domains": [
+        "splunk_es",
+        "security_analytics"
+      ]
+    },
+    {
+      "question_id": 33,
+      "category": "vendor_specific",
+      "question": "What are LimaCharlie's key EDR capabilities?",
+      "difficulty": "intermediate",
+      "gap_check": "limacharlie_details",
+      "expected_domains": [
+        "limacharlie",
+        "edr_features"
+      ]
+    },
+    {
+      "question_id": 34,
+      "category": "vendor_specific",
+      "question": "Explain CrowdStrike Falcon's threat hunting features",
+      "difficulty": "advanced",
+      "gap_check": "crowdstrike_missing",
+      "expected_domains": [
+        "crowdstrike",
+        "threat_hunting_tools"
+      ]
+    },
+    {
+      "question_id": 35,
+      "category": "vendor_specific",
+      "question": "What is Microsoft Sentinel and its SOAR capabilities?",
+      "difficulty": "intermediate",
+      "gap_check": "microsoft_security_missing",
+      "expected_domains": [
+        "microsoft_sentinel",
+        "cloud_soar"
+      ]
+    },
+    {
+      "question_id": 36,
+      "category": "kubernetes_certs",
+      "question": "What is CKS (Certified Kubernetes Security Specialist) certification?",
+      "difficulty": "intermediate",
+      "gap_check": "cks_cert_missing",
+      "expected_domains": [
+        "cks_certification",
+        "kubernetes_security"
+      ]
+    },
+    {
+      "question_id": 37,
+      "category": "kubernetes_certs",
+      "question": "Explain CCSP (Certified Cloud Security Professional) domains",
+      "difficulty": "advanced",
+      "gap_check": "ccsp_cert_missing",
+      "expected_domains": [
+        "ccsp_certification",
+        "cloud_security_domains"
+      ]
+    },
+    {
+      "question_id": 38,
+      "category": "kubernetes_certs",
+      "question": "What are Kubernetes RBAC best practices?",
+      "difficulty": "advanced",
+      "gap_check": "k8s_rbac_missing",
+      "expected_domains": [
+        "kubernetes_rbac",
+        "access_control"
+      ]
+    },
+    {
+      "question_id": 39,
+      "category": "kubernetes_certs",
+      "question": "How do you implement Pod Security Standards?",
+      "difficulty": "advanced",
+      "gap_check": "pod_security_missing",
+      "expected_domains": [
+        "pod_security",
+        "kubernetes_hardening"
+      ]
+    },
+    {
+      "question_id": 40,
+      "category": "kubernetes_certs",
+      "question": "What is Kubernetes Network Policy and security implications?",
+      "difficulty": "advanced",
+      "gap_check": "k8s_networking_missing",
+      "expected_domains": [
+        "network_policy",
+        "micro_segmentation"
+      ]
+    },
+    {
+      "question_id": 41,
+      "category": "advanced_threats",
+      "question": "What is ransomware and how does it work?",
+      "difficulty": "intermediate",
+      "gap_check": "malware_knowledge",
+      "expected_domains": [
+        "ransomware",
+        "malware_analysis"
+      ]
+    },
+    {
+      "question_id": 42,
+      "category": "advanced_threats",
+      "question": "Describe APT (Advanced Persistent Threat) characteristics",
+      "difficulty": "advanced",
+      "gap_check": "apt_analysis",
+      "expected_domains": [
+        "apt",
+        "nation_state_attacks"
+      ]
+    },
+    {
+      "question_id": 43,
+      "category": "advanced_threats",
+      "question": "What are fileless attacks and detection strategies?",
+      "difficulty": "advanced",
+      "gap_check": "advanced_detection",
+      "expected_domains": [
+        "fileless_malware",
+        "memory_analysis"
+      ]
+    },
+    {
+      "question_id": 44,
+      "category": "advanced_threats",
+      "question": "Explain supply chain attacks and prevention measures",
+      "difficulty": "advanced",
+      "gap_check": "supply_chain_missing",
+      "expected_domains": [
+        "supply_chain_security",
+        "third_party_risk"
+      ]
+    },
+    {
+      "question_id": 45,
+      "category": "advanced_threats",
+      "question": "What is social engineering and common attack vectors?",
+      "difficulty": "basic",
+      "gap_check": "human_security",
+      "expected_domains": [
+        "social_engineering",
+        "human_factors"
+      ]
+    },
+    {
+      "question_id": 46,
+      "category": "system_config",
+      "question": "What SIEM are we currently using?",
+      "difficulty": "basic",
+      "gap_check": "config_knowledge",
+      "expected_domains": [
+        "current_siem",
+        "splunk_config"
+      ]
+    },
+    {
+      "question_id": 47,
+      "category": "system_config",
+      "question": "What EDR solution is configured in our environment?",
+      "difficulty": "basic",
+      "gap_check": "config_knowledge",
+      "expected_domains": [
+        "current_edr",
+        "limacharlie_config"
+      ]
+    },
+    {
+      "question_id": 48,
+      "category": "system_config",
+      "question": "How does WHIS integrate with our current security stack?",
+      "difficulty": "intermediate",
+      "gap_check": "platform_understanding",
+      "expected_domains": [
+        "whis_integration",
+        "soar_platform"
+      ]
+    },
+    {
+      "question_id": 49,
+      "category": "system_config",
+      "question": "What testing framework do we use for security validation?",
+      "difficulty": "basic",
+      "gap_check": "testing_knowledge",
+      "expected_domains": [
+        "testing_framework",
+        "playwright_automation"
+      ]
+    },
+    {
+      "question_id": 50,
+      "category": "system_config",
+      "question": "How are high-risk actions handled in our SOAR workflow?",
+      "difficulty": "intermediate",
+      "gap_check": "workflow_understanding",
+      "expected_domains": [
+        "approval_workflows",
+        "human_in_loop"
+      ]
+    }
+  ],
+  "identified_gaps": {
+    "guardpoint_company": "Missing knowledge about Guardpoint company and services",
+    "kubernetes_security": "No CKS/CCSP certification knowledge or K8s security practices",
+    "cloud_security": "Limited AWS/Azure security service knowledge",
+    "compliance_frameworks": "Missing SOC2, GDPR, PCI DSS, ISO 27001 details",
+    "vendor_specific": "Lacks vendor-specific tool knowledge (CrowdStrike, Microsoft)",
+    "advanced_detection": "Limited advanced threat detection and analysis knowledge",
+    "supply_chain": "No supply chain security knowledge",
+    "privacy_regulations": "Missing privacy law and regulation details"
+  },
+  "category_breakdown": {
+    "security_fundamentals": 10,
+    "mitre_attack": 10,
+    "cloud_security": 5,
+    "compliance": 5,
+    "vendor_specific": 5,
+    "kubernetes_certs": 5,
+    "advanced_threats": 5,
+    "system_config": 5
+  },
+  "difficulty_distribution": {
+    "basic": 13,
+    "intermediate": 22,
+    "advanced": 15
+  },
+  "next_steps": [
+    "Expand knowledge base with missing domains",
+    "Add Guardpoint company information",
+    "Include Kubernetes security certifications (CKS/CCSP)",
+    "Add cloud security services knowledge",
+    "Include compliance framework details",
+    "Add vendor-specific security tool knowledge"
+  ]
+}

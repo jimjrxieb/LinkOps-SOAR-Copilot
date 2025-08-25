@@ -1,0 +1,236 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "whis-soar"
+version = "0.1.0"
+description = "Whis SOAR - AI-Powered Security Orchestration, Automation & Response"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Security Team", email = "security@company.com"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Information Technology",
+    "Topic :: Security",
+    "Topic :: System :: Monitoring",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+dependencies = [
+    # Core API framework
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "pydantic>=2.5.0",
+    
+    # AI/ML stack
+    "openai>=1.3.0",
+    "langchain>=0.0.350",
+    "langchain-openai>=0.0.2",
+    "langgraph>=0.0.20",
+    "transformers>=4.36.0",
+    "sentence-transformers>=2.2.2",
+    "faiss-cpu>=1.7.4",
+    
+    # Data processing
+    "pandas>=2.1.0",
+    "numpy>=1.25.0",
+    "pydantic>=2.5.0",
+    "python-multipart>=0.0.6",
+    
+    # Web framework (legacy support)
+    "flask>=2.3.0",
+    "flask-socketio>=5.3.0",
+    
+    # Database
+    "sqlite3",  # Built into Python
+    "sqlalchemy>=2.0.0",
+    
+    # HTTP clients
+    "requests>=2.31.0",
+    "httpx>=0.25.0",
+    
+    # Security
+    "cryptography>=41.0.0",
+    "bcrypt>=4.0.0",
+    
+    # Monitoring & Observability
+    "prometheus-client>=0.19.0",
+    "structlog>=23.2.0",
+    
+    # Configuration
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0",
+    "toml>=0.10.2",
+    
+    # Utilities
+    "click>=8.1.0",
+    "rich>=13.7.0",
+    "jinja2>=3.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    # Testing
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-mock>=3.12.0",
+    "playwright>=1.40.0",
+    
+    # Code quality
+    "ruff>=0.1.6",
+    "mypy>=1.7.0",
+    "bandit>=1.7.5",
+    "pre-commit>=3.6.0",
+    
+    # Security scanning
+    "semgrep>=1.45.0",
+    "safety>=2.3.0",
+    
+    # Documentation
+    "sphinx>=7.2.0",
+    "sphinx-rtd-theme>=1.3.0",
+    "myst-parser>=2.0.0",
+    
+    # Development utilities
+    "ipython>=8.17.0",
+    "jupyter>=1.0.0",
+    "pip-tools>=7.3.0",
+]
+
+production = [
+    # Production web server
+    "gunicorn>=21.2.0",
+    
+    # Production database
+    "psycopg2-binary>=2.9.0",  # PostgreSQL
+    
+    # Monitoring
+    "sentry-sdk>=1.38.0",
+    "newrelic>=9.2.0",
+    
+    # Performance
+    "redis>=5.0.0",
+    "celery>=5.3.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/company/whis-soar"
+Documentation = "https://whis-soar.readthedocs.io"
+Repository = "https://github.com/company/whis-soar"
+Issues = "https://github.com/company/whis-soar/issues"
+
+[project.scripts]
+whis = "apps.api.cli:main"
+whis-ui = "apps.ui.cli:main"
+whis-intake = "pipelines.intake.cli:main"
+whis-sanitize = "pipelines.sanitize.cli:main"
+whis-curate = "pipelines.curate.cli:main"
+whis-rag = "pipelines.rag.cli:main"
+whis-train = "pipelines.llm.cli:main"
+whis-how = "pipelines.how.cli:main"
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+    "S",  # flake8-bandit (security)
+]
+ignore = [
+    "E501",  # line too long (handled by formatter)
+    "B008",  # do not perform function calls in argument defaults
+    "S101",  # use of assert detected (OK in tests)
+]
+
+[tool.ruff.per-file-ignores]
+"tests/**/*" = ["S101", "S106", "S607"]  # Allow asserts and hardcoded passwords in tests
+"**/migrations/**/*" = ["E501"]  # Long lines OK in migrations
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "transformers.*",
+    "langchain.*",
+    "faiss.*",
+    "sentence_transformers.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers --disable-warnings --ignore=legacy-disabled --ignore=external-artifacts"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+    "security: marks tests as security-related",
+    "rag: marks tests as RAG-related",
+    "llm: marks tests as LLM-related",
+    "api: marks tests as API-related",
+    "ui: marks tests as UI-related",
+]
+
+[tool.coverage.run]
+source = ["apps", "pipelines"]
+omit = [
+    "*/tests/*",
+    "*/migrations/*",
+    "*/__pycache__/*",
+    "*/venv/*",
+    "*/.venv/*",
+    "*/legacy-disabled/*",
+    "*/external-artifacts/*",
+]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+skip_covered = false
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv", "venv", "legacy-disabled", "external-artifacts"]
+skips = ["B101"]  # Skip assert_used test
+
+[tool.bandit.assert_used]
+skips = ["**/tests/**", "**/test_*.py"]

@@ -1,0 +1,10 @@
+# EXTERNALIZED ARTIFACT
+# This file has been moved to external storage for repository hygiene.
+# 
+# Original file: ai-training/llm/adapters/whis-enhanced-model/checkpoint-30/adapter_model.safetensors
+# External path: external-artifacts/ai-training/llm/adapters/whis-enhanced-model/checkpoint-30/adapter_model.safetensors
+# Size: 319,876,032 bytes
+# Checksum: 1c79ea583d59bfd2e5a12c70d5d00e6de3593c5a75c3fc03c5790dc6ccce77f1
+# Externalized: 2025-08-23T15:53:04.381205
+#
+# To restore: ./scripts/restore-artifacts.py ai-training/llm/adapters/whis-enhanced-model/checkpoint-30/adapter_model.safetensors

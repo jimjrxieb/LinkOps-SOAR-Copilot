@@ -1,0 +1,114 @@
+# WHIS SOAR Alerting Rules
+groups:
+  - name: whis_slo_alerts
+    rules:
+    
+    # API SLO Alerts
+    - alert: WhisAPIHighLatency
+      expr: whis_request_latency_seconds{quantile="0.95"} > 1.8
+      for: 5m
+      labels:
+        severity: warning
+        service: whis-api
+      annotations:
+        summary: "WHIS API p95 latency is high"
+        description: "API p95 latency is {{ $value }}s, above SLO of 1.8s"
+        runbook: "Check /api/diag/last for performance bottlenecks"
+        
+    - alert: WhisAPIErrorRate
+      expr: rate(whis_requests_total[5m]) > 0.02
+      for: 2m
+      labels:
+        severity: critical
+        service: whis-api
+      annotations:
+        summary: "WHIS API error rate is high"
+        description: "API error rate is {{ $value | humanizePercentage }}"
+        
+    # RAG System Alerts  
+    - alert: WhisRAGHitRateLow
+      expr: whis_rag_hit_rate < 0.80
+      for: 10m
+      labels:
+        severity: warning
+        service: whis-rag
+      annotations:
+        summary: "WHIS RAG hit rate is low"
+        description: "RAG hit rate {{ $value | humanizePercentage }} below 80% threshold"
+        
+    - alert: WhisAbstainRateHigh
+      expr: whis_abstain_rate > 0.20
+      for: 15m
+      labels:
+        severity: warning
+        service: whis-rag
+      annotations:
+        summary: "WHIS abstain rate is high"
+        description: "Abstain rate {{ $value | humanizePercentage }} indicates knowledge gaps"
+        
+    # Ingest Pipeline Alerts
+    - alert: WhisSplunkIngestLag
+      expr: whis_ingest_lag_seconds{destination="splunk"} > 120
+      for: 5m
+      labels:
+        severity: critical
+        service: whis-ingest
+      annotations:
+        summary: "Splunk ingest lag is high"
+        description: "Splunk ingest lag is {{ $value }}s, above 2-minute SLO"
+        
+    - alert: WhisLimaCharlieIngestLag
+      expr: whis_ingest_lag_seconds{destination="limacharlie"} > 60
+      for: 5m
+      labels:
+        severity: warning
+        service: whis-ingest
+      annotations:
+        summary: "LimaCharlie ingest lag is elevated"
+        description: "LC ingest lag is {{ $value }}s, above 1-minute SLO"
+        
+    # System Health Alerts
+    - alert: WhisServiceDown
+      expr: up{job="whis-api"} == 0
+      for: 1m
+      labels:
+        severity: critical
+        service: whis-api
+      annotations:
+        summary: "WHIS API is down"
+        description: "WHIS API service is not responding to health checks"
+        
+    - alert: WhisFAISSIndexDrift
+      expr: |
+        abs(
+          whis_faiss_index_count - 
+          whis_faiss_index_count offset 1h
+        ) > 100
+      for: 0m
+      labels:
+        severity: warning
+        service: whis-rag
+      annotations:
+        summary: "WHIS FAISS index count changed significantly"
+        description: "FAISS index count changed by {{ $value }} vectors in 1 hour"
+        
+    # Incident Management Alerts
+    - alert: WhisIncidentBacklog
+      expr: whis_incidents_open > 20
+      for: 15m
+      labels:
+        severity: warning
+        service: whis-soar
+      annotations:
+        summary: "WHIS incident backlog is high"
+        description: "{{ $value }} open incidents may indicate analyst overload"
+        
+    - alert: WhisAutonomyLevelChange
+      expr: changes(whis_autonomy_level[1h]) > 0
+      for: 0m
+      labels:
+        severity: info
+        service: whis-soar
+      annotations:
+        summary: "WHIS autonomy level changed"
+        description: "Autonomy level changed to L{{ $value }}"

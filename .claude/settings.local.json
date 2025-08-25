@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(pip install:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(ln:*)",
+      "Bash(rg:*)",
+      "Bash(chmod:*)",
+      "Bash(./LAUNCH-FULL-WHIS.sh:*)",
+      "Bash(source:*)",
+      "Bash(pip3 install:*)",
+      "Bash(curl:*)",
+      "Bash(pkill:*)",
+      "Bash(cat:*)",
+      "Bash(python:*)",
+      "Bash(ss:*)",
+      "Bash(kill:*)",
+      "Bash(./run_soar_tests.sh:*)",
+      "Bash(npx playwright test:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

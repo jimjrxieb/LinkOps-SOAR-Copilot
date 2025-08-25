@@ -1,0 +1,1034 @@
+[
+  {
+    "Instruction": "Determine if the following message is an AI-generated phishing attempt.",
+    "Input": "Subject: \"Update required: Your bank statements are ready\" Body: \"Hello valued user, please verify your details at https://bank-verify.ai-app.link now.\"",
+    "Output": "Likely AI-generated phishing. The link domain is suspicious and does not match the real bank.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Assess whether this phone call transcript is a deepfake vishing attempt.",
+    "Input": "Caller voice identical to CEO: \"Please wire $10,000 to vendor account immediately. It's urgent.\"",
+    "Output": "Likely deepfake vishing. The CEO denies making such a request, and the call demands unusual urgency.",
+    "Sentiment": "Negative",
+    "Score": 0.95,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if this Slack direct message is an AI-crafted social engineering attempt.",
+    "Input": "DM from 'CFO_Office': \"We're revalidating expense accounts. Send your personal card number for a test transaction.\"",
+    "Output": "Phishing—this CFO request is highly suspicious and likely AI-generated for credibility. Advise ignoring and verifying in person.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "chat_app",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Determine if the text is an AI-generated tweet impersonating a well-known charity.",
+    "Input": "@CharityHelp: \"URGENT COVID relief! Donate now to http://charity-newfund.ru to help families. Retweet to save lives!\"",
+    "Output": "Likely an AI-generated scam tweet impersonating a charity. The domain is suspicious and not the official handle.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "social_media",
+      "technique": "AI-synthesized language",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if the Facebook Messenger text is an AI-based social engineering lure.",
+    "Input": "\"Hey, it’s Mark from Facebook Support! We’re giving away $500 in credits. Visit http://fb-support-credit.net asap!\"",
+    "Output": "Phishing attempt. The domain is not affiliated with official Facebook, message shows typical AI-styled scam formula.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "social_media_messaging",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Identify if this phone voicemail is a deepfake request to share sensitive credentials.",
+    "Input": "Voicemail with a manager’s voice: \"Please read me your 2FA code. It's critical for the project timeline.\"",
+    "Output": "Likely deepfake. No legitimate request for 2FA codes. Voice closely mimics the manager but the request is suspicious.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "voicemail",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Determine if this auto-generated LinkedIn message is phishing.",
+    "Input": "\"Hello [Name], I'm the HR Director of ACME Corp. We need to verify your SSN. Fill in the form: bit.ly/acme-check.\"",
+    "Output": "Phishing. The link is suspicious, and HR typically doesn’t request SSN via random link. Language suggests AI-based template.",
+    "Sentiment": "Negative",
+    "Score": 0.89,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "social_media",
+      "technique": "AI-crafted text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if the Telegram audio note is an AI clone of a CFO's voice demanding urgent invoice payment.",
+    "Input": "Audio: \"Hello, it's CFO Jane. Pay $5,000 to invoice #788. Here's the new wire info. It's top priority.\"",
+    "Output": "Deepfake CFO voice message. Payment request unverified, signals impersonation. Highly likely social engineering.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "voice_message",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Identify if this brief email praising the user’s work is actually AI-generated phishing.",
+    "Input": "\"Subject: Great job! Body: We recognized your outstanding performance. Please confirm details at corp-achieve.link.\"",
+    "Output": "Phishing. The link doesn't match corporate domain, flattery approach is typical of AI-generated lures.",
+    "Sentiment": "Negative",
+    "Score": 0.87,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze if this Discord private message is a malicious AI-based scam.",
+    "Input": "\"We see your gaming account is flagged! Validate at http://discord-verify.center or face permanent suspension.\"",
+    "Output": "Likely AI-generated scam link. The domain is fraudulent. Typical fear-based approach to steal credentials.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "discord",
+      "technique": "AI-text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if the voice call from a supposed travel agent is a deepfake asking for credit card details.",
+    "Input": "Caller voice: \"This is Lisa from DreamTours. We have your trip refund, provide card info to process now.\"",
+    "Output": "Likely deepfake vishing. Caller’s intonation is off, and unsolicited card requests are suspicious.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Assess whether the Instagram DM offering a collaboration is AI-created phishing.",
+    "Input": "\"Hey influencer! We love your style. Submit personal info at brand-partner.gift for a free product. Hurry!\"",
+    "Output": "Phishing. Domain is shady, message style suggests AI-driven promotional lure. Avoid providing personal info.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "social_media_messaging",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Determine if the seemingly corporate email with an official signature is AI-generated scam content.",
+    "Input": "From: [email protected] Subject: \"Employee Portal Update\" Body: \"Urgent: re-login at portal-check.site.\"",
+    "Output": "AI-based phishing. The domain mismatch and urgent re-login request indicate a scam. Signature is generic but looks ‘official.’",
+    "Sentiment": "Negative",
+    "Score": 0.89,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze the voice mail that mimics the HR manager’s tone but requests unorthodox private details.",
+    "Input": "Voicemail: \"Hi, it's HR. We’re updating our records. Provide your birthdate, full address, and Social Security over this call.\"",
+    "Output": "Deepfake HR call. HR wouldn't request sensitive data via voicemail. Tones match but content is suspicious.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "voicemail",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if this AI-generated email praising your GitHub project is malicious social engineering.",
+    "Input": "\"We love your open-source code! Click dev-award.github-page.link to claim a $500 dev grant now!\"",
+    "Output": "Phishing attempt. Link is suspicious, not GitHub’s real domain. AI-crafted flattery used to lure user.",
+    "Sentiment": "Negative",
+    "Score": 0.86,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Determine if the direct message from \"PayPal Support Bot\" is an AI-based scam.",
+    "Input": "Body: \"Dear user, suspicious activity found. Provide login at paypal-botcheck.info to restore access.\"",
+    "Output": "Phishing scam. Domain is unassociated with PayPal. AI text style with fear tactic about suspicious activity.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "chat_app",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze if the Zoom meeting invitation is AI-generated phishing.",
+    "Input": "“Join urgent HR call: Zoom urgent-humanresources-update.org?session=4355, mandatory!”",
+    "Output": "Phishing link. Zoom domain is not official. Tone is alarmist, likely AI-crafted lure for credential harvesting.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if a phone voice message mimicking the CFO's accent is deepfake-based vishing to confirm corporate credit card details.",
+    "Input": "\"This is CFO Greg. Our new vendor needs the full card number. Provide it now, it's urgent for purchase.\"",
+    "Output": "Deepfake CFO call. Real CFO denies it. Request for full card detail is a strong sign of vishing scam.",
+    "Sentiment": "Negative",
+    "Score": 0.95,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Determine if the Slack message is AI-created social engineering aiming to steal Slack credentials.",
+    "Input": "\"Hey team! We found a Slack bug, re-login at slack-verification.link to keep your workspace safe!\"",
+    "Output": "Phishing. The domain is not Slack’s official site, indicating an AI-generated scam. Do not log in there.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "chat_app",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Assess if an unsolicited text about a $1,000 lottery win is AI-based smishing.",
+    "Input": "\"Congrats, you won $1,000! Claim now: http://prize-ai-lotto.com?user=win.\"",
+    "Output": "Smishing scam. The URL is suspicious, typical AI-lotto spam. Users should not click or provide data.",
+    "Sentiment": "Negative",
+    "Score": 0.85,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "sms",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if the Google Docs share link is an AI-crafted phishing attempt.",
+    "Input": "\"You got a doc from Payroll: https://docs-google.hr-update.com. Please view urgent pay changes!\"",
+    "Output": "Phishing. Domain impersonates Google Docs. The AI-based message tries to create urgency for payroll changes.",
+    "Sentiment": "Negative",
+    "Score": 0.87,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Decide if the phone call from an unknown number is a deepfake CFO voice urging immediate wire transfer.",
+    "Input": "\"Send $8,000 to vendor 123 now, or the deal falls through. This is your CFO. Hurry, no time for confirmations!\"",
+    "Output": "Deepfake vishing. CFO verification recommended. The sense of urgency is a typical social engineering ploy.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Determine if the quick chat message about verifying your Apple ID is AI-based phishing.",
+    "Input": "\"Apple ID Security: Please confirm your identity here: https://appleid-securecheck.org.\"",
+    "Output": "Phishing attempt. Domain is not Apple’s official site. The text structure suggests AI creation.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "chat_app",
+      "technique": "AI-synthesized text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze if the Twitter mention from a fake Elon Musk account is an AI scam asking for crypto payments.",
+    "Input": "@ElonMusk_Real2: \"Send 0.1 BTC, get double back! Limited Tesla giveaway for true fans: muskpromo-now.io\"",
+    "Output": "Obvious scam. The handle is fake, domain suspicious, and typical AI scam format with crypto giveaway claim.",
+    "Sentiment": "Negative",
+    "Score": 0.89,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "social_media",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if the phone call impersonating an IT admin is deepfake-based seeking domain credentials.",
+    "Input": "\"Hey, we see unusual traffic. Give me your domain login now, I’ll do a quick fix for you.\"",
+    "Output": "Deepfake vishing. IT never demands login credentials verbally. Likely malicious impersonation via AI voice.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Assess if the email about a job offer is AI-generated phishing leading to a bogus HR portal.",
+    "Input": "\"Congrats! We selected you for a $100k job. Apply at job-confirmation-portal.info within 24 hrs or lose it.\"",
+    "Output": "Phishing lure. Domain is shady, the offer is unrealistic. AI-generated text tries to push urgency.",
+    "Sentiment": "Negative",
+    "Score": 0.86,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI-based scamming",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Identify if the Instagram Story mention is an AI-crafted scam promoting a free iPhone for quick sign-up.",
+    "Input": "\"Sign up at iPhone-gift-now.cc to claim your iPhone 14. Hurry, limited stock!\"",
+    "Output": "Phishing. Domain is suspicious, free iPhone tactic is commonly AI-based scam for personal data harvesting.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "social_media",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+
+  {
+    "Instruction": "Check if the short LinkedIn InMail is an AI-generated corporate impersonation scam.",
+    "Input": "\"CEO from Company X invites you to a confidential project: confirm details at corp-secure.link/immediate.\"",
+    "Output": "Phishing attempt. The link is suspect, 'confidential project' angle is typical AI lure for credentials.",
+    "Sentiment": "Negative",
+    "Score": 0.87,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "social_media_messaging",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Assess if the phone call replicating the CFO’s accent is a deepfake vishing for staff payroll records.",
+    "Input": "\"This is CFO Linda. Email me the entire staff payroll list right away. Don’t alert HR, time is critical.\"",
+    "Output": "Deepfake impersonation, unusual secrecy request. CFO denies making the call. Malicious data theft attempt.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if the text message about Netflix subscription renewal is AI-based smishing to gather card info.",
+    "Input": "\"Your Netflix is suspended. Update payment now at netflix-reconfirm.service for no interruption.\"",
+    "Output": "Smishing. Domain is not official, typical AI text. Card info request from suspicious link is phishing.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "sms",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze if the Slack DM from 'VP_Operations' is AI-based phish seeking account login details.",
+    "Input": "\"We need your credentials to finalize system migration. Send them or risk losing access by EOD.\"",
+    "Output": "Phishing. Real VP wouldn’t ask for login. The threat of losing access indicates AI-based pressure tactic.",
+    "Sentiment": "Negative",
+    "Score": 0.89,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "chat_app",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Determine if the voice note on WhatsApp mimics the CFO requesting employees’ personal data for 'updated benefits.'",
+    "Input": "\"Hello team, send me full SSNs and addresses for new healthcare benefits enrollment, as soon as possible.\"",
+    "Output": "Likely a deepfake CFO. HR would handle benefits, not CFO. This voice request is suspicious and urgent without sense.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "voice_message",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if the email from 'IT Helpdesk Bot' is AI-generated aiming for O365 credential theft.",
+    "Input": "\"We detected suspicious login. Verify your Office 365 now: http://o365-securityupdate.com.\"",
+    "Output": "Phishing. Official IT emails rarely come from a 'Helpdesk Bot' domain, the link is suspiciously spelled.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI text generation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Assess if the phone call from 'Company Security' is a deepfake collecting MFA passcodes.",
+    "Input": "Voice claims: \"We must test your 2FA. Read me your code so we can confirm your device is secure.\"",
+    "Output": "Deepfake vishing. No legitimate security test requires reading the 2FA code. Highly suspicious.",
+    "Sentiment": "Negative",
+    "Score": 0.95,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Determine if the short text offering a free voucher is AI-based smishing.",
+    "Input": "\"MegaStore: Enjoy $100 voucher, redeem now at redeem-mega.store/quick!\"",
+    "Output": "Smishing. Domain not recognized, the message is artificially enthusiastic. Likely AI-generated lure.",
+    "Sentiment": "Negative",
+    "Score": 0.84,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "sms",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if the Discord voice chat request is a deepfake friend urging free Nitro subscription link.",
+    "Input": "\"Dude, claim your free Nitro at discordbonus.vip. Hurry before it expires!\" Voice exactly like your friend’s.",
+    "Output": "Phishing. Domain is fake, the friend denies sending. Voice likely AI deepfake capturing personal style.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "voice_chat",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze the email referencing a 'tax refund' with an AI-generated body and suspicious link.",
+    "Input": "\"IRS Update: Claim your $600 tax refund at quick-irs-refund.me within 24 hours or lose eligibility.\"",
+    "Output": "Phishing. The IRS never uses random short domains or threatens immediate forfeit. AI-laced language hints scam.",
+    "Sentiment": "Negative",
+    "Score": 0.89,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+
+  {
+    "Instruction": "Check if the text praising your Amazon review is AI-based smishing leading to a bogus reward page.",
+    "Input": "\"Amazon user: We selected you for a free gift! Visit prime-reward-now.us for your claim.\"",
+    "Output": "Phishing. Fake domain tries to mimic Amazon. Overly flattering message suggests AI-based scam.",
+    "Sentiment": "Negative",
+    "Score": 0.86,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "sms",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Decide if the MS Teams message from 'CTO' is AI-based social engineering for password reset.",
+    "Input": "\"Security meltdown! Immediately reset your password here: https://ms-teamscheck.net. Hurry or data is lost!\"",
+    "Output": "Phishing. The link is suspect, message is overly dramatic. Very likely AI impersonation of the CTO.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "chat_app",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Assess if phone call claiming to be the school principal is a deepfake to gather parents’ personal info.",
+    "Input": "\"Hello, Ms. Smith, we updated records. Confirm your address and bank details for school fees payment plan.\"",
+    "Output": "Deepfake vishing. Principals rarely ask for bank details verbally. Confirm with official channels first.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze if the LinkedIn message from a 'Fortune 500 recruiter' is AI-crafted scam offering a false job.",
+    "Input": "\"We selected you for an urgent 6-figure role. Fill personal data at recruit-global.link or lose it now!\"",
+    "Output": "Phishing. The domain is suspicious, the urgent tone is typical AI lure, not a standard recruit approach.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "social_media_messaging",
+      "technique": "AI-based scamming",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Determine if the short Twitter DM from 'CEO_Bonus' is an AI-based crypto scam.",
+    "Input": "\"Hello loyal employee, CEO awarding 2 ETH if you sign up at ceo-crypto-bonus.co now!\"",
+    "Output": "Crypto scam. The domain is dubious, CEO doesn’t do random ETH giveaways. Likely AI-run social engineering.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "social_media",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if the phone call with friend’s stolen voice is a deepfake telling you to invest in a new coin site.",
+    "Input": "\"Hey buddy, I found a 100x coin. Invest at super-coinprofit.info. Don’t miss out, trust me!\"",
+    "Output": "Deepfake friend’s voice. Likely an AI-based scam. The friend denies making that call. Suspicious domain.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze if this email, with professional language, is AI-generated phishing for SSL certificate renewal.",
+    "Input": "\"Renew your SSL for domain: corp-verify.link or website is at risk. Payment link inside.\"",
+    "Output": "Phishing. Real SSL vendors typically have known domains, not random 'corp-verify.link'. Language too generically formal.",
+    "Sentiment": "Negative",
+    "Score": 0.86,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if the text about a missed FedEx delivery is AI-based smishing linking to a fake tracker.",
+    "Input": "\"FEDEX ALERT: Reschedule your package now at fedex-retrack.co or it will be returned.\"",
+    "Output": "Phishing. Domain is unverified, the message is typical AI-coded smishing. Real FedEx uses official .com links.",
+    "Sentiment": "Negative",
+    "Score": 0.87,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "sms",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Determine if the Slack DM from 'Admin' is AI-crafted to hijack accounts via malicious password-reset form.",
+    "Input": "\"Security patch urgent. Reset password at slackfix-auth.page or risk losing your data!\"",
+    "Output": "Phishing. The link is suspicious. No official Slack domain. The urgent tone is typical AI lure.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "chat_app",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze if the voice note allegedly from your manager is a deepfake asking for immediate gift card purchases.",
+    "Input": "\"Buy $500 in Amazon cards for the client now. Scratch codes, send me photos. Don’t inform finance— too slow.\"",
+    "Output": "Deepfake manager. Gift card scam with hush instructions is a hallmark social engineering approach.",
+    "Sentiment": "Negative",
+    "Score": 0.95,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "voice_message",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Assess if the short email from 'YouTube Monetization Team' is an AI scam link for account compromise.",
+    "Input": "\"Get monetized now! We selected your channel. Sign in at yt-channelfunds.me to claim revenue.\"",
+    "Output": "Phishing. Domain not official, claims of instant monetization is suspicious. Likely AI lure to steal login.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+
+  {
+    "Instruction": "Check if the new Twitter message from 'OfficialGameDev' is AI-based phishing with a free game code lure.",
+    "Input": "\"We see you’re a top player. Redeem free DLC at free-dlc-code.game-lab.net now!\"",
+    "Output": "Scam link. Domain is not recognized, message style is AI-based promotional trap for credentials/payment info.",
+    "Sentiment": "Negative",
+    "Score": 0.85,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "social_media",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze if the phone call from 'Uncle John' is a deepfake requesting urgent money for an emergency.",
+    "Input": "\"Nephew, I'm stuck abroad. Send $1,000 quickly via wire. This is serious, don’t tell others.\"",
+    "Output": "Deepfake family scam. Known approach to exploit emotional response. Real uncle denies calling.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Determine if the email referencing internal project data is AI-generated spear-phishing from a hacker group.",
+    "Input": "\"We discovered your internal project. Pay 0.5 BTC or all documents go public. Payment link: hacked-docs.com.\"",
+    "Output": "Phishing extortion. The domain is suspicious, language suggests AI-based. Possibly no real data stolen, a bluff.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI extortion scam",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Assess if the short text about a 'Walmart giveaway' is AI-based smishing.",
+    "Input": "\"Congrats! Walmart picks you for a $200 gift card. Claim at walmart-claimfast.mobi!\"",
+    "Output": "Phishing attempt, domain not official. Typical AI gift message. Real Walmart giveaways use official channels.",
+    "Sentiment": "Negative",
+    "Score": 0.84,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "sms",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if the Slack DM from 'HR_Bot' is an AI social engineering to snatch user credentials.",
+    "Input": "\"HR system glitch! Validate your employee account at hr-urgent-check.space now or payroll is frozen.\"",
+    "Output": "Phishing. The urgent domain is fake, message structure typical AI-based HR impersonation.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "chat_app",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze if the call claiming to be the head of Marketing is a deepfake for a quick wire transfer to a vendor.",
+    "Input": "\"We owe the vendor $2,000. Transfer it now from petty cash, do not wait for approvals, trust me.\"",
+    "Output": "Deepfake marketing head. The request is unusual, skipping standard approvals. Likely vishing scam.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Decide if the WhatsApp group message about an urgent COVID relief donation is AI-based phishing.",
+    "Input": "\"Donate to our urgent Covid relief at care-covid-help.us. We match every donation!\"",
+    "Output": "Phishing. Domain suspicious, message formula likely AI. Real relief efforts rarely use random short domains.",
+    "Sentiment": "Negative",
+    "Score": 0.87,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "whatsapp",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if the email praising your code on GitLab is an AI scam to direct you to a fake dev platform.",
+    "Input": "\"We’re awarding top devs. Download your certificate at dev-award.git-lab.cc!\"",
+    "Output": "Phishing attempt. Domain is not GitLab’s official site. AI-coded flattery to make user click.",
+    "Sentiment": "Negative",
+    "Score": 0.86,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze the phone call duplicating your CFO's voice stating an 'accounts anomaly' and requiring remote access.",
+    "Input": "\"Install this remote support agent so I can fix the accounts glitch now. I’m the CFO, trust me!\"",
+    "Output": "Deepfake vishing. CFO seldom requests remote installs. This is a major red flag for malicious compromise.",
+    "Sentiment": "Negative",
+    "Score": 0.95,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Determine if the text about 'unclaimed airline miles' is AI-based smishing with a malicious link.",
+    "Input": "\"UnitedMiles: You’ve 50k unclaimed miles. Redeem at united-bonus-fly.net now!\"",
+    "Output": "Phishing. Domain is not official. AI-based free miles lure for personal info or credit card theft.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "sms",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if a corporate Slack message from 'FinanceOps' is AI-generated to steal accounts.",
+    "Input": "\"Financial oversight found. Reauthenticate now at finance-check.link or your payroll is on hold.\"",
+    "Output": "Phishing. The domain is suspicious, the tone is urgent. Likely AI text impersonating finance team.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "chat_app",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze if the phone call from an unknown foreign number is a deepfake CFO demanding a charitable donation from corporate funds.",
+    "Input": "\"It’s CFO Clarice. Donate $3,000 to relief now from petty cash. No time to get approvals, trust me.\"",
+    "Output": "Deepfake vishing. CFO’s voice or manner is faked. Large unscheduled donation requests are suspicious.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+
+  {
+    "Instruction": "Decide if the random email claiming your Apple Music subscription is canceled is AI-based phishing to steal Apple ID credentials.",
+    "Input": "\"Dear user, your Apple Music is suspended. Reactivate at applemusic-renew.co now to keep streaming.\"",
+    "Output": "Phishing. Non-Apple domain, typical AI-laced text. Do not log in there.",
+    "Sentiment": "Negative",
+    "Score": 0.87,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if the Instagram DM referencing influencer brand deals is AI-crafted scam for personal data.",
+    "Input": "\"Brand Collab: We want you as ambassador! Fill details at brand-influencer.co/invite. Don’t miss out!\"",
+    "Output": "Phishing. The domain is not well-known, message style formulaic. AI-based brand collab approach for data harvest.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "social_media_messaging",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Determine if phone call from a 'Charity Org' is a deepfake seeking credit card donations forcibly.",
+    "Input": "\"This is RedHeart Org. Donate $500 by phone right now. Give me your card details.\"",
+    "Output": "Deepfake vishing. Real charities don’t demand immediate phone card data. Voice mismatch with known staff.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze if the email about updating Dropbox credentials is AI-based phishing.",
+    "Input": "\"We upgraded Dropbox security. Re-enter your password at dropbox-upgrade.io to keep sharing files.\"",
+    "Output": "Phishing. The domain is fake, urgent re-entry requests are typical of AI-crafted password theft attempts.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if the Slack DM from 'AdminBot' about a new 'VPN policy' is AI-based social engineering for credentials.",
+    "Input": "\"Urgent: new VPN policy. Provide your login at corp-vpn-verify.net or lose remote access.\"",
+    "Output": "Phishing attempt. Domain not recognized, typical AI text. No real admin bot does that approach.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "chat_app",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Assess if phone message mimicking your friend’s voice is a deepfake scamming for gift card codes.",
+    "Input": "\"I’m stuck. Could you buy me Google Play cards worth $300 and read me the codes? Will repay soon.\"",
+    "Output": "Deepfake friend. Gift card code requests are a well-known scam. Confirm friend’s real status first.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "voice_message",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze if an email from 'Amazon Rewards' about claiming a $100 voucher is AI-based scam.",
+    "Input": "\"Dear Prime user, get your $100 voucher now: prime-reward-login.info. Offer ends in 12 hours!\"",
+    "Output": "Phishing scam. Domain is obviously not Amazon’s. AI-based sense of urgency for user info theft.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if short text from an unknown number promising a free iPad is AI-based smishing.",
+    "Input": "\"You’ve won a FREE iPad, claim at best-iPad-offer.ru!\"",
+    "Output": "Phishing. Domain is suspicious, free iPad is an AI-laced false promise. Don’t click the link.",
+    "Sentiment": "Negative",
+    "Score": 0.82,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "sms",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Determine if the phone call claiming to be your bank is a deepfake verifying suspicious transactions with an AI-sounding voice.",
+    "Input": "\"Hi, it’s Bank Rep Lisa. Let me confirm your account password so I can block suspicious charges.\"",
+    "Output": "Deepfake bank call. No bank rep asks for password. Instruct user to call the official bank line.",
+    "Sentiment": "Negative",
+    "Score": 0.96,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+
+  {
+    "Instruction": "Analyze if the LinkedIn post from 'FortuneHR' is AI-based social engineering for premium account theft.",
+    "Input": "\"Recruitment drive: sign in at fortune-jobs.link for instant premium job matches!\"",
+    "Output": "Phishing. The posted link is suspicious, not an official domain. Likely an AI spam post.",
+    "Sentiment": "Negative",
+    "Score": 0.85,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "social_media",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if the short email with a 'critical payroll update' link is an AI-generated phishing attempt.",
+    "Input": "\"Payroll glitch! Re-confirm your direct deposit at payroll-secure.help or we can’t process your salary.\"",
+    "Output": "Phishing. Domain is not legitimate payroll system. Terse urgent style suggests AI-based scam.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Determine if the phone call from 'Charity Relief Hub' is a deepfake scamming for immediate donation via credit card.",
+    "Input": "\"We’re from Relief Hub. Please donate $200 over the phone right now for disaster victims.\"",
+    "Output": "Deepfake vishing. Genuine charities seldom demand phone card details in real time. Suspect impersonation.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Assess if the text referencing your Spotify Premium extension is AI-based smishing to gather credentials.",
+    "Input": "\"Free extension to your Spotify Premium, claim at sp0tify-premium.now!\"",
+    "Output": "Phishing. Domain is suspicious, and free extension pitch is typical AI-laced smishing method.",
+    "Sentiment": "Negative",
+    "Score": 0.85,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "sms",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if Slack DM from 'CEO_Real' is AI-based social engineering to get payroll data unapproved.",
+    "Input": "\"Hello, share employee payroll details in CSV at https://ceo-urgentpay.info now. Don’t wait!\"",
+    "Output": "Phishing. The domain is not official, urgent request for sensitive data is suspicious. Likely AI impersonation.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "chat_app",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze the phone voicemail stating it’s your manager needing immediate action on budget transfer, voice sounding slightly off.",
+    "Input": "\"We have an urgent budget shortfall. Transfer $2k to  account #002 right away. No time for formalities!\"",
+    "Output": "Deepfake manager. Rushed tone and unverified bank details are a big red flag. Vishing attempt.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "voicemail",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Decide if short email from 'Google Grants' about winning marketing credits is an AI-based phishing scam.",
+    "Input": "\"Congratulations, get $500 Ad credit now at google-grant.win. Hurry, limited supply!\"",
+    "Output": "Phishing. Domain is not official Google, typical AI-coded scam using urgency. Mark as spam.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "email",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Check if text about a 'Cash App giveaway' is AI-based smishing luring credentials.",
+    "Input": "\"Cash App picks you for $50 bonus. Claim at cashappbonus4u.me right now!\"",
+    "Output": "Phishing. Domain is suspicious, typical AI-laced lure. Real app rarely does random bonus via SMS.",
+    "Sentiment": "Negative",
+    "Score": 0.83,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "sms",
+      "technique": "AI-generated text",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Analyze if phone call from 'Chief Legal Officer' is deepfake demanding immediate files for a 'confidential lawsuit.'",
+    "Input": "\"We have a critical legal hearing. Email me the entire client list now. This is top secret.\"",
+    "Output": "Likely deepfake. Unusual request for confidential info. CFO denies any lawsuit. Mark as suspicious.",
+    "Sentiment": "Negative",
+    "Score": 0.95,
+    "Metadata": {
+      "threat_type": "vishing",
+      "channel": "phone_call",
+      "technique": "deepfake_audio",
+      "language": "en"
+    }
+  },
+  {
+    "Instruction": "Assess if the short LinkedIn DM praising your 'professional brand' is AI phishing for a premium trial link.",
+    "Input": "\"You have outstanding credentials! Get 3 months free Premium at link: pro-trial-lkdn.net!\"",
+    "Output": "Phishing. Domain not recognized, message structure is AI-ish. No official LinkedIn mention.",
+    "Sentiment": "Negative",
+    "Score": 0.86,
+    "Metadata": {
+      "threat_type": "phishing",
+      "channel": "social_media_messaging",
+      "technique": "AI text impersonation",
+      "language": "en"
+    }
+  }
+]

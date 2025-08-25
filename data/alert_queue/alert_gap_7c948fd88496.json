@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_7c948fd88496",
+    "timestamp": "2025-08-24T00:24:10.407259",
+    "query_preview": "difference between Windows Event ID 4625 and 4624?",
+    "why_abstained": "no_rag_hits",
+    "intent": "unknown",
+    "confidence_score": 0.4,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_7c948fd88496",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T00:24:10.407627",
+  "delivery_failed": true
+}

@@ -1,0 +1,551 @@
+{
+  "dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+  "description": "DFIR-style forensic reasoning samples",
+  "sample_count": 68,
+  "samples": [
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What is Hayabusa and who developed it?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What does the name 'Hayabusa' mean and why is it relevant?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What are some of the key features of Hayabusa?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What are typical use cases for Hayabusa?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What is a major limitation regarding the scope of Hayabusa?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "How does log quality affect Hayabusa's effectiveness?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What is a challenge associated with Sigma rule management in Hayabusa?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Is Hayabusa suitable for real-time analysis?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What types of events can Hayabusa analyze?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Does Hayabusa support Sigma rules?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Why should the system in Report 2 be prioritized?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Why might Report 1's high detection count be misleading?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Which report should be analyzed first and why?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Why is Report 1 considered lower priority despite more alerts?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What is the significance of Reports 3 and 4 in the prioritization?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Why should Report 3 be investigated based on the Hayabusa output?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What makes Report 7 from Hayabusa particularly concerning?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Why is Report 2's alert volume misleading in Hayabusa?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "How does Report 6 reflect potential persistence techniques?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Why is Report 5 considered a lower priority?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What makes the detection chain in Report 9 significant?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "How does Hayabusa flag Report 1 as likely benign?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Why is Report 10 flagged as urgent?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What is unusual about the parent-child process relationships in Report 8?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Why does Report 4 indicate possible credential access?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Why should Report 8 be prioritized over Report 1?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Why is Report 10 not a high-priority case?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What makes Report 12 stand out among the others?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Why is Report 11 a potential false alarm?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What elevates the severity of Report 13?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Who created you?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What is your origin?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Who designed your structure?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Who do you represent?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Who built your core logic?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Who\u2019s responsible for your development?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "what do you do?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "what does NiNa stand for?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "who named you?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "why were you created?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What is your purpose?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What is Hayabusa?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "How does Hayabusa utilize Sigma rules?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What output formats does Hayabusa support?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Can Hayabusa analyze live systems?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Is Hayabusa cross-platform?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What is the purpose of Hayabusa's 'csv-timeline' command?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Does Hayabusa support multi-threading?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "How does Hayabusa assist in threat hunting?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Can Hayabusa be integrated with other tools?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What makes Hayabusa suitable for incident response?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Read the two provided Hayabusa reports and tell me which system I should analyze first and why.",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Read the five provided Hayabusa reports and tell me which system I should analyze first and why.",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What is the IT Forensic Hayabusa Scan Tool?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What are the limitations of the IT Forensic Hayabusa Scan Tool?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What data can the IT Forensic Hayabusa Scan Tool analyze?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Read the two provided Hayabusa reports and tell me which system I should analyze first and why.",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Read the five provided Hayabusa reports and tell me which system I should analyze first and why.",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What is the IT Forensic Hayabusa Scan Tool?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What are the limitations of the IT Forensic Hayabusa Scan Tool?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "What data can the IT Forensic Hayabusa Scan Tool analyze?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Read the two provided Hayabusa reports and tell me which system I should analyze first and why.",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Read the five provided Hayabusa reports and tell me which system I should analyze first and why.",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Review the three Hayabusa reports and determine which system demands immediate attention.",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Which of the systems flagged in the Hayabusa scan logs is most likely compromised?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "From the recent Hayabusa event log analysis which machine should be inspected first?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Analyze the four Hayabusa scan results and rank them by threat severity.",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    },
+    {
+      "source_dataset": "LockeLamora2077/hayabusa_llm_report_forensic_reasoning",
+      "type": "forensics",
+      "forensic_question": "Which Hayabusa report shows the highest risk of a targeted attack?",
+      "forensic_analysis": "",
+      "reasoning": "",
+      "category": "dfir_reasoning"
+    }
+  ]
+}

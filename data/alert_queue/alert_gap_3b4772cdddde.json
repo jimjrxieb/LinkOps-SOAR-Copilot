@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_3b4772cdddde",
+    "timestamp": "2025-08-24T00:47:09.851136",
+    "query_preview": "Describe command and control (C2) techniques",
+    "why_abstained": "no_rag_hits",
+    "intent": "unknown",
+    "confidence_score": 0.4,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_3b4772cdddde",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T00:47:09.851294",
+  "delivery_failed": true
+}

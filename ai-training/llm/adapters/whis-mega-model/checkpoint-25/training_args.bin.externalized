@@ -1,0 +1,10 @@
+# EXTERNALIZED ARTIFACT
+# This file has been moved to external storage for repository hygiene.
+# 
+# Original file: ai-training/llm/adapters/whis-mega-model/checkpoint-25/training_args.bin
+# External path: external-artifacts/ai-training/llm/adapters/whis-mega-model/checkpoint-25/training_args.bin
+# Size: 5,713 bytes
+# Checksum: 36d59e7e2783248119dcfbe6a7b15e4ed7268595ff72fea3feaf25c9a9006c6b
+# Externalized: 2025-08-23T15:53:04.403064
+#
+# To restore: ./scripts/restore-artifacts.py ai-training/llm/adapters/whis-mega-model/checkpoint-25/training_args.bin

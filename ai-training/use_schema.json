@@ -1,0 +1,184 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Unified Security Event (USE) Schema",
+  "description": "Normalized security event format for Splunk + LimaCharlie + any SIEM",
+  "type": "object",
+  "required": ["event_id", "ts", "product", "source_type", "severity", "entity", "summary"],
+  "additionalProperties": false,
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique event identifier"
+    },
+    "ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Event timestamp in ISO8601 format"
+    },
+    "product": {
+      "type": "string",
+      "enum": ["splunk", "limacharlie", "sentinel", "crowdstrike", "other"],
+      "description": "Source security product"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": ["notable", "detection", "sysmon", "endpoint", "network", "cloud", "manual"],
+      "description": "Event source type within product"
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"],
+      "description": "Normalized severity level"
+    },
+    "mitre": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(T\\d{4}(\\.\\d{3})?|TA\\d{4})$"
+      },
+      "description": "MITRE ATT&CK technique/tactic IDs",
+      "examples": [["T1110", "TA0006"]]
+    },
+    "entity": {
+      "type": "object",
+      "description": "Primary affected entities (sanitized)",
+      "properties": {
+        "host": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Hostname (may be sanitized)"
+        },
+        "user": {
+          "type": "string", 
+          "maxLength": 100,
+          "description": "Username (should be [REDACTED_USER] if PII)"
+        },
+        "ip": {
+          "type": "string",
+          "pattern": "^(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|\\[REDACTED_IP\\]|\\$\\{IP\\})$",
+          "description": "IP address (may be sanitized or parameterized)"
+        },
+        "process": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "Process name or path"
+        },
+        "file": {
+          "type": "string", 
+          "maxLength": 500,
+          "description": "File path (may be sanitized)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 500,
+      "description": "Human-readable event summary (sanitized)"
+    },
+    "raw": {
+      "type": "object",
+      "description": "Original vendor fields (sanitized, optional)",
+      "additionalProperties": true
+    },
+    "labels": {
+      "type": "object",
+      "description": "Enrichment and classification labels",
+      "properties": {
+        "kill_chain": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "reconnaissance", "initial_access", "execution", "persistence",
+              "privilege_escalation", "defense_evasion", "credential_access",
+              "discovery", "lateral_movement", "collection", "exfiltration",
+              "command_and_control", "impact"
+            ]
+          },
+          "description": "Cyber kill chain phases"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "Detection confidence score"
+        },
+        "use_case": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Security use case category",
+          "examples": ["brute_force_response", "malware_containment", "data_exfiltration"]
+        },
+        "environment": {
+          "type": "string",
+          "enum": ["prod", "staging", "dev", "test", "unknown"],
+          "description": "Environment classification"
+        },
+        "criticality": {
+          "type": "string",
+          "enum": ["business_critical", "important", "standard", "development"],
+          "description": "Asset criticality level"
+        }
+      },
+      "additionalProperties": false
+    },
+    "remediation": {
+      "type": "object",
+      "description": "Automated remediation metadata",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pending", "in_progress", "completed", "failed", "skipped"],
+          "description": "Remediation status"
+        },
+        "actions_taken": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "List of automated actions performed"
+        },
+        "requires_human": {
+          "type": "boolean",
+          "description": "Whether human intervention is required"
+        }
+      },
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object", 
+      "description": "Processing metadata",
+      "properties": {
+        "ingested_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When event was ingested into pipeline"
+        },
+        "sanitized_at": {
+          "type": "string", 
+          "format": "date-time",
+          "description": "When sanitization was completed"
+        },
+        "redactions": {
+          "type": "object",
+          "description": "Count of redacted items by type",
+          "properties": {
+            "emails": {"type": "integer", "minimum": 0},
+            "ips": {"type": "integer", "minimum": 0},
+            "secrets": {"type": "integer", "minimum": 0},
+            "hostnames": {"type": "integer", "minimum": 0},
+            "usernames": {"type": "integer", "minimum": 0}
+          },
+          "additionalProperties": false
+        },
+        "source_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA256 hash of original unsanitized event"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

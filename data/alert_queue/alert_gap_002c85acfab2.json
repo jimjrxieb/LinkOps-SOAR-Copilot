@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_002c85acfab2",
+    "timestamp": "2025-08-24T00:45:46.922451",
+    "query_preview": "Explain the CIA triad in cybersecurity",
+    "why_abstained": "no_rag_hits",
+    "intent": "definition",
+    "confidence_score": 0.4,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_002c85acfab2",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T00:45:46.922714",
+  "delivery_failed": true
+}

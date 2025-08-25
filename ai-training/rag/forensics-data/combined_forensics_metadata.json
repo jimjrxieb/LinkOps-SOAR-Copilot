@@ -1,0 +1,12 @@
+{
+  "combined_dataset": true,
+  "total_samples": 63,
+  "categories": {
+    "dfir_reasoning": 63
+  },
+  "datasets": [
+    "LockeLamora2077/hayabusa_llm_report_forensic_reasoning"
+  ],
+  "created_at": "2025-08-24T02:15:13.360400",
+  "description": "Combined forensics and SIEM datasets for RAG training"
+}

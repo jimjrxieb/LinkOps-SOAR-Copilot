@@ -1,0 +1,42 @@
+{
+  "model_name": "whis_anomaly_detector",
+  "created_at": "2025-08-24T21:01:33.456970",
+  "version": "1.0",
+  "contamination": 0.15,
+  "model_types": [
+    "auth_events",
+    "process_events",
+    "admin_events"
+  ],
+  "feature_names": {
+    "auth_events": [
+      "hour_of_day",
+      "is_weekend",
+      "is_off_hours",
+      "fail_count_1h",
+      "success_after_fail_15m",
+      "is_admin",
+      "asset_class_encoded"
+    ],
+    "process_events": [
+      "hour_of_day",
+      "cmd_len",
+      "cmd_entropy",
+      "has_encoded",
+      "signed_parent",
+      "rare_parent_child_7d"
+    ],
+    "admin_events": [
+      "off_hours",
+      "recent_4625s_actor_1h",
+      "method_encoded"
+    ]
+  },
+  "use_case": "Security anomaly detection",
+  "intended_use": "Advisory scoring for SOAR decision graph",
+  "limitations": [
+    "Synthetic training data - validate on real events",
+    "CPU-only inference suitable for real-time scoring",
+    "Scores should be used as advisory signals only"
+  ]
+}

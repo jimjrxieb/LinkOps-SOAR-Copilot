@@ -1,0 +1,12 @@
+# Security Operations Instruction
+
+**Instruction**: Explain the concept of threat hunting and its role in advanced threat management.
+
+**Input/Context**: 
+
+**Response**: 
+
+**Framework**: DPO
+**Response Type**: security_guidance
+**Category**: SOAR Instruction
+**Source**: venkycs/security-dpo

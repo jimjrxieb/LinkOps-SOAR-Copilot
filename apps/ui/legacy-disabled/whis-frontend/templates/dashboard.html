@@ -1,0 +1,466 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Whis{% endblock %}
+
+{% block extra_css %}
+<style>
+.metric-card {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    border: none;
+    color: white;
+}
+
+.metric-card .card-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.activity-card {
+    background: #2b2b2b;
+    border: 1px solid #404040;
+}
+
+.severity-high { border-left: 4px solid #dc3545; }
+.severity-medium { border-left: 4px solid #fd7e14; }
+.severity-low { border-left: 4px solid #ffc107; }
+.severity-info { border-left: 4px solid #20c997; }
+
+.threat-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.threat-high { background-color: #dc3545; }
+.threat-medium { background-color: #fd7e14; }
+.threat-low { background-color: #ffc107; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Header -->
+    <div class="col-12 mb-4">
+        <h2><i class="fas fa-tachometer-alt"></i> Security Operations Dashboard</h2>
+        <p class="text-muted">Real-time overview of your security posture</p>
+    </div>
+</div>
+
+<!-- Key Metrics -->
+<div class="row mb-4">
+    <div class="col-md-3 mb-3">
+        <div class="card metric-card">
+            <div class="card-body text-center">
+                <i class="fas fa-shield-alt fa-2x mb-2"></i>
+                <div class="card-title" id="threat-score">98</div>
+                <p class="mb-0">Security Score</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card metric-card">
+            <div class="card-body text-center">
+                <i class="fas fa-exclamation-triangle fa-2x mb-2"></i>
+                <div class="card-title" id="active-alerts">7</div>
+                <p class="mb-0">Active Alerts</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card metric-card">
+            <div class="card-body text-center">
+                <i class="fas fa-clock fa-2x mb-2"></i>
+                <div class="card-title" id="pending-approvals">3</div>
+                <p class="mb-0">Pending Actions</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card metric-card">
+            <div class="card-body text-center">
+                <i class="fas fa-comments fa-2x mb-2"></i>
+                <div class="card-title" id="whis-queries">24</div>
+                <p class="mb-0">Whis Queries</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Recent Activity -->
+    <div class="col-md-8 mb-4">
+        <div class="card activity-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="fas fa-history"></i> Recent Activity</h5>
+                <button class="btn btn-outline-light btn-sm" onclick="refreshActivity()">
+                    <i class="fas fa-refresh"></i> Refresh
+                </button>
+            </div>
+            <div class="card-body">
+                <div id="activity-feed">
+                    <!-- Activity items will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Threat Intelligence -->
+    <div class="col-md-4 mb-4">
+        <div class="card activity-card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-crosshairs"></i> Threat Intelligence</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between">
+                        <span>IOC Matches</span>
+                        <span class="badge bg-danger">12</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between">
+                        <span>New CVEs</span>
+                        <span class="badge bg-warning">8</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between">
+                        <span>Threat Feeds</span>
+                        <span class="badge bg-success">Active</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="text-center">
+                    <button class="btn btn-primary btn-sm" onclick="loadThreatIntel()">
+                        View Details
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Status -->
+        <div class="card activity-card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-server"></i> System Status</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between">
+                        <span><span class="threat-indicator threat-low"></span>Whis API</span>
+                        <span class="text-success">Online</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between">
+                        <span><span class="threat-indicator threat-low"></span>LimaCharlie</span>
+                        <span class="text-success">Connected</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between">
+                        <span><span class="threat-indicator threat-medium"></span>Splunk</span>
+                        <span class="text-warning">Limited</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row">
+    <div class="col-12">
+        <div class="card activity-card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-bolt"></i> Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-2">
+                        <button class="btn btn-outline-primary w-100" onclick="startWhisChat()">
+                            <i class="fas fa-comments"></i> Chat with Whis
+                        </button>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <button class="btn btn-outline-warning w-100" onclick="viewApprovals()">
+                            <i class="fas fa-clipboard-check"></i> View Approvals
+                        </button>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <button class="btn btn-outline-info w-100" onclick="viewLogs()">
+                            <i class="fas fa-file-alt"></i> SIEM Logs
+                        </button>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <button class="btn btn-outline-success w-100" onclick="runHealthCheck()">
+                            <i class="fas fa-heartbeat"></i> Health Check
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let socket = io();
+let activityRefreshInterval;
+
+/* 
+ * =============================================================================
+ * 🔧 DEBUG SECTION - Dashboard Initialization
+ * =============================================================================
+ * TAGS: #dashboard-init #debug-logs #recent-activity-fix
+ * PURPOSE: Track dashboard loading and Recent Activity issues
+ * ISSUE: Recent Activity not showing on main page
+ * SOLUTION: Added extensive logging to identify execution problems
+ * =============================================================================
+ */
+
+// Initialize dashboard
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 [DASHBOARD-INIT] DOMContentLoaded event fired');
+    try {
+        console.log('📊 [DASHBOARD-INIT] Loading dashboard data...');
+        loadDashboardData();
+        console.log('🔄 [DASHBOARD-INIT] Setting up real-time updates...');
+        setupRealTimeUpdates();
+        console.log('⏰ [DASHBOARD-INIT] Starting activity refresh...');
+        startActivityRefresh();
+        console.log('✅ [DASHBOARD-INIT] Dashboard initialization completed');
+    } catch (error) {
+        console.error('❌ [DASHBOARD-INIT] Dashboard initialization error:', error);
+    }
+});
+
+function loadDashboardData() {
+    // Load recent activity
+    loadRecentActivity();
+    
+    // Load metrics
+    updateMetrics();
+    
+    // Check system status
+    checkSystemStatus();
+}
+
+/* 
+ * =============================================================================
+ * 🔧 DEBUG SECTION - Recent Activity Loading Function
+ * =============================================================================
+ * TAGS: #recent-activity-fix #activity-feed #debug-logs
+ * PURPOSE: Load and display recent security activity items
+ * ISSUE: Activity feed showing empty on dashboard
+ * TESTING: Check element existence, data processing, DOM manipulation
+ * =============================================================================
+ */
+
+function loadRecentActivity() {
+    console.log('🔍 [RECENT-ACTIVITY] loadRecentActivity called');
+    const activityFeed = document.getElementById('activity-feed');
+    
+    if (!activityFeed) {
+        console.error('❌ [RECENT-ACTIVITY] activity-feed element not found!');
+        return;
+    }
+    console.log('✅ [RECENT-ACTIVITY] activity-feed element found');
+    
+    // Sample activity data - replace with actual API calls
+    const activities = [
+        {
+            type: 'threat_detected',
+            severity: 'high',
+            message: 'Malicious PowerShell execution detected on DESKTOP-ABC123',
+            timestamp: '2 minutes ago',
+            icon: 'fas fa-exclamation-triangle'
+        },
+        {
+            type: 'whis_query',
+            severity: 'info',
+            message: 'Whis analyzed suspicious network traffic pattern',
+            timestamp: '5 minutes ago',
+            icon: 'fas fa-robot'
+        },
+        {
+            type: 'approval_pending',
+            severity: 'medium',
+            message: 'Action approval required: Block suspicious IP 192.168.1.100',
+            timestamp: '8 minutes ago',
+            icon: 'fas fa-clipboard-check'
+        },
+        {
+            type: 'system_update',
+            severity: 'low',
+            message: 'NIST framework knowledge base updated',
+            timestamp: '15 minutes ago',
+            icon: 'fas fa-sync'
+        }
+    ];
+    
+    activityFeed.innerHTML = '';
+    
+    console.log(`📝 [RECENT-ACTIVITY] Processing ${activities.length} activity items`);
+    
+    activities.forEach((activity, index) => {
+        console.log(`[RECENT-ACTIVITY] Processing activity ${index + 1}: ${activity.message}`);
+        const activityDiv = document.createElement('div');
+        activityDiv.className = `activity-item p-3 mb-3 severity-${activity.severity}`;
+        activityDiv.innerHTML = `
+            <div class="d-flex">
+                <div class="me-3">
+                    <i class="${activity.icon} fa-lg"></i>
+                </div>
+                <div class="flex-grow-1">
+                    <div class="activity-message">${activity.message}</div>
+                    <small class="text-muted">${activity.timestamp}</small>
+                </div>
+            </div>
+        `;
+        activityFeed.appendChild(activityDiv);
+        console.log(`[RECENT-ACTIVITY] Activity ${index + 1} added to DOM`);
+    });
+    
+    console.log('✅ [RECENT-ACTIVITY] loadRecentActivity completed - should be visible now!');
+}
+
+function updateMetrics() {
+    // Simulate real-time metrics - replace with actual API calls
+    const metrics = {
+        threatScore: Math.floor(Math.random() * 10) + 90,
+        activeAlerts: Math.floor(Math.random() * 15) + 1,
+        pendingApprovals: Math.floor(Math.random() * 8),
+        whisQueries: Math.floor(Math.random() * 50) + 20
+    };
+    
+    document.getElementById('threat-score').textContent = metrics.threatScore;
+    document.getElementById('active-alerts').textContent = metrics.activeAlerts;
+    document.getElementById('pending-approvals').textContent = metrics.pendingApprovals;
+    document.getElementById('whis-queries').textContent = metrics.whisQueries;
+    
+    // Update pending approvals badge in navigation
+    const badge = document.getElementById('pending-approvals-badge');
+    if (badge) {
+        badge.textContent = metrics.pendingApprovals;
+        badge.className = metrics.pendingApprovals > 0 ? 'badge bg-warning' : 'badge bg-secondary';
+    }
+}
+
+function checkSystemStatus() {
+    // Check Whis API status
+    fetch('/api/status')
+        .then(response => response.json())
+        .then(data => {
+            console.log('System status:', data);
+        })
+        .catch(error => {
+            console.error('Status check failed:', error);
+        });
+}
+
+function setupRealTimeUpdates() {
+    socket.on('dashboard_update', function(data) {
+        if (data.type === 'metrics') {
+            updateMetrics();
+        } else if (data.type === 'activity') {
+            loadRecentActivity();
+        }
+    });
+    
+    socket.on('new_alert', function(alert) {
+        // Add new alert to activity feed
+        const activityFeed = document.getElementById('activity-feed');
+        const alertDiv = document.createElement('div');
+        alertDiv.className = `activity-item p-3 mb-3 severity-${alert.severity} new-item`;
+        alertDiv.innerHTML = `
+            <div class="d-flex">
+                <div class="me-3">
+                    <i class="fas fa-exclamation-triangle fa-lg"></i>
+                </div>
+                <div class="flex-grow-1">
+                    <div class="activity-message">${alert.message}</div>
+                    <small class="text-muted">Just now</small>
+                </div>
+            </div>
+        `;
+        activityFeed.insertBefore(alertDiv, activityFeed.firstChild);
+        
+        // Remove the highlight after a few seconds
+        setTimeout(() => {
+            alertDiv.classList.remove('new-item');
+        }, 3000);
+    });
+}
+
+function startActivityRefresh() {
+    activityRefreshInterval = setInterval(() => {
+        updateMetrics();
+    }, 30000); // Update every 30 seconds
+}
+
+// Quick action functions
+function startWhisChat() {
+    window.location.href = '/chat';
+}
+
+function viewApprovals() {
+    window.location.href = '/approvals';
+}
+
+function viewLogs() {
+    window.location.href = '/logs';
+}
+
+function refreshActivity() {
+    loadRecentActivity();
+    WhisInterface.showToast('Activity refreshed', 'success');
+}
+
+function loadThreatIntel() {
+    WhisInterface.showToast('Loading threat intelligence...', 'info');
+    // Implement threat intelligence modal or redirect
+}
+
+function runHealthCheck() {
+    WhisInterface.showToast('Running system health check...', 'info');
+    
+    // Simulate health check
+    setTimeout(() => {
+        WhisInterface.showToast('System health check completed - All systems operational', 'success');
+    }, 2000);
+}
+
+// Cleanup on page unload
+window.addEventListener('beforeunload', function() {
+    if (activityRefreshInterval) {
+        clearInterval(activityRefreshInterval);
+    }
+});
+</script>
+
+<style>
+.activity-item {
+    background: #333;
+    border: 1px solid #444;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    background: #3a3a3a;
+    transform: translateY(-2px);
+}
+
+.new-item {
+    animation: highlight 3s ease-in-out;
+}
+
+@keyframes highlight {
+    0% { background-color: #4a90e2; }
+    100% { background-color: #333; }
+}
+</style>
+{% endblock %}

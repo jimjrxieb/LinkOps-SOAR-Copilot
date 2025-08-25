@@ -1,0 +1,110 @@
+{
+  "canonical_questions": [
+    {
+      "canonical_form": "What are the key differences between Windows event ID 4624 and 4625?",
+      "frequency": 15,
+      "intent": "definition",
+      "first_seen": "2025-08-23T00:00:00Z",
+      "variations": [
+        "difference between 4625 and 4624?",
+        "what's 4624 vs 4625?",
+        "explain Windows 4624 and 4625"
+      ]
+    },
+    {
+      "canonical_form": "How do you detect lateral movement in MITRE ATT&CK?",
+      "frequency": 12,
+      "intent": "threat_hunting",
+      "first_seen": "2025-08-23T00:00:00Z",
+      "variations": [
+        "lateral movement detection techniques",
+        "finding lateral movement in logs"
+      ]
+    },
+    {
+      "canonical_form": "What are indicators of PowerShell Empire usage?",
+      "frequency": 8,
+      "intent": "threat_hunting",
+      "first_seen": "2025-08-23T00:00:00Z",
+      "variations": [
+        "PowerShell Empire detection",
+        "Empire C2 indicators"
+      ]
+    },
+    {
+      "canonical_form": "How do you analyze syslog entries for security events?",
+      "frequency": 10,
+      "intent": "log_analysis",
+      "first_seen": "2025-08-23T00:00:00Z",
+      "variations": [
+        "syslog security analysis",
+        "reading syslog for threats"
+      ]
+    },
+    {
+      "canonical_form": "What are the phases of a ransomware attack?",
+      "frequency": 9,
+      "intent": "incident_analysis",
+      "first_seen": "2025-08-23T00:00:00Z",
+      "variations": [
+        "ransomware attack stages",
+        "ransomware lifecycle"
+      ]
+    },
+    {
+      "canonical_form": "How do you identify cryptocurrency mining malware?",
+      "frequency": 7,
+      "intent": "malware_analysis",
+      "first_seen": "2025-08-23T00:00:00Z",
+      "variations": [
+        "cryptominer detection",
+        "mining malware indicators"
+      ]
+    },
+    {
+      "canonical_form": "What are the best practices for Kubernetes RBAC?",
+      "frequency": 6,
+      "intent": "definition",
+      "first_seen": "2025-08-23T00:00:00Z",
+      "variations": [
+        "K8s RBAC best practices",
+        "Kubernetes access control"
+      ]
+    },
+    {
+      "canonical_form": "How do you implement Pod Security Standards?",
+      "frequency": 5,
+      "intent": "implementation",
+      "first_seen": "2025-08-23T00:00:00Z",
+      "variations": [
+        "Pod Security implementation",
+        "K8s pod security"
+      ]
+    },
+    {
+      "canonical_form": "What are common phishing email characteristics?",
+      "frequency": 11,
+      "intent": "threat_analysis",
+      "first_seen": "2025-08-23T00:00:00Z",
+      "variations": [
+        "phishing email indicators",
+        "spotting phishing attempts"
+      ]
+    },
+    {
+      "canonical_form": "How does Splunk Enterprise Security correlation work?",
+      "frequency": 8,
+      "intent": "tool_integration",
+      "first_seen": "2025-08-23T00:00:00Z",
+      "variations": [
+        "Splunk ES correlations",
+        "how Splunk correlates events"
+      ]
+    }
+  ],
+  "metadata": {
+    "generated_at": "2025-08-24T02:00:00Z",
+    "total_gaps": 10,
+    "top_intents": ["definition", "threat_hunting", "log_analysis"]
+  }
+}

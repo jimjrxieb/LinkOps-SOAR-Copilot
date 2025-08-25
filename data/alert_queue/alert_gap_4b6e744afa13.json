@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_4b6e744afa13",
+    "timestamp": "2025-08-24T01:30:55.810552",
+    "query_preview": "What are Kubernetes RBAC best practices?",
+    "why_abstained": "no_rag_hits",
+    "intent": "unknown",
+    "confidence_score": 0.4,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_4b6e744afa13",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T01:30:55.810785",
+  "delivery_failed": true
+}

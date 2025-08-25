@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_675e221a01aa",
+    "timestamp": "2025-08-24T00:10:29.639478",
+    "query_preview": "are you using limacharlie",
+    "why_abstained": "tool_failure",
+    "intent": "unknown",
+    "confidence_score": 0.39999999999999997,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_675e221a01aa",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T00:10:29.640009",
+  "delivery_failed": true
+}

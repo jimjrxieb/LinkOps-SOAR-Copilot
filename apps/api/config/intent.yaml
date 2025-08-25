@@ -1,0 +1,153 @@
+# Intent Classification Configuration
+# Single source of truth for intent routing rules
+
+intent_classification:
+  # Detection thresholds
+  confidence_threshold: 0.6
+  min_confidence_for_execution: 0.7
+  
+  # Pattern matching rules (in order of precedence)
+  patterns:
+    greeting:
+      priority: 1
+      triggers:
+        - regex: "^(hi|hello|hey|good (morning|afternoon|evening))\b"
+          case_insensitive: true
+        - keywords: ["hi", "hello", "hey", "greetings"]
+          max_words: 3
+        - exact_matches: ["hi", "hello", "hey there", "good morning"]
+      
+    dangerous_action_refusal:
+      priority: 2  # Highest priority for security
+      triggers:
+        - keywords: ["isolate", "shutdown", "delete", "remove", "disable"]
+          context_required: ["system", "server", "network", "production"]
+        - regex: "\\b(rm -rf|del /s|DROP TABLE|DELETE FROM)\\b"
+          case_insensitive: true
+        - patterns: 
+          - "execute.*dangerous"
+          - "(run|execute).*script"
+          - "modify.*firewall"
+          - "reset.*password"
+      exclusions:
+        - "analyze delete events"  # Investigation is OK
+        - "search for deleted files"  # Forensics is OK
+      
+    prompt_injection_refusal:
+      priority: 3  # Very high priority
+      triggers:
+        - keywords: ["ignore", "forget", "bypass", "override", "pretend"]
+          context_required: ["previous", "instructions", "constraints", "role"]
+        - regex: "you are (now|actually|really)"
+          case_insensitive: true
+        - patterns:
+          - "act as.*"
+          - "roleplay.*"
+          - "simulate.*"
+          - "pretend (to be|you are)"
+          - "ignore.*(previous|all).*instruct"
+      
+    broad_scan:
+      priority: 4
+      triggers:
+        - keywords: ["everything", "overview", "summary", "status", "what's happening"]
+          max_words: 5
+        - exact_matches: 
+          - "show me everything"
+          - "what should I look at"
+          - "give me a summary"  
+          - "analyze the situation"
+        - vague_patterns:
+          - single_word_queries: ["status", "overview", "summary"]
+          - question_words_only: ["what", "how", "where", "when"]
+      
+    incident_analysis:
+      priority: 5
+      triggers:
+        - keywords: ["incident", "INC-", "alert", "alarm", "breach"]
+        - patterns:
+          - "investigate.*incident"
+          - "analyze.*alert"
+          - "what.*happened.*"
+          - "incident.*status"
+      
+    threat_hunting:
+      priority: 6
+      triggers:
+        - keywords: ["hunt", "hunting", "threat", "IOC", "indicator"]
+        - patterns:
+          - "hunt for.*"
+          - "search for.*threat"
+          - "find.*malicious"
+          - "detect.*attack"
+      
+    playbook_execution:
+      priority: 7
+      triggers:
+        - keywords: ["playbook", "runbook", "procedure", "response"]
+        - patterns:
+          - "run.*playbook"
+          - "execute.*response"
+          - "follow.*procedure"
+      
+    tool_integration:
+      priority: 8
+      triggers:
+        - keywords: ["splunk", "limacharlie", "siem", "edr"]
+        - patterns:
+          - "query.*splunk"
+          - "search.*logs"
+          - "check.*edr"
+          - "run.*search"
+      
+    generic_unclear:
+      priority: 9  # Catch-all, lowest priority
+      triggers:
+        - fallback: true  # Catches anything not matched above
+        - ambiguous_patterns:
+          - incomplete_sentences: true
+          - multiple_question_marks: true
+          - unclear_technical_terms: true
+
+# Response behavior configuration  
+response_behavior:
+  greeting:
+    max_words: 25
+    template: "greeting.txt"
+    include_capability_pitch: false
+    
+  broad_scan:
+    max_options: 2
+    template: "broad_scan_clarify.txt"
+    context_aware: true
+    
+  dangerous_action_refusal:
+    template: "dangerous_action_block.txt"
+    require_justification: true
+    log_security_event: true
+    escalation_required: true
+    
+  prompt_injection_refusal:
+    template: "prompt_injection_block.txt" 
+    log_security_event: true
+    no_acknowledgment: true  # Don't describe what was detected
+    
+  generic_unclear:
+    max_clarifying_questions: 1
+    template: "generic_unclear.txt"
+    escalate_to_knowledge_gaps: true
+
+# Confidence scoring adjustments
+confidence_modifiers:
+  high_confidence_boost: 0.2
+  security_context_boost: 0.15
+  tool_mention_penalty: -0.3
+  vague_language_penalty: -0.2
+  technical_specificity_bonus: 0.1
+  
+# Monitoring and metrics
+monitoring:
+  track_intent_distribution: true
+  measure_classification_accuracy: true  
+  log_confidence_scores: true
+  alert_on_security_patterns: true

@@ -1,0 +1,61 @@
+# WHIS Model Configuration (Base + Adapter Config - NO SECRETS)
+# Mentor-approved separation of concerns
+
+model:
+  base:
+    name: "CodeLlama-7B-Instruct"
+    path: "ai-training/llm/scripts/codellama-cache"
+    revision: "main"
+    trust_remote_code: true
+    
+  adapter:
+    type: "lora"
+    r: 16                      # LoRA rank
+    lora_alpha: 32             # LoRA alpha
+    lora_dropout: 0.1          # LoRA dropout
+    target_modules:            # Target modules for LoRA
+      - "q_proj"
+      - "v_proj" 
+      - "k_proj"
+      - "o_proj"
+    bias: "none"
+    task_type: "CAUSAL_LM"
+
+  quantization:
+    load_in_4bit: true
+    bnb_4bit_compute_dtype: "bfloat16"
+    bnb_4bit_use_double_quant: true
+    bnb_4bit_quant_type: "nf4"
+
+training:
+  output_dir: "ai-training/fine_tune/adapters"
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 2
+  num_train_epochs: 3
+  learning_rate: 2e-4
+  bf16: true
+  logging_steps: 10
+  save_steps: 500
+  warmup_steps: 10
+  dataloader_drop_last: true
+  report_to: "mlflow"          # Experiment tracking
+  remove_unused_columns: false
+  save_strategy: "steps"
+  evaluation_strategy: "steps"
+  eval_steps: 500
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+  
+format:
+  chat_template: |
+    <|im_start|>user
+    {instruction}<|im_end|>
+    <|im_start|>assistant
+    {response}<|im_end|>
+  
+  system_message: "You are Whis, a SOAR security copilot. Provide structured, actionable cybersecurity analysis."
+
+versioning:
+  dataset_hash: "${DATASET_HASH}"    # Populated by pipeline
+  commit_hash: "${COMMIT_HASH}"      # Populated by CI
+  created_at: "${TIMESTAMP}"         # Populated by pipeline

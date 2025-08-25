@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_86e5f8ff35e3",
+    "timestamp": "2025-08-24T00:47:36.633697",
+    "query_preview": "What SIEM are we using?",
+    "why_abstained": "tool_failure",
+    "intent": "unknown",
+    "confidence_score": 0.39999999999999997,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_86e5f8ff35e3",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T00:47:36.634070",
+  "delivery_failed": true
+}

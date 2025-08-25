@@ -1,0 +1,117 @@
+{
+  "test_name": "scan_two_clarifiers", 
+  "description": "Validates WHIS broad scan responses provide exactly 2 specific clarification options",
+  "version": "1.0.0",
+  
+  "test_cases": [
+    {
+      "id": "show_everything",
+      "input": "show me everything",
+      "expected_behavior": {
+        "option_count": 2,
+        "options_must_be_specific": true,
+        "must_contain": ["analyze", "or", "which", "investigate"],
+        "must_not_contain": ["I can help with", "Try asking", "capabilities"],
+        "ends_with_question": true
+      }
+    },
+    {
+      "id": "whats_happening",
+      "input": "what's happening",
+      "expected_behavior": {
+        "option_count": 2,
+        "security_focused_options": true,
+        "must_contain": ["or"],
+        "contextual_adaptation": true,
+        "confidence_threshold": 0.6
+      }
+    },
+    {
+      "id": "give_summary",
+      "input": "give me a summary",
+      "expected_behavior": {
+        "option_count": 2,
+        "actionable_options": true,
+        "must_not_contain_bullets": true,
+        "question_structure": "option1 or option2. Which would you like me to investigate?"
+      }
+    },
+    {
+      "id": "analyze_situation", 
+      "input": "analyze the situation",
+      "expected_behavior": {
+        "option_count": 2,
+        "prioritize_incidents": true,
+        "security_terms_required": ["incident", "alert", "threat", "hunt"],
+        "clarity_over_comprehensiveness": true
+      }
+    },
+    {
+      "id": "status_check",
+      "input": "status",
+      "expected_behavior": {
+        "option_count": 2,
+        "current_priorities": true,
+        "must_contain": ["analyze", "or"],
+        "avoid_generic_status": true
+      }
+    }
+  ],
+  
+  "option_quality_requirements": {
+    "specificity": {
+      "must_be_actionable": true,
+      "must_be_concrete": true,
+      "avoid_abstract_concepts": true
+    },
+    "security_relevance": {
+      "required_categories": ["incident", "threat", "alert", "hunt", "analyze"],
+      "avoid_generic_it_tasks": true
+    },
+    "prioritization": {
+      "incident_first_if_active": true,
+      "threat_hunting_secondary": true,
+      "system_health_fallback": true
+    }
+  },
+  
+  "contextual_adaptation": {
+    "active_incidents": {
+      "option_1": "incident analysis",
+      "option_2": "threat hunting"
+    },
+    "no_incidents": {
+      "option_1": "threat hunting", 
+      "option_2": "system health"
+    },
+    "high_alert_volume": {
+      "option_1": "alert triage",
+      "option_2": "incident investigation"
+    }
+  },
+  
+  "forbidden_patterns": {
+    "capability_marketing": [
+      "I can help with:",
+      "My capabilities include:",
+      "Try asking me about:"
+    ],
+    "bullet_points": ["• ", "- ", "* "],
+    "more_than_two_options": ["and", "also", "additionally"],
+    "vague_language": ["things", "stuff", "various", "multiple"]
+  },
+  
+  "response_structure": {
+    "required_format": "I can help analyze {OPTION_1} or {OPTION_2}. Which would you like me to investigate?",
+    "option_length": "2-4 words each",
+    "total_response_length": "15-30 words",
+    "question_ending": "Which would you like me to investigate?"
+  },
+  
+  "validation_rules": {
+    "count_or_occurrences": 1,
+    "must_end_with_question": true,
+    "no_bullet_formatting": true,
+    "specific_over_generic": true
+  }
+}

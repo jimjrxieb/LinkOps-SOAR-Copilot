@@ -1,0 +1,10 @@
+# EXTERNALIZED ARTIFACT
+# This file has been moved to external storage for repository hygiene.
+# 
+# Original file: ai-training/rag/vectorstore/whis_knowledge_index.faiss
+# External path: external-artifacts/ai-training/rag/vectorstore/whis_knowledge_index.faiss
+# Size: 53,805 bytes
+# Checksum: 1ed2b59125a7f09b991676988993762e03b0dfb20619f0ba0926dc615127561d
+# Externalized: 2025-08-23T15:53:04.420539
+#
+# To restore: ./scripts/restore-artifacts.py ai-training/rag/vectorstore/whis_knowledge_index.faiss

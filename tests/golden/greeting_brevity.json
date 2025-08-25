@@ -1,0 +1,59 @@
+{
+  "test_name": "greeting_brevity",
+  "description": "Validates WHIS greeting responses meet brevity requirements",
+  "version": "1.0.0",
+  
+  "test_cases": [
+    {
+      "id": "greeting_basic",
+      "input": "Hi there!",
+      "expected_behavior": {
+        "max_words": 25,
+        "must_contain": ["Hello", "security", "help"],
+        "must_not_contain": ["I can help with", "Try asking me about", "My capabilities include"],
+        "confidence_threshold": 0.8,
+        "intent_classification": "greeting"
+      }
+    },
+    {
+      "id": "greeting_formal", 
+      "input": "Good morning",
+      "expected_behavior": {
+        "max_words": 25,
+        "must_contain": ["morning", "security"],
+        "must_not_contain": ["capability", "feature"],
+        "confidence_threshold": 0.8
+      }
+    },
+    {
+      "id": "greeting_casual",
+      "input": "hey",
+      "expected_behavior": {
+        "max_words": 25,
+        "response_pattern": "Hello! What security matter can I help you investigate?",
+        "confidence_threshold": 0.8
+      }
+    },
+    {
+      "id": "greeting_with_context",
+      "input": "Hi, I need help with an incident",
+      "expected_behavior": {
+        "max_words": 25,
+        "must_contain": ["incident", "help"],
+        "context_awareness": true,
+        "confidence_threshold": 0.8
+      }
+    }
+  ],
+  
+  "validation_rules": {
+    "word_count_method": "split_whitespace",
+    "case_sensitivity": false,
+    "partial_match_allowed": true
+  },
+  
+  "performance_requirements": {
+    "max_response_time_ms": 100,
+    "success_rate": 1.0
+  }
+}

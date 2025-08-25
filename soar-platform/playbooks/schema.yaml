@@ -1,0 +1,391 @@
+# WHIS SOAR Playbook Definition Schema
+# [TAG: DSL] - Declarative Playbook Language
+# Owner: Security Team
+# Version: 1.0.0
+
+PlaySpec:
+  type: object
+  required: [meta, steps]
+  properties:
+    
+    # Playbook metadata
+    meta:
+      type: object
+      required: [name, description, severity]
+      properties:
+        name:
+          type: string
+          pattern: "^[a-z0-9_]+$"
+          description: "Unique playbook identifier"
+          
+        description:
+          type: string
+          maxLength: 500
+          description: "Human-readable playbook purpose"
+          
+        version:
+          type: string
+          pattern: "^\\d+\\.\\d+\\.\\d+$"
+          default: "1.0.0"
+          
+        severity:
+          type: string
+          enum: [low, medium, high, critical]
+          description: "Incident severity this playbook addresses"
+          
+        mitre_techniques:
+          type: array
+          items:
+            type: string
+            pattern: "^T\\d{4}(\\.\\d{3})?$"
+          description: "MITRE ATT&CK techniques addressed"
+          
+        tags:
+          type: array
+          items:
+            type: string
+          description: "Categorization tags"
+    
+    # Input parameters
+    inputs:
+      type: array
+      items:
+        type: object
+        required: [name, type]
+        properties:
+          name:
+            type: string
+            pattern: "^[a-z_][a-z0-9_]*$"
+            
+          type:
+            type: string
+            enum: [string, number, boolean, array, object]
+            
+          required:
+            type: boolean
+            default: false
+            
+          default:
+            description: "Default value if not provided"
+            
+          validation:
+            type: object
+            description: "JSONSchema validation rules"
+            
+          description:
+            type: string
+            description: "Parameter purpose"
+    
+    # Pre-execution checks
+    prechecks:
+      type: array
+      items:
+        type: object
+        required: [type, condition]
+        properties:
+          type:
+            type: string
+            enum: [query_splunk, query_lc, check_permission, check_resource]
+            
+          condition:
+            type: string
+            description: "Boolean expression to evaluate"
+            
+          fail_message:
+            type: string
+            description: "Message if precheck fails"
+            
+          critical:
+            type: boolean
+            default: true
+            description: "Stop execution if fails"
+    
+    # Execution steps
+    steps:
+      type: array
+      minItems: 1
+      items:
+        type: object
+        required: [id, type, params]
+        properties:
+          id:
+            type: string
+            pattern: "^[a-z][a-z0-9_]*$"
+            description: "Unique step identifier"
+            
+          name:
+            type: string
+            description: "Human-readable step name"
+            
+          type:
+            type: string
+            enum: 
+              - query_splunk      # Read from Splunk
+              - query_lc          # Read from LimaCharlie
+              - isolate_host      # Network isolation
+              - block_ioc         # Block indicator
+              - open_ticket       # Create ticket
+              - notify_slack      # Send Slack message
+              - run_playwright    # Browser automation
+              - wait              # Pause execution
+              - conditional       # If/then logic
+              
+          params:
+            type: object
+            description: "Step-specific parameters"
+            
+          timeout:
+            type: number
+            default: 300
+            description: "Step timeout in seconds"
+            
+          on_failure:
+            type: string
+            enum: [stop, continue, rollback, retry]
+            default: stop
+            
+          retry:
+            type: object
+            properties:
+              max_attempts:
+                type: number
+                default: 3
+              backoff:
+                type: string
+                enum: [linear, exponential]
+                default: exponential
+                
+          requires_approval:
+            type: boolean
+            default: false
+            description: "Pause for human approval"
+            
+          approval_config:
+            type: object
+            properties:
+              roles:
+                type: array
+                items:
+                  type: string
+                description: "Roles that can approve"
+              timeout:
+                type: number
+                default: 900
+                description: "Approval timeout in seconds"
+              escalation:
+                type: string
+                description: "Escalation contact if timeout"
+                
+          outputs:
+            type: array
+            items:
+              type: string
+            description: "Variables to capture from step"
+    
+    # Rollback procedures
+    rollback:
+      type: array
+      items:
+        type: object
+        required: [step_id, action]
+        properties:
+          step_id:
+            type: string
+            description: "Step to rollback"
+            
+          action:
+            type: object
+            required: [type, params]
+            properties:
+              type:
+                type: string
+                enum: [restore_network, unblock_ioc, close_ticket, notify]
+              params:
+                type: object
+                
+          continue_on_error:
+            type: boolean
+            default: true
+    
+    # Safety constraints
+    safety:
+      type: object
+      properties:
+        max_duration:
+          type: number
+          default: 3600
+          description: "Maximum execution time in seconds"
+          
+        dry_run_required:
+          type: boolean
+          default: true
+          description: "Require dry-run before execution"
+          
+        approval_required:
+          type: boolean
+          default: false
+          description: "Require approval for entire playbook"
+          
+        approval_roles:
+          type: array
+          items:
+            type: string
+          description: "Roles that can approve playbook"
+          
+        concurrent_limit:
+          type: number
+          default: 1
+          description: "Max concurrent executions"
+          
+        cool_down:
+          type: number
+          default: 0
+          description: "Seconds to wait between executions"
+          
+        audit_level:
+          type: string
+          enum: [minimal, standard, verbose]
+          default: standard
+          
+        notification:
+          type: object
+          properties:
+            on_start:
+              type: array
+              items:
+                type: string
+              description: "Notify on playbook start"
+            on_complete:
+              type: array
+              items:
+                type: string
+              description: "Notify on completion"
+            on_failure:
+              type: array
+              items:
+                type: string
+              description: "Notify on failure"
+
+# Step Parameter Schemas
+StepParams:
+  
+  query_splunk:
+    type: object
+    required: [query]
+    properties:
+      query:
+        type: string
+        description: "SPL search query"
+      earliest:
+        type: string
+        default: "-1h"
+      latest:
+        type: string
+        default: "now"
+      index:
+        type: string
+        description: "Splunk index to search"
+        
+  query_lc:
+    type: object
+    required: [sensor_id]
+    properties:
+      sensor_id:
+        type: string
+        description: "LimaCharlie sensor ID"
+      query:
+        type: string
+        description: "D&R query"
+      time_range:
+        type: string
+        default: "-1h"
+        
+  isolate_host:
+    type: object
+    required: [hostname]
+    properties:
+      hostname:
+        type: string
+        description: "Host to isolate"
+      method:
+        type: string
+        enum: [network, process, full]
+        default: network
+        
+  block_ioc:
+    type: object
+    required: [indicator, type]
+    properties:
+      indicator:
+        type: string
+        description: "IOC value"
+      type:
+        type: string
+        enum: [ip, domain, hash, url]
+      scope:
+        type: string
+        enum: [firewall, edr, proxy, all]
+        default: all
+        
+  open_ticket:
+    type: object
+    required: [title, description]
+    properties:
+      system:
+        type: string
+        enum: [jira, servicenow, pagerduty]
+        default: jira
+      title:
+        type: string
+      description:
+        type: string
+      priority:
+        type: string
+        enum: [low, medium, high, critical]
+      assignee:
+        type: string
+        
+  notify_slack:
+    type: object
+    required: [message]
+    properties:
+      channel:
+        type: string
+        description: "Slack channel ID"
+      message:
+        type: string
+      blocks:
+        type: array
+        description: "Slack block kit blocks"
+      ephemeral:
+        type: boolean
+        default: false
+        
+  run_playwright:
+    type: object
+    required: [url, actions]
+    properties:
+      url:
+        type: string
+        format: uri
+        description: "Target URL (must be allowlisted)"
+      actions:
+        type: array
+        items:
+          type: object
+          properties:
+            type:
+              type: string
+              enum: [click, fill, wait, screenshot, extract]
+            selector:
+              type: string
+            value:
+              type: string
+      timeout:
+        type: number
+        default: 30
+        description: "Browser timeout in seconds"
+      sandbox:
+        type: string
+        enum: [strict, standard]
+        default: strict

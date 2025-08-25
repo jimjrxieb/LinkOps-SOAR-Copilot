@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_42ef6abd5f32",
+    "timestamp": "2025-08-24T01:30:56.834062",
+    "query_preview": "What are fileless attacks and detection strategies?",
+    "why_abstained": "no_rag_hits",
+    "intent": "investigation",
+    "confidence_score": 0.4,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_42ef6abd5f32",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T01:30:56.834304",
+  "delivery_failed": true
+}

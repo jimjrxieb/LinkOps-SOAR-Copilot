@@ -1,0 +1,44 @@
+{
+  "timestamp": "2025-08-23T09:31:12.872457",
+  "results": {
+    "whis_api": {
+      "status": "\u2705 OPERATIONAL",
+      "model_loaded": false,
+      "response_time_ms": 1.2462139129638672,
+      "processing_time_ms": 0,
+      "has_action_schema": true,
+      "has_mitre_mapping": true,
+      "has_spl_query": true,
+      "confidence_score": 0.8,
+      "sample_response": [
+        "Investigate APT29 Lateral Movement on affected systems",
+        "Correlate with recent security events"
+      ]
+    },
+    "splunk_integration": {
+      "status": "\u2705 FUNCTIONAL",
+      "generates_spl_queries": true,
+      "sample_query": "index=security | search \"Splunk Integration Test\" | stats count by host, user",
+      "has_hec_ready_format": true
+    },
+    "limacharlie_integration": {
+      "status": "\u2705 FUNCTIONAL",
+      "generates_lc_rules": false,
+      "sample_rule": ""
+    },
+    "frontend_integration": {
+      "status": "\u2705 OPERATIONAL",
+      "redirects_to_login": true,
+      "static_assets_loaded": true,
+      "response_time_ms": 0.8310000000000001
+    },
+    "monitoring": {
+      "status": "\u2705 FUNCTIONAL",
+      "avg_response_time_ms": 2.4722417195638022,
+      "success_rate_percent": 100.0,
+      "total_requests": 3,
+      "successful_requests": 3
+    }
+  },
+  "war_ready": true
+}

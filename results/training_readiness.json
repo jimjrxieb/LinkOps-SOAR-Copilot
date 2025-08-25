@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-08-23T11:37:28.580557",
+  "status": "READY_FOR_TRAINING",
+  "datasets": {
+    "open_malsec": {
+      "path": "open-malsec/",
+      "files": 11,
+      "status": "integrated"
+    },
+    "pipeline_generated": {
+      "path": "data/curated/llm/",
+      "files": 3,
+      "status": "generated"
+    },
+    "whis_existing": {
+      "path": "ai-training/llm/data/",
+      "files": 7,
+      "status": "available"
+    }
+  },
+  "recommendations": [
+    "Use existing whis-mega-model as base",
+    "Fine-tune on consolidated dataset",
+    "Validate on security scenarios",
+    "Deploy to HuggingFace Hub"
+  ],
+  "next_steps": [
+    "cd ai-training/llm/scripts",
+    "python3 enhanced_train.py",
+    "python3 test_whis_model.py"
+  ]
+}

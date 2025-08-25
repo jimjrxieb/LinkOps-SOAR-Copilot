@@ -1,0 +1,71 @@
+# RAG Configuration (Retriever, Chunking, Embedder - NO SECRETS)
+# RAG does NOT change model weights - it augments prompts at inference
+
+retriever:
+  type: "dense"               # Dense vector retrieval
+  model: "sentence-transformers/all-MiniLM-L6-v2"  # Embedding model
+  device: "auto"              # Auto device selection
+  
+vector_store:
+  type: "chroma"              # ChromaDB vector store  
+  collection_name: "whis_soar_knowledge"
+  persist_directory: "ai-training/rag/index/chroma_db"
+  
+chunking:
+  chunk_size: 512             # Characters per chunk
+  chunk_overlap: 50           # Overlap between chunks
+  separators:                 # Chunk separators in order of preference
+    - "\n\n"
+    - "\n"
+    - "."
+    - " "
+  
+embedding:
+  batch_size: 32              # Embedding batch size
+  normalize_embeddings: true  # Normalize embeddings for cosine similarity
+  show_progress: true         # Show embedding progress
+  
+retrieval:
+  top_k: 5                    # Number of chunks to retrieve
+  score_threshold: 0.7        # Minimum similarity score
+  max_context_length: 2048    # Maximum context length for prompts
+  
+prompt_template:
+  system: |
+    You are Whis, a SOAR security copilot. Use the provided context to give accurate, actionable cybersecurity guidance.
+    
+    Context:
+    {context}
+    
+    Instructions:
+    - Base your response on the provided context
+    - If context doesn't contain relevant information, say so
+    - Provide structured, actionable SOAR advice
+    - Include relevant MITRE ATT&CK techniques when applicable
+  
+  user: |
+    {query}
+
+security:
+  max_query_length: 1000      # Prevent prompt injection via long queries
+  forbidden_patterns:         # Patterns to filter from retrieved context
+    - "ignore previous instructions"
+    - "system:"
+    - "assistant:"
+    - "<|im_start|>"
+    - "<|im_end|>"
+  content_filter: true        # Enable content filtering on retrieved docs
+
+evaluation:
+  ragas_metrics:              # RAGAS evaluation metrics
+    - "faithfulness"          # Faithfulness to retrieved context
+    - "answer_relevancy"      # Answer relevance to query  
+    - "context_precision"     # Precision of retrieved context
+    - "context_recall"        # Recall of retrieved context
+  benchmark_queries:          # Evaluation query file
+    path: "ai-training/eval/benchmarks/rag_queries.jsonl"
+  
+versioning:
+  index_version: "${INDEX_VERSION}"      # Vector store version
+  embedding_model_hash: "${EMB_HASH}"    # Embedding model hash  
+  chunk_config_hash: "${CHUNK_HASH}"     # Chunking config hash

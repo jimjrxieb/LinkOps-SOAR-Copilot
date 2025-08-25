@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_882bb3274b28",
+    "timestamp": "2025-08-24T01:30:48.111418",
+    "query_preview": "Explain credential access techniques and countermeasures",
+    "why_abstained": "no_rag_hits",
+    "intent": "definition",
+    "confidence_score": 0.4,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_882bb3274b28",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T01:30:48.111881",
+  "delivery_failed": true
+}

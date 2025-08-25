@@ -1,0 +1,10 @@
+# EXTERNALIZED ARTIFACT
+# This file has been moved to external storage for repository hygiene.
+# 
+# Original file: ai-training/llm/adapters/whis-cybersec-model/checkpoint-12/rng_state.pth
+# External path: external-artifacts/ai-training/llm/adapters/whis-cybersec-model/checkpoint-12/rng_state.pth
+# Size: 14,645 bytes
+# Checksum: 142e39b4bb6305b87e4402505abc7c5a0dce2dfe6534ec91caa0d38ddcf1c630
+# Externalized: 2025-08-23T15:53:04.437569
+#
+# To restore: ./scripts/restore-artifacts.py ai-training/llm/adapters/whis-cybersec-model/checkpoint-12/rng_state.pth

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "forensics_witfoo_syslog-to-artifact_syslog_analysis",
+    "content": "# Forensics Knowledge: Syslog Analysis\n\n**Source Dataset**: witfoo/syslog-to-artifact\n\n**Sample Count**: 1000\n\n## Representative Examples:\n\n- **Log**: ``\n  **Artifact**: \n\n- **Log**: ``\n  **Artifact**: \n\n- **Log**: ``\n  **Artifact**: \n\n- **Log**: ``\n  **Artifact**: \n\n- **Log**: ``\n  **Artifact**: \n\n",
+    "title": "Forensics: Syslog Analysis",
+    "source": "witfoo/syslog-to-artifact",
+    "category": "forensics_knowledge",
+    "type": "reference"
+  }
+]

@@ -1,0 +1,309 @@
+{
+  "generated_at": "2025-08-24T02:00:50.393469",
+  "tests": [
+    {
+      "question": "What are some typical features of phishing emails?",
+      "expected_answer": "Common phishing email characteristics include the use of malicious attachments or links, social engineering techniques, and the impersonation of trusted sources to elicit sensitive information.",
+      "citations": [
+        {
+          "source": "Zainabsa99/mitre_attack",
+          "chunk_id": "hf_Zainabsa99_mitre_attack_161",
+          "score": 0.5320714712142944
+        },
+        {
+          "source": "Zainabsa99/mitre_attack",
+          "chunk_id": "hf_Zainabsa99_mitre_attack_379",
+          "score": 0.5128229260444641
+        }
+      ],
+      "type": "direct",
+      "source_question": "What are common phishing email characteristics?",
+      "generated_at": "2025-08-24T02:00:19.056638",
+      "verified": false
+    },
+    {
+      "question": "Can you describe the characteristics that are often found in phishing emails?",
+      "expected_answer": "Common phishing email characteristics include the use of malicious attachments or links, social engineering techniques, and the impersonation of trusted sources to elicit sensitive information.",
+      "citations": [
+        {
+          "source": "Zainabsa99/mitre_attack",
+          "chunk_id": "hf_Zainabsa99_mitre_attack_161",
+          "score": 0.5320714712142944
+        },
+        {
+          "source": "Zainabsa99/mitre_attack",
+          "chunk_id": "hf_Zainabsa99_mitre_attack_379",
+          "score": 0.5128229260444641
+        }
+      ],
+      "type": "paraphrase",
+      "source_question": "What are common phishing email characteristics?",
+      "generated_at": "2025-08-24T02:00:19.056642",
+      "verified": false
+    },
+    {
+      "question": "Imagine you receive an email that appears to be from your bank asking you to verify your account information. What are some signs that this email might be a phishing attempt?",
+      "expected_answer": "Common phishing email characteristics include the use of malicious attachments or links, social engineering techniques, and the impersonation of trusted sources to elicit sensitive information.",
+      "citations": [
+        {
+          "source": "Zainabsa99/mitre_attack",
+          "chunk_id": "hf_Zainabsa99_mitre_attack_161",
+          "score": 0.5320714712142944
+        },
+        {
+          "source": "Zainabsa99/mitre_attack",
+          "chunk_id": "hf_Zainabsa99_mitre_attack_379",
+          "score": 0.5128229260444641
+        }
+      ],
+      "type": "scenario",
+      "source_question": "What are common phishing email characteristics?",
+      "generated_at": "2025-08-24T02:00:19.056643",
+      "verified": false
+    },
+    {
+      "question": "How can you assess syslog entries for potential security incidents?",
+      "expected_answer": "To analyze syslog entries for security events, review logs for unusual or unauthorized actions, such as process access (Event ID 10 in Sysmon) and changes in service configurations (Event ID 16 in Sysmon), as well as monitor for the creation of new executable files (Event ID 29 in Sysmon).",
+      "citations": [
+        {
+          "source": "0xyf/windows-log-QnA",
+          "chunk_id": "hf_0xyf_windows-log-QnA_131",
+          "score": 0.6303771734237671
+        },
+        {
+          "source": "0xyf/windows-log-QnA",
+          "chunk_id": "hf_0xyf_windows-log-QnA_157",
+          "score": 0.582109272480011
+        },
+        {
+          "source": "0xyf/windows-log-QnA",
+          "chunk_id": "hf_0xyf_windows-log-QnA_71",
+          "score": 0.5643713474273682
+        }
+      ],
+      "type": "direct",
+      "source_question": "How do you analyze syslog entries for security events?",
+      "generated_at": "2025-08-24T02:00:28.567347",
+      "verified": false
+    },
+    {
+      "question": "What steps should you take to evaluate syslog records for security threats?",
+      "expected_answer": "To analyze syslog entries for security events, review logs for unusual or unauthorized actions, such as process access (Event ID 10 in Sysmon) and changes in service configurations (Event ID 16 in Sysmon), as well as monitor for the creation of new executable files (Event ID 29 in Sysmon).",
+      "citations": [
+        {
+          "source": "0xyf/windows-log-QnA",
+          "chunk_id": "hf_0xyf_windows-log-QnA_131",
+          "score": 0.6303771734237671
+        },
+        {
+          "source": "0xyf/windows-log-QnA",
+          "chunk_id": "hf_0xyf_windows-log-QnA_157",
+          "score": 0.582109272480011
+        },
+        {
+          "source": "0xyf/windows-log-QnA",
+          "chunk_id": "hf_0xyf_windows-log-QnA_71",
+          "score": 0.5643713474273682
+        }
+      ],
+      "type": "paraphrase",
+      "source_question": "How do you analyze syslog entries for security events?",
+      "generated_at": "2025-08-24T02:00:28.567351",
+      "verified": false
+    },
+    {
+      "question": "Imagine you are a security analyst reviewing syslog entries. What indicators would you look for to identify security events?",
+      "expected_answer": "To analyze syslog entries for security events, review logs for unusual or unauthorized actions, such as process access (Event ID 10 in Sysmon) and changes in service configurations (Event ID 16 in Sysmon), as well as monitor for the creation of new executable files (Event ID 29 in Sysmon).",
+      "citations": [
+        {
+          "source": "0xyf/windows-log-QnA",
+          "chunk_id": "hf_0xyf_windows-log-QnA_131",
+          "score": 0.6303771734237671
+        },
+        {
+          "source": "0xyf/windows-log-QnA",
+          "chunk_id": "hf_0xyf_windows-log-QnA_157",
+          "score": 0.582109272480011
+        },
+        {
+          "source": "0xyf/windows-log-QnA",
+          "chunk_id": "hf_0xyf_windows-log-QnA_71",
+          "score": 0.5643713474273682
+        }
+      ],
+      "type": "scenario",
+      "source_question": "How do you analyze syslog entries for security events?",
+      "generated_at": "2025-08-24T02:00:28.567352",
+      "verified": false
+    },
+    {
+      "question": "What are some signs that PowerShell Empire is being utilized?",
+      "expected_answer": "Indicators of PowerShell Empire usage include the execution of malicious PowerShell scripts, such as those triggered by PowerShell profiles, and the use of cmdlets like Start-Process and Invoke-Command for executing code.",
+      "citations": [
+        {
+          "source": "Zainabsa99/mitre_attack",
+          "chunk_id": "hf_Zainabsa99_mitre_attack_460",
+          "score": 0.5012043714523315
+        },
+        {
+          "source": "Zainabsa99/mitre_attack",
+          "chunk_id": "hf_Zainabsa99_mitre_attack_294",
+          "score": 0.3999834656715393
+        }
+      ],
+      "type": "direct",
+      "source_question": "What are indicators of PowerShell Empire usage?",
+      "generated_at": "2025-08-24T02:00:34.483830",
+      "verified": false
+    },
+    {
+      "question": "What are the signs that suggest the use of PowerShell Empire?",
+      "expected_answer": "Indicators of PowerShell Empire usage include the execution of malicious PowerShell scripts, such as those triggered by PowerShell profiles, and the use of cmdlets like Start-Process and Invoke-Command for executing code.",
+      "citations": [
+        {
+          "source": "Zainabsa99/mitre_attack",
+          "chunk_id": "hf_Zainabsa99_mitre_attack_460",
+          "score": 0.5012043714523315
+        },
+        {
+          "source": "Zainabsa99/mitre_attack",
+          "chunk_id": "hf_Zainabsa99_mitre_attack_294",
+          "score": 0.3999834656715393
+        }
+      ],
+      "type": "paraphrase",
+      "source_question": "What are indicators of PowerShell Empire usage?",
+      "generated_at": "2025-08-24T02:00:34.483834",
+      "verified": false
+    },
+    {
+      "question": "If a security analyst notices unusual PowerShell activity, such as scripts running from PowerShell profiles and specific cmdlets being used, what could this indicate?",
+      "expected_answer": "Indicators of PowerShell Empire usage include the execution of malicious PowerShell scripts, such as those triggered by PowerShell profiles, and the use of cmdlets like Start-Process and Invoke-Command for executing code.",
+      "citations": [
+        {
+          "source": "Zainabsa99/mitre_attack",
+          "chunk_id": "hf_Zainabsa99_mitre_attack_460",
+          "score": 0.5012043714523315
+        },
+        {
+          "source": "Zainabsa99/mitre_attack",
+          "chunk_id": "hf_Zainabsa99_mitre_attack_294",
+          "score": 0.3999834656715393
+        }
+      ],
+      "type": "scenario",
+      "source_question": "What are indicators of PowerShell Empire usage?",
+      "generated_at": "2025-08-24T02:00:34.483835",
+      "verified": false
+    },
+    {
+      "question": "How does the correlation feature in Splunk Enterprise Security function?",
+      "expected_answer": "Splunk Enterprise Security correlation works through correlation searches that analyze machine data from security technologies to identify notable events and generate alerts based on risk-based criteria.",
+      "citations": [
+        {
+          "source": "core_glossary",
+          "chunk_id": "glossary_splunk_es",
+          "score": 0.7378864288330078
+        }
+      ],
+      "type": "direct",
+      "source_question": "How does Splunk Enterprise Security correlation work?",
+      "generated_at": "2025-08-24T02:00:39.049526",
+      "verified": false
+    },
+    {
+      "question": "What is the process by which Splunk Enterprise Security identifies significant events through its correlation capabilities?",
+      "expected_answer": "Splunk Enterprise Security correlation works through correlation searches that analyze machine data from security technologies to identify notable events and generate alerts based on risk-based criteria.",
+      "citations": [
+        {
+          "source": "core_glossary",
+          "chunk_id": "glossary_splunk_es",
+          "score": 0.7378864288330078
+        }
+      ],
+      "type": "paraphrase",
+      "source_question": "How does Splunk Enterprise Security correlation work?",
+      "generated_at": "2025-08-24T02:00:39.049530",
+      "verified": false
+    },
+    {
+      "question": "Imagine you are a security analyst using Splunk Enterprise Security. How would you explain the role of correlation searches in detecting security incidents?",
+      "expected_answer": "Splunk Enterprise Security correlation works through correlation searches that analyze machine data from security technologies to identify notable events and generate alerts based on risk-based criteria.",
+      "citations": [
+        {
+          "source": "core_glossary",
+          "chunk_id": "glossary_splunk_es",
+          "score": 0.7378864288330078
+        }
+      ],
+      "type": "scenario",
+      "source_question": "How does Splunk Enterprise Security correlation work?",
+      "generated_at": "2025-08-24T02:00:39.049530",
+      "verified": false
+    },
+    {
+      "question": "How can you detect cryptocurrency mining malware on your system?",
+      "expected_answer": "Cryptocurrency mining malware can be identified by high CPU/GPU resource usage, often installed through boobytrapped files or cracked software from untrusted sources. Regular scans for cryptominers and avoiding pirated downloads can help mitigate risks.",
+      "citations": [
+        {
+          "source": "open_malsec",
+          "chunk_id": "malsec_common-malware-vectors_26",
+          "score": 0.6514159440994263
+        },
+        {
+          "source": "open_malsec",
+          "chunk_id": "malsec_common-malware-vectors_9",
+          "score": 0.585189938545227
+        }
+      ],
+      "type": "direct",
+      "source_question": "How do you identify cryptocurrency mining malware?",
+      "generated_at": "2025-08-24T02:00:50.386000",
+      "verified": false
+    },
+    {
+      "question": "What are the signs that indicate the presence of cryptocurrency mining malware on a device?",
+      "expected_answer": "Cryptocurrency mining malware can be identified by high CPU/GPU resource usage, often installed through boobytrapped files or cracked software from untrusted sources. Regular scans for cryptominers and avoiding pirated downloads can help mitigate risks.",
+      "citations": [
+        {
+          "source": "open_malsec",
+          "chunk_id": "malsec_common-malware-vectors_26",
+          "score": 0.6514159440994263
+        },
+        {
+          "source": "open_malsec",
+          "chunk_id": "malsec_common-malware-vectors_9",
+          "score": 0.585189938545227
+        }
+      ],
+      "type": "paraphrase",
+      "source_question": "How do you identify cryptocurrency mining malware?",
+      "generated_at": "2025-08-24T02:00:50.386005",
+      "verified": false
+    },
+    {
+      "question": "Imagine your computer is running unusually slow, and you suspect malware. What steps would you take to identify if cryptocurrency mining malware is the cause?",
+      "expected_answer": "Cryptocurrency mining malware can be identified by high CPU/GPU resource usage, often installed through boobytrapped files or cracked software from untrusted sources. Regular scans for cryptominers and avoiding pirated downloads can help mitigate risks.",
+      "citations": [
+        {
+          "source": "open_malsec",
+          "chunk_id": "malsec_common-malware-vectors_26",
+          "score": 0.6514159440994263
+        },
+        {
+          "source": "open_malsec",
+          "chunk_id": "malsec_common-malware-vectors_9",
+          "score": 0.585189938545227
+        }
+      ],
+      "type": "scenario",
+      "source_question": "How do you identify cryptocurrency mining malware?",
+      "generated_at": "2025-08-24T02:00:50.386006",
+      "verified": false
+    }
+  ],
+  "coverage": {
+    "total_tests": 15,
+    "source_entries": 5
+  }
+}

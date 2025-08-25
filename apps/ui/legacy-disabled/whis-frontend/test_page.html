@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Whis Frontend Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #1a1a1a; color: #fff; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #333; background: #2b2b2b; }
+        button { padding: 10px 20px; margin: 5px; background: #667eea; color: white; border: none; cursor: pointer; }
+        button:hover { background: #5a6fd8; }
+        #results { margin-top: 20px; padding: 10px; background: #333; }
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        .info { color: #17a2b8; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Whis Frontend Diagnostic Test</h1>
+    
+    <div class="test-section">
+        <h3>1. Basic JavaScript Test</h3>
+        <button onclick="testBasicJS()">Test Basic JS</button>
+        <div id="js-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>2. API Connectivity Test</h3>
+        <button onclick="testAPICall()">Test API Call</button>
+        <div id="api-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>3. Whis Backend Test</h3>
+        <button onclick="testWhisAPI()">Test Whis API</button>
+        <div id="whis-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>4. Chat Test</h3>
+        <input type="text" id="test-message" placeholder="Enter test message" style="width: 300px; padding: 5px;">
+        <button onclick="testChatMessage()">Send to Whis</button>
+        <div id="chat-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>5. WebSocket Test</h3>
+        <button onclick="testWebSocket()">Test WebSocket</button>
+        <div id="ws-result"></div>
+    </div>
+    
+    <div id="results">
+        <h3>🔍 Test Results</h3>
+        <div id="test-output"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+    <script>
+        let testResults = [];
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type;
+            testResults.push(`[${timestamp}] ${message}`);
+            
+            const output = document.getElementById('test-output');
+            output.innerHTML += `<div class="${className}">[${timestamp}] ${message}</div>`;
+            output.scrollTop = output.scrollHeight;
+        }
+        
+        function testBasicJS() {
+            log('Testing basic JavaScript...', 'info');
+            document.getElementById('js-result').innerHTML = '';
+            
+            try {
+                // Test basic functionality
+                const testObj = { test: 'value' };
+                const testArray = [1, 2, 3];
+                const testFunc = () => 'Hello World';
+                
+                log('✅ Objects, arrays, and functions work', 'success');
+                
+                // Test DOM manipulation
+                document.getElementById('js-result').innerHTML = '<span class="success">✅ DOM manipulation works</span>';
+                log('✅ DOM manipulation works', 'success');
+                
+                // Test local storage
+                localStorage.setItem('whis-test', 'test-value');
+                const stored = localStorage.getItem('whis-test');
+                if (stored === 'test-value') {
+                    log('✅ Local storage works', 'success');
+                } else {
+                    log('❌ Local storage failed', 'error');
+                }
+                
+                log('🎯 Basic JavaScript test completed', 'info');
+                
+            } catch (error) {
+                log(`❌ JavaScript error: ${error.message}`, 'error');
+                document.getElementById('js-result').innerHTML = `<span class="error">❌ Error: ${error.message}</span>`;
+            }
+        }
+        
+        function testAPICall() {
+            log('Testing API connectivity...', 'info');
+            document.getElementById('api-result').innerHTML = '<span class="info">🔄 Testing...</span>';
+            
+            // Test fetch to our own server (should redirect to login)
+            fetch('/api/status')
+                .then(response => {
+                    log(`API response status: ${response.status}`, 'info');
+                    if (response.status === 302 || response.status === 401) {
+                        log('✅ API is accessible (authentication required)', 'success');
+                        document.getElementById('api-result').innerHTML = '<span class="success">✅ API accessible</span>';
+                    } else if (response.status === 200) {
+                        return response.json().then(data => {
+                            log('✅ API call successful', 'success');
+                            log(`API data: ${JSON.stringify(data)}`, 'info');
+                            document.getElementById('api-result').innerHTML = '<span class="success">✅ API working</span>';
+                        });
+                    } else {
+                        log(`⚠️ Unexpected API status: ${response.status}`, 'error');
+                        document.getElementById('api-result').innerHTML = `<span class="error">⚠️ Status ${response.status}</span>`;
+                    }
+                })
+                .catch(error => {
+                    log(`❌ API error: ${error.message}`, 'error');
+                    document.getElementById('api-result').innerHTML = `<span class="error">❌ ${error.message}</span>`;
+                });
+        }
+        
+        function testWhisAPI() {
+            log('Testing Whis backend API...', 'info');
+            document.getElementById('whis-result').innerHTML = '<span class="info">🔄 Testing...</span>';
+            
+            // Test direct call to Whis API
+            const testEvent = {
+                event_data: {
+                    search_name: 'Frontend Test',
+                    host: 'test-browser',
+                    description: 'Testing frontend to Whis connectivity'
+                }
+            };
+            
+            fetch('http://localhost:8001/explain', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(testEvent)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    log('✅ Whis API responded successfully', 'success');
+                    log(`Response ID: ${data.response_id}`, 'info');
+                    log(`Processing time: ${data.processing_time_ms}ms`, 'info');
+                    document.getElementById('whis-result').innerHTML = '<span class="success">✅ Whis API working</span>';
+                })
+                .catch(error => {
+                    log(`❌ Whis API error: ${error.message}`, 'error');
+                    document.getElementById('whis-result').innerHTML = `<span class="error">❌ ${error.message}</span>`;
+                });
+        }
+        
+        function testChatMessage() {
+            const message = document.getElementById('test-message').value || 'Default test message';
+            log(`Testing chat message: "${message}"`, 'info');
+            document.getElementById('chat-result').innerHTML = '<span class="info">🔄 Sending...</span>';
+            
+            // Test chat through Whis API
+            const chatEvent = {
+                event_data: {
+                    search_name: 'Chat Test',
+                    host: 'chat-browser',
+                    description: message,
+                    user: 'test-user'
+                }
+            };
+            
+            fetch('http://localhost:8001/explain', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(chatEvent)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    log('✅ Chat message processed by Whis', 'success');
+                    
+                    if (data.action_schema && data.action_schema.triage_steps) {
+                        const firstStep = data.action_schema.triage_steps[0];
+                        log(`Whis response: ${firstStep}`, 'info');
+                        document.getElementById('chat-result').innerHTML = `
+                            <div class="success">✅ Chat working</div>
+                            <div style="margin-top: 5px; font-size: 0.9em;">Response: ${firstStep}</div>
+                        `;
+                    } else {
+                        log('⚠️ Unexpected response format', 'error');
+                        document.getElementById('chat-result').innerHTML = '<span class="error">⚠️ Unexpected response</span>';
+                    }
+                })
+                .catch(error => {
+                    log(`❌ Chat error: ${error.message}`, 'error');
+                    document.getElementById('chat-result').innerHTML = `<span class="error">❌ ${error.message}</span>`;
+                });
+        }
+        
+        function testWebSocket() {
+            log('Testing WebSocket connection...', 'info');
+            document.getElementById('ws-result').innerHTML = '<span class="info">🔄 Connecting...</span>';
+            
+            try {
+                const socket = io();
+                
+                socket.on('connect', () => {
+                    log('✅ WebSocket connected successfully', 'success');
+                    document.getElementById('ws-result').innerHTML = '<span class="success">✅ WebSocket connected</span>';
+                    
+                    // Test sending a message
+                    socket.emit('test_message', { message: 'Test from diagnostic page' });
+                });
+                
+                socket.on('disconnect', () => {
+                    log('🔌 WebSocket disconnected', 'info');
+                });
+                
+                socket.on('connect_error', (error) => {
+                    log(`❌ WebSocket connection error: ${error.message}`, 'error');
+                    document.getElementById('ws-result').innerHTML = `<span class="error">❌ Connection failed</span>`;
+                });
+                
+                // Timeout after 5 seconds
+                setTimeout(() => {
+                    if (!socket.connected) {
+                        log('❌ WebSocket connection timeout', 'error');
+                        document.getElementById('ws-result').innerHTML = '<span class="error">❌ Connection timeout</span>';
+                    }
+                }, 5000);
+                
+            } catch (error) {
+                log(`❌ WebSocket test error: ${error.message}`, 'error');
+                document.getElementById('ws-result').innerHTML = `<span class="error">❌ ${error.message}</span>`;
+            }
+        }
+        
+        // Auto-run basic test on load
+        document.addEventListener('DOMContentLoaded', function() {
+            log('🚀 Whis Frontend Diagnostic Test Page Loaded', 'info');
+            log('Click buttons above to test different components', 'info');
+            testBasicJS();
+        });
+    </script>
+</body>
+</html>

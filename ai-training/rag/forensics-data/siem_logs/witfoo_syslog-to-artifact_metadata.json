@@ -1,0 +1,12 @@
+{
+  "dataset_name": "witfoo/syslog-to-artifact",
+  "description": "Syslog lines mapped to security artifacts",
+  "category": "siem_logs",
+  "sample_count": 0,
+  "columns": [
+    "syslog",
+    "artifact"
+  ],
+  "file_path": "ai-training/rag/forensics-data/siem_logs/witfoo_syslog-to-artifact_samples.jsonl",
+  "downloaded_at": "2025-08-24T02:15:09.668818"
+}

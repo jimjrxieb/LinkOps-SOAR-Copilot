@@ -1,0 +1,10 @@
+# EXTERNALIZED ARTIFACT
+# This file has been moved to external storage for repository hygiene.
+# 
+# Original file: ai-training/llm/adapters/whis-enhanced-model/checkpoint-30/rng_state.pth
+# External path: external-artifacts/ai-training/llm/adapters/whis-enhanced-model/checkpoint-30/rng_state.pth
+# Size: 14,645 bytes
+# Checksum: bf5e444f6bf77d86e84815bf1a37abb6f5f2903ee55e50fd6f96d2dd52b11037
+# Externalized: 2025-08-23T15:53:04.437993
+#
+# To restore: ./scripts/restore-artifacts.py ai-training/llm/adapters/whis-enhanced-model/checkpoint-30/rng_state.pth

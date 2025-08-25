@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_ae340b8c2a63",
+    "timestamp": "2025-08-24T01:30:57.853856",
+    "query_preview": "How are high-risk actions handled in our SOAR workflow?",
+    "why_abstained": "no_rag_hits",
+    "intent": "unknown",
+    "confidence_score": 0.4,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_ae340b8c2a63",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T01:30:57.854068",
+  "delivery_failed": true
+}

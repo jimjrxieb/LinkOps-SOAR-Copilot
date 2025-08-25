@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_b74248db7e69",
+    "timestamp": "2025-08-24T01:30:45.018489",
+    "query_preview": "What is a SIEM?",
+    "why_abstained": "tool_failure",
+    "intent": "definition",
+    "confidence_score": 0.39999999999999997,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_b74248db7e69",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T01:30:45.018728",
+  "delivery_failed": true
+}

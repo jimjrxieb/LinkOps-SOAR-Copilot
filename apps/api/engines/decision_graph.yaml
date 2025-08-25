@@ -1,0 +1,379 @@
+# ==============================================================================
+# 🎯 WHIS SOAR Decision Graph - Deterministic State Machine
+# ==============================================================================
+# TAG: DECISION-GRAPH
+# Purpose: YAML-based state machine for incident classification and runbook selection
+# Security: No dynamic code execution - only declarative rules
+
+version: "1.0"
+description: "SOAR decision graph for incident classification and runbook selection"
+
+# State machine nodes - executed in sequence
+nodes:
+  
+  # ============================================================================
+  # Node 1: CLASSIFY - Pattern-based incident categorization
+  # ============================================================================
+  classify:
+    type: "decision"
+    description: "Classify incident based on patterns and signals"
+    
+    # Classification rules (evaluated in order)
+    rules:
+      - name: "Brute Force Authentication"
+        category: "Brute-Force"
+        conditions:
+          - field: "techniques"
+            contains: ["T1110", "T1078"]
+          - field: "title"
+            regex: "(brute.?force|password.?spray|credential.?attack)"
+            ignore_case: true
+          - field: "artifacts.processes"
+            contains_any: ["net.exe", "runas.exe", "powershell.exe"]
+        
+      - name: "Suspicious Admin Creation"
+        category: "Suspicious-Admin-Creation"
+        conditions:
+          - field: "techniques"
+            contains: ["T1136"]
+          - field: "title"
+            regex: "(admin|administrator|user.?creat)"
+            ignore_case: true
+          - field: "description"
+            contains_any: ["administrative", "privileges", "elevated"]
+        
+      - name: "Malicious PowerShell Activity"
+        category: "Malicious-PowerShell"
+        conditions:
+          - field: "techniques"
+            contains: ["T1059.001"]
+          - field: "artifacts.processes"
+            contains_any: ["powershell.exe", "pwsh.exe"]
+          - field: "description"
+            regex: "(empire|cobalt|beacon|download|invoke|iex)"
+            ignore_case: true
+        
+      - name: "Ransomware Activity"
+        category: "Ransomware-Likely"
+        conditions:
+          - field: "techniques"
+            contains_any: ["T1486", "T1490", "T1489"]
+          - field: "title"
+            regex: "(ransom|encrypt|crypto|locker)"
+            ignore_case: true
+          - field: "severity"
+            equals: "critical"
+        
+      - name: "C2 Beacon Activity"
+        category: "C2-Beacon-Suspected"
+        conditions:
+          - field: "techniques"
+            contains_any: ["T1071", "T1095", "T1102"]
+          - field: "description"
+            regex: "(beacon|c2|command.?control|callback)"
+            ignore_case: true
+          - field: "artifacts.ip_addresses"
+            count_gt: 0
+        
+      # Default fallback
+      - name: "Generic Security Event"
+        category: "Generic-Security"
+        conditions:
+          - field: "severity"
+            in: ["medium", "high", "critical"]
+    
+    # RAG hints for additional context
+    rag_hints:
+      - domain: "nist_core"
+        query_template: "incident classification {category} MITRE {techniques}"
+      - domain: "siem_patterns"
+        query_template: "{title} {tactic} patterns"
+    
+    # Output
+    outputs:
+      - "category"
+      - "classification_confidence"
+      - "matching_rule"
+      - "rag_context"
+  
+  # ============================================================================
+  # Node 2: SCOPE - Asset and blast radius analysis
+  # ============================================================================
+  scope:
+    type: "enrichment"
+    description: "Analyze scope and enrich asset context"
+    
+    enrichments:
+      # Asset class determination
+      - name: "asset_classification"
+        conditions:
+          - field: "asset.host"
+            regex: "^(dc|domain|controller)"
+            ignore_case: true
+        then:
+          - set_field: "asset.asset_class"
+            value: "domain_controller"
+          - set_field: "asset.criticality"
+            value: "critical"
+      
+      - name: "database_classification"
+        conditions:
+          - field: "asset.host"
+            regex: "(sql|db|database|mysql|postgres|oracle)"
+            ignore_case: true
+        then:
+          - set_field: "asset.asset_class"
+            value: "database"
+          - set_field: "asset.criticality"
+            value: "high"
+      
+      # Environment detection
+      - name: "prod_environment"
+        conditions:
+          - field: "asset.host"
+            regex: "(prod|production)"
+            ignore_case: true
+        then:
+          - set_field: "asset.environment"
+            value: "prod"
+      
+      # Context gathering (last 24h signals)
+      - name: "context_signals"
+        action: "gather_context"
+        params:
+          timeframe: "24h"
+          fields: ["asset.host", "asset.user"]
+    
+    outputs:
+      - "enriched_asset"
+      - "context_signals_count"
+      - "blast_radius_estimate"
+  
+  # ============================================================================
+  # Node 3: SELECT_RUNBOOK - Map category to specific runbook
+  # ============================================================================
+  select_runbook:
+    type: "mapping"
+    description: "Select appropriate runbook based on category and constraints"
+    
+    # Direct category → runbook mapping
+    mappings:
+      "Brute-Force": "RB-101"
+      "Suspicious-Admin-Creation": "RB-201" 
+      "Malicious-PowerShell": "RB-301"
+      "Ransomware-Likely": "RB-401"
+      "C2-Beacon-Suspected": "RB-501"
+      "Generic-Security": "RB-001"  # Basic investigation runbook
+    
+    # Constraints and overrides
+    constraints:
+      # Domain controllers require special handling
+      - condition:
+          field: "asset.asset_class"
+          equals: "domain_controller"
+        override_runbook: "RB-999"  # DC-specific runbook
+        reason: "Domain controller requires specialized handling"
+      
+      # Low confidence → read-only runbook
+      - condition:
+          field: "classification_confidence"
+          lt: 0.7
+        override_runbook: "RB-001"
+        reason: "Low classification confidence - use basic runbook"
+    
+    outputs:
+      - "selected_runbook_id"
+      - "override_reason"
+      - "runbook_confidence"
+  
+  # ============================================================================
+  # Node 4: PREFLIGHT - Safety and precondition checks
+  # ============================================================================
+  preflight:
+    type: "validation"
+    description: "Execute preconditions and safety gates"
+    
+    # Global safety gates
+    safety_gates:
+      - name: "blast_radius_check"
+        condition: "blast_radius_estimate > 10"
+        block_message: "Blast radius too high - requires approval"
+        exemption_roles: ["incident_commander", "security_lead"]
+      
+      - name: "prod_asset_check"
+        condition: "asset.environment == 'prod' AND asset.criticality IN ['high', 'critical']"
+        block_message: "Production critical asset - requires approval"
+        exemption_roles: ["production_admin"]
+      
+      - name: "business_hours_check"
+        condition: "asset.criticality == 'critical' AND NOT business_hours"
+        block_message: "Critical asset modification outside business hours"
+        exemption_roles: ["on_call_engineer"]
+    
+    # Runbook-specific preconditions (loaded from runbook definition)
+    precondition_checks: 
+      - validate_runbook_preconditions
+      - validate_tool_availability
+      - validate_asset_accessibility
+    
+    outputs:
+      - "preflight_status"  # passed | blocked | requires_approval
+      - "blocked_gates"
+      - "required_approvals"
+  
+  # ============================================================================
+  # Node 5: EXECUTE - Action execution with safety controls
+  # ============================================================================
+  execute:
+    type: "orchestration" 
+    description: "Execute runbook actions with guardrails"
+    
+    execution_modes:
+      L0:  # Shadow mode
+        - dry_run_all_actions
+        - generate_execution_plan
+        - log_would_execute
+      
+      L1:  # Read-only auto
+        - execute_read_only_actions
+        - dry_run_modify_actions
+        - log_execution_results
+      
+      L2:  # Conditional auto
+        - execute_approved_actions
+        - require_approval_for_high_risk
+        - verify_postconditions
+      
+      L3:  # Manual approval required
+        - require_approval_for_all
+        - two_person_authorization
+        - audit_all_actions
+    
+    # Action execution controls
+    execution_controls:
+      - timeout: 300  # 5 minute default timeout
+      - retry_attempts: 1
+      - rollback_on_failure: true
+      - verify_postconditions: true
+    
+    outputs:
+      - "execution_plan"
+      - "action_results"
+      - "postcondition_status"
+  
+  # ============================================================================
+  # Node 6: VALIDATE - Postcondition verification
+  # ============================================================================
+  validate:
+    type: "verification"
+    description: "Verify postconditions and measure effectiveness"
+    
+    verification_checks:
+      - name: "signal_reduction"
+        check: "verify_signal_stopped"
+        timeout: 600  # 10 minutes
+        retry_interval: 60
+      
+      - name: "tool_state_verification"
+        check: "verify_tool_states"
+        description: "Verify all tool actions completed successfully"
+      
+      - name: "asset_state_verification"
+        check: "verify_asset_states"
+        description: "Verify asset state matches expectations"
+    
+    # Failure handling
+    on_verification_failure:
+      - log_verification_failure
+      - attempt_rollback
+      - escalate_to_human
+    
+    outputs:
+      - "verification_status"  # passed | failed | partial
+      - "verification_details"
+      - "effectiveness_score"
+  
+  # ============================================================================
+  # Node 7: HANDOFF - Escalation and completion
+  # ============================================================================
+  handoff:
+    type: "completion"
+    description: "Handle completion, escalation, or handoff"
+    
+    completion_conditions:
+      success:
+        - verification_status == "passed"
+        - all_actions_completed
+        - no_active_alerts
+      
+      escalation_required:
+        - verification_status == "failed"
+        - safety_gates_blocked
+        - manual_investigation_needed
+      
+      partial_success:
+        - verification_status == "partial"
+        - some_actions_failed
+        - containment_achieved
+    
+    # Handoff actions
+    handoff_actions:
+      success:
+        - create_incident_summary
+        - update_asset_status
+        - close_incident
+      
+      escalation:
+        - create_escalation_ticket
+        - notify_incident_response_team
+        - preserve_forensic_data
+        - maintain_containment
+      
+      partial:
+        - document_partial_resolution
+        - create_follow_up_tasks
+        - maintain_monitoring
+    
+    outputs:
+      - "final_status"
+      - "incident_summary"
+      - "follow_up_required"
+
+# ==============================================================================
+# Global Configuration
+# ==============================================================================
+config:
+  # Timing controls
+  max_execution_time: 3600  # 1 hour max
+  node_timeout: 300  # 5 minutes per node
+  
+  # Logging and audit
+  audit_all_decisions: true
+  log_level: "INFO"
+  correlation_tracking: true
+  
+  # Safety defaults
+  default_autonomy_level: "L0"
+  require_approval_threshold: 0.7
+  enable_rollback: true
+  
+  # Context limits
+  rag_context_limit: 10
+  max_blast_radius: 50
+  context_retention_hours: 72
+
+# ==============================================================================
+# Error Handling
+# ==============================================================================
+error_handling:
+  node_failure:
+    action: "log_and_continue"
+    fallback_node: "handoff"
+  
+  validation_failure:
+    action: "rollback_and_escalate"
+    preserve_state: true
+  
+  timeout:
+    action: "escalate_to_human"
+    preserve_partial_results: true

@@ -1,0 +1,20 @@
+{
+  "created": "2025-08-23T11:37:28.580325",
+  "total_examples": 313,
+  "categories": {
+    "malware_analysis": 300,
+    "soar_response": 13,
+    "whis_knowledge": 0
+  },
+  "sources": [
+    "pipeline:demo_training",
+    "pipeline:whis_actions",
+    "open-malsec:discord-social-engineering",
+    "open-malsec:onlyfans-subscription-fake-scams",
+    "open-malsec:ceo-hr-phish-invoice-scam",
+    "open-malsec:runescape-wow-diablo-mmo-scams",
+    "open-malsec:defi-meme-crypto-token-scams",
+    "open-malsec:facebook-romance-scams",
+    "pipeline:whis_actions_test"
+  ]
+}

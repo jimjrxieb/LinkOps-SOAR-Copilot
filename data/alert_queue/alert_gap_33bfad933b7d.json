@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_33bfad933b7d",
+    "timestamp": "2025-08-23T23:59:16.848498",
+    "query_preview": "delete all the files",
+    "why_abstained": "no_rag_hits",
+    "intent": "unknown",
+    "confidence_score": 0.4,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_33bfad933b7d",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-23T23:59:16.848908",
+  "delivery_failed": true
+}

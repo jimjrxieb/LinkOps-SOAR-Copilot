@@ -1,0 +1,37 @@
+{
+  "current_index": "whis_fixed_20250824_205034",
+  "indices": {
+    "whis_cybersecurity_knowledge": {
+      "faiss_file": "ai-training/rag/vectorstore/whis_cybersecurity_knowledge.faiss",
+      "metadata_file": "ai-training/rag/vectorstore/whis_cybersecurity_knowledge.metadata.json",
+      "created_at": "2025-08-24T02:24:58.713069",
+      "version": "1.0.0",
+      "chunk_count": 1973,
+      "description": "Comprehensive cybersecurity knowledge base"
+    },
+    "whis_threat_intel_20250824_203341": {
+      "faiss_file": "ai-training/rag/vectorstore/whis_threat_intel_20250824_203341.faiss",
+      "metadata_file": "ai-training/rag/vectorstore/whis_threat_intel_20250824_203341.metadata.json",
+      "created_at": "2025-08-24T20:33:41.748196",
+      "version": "1.1.0",
+      "chunk_count": 532,
+      "description": "Enhanced with Open-MalSec threat intelligence"
+    },
+    "whis_comprehensive_20250824_203423": {
+      "faiss_file": "ai-training/rag/vectorstore/whis_comprehensive_20250824_203423.faiss",
+      "metadata_file": "ai-training/rag/vectorstore/whis_comprehensive_20250824_203423.metadata.json",
+      "created_at": "2025-08-24T20:34:23.828764",
+      "version": "2.0.0",
+      "chunk_count": 535,
+      "description": "Comprehensive: cybersecurity knowledge + threat intelligence"
+    },
+    "whis_fixed_20250824_205034": {
+      "faiss_file": "ai-training/rag/vectorstore/whis_fixed_20250824_205034.faiss",
+      "metadata_file": "ai-training/rag/vectorstore/whis_fixed_20250824_205034.metadata.json",
+      "created_at": "2025-08-24T20:50:34.076777",
+      "version": "2.1.0",
+      "chunk_count": 2505,
+      "description": "Fixed: cybersecurity knowledge + threat intelligence"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+I can execute that playbook. Would you like me to run it in dry-run mode first for your review, or proceed with full execution?

@@ -1,0 +1,10 @@
+# EXTERNALIZED ARTIFACT
+# This file has been moved to external storage for repository hygiene.
+# 
+# Original file: ai-training/llm/adapters/whis-enhanced-model/training_args.bin
+# External path: external-artifacts/ai-training/llm/adapters/whis-enhanced-model/training_args.bin
+# Size: 5,777 bytes
+# Checksum: c3fc9b20bb549f45b098881bca152b9f3ec5f559a29c80194a5e273deca35504
+# Externalized: 2025-08-23T15:53:04.402244
+#
+# To restore: ./scripts/restore-artifacts.py ai-training/llm/adapters/whis-enhanced-model/training_args.bin

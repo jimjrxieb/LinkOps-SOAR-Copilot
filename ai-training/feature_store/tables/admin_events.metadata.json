@@ -1,0 +1,44 @@
+{
+  "table_name": "admin_events",
+  "schema_version": "1.0",
+  "created_at": "2025-08-24T21:00:10.265938",
+  "row_count": 200,
+  "columns": [
+    "ts",
+    "host",
+    "actor_user_hash",
+    "target_user_hash",
+    "method",
+    "off_hours",
+    "asset_class",
+    "is_suspicious",
+    "schema_ver",
+    "recent_4625s_actor_1h"
+  ],
+  "dtypes": {
+    "ts": "datetime64[ns]",
+    "host": "object",
+    "actor_user_hash": "object",
+    "target_user_hash": "object",
+    "method": "object",
+    "off_hours": "bool",
+    "asset_class": "object",
+    "is_suspicious": "bool",
+    "schema_ver": "object",
+    "recent_4625s_actor_1h": "int64"
+  },
+  "suspicious_rate": 0.26,
+  "time_range": {
+    "start": "2025-07-26T04:28:10.238608",
+    "end": "2025-08-24T13:05:10.238608"
+  },
+  "privacy": {
+    "pii_columns": [
+      "user_hash",
+      "src_ip_hash",
+      "cmd_line_hash"
+    ],
+    "hash_method": "SHA256 + salt",
+    "retention_days": 90
+  }
+}

@@ -1,0 +1,10 @@
+# EXTERNALIZED ARTIFACT
+# This file has been moved to external storage for repository hygiene.
+# 
+# Original file: ai-training/llm/adapters/whis-mega-model/checkpoint-65/rng_state.pth
+# External path: external-artifacts/ai-training/llm/adapters/whis-mega-model/checkpoint-65/rng_state.pth
+# Size: 14,645 bytes
+# Checksum: dcb5c7bcebce4c10e2073561775a25ad9cbe52f74e02d155b2d3c7d441d3ecdd
+# Externalized: 2025-08-23T15:53:04.436393
+#
+# To restore: ./scripts/restore-artifacts.py ai-training/llm/adapters/whis-mega-model/checkpoint-65/rng_state.pth

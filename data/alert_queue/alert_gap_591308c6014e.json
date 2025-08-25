@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_591308c6014e",
+    "timestamp": "2025-08-24T01:30:45.006801",
+    "query_preview": "Define EDR and how it differs from antivirus",
+    "why_abstained": "tool_failure",
+    "intent": "definition",
+    "confidence_score": 0.39999999999999997,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_591308c6014e",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T01:30:45.007013",
+  "delivery_failed": true
+}

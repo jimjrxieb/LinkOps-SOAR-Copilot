@@ -1,0 +1,9 @@
+{
+  "dataset_name": "venkycs/security-dpo",
+  "description": "DPO-style security instructions referencing SOPs/playbooks",
+  "category": "security_dpo",
+  "priority": "high",
+  "sample_count": 400,
+  "file_path": "ai-training/rag/soar-data/security_dpo/venkycs_security-dpo_samples.jsonl",
+  "downloaded_at": "2025-08-24T02:23:55.144532"
+}

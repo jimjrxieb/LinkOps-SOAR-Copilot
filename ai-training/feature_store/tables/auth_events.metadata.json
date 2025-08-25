@@ -1,0 +1,54 @@
+{
+  "table_name": "auth_events",
+  "schema_version": "1.0",
+  "created_at": "2025-08-24T21:00:10.263190",
+  "row_count": 1000,
+  "columns": [
+    "ts",
+    "user_hash",
+    "src_ip_hash",
+    "host",
+    "event_code",
+    "is_success",
+    "hour_of_day",
+    "is_weekend",
+    "is_off_hours",
+    "asset_class",
+    "is_admin",
+    "is_suspicious",
+    "schema_ver",
+    "fail_count_1h",
+    "success_after_fail_15m"
+  ],
+  "dtypes": {
+    "ts": "datetime64[ns]",
+    "user_hash": "object",
+    "src_ip_hash": "object",
+    "host": "object",
+    "event_code": "object",
+    "is_success": "bool",
+    "hour_of_day": "int64",
+    "is_weekend": "bool",
+    "is_off_hours": "bool",
+    "asset_class": "object",
+    "is_admin": "bool",
+    "is_suspicious": "bool",
+    "schema_ver": "object",
+    "fail_count_1h": "float64",
+    "success_after_fail_15m": "bool"
+  },
+  "suspicious_rate": 0.319,
+  "time_range": {
+    "start": "2025-07-25T22:58:10.202847",
+    "end": "2025-08-24T19:51:10.202847"
+  },
+  "privacy": {
+    "pii_columns": [
+      "user_hash",
+      "src_ip_hash",
+      "cmd_line_hash"
+    ],
+    "hash_method": "SHA256 + salt",
+    "retention_days": 90
+  }
+}

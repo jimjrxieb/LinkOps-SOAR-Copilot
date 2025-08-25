@@ -1,0 +1,76 @@
+# WHIS Model Configuration
+# Production-ready system prompt and intent configuration
+
+model:
+  name: "whis-soar-copilot"
+  version: "1.0.0"
+  base_model: "claude-3-haiku" # Placeholder for actual model
+  
+system_prompts:
+  base: "ai-training/llm/prompts/system/whis_system_prompt.md"
+  
+intent_prompts:
+  greeting: "ai-training/llm/prompts/system/intents/greeting.md"
+  broad_scan: "ai-training/llm/prompts/system/intents/broad_scan.md" 
+  dangerous_action_refusal: "ai-training/llm/prompts/system/intents/dangerous_action_refusal.md"
+  prompt_injection_refusal: "ai-training/llm/prompts/system/intents/prompt_injection_refusal.md"
+  generic_unclear: "ai-training/llm/prompts/system/intents/generic_unclear.md"
+
+response_constraints:
+  greeting_max_words: 25
+  acknowledgment_max_words: 12
+  confidence_threshold: 0.6
+  abstain_on_low_confidence: true
+  require_citations: true
+  
+security_policies:
+  dangerous_actions_require_approval: true
+  pii_redaction_enabled: true
+  prompt_injection_detection: true
+  rbac_enforcement: true
+  audit_all_actions: true
+
+knowledge_gaps:
+  enabled: true
+  data_lake_path: "data/knowledge_gaps"
+  slack_notifications: true
+  teacher_escalation_enabled: false # GPT-5 integration disabled for now
+  
+monitoring:
+  metrics_enabled: true
+  performance_tracking: true
+  confidence_scoring: true
+  intent_classification_logging: true
+
+templates:
+  chat_template: "ai-training/llm/templates/chat_template.jinja"
+  response_templates: "apps/api/engines/templates/"
+
+# Confidence scoring weights for different query types
+confidence_scoring:
+  high_confidence_keywords: 
+    - "incident"
+    - "alert" 
+    - "status"
+    - "dashboard"
+    - "threat"
+    - "hunt"
+    - "analyze"
+  
+  low_confidence_keywords:
+    - "splunk"
+    - "limacharlie"
+    - "playbook"
+    - "execute"
+    - "run"
+    - "deploy"
+    - "mitre"
+    - "att&ck"
+    - "technique"
+    - "tactic"
+    - "cite"
+    - "source"
+  
+  base_confidence: 0.7
+  high_confidence_boost: 0.2
+  low_confidence_penalty: -0.4

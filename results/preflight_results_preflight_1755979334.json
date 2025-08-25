@@ -1,0 +1,38 @@
+{
+  "validation_id": "preflight_1755979334",
+  "timestamp": "2025-08-23 16:02:14 UTC",
+  "status": "GO",
+  "checks": {
+    "manifest_parity": {
+      "passed": true,
+      "message": "Manifest structure valid",
+      "critical": false
+    },
+    "config_sanity": {
+      "passed": true,
+      "message": "Eval config contains thresholds",
+      "critical": false
+    },
+    "artifact_manifest": {
+      "passed": true,
+      "message": "Tracking 37 externalized artifacts",
+      "critical": false
+    },
+    "quarantine_enforcement": {
+      "passed": true,
+      "message": "PII redaction module present",
+      "critical": false
+    },
+    "legacy_exclusion": {
+      "passed": true,
+      "message": "Legacy paths properly excluded",
+      "critical": false
+    },
+    "security_basics": {
+      "passed": true,
+      "message": "Security configurations present",
+      "critical": false
+    }
+  },
+  "critical_failures": []
+}

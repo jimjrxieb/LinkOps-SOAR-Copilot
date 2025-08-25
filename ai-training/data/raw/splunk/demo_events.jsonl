@@ -1,0 +1,3 @@
+{"event_id": "evt_001", "rule_name": "Suspicious PowerShell", "dest": "WORKSTATION-01", "user": "john.doe", "severity": "high"}
+{"event_id": "evt_002", "rule_name": "Brute Force Attempt", "dest": "SERVER-DC01", "user": "administrator", "severity": "critical"}
+{"event_id": "evt_003", "rule_name": "Malware Detection", "dest": "LAPTOP-HR02", "user": "jane.smith", "severity": "high"}

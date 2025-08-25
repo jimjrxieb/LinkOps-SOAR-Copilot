@@ -1,0 +1,3 @@
+{"timestamp": "2025-08-23T10:54:35.185087", "stage": "intake", "status": "STARTED", "message": "Demo: Starting Splunk intake"}
+{"timestamp": "2025-08-23T10:54:35.185148", "stage": "intake", "status": "PROGRESS", "message": "Demo: Processing events", "events": 500}
+{"timestamp": "2025-08-23T10:54:35.185171", "stage": "intake", "status": "COMPLETED", "message": "", "duration": 8.4e-05, "events": 1500, "bytes": 45000, "source": "splunk"}

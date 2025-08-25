@@ -1,0 +1,10 @@
+# EXTERNALIZED ARTIFACT
+# This file has been moved to external storage for repository hygiene.
+# 
+# Original file: ai-training/llm/adapters/whis-mega-model/adapter_model.safetensors
+# External path: external-artifacts/ai-training/llm/adapters/whis-mega-model/adapter_model.safetensors
+# Size: 639,691,872 bytes
+# Checksum: 0aadb96ee54fda3915889e3b78425fef0508325c5809f5df5a0ddf5ae0616738
+# Externalized: 2025-08-23T15:53:02.317130
+#
+# To restore: ./scripts/restore-artifacts.py ai-training/llm/adapters/whis-mega-model/adapter_model.safetensors

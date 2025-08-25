@@ -1,0 +1,1 @@
+I can help with that threat hunt. Which hunting approach should I focus on - behavioral analysis, IOC matching, or anomaly detection?

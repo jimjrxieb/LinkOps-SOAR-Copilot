@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_480d56fd2804",
+    "timestamp": "2025-08-24T00:23:43.117546",
+    "query_preview": "mao this to mitre att&ck: repeated failed logins -> success from same ip -> new admin user on win...",
+    "why_abstained": "no_rag_hits",
+    "intent": "unknown",
+    "confidence_score": 0.4,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_480d56fd2804",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T00:23:43.118190",
+  "delivery_failed": true
+}

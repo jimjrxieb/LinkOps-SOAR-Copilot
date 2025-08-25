@@ -83,6 +83,17 @@ logs/
 **/*.pkl
 **/*.ckpt
 **/*.pth
+**/runs/
+**/venv/
+**/codellama-cache/
+**/checkpoints/
+**/node_modules/
+
+# Specific artifact directories
+ai-training/llm/adapters/**/adapter_model.safetensors
+ai-training/rag/vectorstore/*.faiss
+apps/ui/whis-frontend/venv/
+ai-training/llm/scripts/codellama-cache/
 
 # pipeline artifacts
 pipelines/**/scripts/logs/**
@@ -92,6 +103,14 @@ pipelines/rag/vectorstore/*.faiss
 pipelines/llm/models/**/*.safetensors
 pipelines/llm/models/**/*.bin
 pipelines/llm/scripts/codellama-cache/**
+
+# externalized model storage (keep structure, exclude artifacts)
+ai-training/llm/external-models/**/*.safetensors
+ai-training/llm/external-models/**/*.bin
+ai-training/llm/external-models/**/*.pth
+ai-training/llm/external-models/**/*.h5
+ai-training/llm/external-models/**/*.ckpt
+ai-training/llm/external-models/**/*.faiss
 
 # training logs (keep summaries only)
 **/*training*.log
@@ -149,3 +168,6 @@ splunk/cache/
 # LimaCharlie
 limacharlie/logs/
 limacharlie/cache/red-blue-lab/.env
+
+# External artifact storage
+external-artifacts/

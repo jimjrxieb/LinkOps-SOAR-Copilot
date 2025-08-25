@@ -1,0 +1,34 @@
+{
+  "alert": {
+    "gap_id": "gap_4a3f108c9cfe",
+    "timestamp": "2025-08-24T00:45:48.968668",
+    "query_preview": "Explain the Initial Access tactic in MITRE ATT&CK",
+    "why_abstained": "no_rag_hits",
+    "intent": "definition",
+    "confidence_score": 0.4,
+    "tenant": "default",
+    "channel": "chat",
+    "top_k_titles": [],
+    "corpus_version": "unknown",
+    "trace_id": "trace_gap_4a3f108c9cfe",
+    "actions": [
+      {
+        "type": "button",
+        "text": "View in Console",
+        "action": "view_console"
+      },
+      {
+        "type": "button",
+        "text": "Promote to Teacher",
+        "action": "escalate_teacher"
+      },
+      {
+        "type": "button",
+        "text": "Dismiss",
+        "action": "dismiss"
+      }
+    ]
+  },
+  "queued_at": "2025-08-24T00:45:48.968947",
+  "delivery_failed": true
+}
